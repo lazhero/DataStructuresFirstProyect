@@ -150,6 +150,18 @@ public class DoubleRoundList<T> {
             length--;
         }
     }
+    public int FindFirstInstancePosition(T value){
+        if(!this.isEmpty()){
+            DoubleNode<T> temp;
+            int i=-1;
+            for(temp=head;temp.getFront()!=head;temp=temp.getFront()){
+                i++;
+                if(temp.getInfo()==value)return i;
+            }
+            if(tail.getInfo()==value)return length-1;
+        }
+        return -1;
+    }
 
 
 }

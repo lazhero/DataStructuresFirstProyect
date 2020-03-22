@@ -113,6 +113,18 @@ public class DoubleList<T> {
             length--;
         }
     }
+    public int FindFirstInstancePosition(T value){
+        if(!this.isEmpty()){
+            DoubleNode<T> temp;
+            int i=-1;
+            for(temp=head;temp.getFront()!=null;temp=temp.getFront()){
+                i++;
+                if(temp.getInfo()==value)return i;
+            }
+            if(tail.getInfo()==value)return length-1;
+        }
+        return -1;
+    }
     public T get(int position){
         if(position>-1 && position<length){
             if(position==0)return head.getInfo();

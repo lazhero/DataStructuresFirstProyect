@@ -1,5 +1,6 @@
 package cr.ac.tecLinkedList.List;
 
+import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import cr.ac.tecLinkedList.Nodes.SingleListNode;
 
 public class SingleList<T> {
@@ -126,5 +127,17 @@ public class SingleList<T> {
             }
             length--;
         }
+    }
+    public int FindFirstInstancePosition(T value){
+        if(!this.isEmpty()){
+            SingleListNode<T> temp;
+            int i=-1;
+            for(temp=head;temp.getNextnode()!=null;temp=temp.getNextnode()){
+                i++;
+                if(temp.getInfo()==value)return i;
+            }
+            if(tail.getInfo()==value)return length-1;
+        }
+        return -1;
     }
 }
