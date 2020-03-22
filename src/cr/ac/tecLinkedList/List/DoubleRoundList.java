@@ -4,8 +4,10 @@ import cr.ac.tecLinkedList.Nodes.DoubleNode;
 
 public class DoubleRoundList<T> {
     private DoubleNode<T> head,tail;
+    int length;
     public DoubleRoundList(){
         head=tail=null;
+        length=0;
     }
     public void AddHead(T NewInfo){
        DoubleNode<T> temp=new DoubleNode<>(NewInfo);
@@ -22,6 +24,7 @@ public class DoubleRoundList<T> {
            tail.setFront(temp);
            head = temp;
        }
+       length++;
 
     }
     public void AddTail(T Newinfo){
@@ -38,6 +41,7 @@ public class DoubleRoundList<T> {
             head.setBack(temp);
             tail=temp;
         }
+        length++;
 
     }
     public T DeleteFromHead(){
@@ -47,11 +51,13 @@ public class DoubleRoundList<T> {
         T info=head.getInfo();
         if(head==tail){
             head=tail=null;
+            length--;
             return info;
         }
         else{
             head=head.getFront();
             head.setBack(tail);
+            length--;
             return info;
         }
     }
@@ -62,11 +68,13 @@ public class DoubleRoundList<T> {
         T info=tail.getInfo();
         if(tail==head){
             tail=head=null;
+            length--;
             return info;
         }
         else{
             tail=tail.getBack();
             tail.setFront(head);
+            length--;
             return info;
         }
 
@@ -106,6 +114,7 @@ public class DoubleRoundList<T> {
         System.out.println(head.getInfo());
 
     }
+
     public void printing8(){
         DoubleNode<T> Temp=head;
         while(true){
@@ -113,4 +122,34 @@ public class DoubleRoundList<T> {
             Temp=Temp.getFront();
         }
     }
+    public T get(int position){
+        if(position>-1 && position<length){
+            if(position==0)return head.getInfo();
+            if(position==length-1)return tail.getInfo();
+            DoubleNode<T> temp=head.getFront();
+            for(int i=1;i!=position;i++){
+                temp=temp.getFront();
+            }
+            return temp.getInfo();
+
+        }
+        return null;
+    }
+    public void delete(int position){
+        if(position>-1 && position<length){
+            if(position==0)this.DeleteFromHead();
+            if(position==length-1)this.DeleteFromTail();
+            else {
+                DoubleNode<T> temp = head.getFront();
+                for (int i = 1; i != position; i++) {
+                    temp = temp.getFront();
+                }
+                temp.getBack().setFront(temp.getFront());
+                temp.getFront().setBack(temp.getBack());
+            }
+            length--;
+        }
+    }
+
+
 }

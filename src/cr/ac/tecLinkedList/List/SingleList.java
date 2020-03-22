@@ -4,14 +4,18 @@ import cr.ac.tecLinkedList.Nodes.SingleListNode;
 
 public class SingleList<T> {
     private SingleListNode<T> head,tail;
+    int length;
     public SingleList(){
         head=tail=null;
+        length=0;
     }
     public void AddHead(T NewInfo){
         head=new SingleListNode<T>(NewInfo,head);
         if(tail==null){
             tail=head;
         }
+        length++;
+
     }
     public void AddTail(T Newinfo){
         if(!this.isEmpty()) {
@@ -21,6 +25,7 @@ public class SingleList<T> {
         else{
             tail=head=new SingleListNode<T>(Newinfo);
         }
+        length++;
     }
     public T DeleteFromHead(){
         if(this.isEmpty()){
@@ -94,6 +99,32 @@ public class SingleList<T> {
         SingleListNode<T> temp;
         for(temp=head;temp!=null;temp=temp.getNextnode()){
             System.out.println(temp.getInfo());
+        }
+    }
+    public T get(int position){
+        if(position>-1 && position<length){
+            if(position==0)return head.getInfo();
+            if(position==length-1)return tail.getInfo();
+            SingleListNode<T> temp=head.getNextnode();
+            for(int i=1;i!=position;i++){
+                temp=temp.getNextnode();
+            }
+            return temp.getInfo();
+        }
+        else return null;
+    }
+    public void delete(int position){
+        if(position>-1 && position<length){
+            if(position==0)this.DeleteFromHead();
+            if(position==length-1)this.DeleteFromTail();
+            else{
+                SingleListNode<T> temp=head;
+                for(int i=0;i!=position-1;i++){
+                    temp=temp.getNextnode();
+                }
+                temp.setNextnode(temp.getNextnode().getNextnode());
+            }
+            length--;
         }
     }
 }
