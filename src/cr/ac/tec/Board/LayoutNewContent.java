@@ -3,6 +3,7 @@ package cr.ac.tec.Board;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class LayoutNewContent {
     /*
@@ -19,6 +20,13 @@ public class LayoutNewContent {
      * @param Left the distance from the Left,if  is 0 wont be setted
      */
     public static void Add(AnchorPane anchorPane,Node node,double Top,double Bottom,double Right,double Left){
+        anchorPane.getChildren().add(node);
+        if(Top!=0.0) anchorPane.setTopAnchor(node,Top);
+        if(Bottom!=0.0)anchorPane.setBottomAnchor(node,Bottom);
+        if(Left!=0.0)anchorPane.setLeftAnchor(node,Left);
+        if(Right!=0.0)anchorPane.setRightAnchor(node,Right);
+    }
+    public static void Add(AnchorPane anchorPane, Pane node, double Top, double Bottom, double Right, double Left){
         anchorPane.getChildren().add(node);
         if(Top!=0.0) anchorPane.setTopAnchor(node,Top);
         if(Bottom!=0.0)anchorPane.setBottomAnchor(node,Bottom);
