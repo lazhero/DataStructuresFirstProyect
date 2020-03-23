@@ -146,4 +146,7 @@ public class DoubleList<T> {
         System.out.println(head.getInfo());
 
     }
+    public int getLength(){
+        return length;
+    }
 }

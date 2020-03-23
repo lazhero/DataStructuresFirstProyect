@@ -162,6 +162,8 @@ public class DoubleRoundList<T> {
         }
         return -1;
     }
-
+    public int getLength(){
+        return length;
+    }
 
 }

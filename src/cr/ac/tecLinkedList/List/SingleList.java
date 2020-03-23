@@ -140,4 +140,7 @@ public class SingleList<T> {
         }
         return -1;
     }
+    public int getLength(){
+        return length;
+    }
 }
