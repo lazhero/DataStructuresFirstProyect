@@ -1,5 +1,6 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Square;
 
+import cr.ac.tec.Board.*;
 import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -23,7 +24,7 @@ public abstract class  Square {
         this.coordx=coordx;
         this.coordy=coordy;
         this.sideSize=sideSize;
-        panel=LayoutCreation.Anchor(sideSize,sideSize);
+        panel= LayoutCreation.Anchor(sideSize,sideSize);
         SubSquares=new DoubleList<>();
     }
    // public abstract void Event();
@@ -31,7 +32,7 @@ public abstract class  Square {
         if(Board!=null) {
                double width=sideSize/2;
                double height=width;
-               RectanglePlaced rect1=WidgetCreation.CreateRecP(0,0,width,height,color);
+               RectanglePlaced rect1= WidgetCreation.CreateRecP(0,0,width,height,color);
                RectanglePlaced rect2=WidgetCreation.CreateRecP(width,0,width,height,color);
                RectanglePlaced rect3=WidgetCreation.CreateRecP(0,height,width,height,color);
                RectanglePlaced rect4=WidgetCreation.CreateRecP(width,height,width,height,color);

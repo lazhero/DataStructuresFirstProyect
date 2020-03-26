@@ -1,9 +1,9 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Square;
 
 import javafx.scene.paint.Paint;
 
-public class BlueSquare extends Square {
-    BlueSquare(Paint color, double coordx, double coordy, double sideSize){
+public class YellowSquare extends Square {
+    YellowSquare(Paint color, double coordx, double coordy, double sideSize){
         super(color,coordx,coordy,sideSize);
 
     }
