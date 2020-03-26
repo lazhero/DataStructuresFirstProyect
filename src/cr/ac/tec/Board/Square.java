@@ -7,9 +7,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
 
-public  class  Square {
+
+public abstract class  Square {
     private Paint color;
     //private Events event; Hidden, waiting....
     private double coordx;
@@ -25,8 +25,6 @@ public  class  Square {
         this.sideSize=sideSize;
         panel=LayoutCreation.Anchor(sideSize,sideSize);
         SubSquares=new DoubleList<>();
-
-
     }
    // public abstract void Event();
     public void Draw(AnchorPane Board){
@@ -56,35 +54,29 @@ public  class  Square {
     public int getPlayers() {
         return players;
     }
-    public void DrawPlayer(Node node,int AssignedPosition,double nodeWidth,double nodeHeight,boolean pass){
-        if(players<=3) {
-
-            players++;
-            double posx=(sideSize/4)-(nodeWidth/2);
-            double posy=(sideSize/4)-(nodeHeight/2);
-            if(AssignedPosition==2)posx+=sideSize/2;
-            if(AssignedPosition==3)posy+=sideSize/2;
-            if(AssignedPosition==4){
-                posx+=sideSize/2;
-                posy+=sideSize/2;
-            }
-            LayoutNewContent.Add(panel,node,posy,0,0,posx);
-
+    public void DrawPlayer(Node node,int AssignedPosition,double nodeWidth,double nodeHeight){
+        players++;
+        double posx=(sideSize/4)-(nodeWidth/2);
+        double posy=(sideSize/4)-(nodeHeight/2);
+        if(AssignedPosition==2)posx+=sideSize/2;
+        if(AssignedPosition==3)posy+=sideSize/2;
+        if(AssignedPosition==4){
+            posx+=sideSize/2;
+            posy+=sideSize/2;
         }
-        if(true){
-            if(players>1 && !pass){
-                DoubleList<Integer> PlayerOnSquare=this.taken();
-
-            }
+        LayoutNewContent.Add(panel,node,posy,0,0,posx);
+        if(players<=1) {
+            this.DuelTime();
         }
+
     }
-    public void DeletePlayer(Node node){
+    public void DeleteNode(Node node){
         panel.getChildren().remove(node);
     }
-    public void DeletePlayer(DoubleList<Node> Deleting){//lacks proves
-        while(Deleting.getLength()>0){
-            DeletePlayer(Deleting.get(0));
-        }
+    public void DeletePlayer(Player player) {//lacks proves
+        DeleteNode(player.getNode());//unhandled exception
+        players--;
+
     }
     public DoubleList<Integer> taken(){//Lacks proves
         DoubleList<Integer> List=new DoubleList<>();
@@ -94,11 +86,8 @@ public  class  Square {
         if(SubSquares.get(3).getPlaced())List.AddTail(3);
         return List;
     }
-    public void DuelTime(){//lacks details
-        System.out.println("Es hora de de de de de del duelo");
-        //waiting for duel event
+    public abstract void  DuelTime();
 
-    }
 
 
 
