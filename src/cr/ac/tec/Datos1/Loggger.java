@@ -82,7 +82,6 @@ public class Loggger {
                 LOGGER.log(Level.SEVERE, Loggger.getStackTrace(e));
             }
         } catch (IOException ex) {
-            
             LOGGER.log(Level.SEVERE, "Error de IO");
         } catch (SecurityException ex) {
             LOGGER.log(Level.SEVERE, "Error de Seguridad");
