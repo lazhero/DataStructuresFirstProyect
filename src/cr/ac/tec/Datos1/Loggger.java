@@ -85,6 +85,7 @@ public class Loggger {
             LOGGER.log(Level.SEVERE, "Error de IO");
         } catch (SecurityException ex) {
             LOGGER.log(Level.SEVERE, "Error de Seguridad");
+            
         }
     }
 
