@@ -11,7 +11,7 @@ public class BlueSquare extends Square {
      * @param coordy y-axis position
      * @param sideSize Side's size
      */
-    BlueSquare(double coordx, double coordy, double sideSize){
+    public BlueSquare(double coordx, double coordy, double sideSize){
         super(Color.BLUE,coordx,coordy,sideSize);
 
     }

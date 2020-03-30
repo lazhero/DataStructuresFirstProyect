@@ -10,7 +10,7 @@ public class WhiteSquare extends Square {
      * @param coordy y-axis position
      * @param sideSize side's size
      */
-    WhiteSquare(double coordx, double coordy, double sideSize){
+    public WhiteSquare(double coordx, double coordy, double sideSize){
         super(Color.WHITE,coordx,coordy,sideSize);
     }
     @Override

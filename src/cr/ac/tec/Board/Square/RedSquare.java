@@ -10,7 +10,7 @@ public class RedSquare extends Square {
      * @param coordy y-axis position
      * @param sideSize side's size
      */
-    RedSquare(double coordx, double coordy, double sideSize){
+    public RedSquare(double coordx, double coordy, double sideSize){
         super(Color.RED,coordx,coordy,sideSize);
     }
 
