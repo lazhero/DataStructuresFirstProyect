@@ -6,12 +6,21 @@ import cr.ac.tecLinkedList.Nodes.SingleListNode;
 import java.time.temporal.Temporal;
 
 public class DoubleList<T> {
-    private DoubleNode<T> head,tail;
-    int length;
+    private DoubleNode<T> head,tail;//The first and last node
+    int length;// List length
+
+    /**
+     * Creates an empty list, without any node
+     */
     public DoubleList(){
         head=tail=null;
         length=0;
     }
+
+    /**
+     * Adds a node into the first position
+     * @param NewInfo the info that will be stored in the node
+     */
     public void AddHead(T NewInfo){
        DoubleNode<T> temp=new DoubleNode<>(NewInfo);
        if(head==null){
@@ -25,6 +34,11 @@ public class DoubleList<T> {
        length++;
 
     }
+
+    /**
+     * Adds a node in the las position
+     * @param Newinfo the info that'll be stored in the node
+     */
     public void AddTail(T Newinfo){
         DoubleNode<T> temp=new DoubleNode<T>(Newinfo);
         if(head==null){
@@ -38,6 +52,11 @@ public class DoubleList<T> {
         length++;
 
     }
+
+    /**
+     * Deletes the first node a return the info stores the
+     * @return info stored in the first node
+     */
     public T DeleteFromHead(){
         if(this.isEmpty()){
             return null;
@@ -55,6 +74,11 @@ public class DoubleList<T> {
             return info;
         }
     }
+
+    /**
+     * Delete the first node and return the info stored there
+     * @return the info stored in the last node
+     */
     public T DeleteFromTail(){
         if(this.isEmpty()){
             return null;
@@ -72,6 +96,11 @@ public class DoubleList<T> {
             return info;
         }
     }
+
+    /**
+     * Looks if the list its empty
+     * @return true if the list its empty, false either
+     */
     public boolean isEmpty(){
         boolean returning=false;
         if(head==null){
@@ -79,6 +108,12 @@ public class DoubleList<T> {
         }
         return returning;
     }
+
+    /**
+     * Checks if there's a node with the info
+     * @param info the info to be checked in the list
+     * @return true if the info its in the list, false either
+     */
     public boolean inList(T info){
         boolean returning=false;
         if(head==null)return returning;
@@ -90,6 +125,10 @@ public class DoubleList<T> {
         if(!flag || tail.getInfo()==info)returning=true;
         return returning;
     }
+
+    /**
+     * prints every node's info
+     */
     public void printing(){
         DoubleNode<T> Temp;
         for(Temp=head;Temp.getFront()!=null;Temp=Temp.getFront()){
@@ -97,6 +136,11 @@ public class DoubleList<T> {
         }
         System.out.println(tail.getInfo());
     }
+
+    /**
+     * Deletes a node in a specified position
+     * @param position the position to be deleted
+     */
     public void delete(int position){
         if(position>-1 && position<length){
             if(position==0)this.DeleteFromHead();
@@ -113,6 +157,12 @@ public class DoubleList<T> {
             length--;
         }
     }
+
+    /**
+     * Gets the first apperence's position in the list
+     * @param value
+     * @return
+     */
     public int FindFirstInstancePosition(T value){
         if(!this.isEmpty()){
             DoubleNode<T> temp;
@@ -125,6 +175,12 @@ public class DoubleList<T> {
         }
         return -1;
     }
+
+    /**
+     * Gets the node's info into a specific position
+     * @param position the position
+     * @return The info its the position exist, null either
+     */
     public T get(int position){
         if(position>-1 && position<length){
             if(position==0)return head.getInfo();
@@ -138,6 +194,10 @@ public class DoubleList<T> {
         }
         return null;
     }
+
+    /**
+     * prints every node
+     */
     public void printingB(){
         DoubleNode<T> Temp;
         for(Temp=tail;Temp.getBack()!=null;Temp=Temp.getBack()){
@@ -146,6 +206,11 @@ public class DoubleList<T> {
         System.out.println(head.getInfo());
 
     }
+
+    /**
+     * Returns the list's length
+     * @return The list's length
+     */
     public int getLength(){
         return length;
     }

@@ -47,6 +47,16 @@ public class WidgetCreation {
         rect.setArcWidth(40);
         return rect;
     }
+
+    /**
+     *
+     * @param coordX the left corner's x cord
+     * @param coordY the left corner's y cord
+     * @param width the rectangle width
+     * @param height the rectangle's height
+     * @param color JavaFx's Paint
+     * @return a RectanglePlaced object
+     */
     public static RectanglePlaced CreateRecP(double coordX, double coordY, double width, double height, Paint color){
         RectanglePlaced rect=new RectanglePlaced();
         rect.setX(coordX);

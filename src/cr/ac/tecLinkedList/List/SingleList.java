@@ -4,12 +4,21 @@ import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import cr.ac.tecLinkedList.Nodes.SingleListNode;
 
 public class SingleList<T> {
-    private SingleListNode<T> head,tail;
-    int length;
+    private SingleListNode<T> head,tail;//The first and last node reference
+    int length;//the list length
+
+    /**
+     * Create an node'sless list
+     */
     public SingleList(){
         head=tail=null;
         length=0;
     }
+
+    /**
+     * Add a node at at the first
+     * @param NewInfo the info that will be saved into the node
+     */
     public void AddHead(T NewInfo){
         head=new SingleListNode<T>(NewInfo,head);
         if(tail==null){
@@ -18,6 +27,11 @@ public class SingleList<T> {
         length++;
 
     }
+
+    /**
+     *Adds a last node with specified info
+     * @param Newinfo the info that will be stored
+     */
     public void AddTail(T Newinfo){
         if(!this.isEmpty()) {
             tail.setNextnode(new SingleListNode<T>(Newinfo));
@@ -28,6 +42,11 @@ public class SingleList<T> {
         }
         length++;
     }
+
+    /**
+     * Delete the node at the last position
+     * @return The info stored in the last node
+     */
     public T DeleteFromHead(){
         if(this.isEmpty()){
             return null;
@@ -42,6 +61,11 @@ public class SingleList<T> {
             return info;
         }
     }
+
+    /**
+     * Delete the node in the last position, and returns the info stored there
+     * @return
+     */
     public T DeleteFromTail(){
         if(this.isEmpty()){
             return null;
@@ -60,6 +84,12 @@ public class SingleList<T> {
         }
 
     }
+
+    /**
+     *Delete a the first node with the specified info
+     * @param info the info
+     * @return the info, null either
+     */
     public T DeleteMiddleNode(T info){
         if(isEmpty()) return null;
         T returning=null;
@@ -78,6 +108,10 @@ public class SingleList<T> {
         return info;
     }
 
+    /**
+     *Checks whatever the list its empty or not
+     * @return true if its empty, false either
+     */
     public boolean isEmpty(){
         boolean returning=false;
         if(head==null){
@@ -85,6 +119,12 @@ public class SingleList<T> {
         }
         return returning;
     }
+
+    /**
+     * Checks if the info its in the list
+     * @param info the info
+     * @return true if the info its on the list, false either way
+     */
     public boolean inList(T info){
         boolean returning=false;
         if(head==null){
@@ -96,12 +136,22 @@ public class SingleList<T> {
         }
         return returning;
     }
+
+    /**
+     * prints each node info starting with the head
+     */
     public void printing(){
         SingleListNode<T> temp;
         for(temp=head;temp!=null;temp=temp.getNextnode()){
             System.out.println(temp.getInfo());
         }
     }
+
+    /**
+     * Gets the information into a specified position
+     * @param position The position in the list
+     * @return The info in the specified position
+     */
     public T get(int position){
         if(position>-1 && position<length){
             if(position==0)return head.getInfo();
@@ -114,6 +164,11 @@ public class SingleList<T> {
         }
         else return null;
     }
+
+    /**
+     * Erase a node in the specified position
+     * @param position the position
+     */
     public void delete(int position){
         if(position>-1 && position<length){
             if(position==0)this.DeleteFromHead();
@@ -128,6 +183,12 @@ public class SingleList<T> {
             length--;
         }
     }
+
+    /**
+     * Finds the position of the first node that has the value provided
+     * @param value  The info to be ckecked
+     * @return the position if found, -1 if not
+     */
     public int FindFirstInstancePosition(T value){
         if(!this.isEmpty()){
             SingleListNode<T> temp;
@@ -140,6 +201,11 @@ public class SingleList<T> {
         }
         return -1;
     }
+
+    /**
+     * Gets the list length's
+     * @return the list's length
+     */
     public int getLength(){
         return length;
     }

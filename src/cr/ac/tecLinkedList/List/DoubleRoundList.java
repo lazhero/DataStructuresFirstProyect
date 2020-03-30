@@ -3,12 +3,21 @@ package cr.ac.tecLinkedList.List;
 import cr.ac.tecLinkedList.Nodes.DoubleNode;
 
 public class DoubleRoundList<T> {
-    private DoubleNode<T> head,tail;
-    int length;
+    private DoubleNode<T> head,tail;//The first and last node reference
+    int length;//the list's length
+
+    /**
+     * Create a list with no node, an empty list
+     */
     public DoubleRoundList(){
         head=tail=null;
         length=0;
     }
+
+    /**
+     * Adds a node into the first position, with the specified info
+     * @param NewInfo The info stored im the node
+     */
     public void AddHead(T NewInfo){
        DoubleNode<T> temp=new DoubleNode<>(NewInfo);
        if(head==null){
@@ -27,6 +36,11 @@ public class DoubleRoundList<T> {
        length++;
 
     }
+
+    /**
+     * Add a new node in the last position
+     * @param Newinfo the info that'll stored in the node
+     */
     public void AddTail(T Newinfo){
         DoubleNode<T> temp=new DoubleNode<T>(Newinfo);
         if(head==null){
@@ -44,6 +58,11 @@ public class DoubleRoundList<T> {
         length++;
 
     }
+
+    /**
+     * Delete the node in the first position
+     * @return the info stored in the node
+     */
     public T DeleteFromHead(){
         if(this.isEmpty()){
             return null;
@@ -61,6 +80,11 @@ public class DoubleRoundList<T> {
             return info;
         }
     }
+
+    /**
+     * Delete the last node
+     * @return The info stored in the last node
+     */
     public T DeleteFromTail(){
         if(this.isEmpty()){
             return null;
@@ -80,7 +104,10 @@ public class DoubleRoundList<T> {
 
     }
 
-
+    /**
+     * Checks whatever the list its empty or not
+     * @return true its it empty , false either
+     */
     public boolean isEmpty(){
         boolean returning=false;
         if(head==null){
@@ -88,6 +115,12 @@ public class DoubleRoundList<T> {
         }
         return returning;
     }
+
+    /**
+     * Checks if there's a node in the list with the specified info
+     * @param info the info to be checked
+     * @return true if the info was finded , false either way
+     */
     public boolean inList(T info){
         boolean returning=false;
         if(head==null)return returning;
@@ -99,6 +132,10 @@ public class DoubleRoundList<T> {
         if(!flag || tail.getInfo()==info)returning=true;
         return returning;
     }
+
+    /**
+     * prints each node's info starting from the head
+     */
     public void printing(){
         DoubleNode<T> Temp;
         for(Temp=head;Temp.getFront()!=head;Temp=Temp.getFront()){
@@ -106,6 +143,10 @@ public class DoubleRoundList<T> {
         }
         System.out.println(tail.getInfo());
     }
+
+    /**
+     * prints  each node's info , staring from the tail
+     */
     public void printingB(){
         DoubleNode<T> Temp;
         for(Temp=tail;Temp.getBack()!=null;Temp=Temp.getBack()){
@@ -115,6 +156,9 @@ public class DoubleRoundList<T> {
 
     }
 
+    /**
+     * print each node's info starting form the head , and keep it forever
+     */
     public void printing8(){
         DoubleNode<T> Temp=head;
         while(true){
@@ -122,6 +166,12 @@ public class DoubleRoundList<T> {
             Temp=Temp.getFront();
         }
     }
+
+    /**
+     * Gets the info into a specified position
+     * @param position the position
+     * @return the position stored in the position if was found
+     */
     public T get(int position){
         if(position>-1 && position<length){
             if(position==0)return head.getInfo();
@@ -135,6 +185,11 @@ public class DoubleRoundList<T> {
         }
         return null;
     }
+
+    /**
+     * Deletes a node into an specified position
+     * @param position the position to be erased
+     */
     public void delete(int position){
         if(position>-1 && position<length){
             if(position==0)this.DeleteFromHead();
@@ -150,6 +205,12 @@ public class DoubleRoundList<T> {
             length--;
         }
     }
+
+    /**
+     * Finds the first appearance int the list
+     * @param value The value to be ckecked
+     * @return the position, or -1, if its not in the list
+     */
     public int FindFirstInstancePosition(T value){
         if(!this.isEmpty()){
             DoubleNode<T> temp;
@@ -162,6 +223,11 @@ public class DoubleRoundList<T> {
         }
         return -1;
     }
+
+    /**
+     * Returns the list's length
+     * @return the list's length
+     */
     public int getLength(){
         return length;
     }

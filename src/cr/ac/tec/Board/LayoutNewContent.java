@@ -26,6 +26,16 @@ public class LayoutNewContent {
         if(Left!=0.0)anchorPane.setLeftAnchor(node,Left);
         if(Right!=0.0)anchorPane.setRightAnchor(node,Right);
     }
+    /**
+     * Add a new layout to an anchor pane
+     * @param anchorPane the AnchorPane
+     * @param node The widget to be added
+     * @param Top the distance from the Top,if  is 0 wont be setted
+     * @param Bottom the distance from the Bottom,if  is 0 wont be setted
+     * @param Right the distance from the Right,if  is 0 wont be setted
+     * @param Left the distance from the Left,if  is 0 wont be setted
+     * @deprecated
+     */
     public static void Add(AnchorPane anchorPane, Pane node, double Top, double Bottom, double Right, double Left){
         anchorPane.getChildren().add(node);
         if(Top!=0.0) anchorPane.setTopAnchor(node,Top);
