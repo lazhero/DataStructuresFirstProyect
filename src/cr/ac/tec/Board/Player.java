@@ -27,6 +27,39 @@ public class Player {
     public int getCoins() {
         return coins;
     }
+    public void setCoins(int Coins){
+        this.coins=Coins;
+    }
+
+    /**
+     * Raise the number of stars by an specified amount
+     * @param Coins The number of stars to raise
+     */
+    public void RaiseCoinsBy(int Coins){
+        coins+=Coins;
+    }
+
+    /**
+     * Decrease the number of stars by an specied number
+     * @param Coins The coins number to decrease
+     */
+    public void DecreaseCoinsBy(int Coins){
+        coins-=Coins;
+    }
+
+    /**
+     * Raise the coin's number
+     */
+    public void RaiseCoinByOne(){
+        coins++;
+    }
+
+    /**
+     * Decrease the coin's number by one
+     */
+    public void DecreaseCoinsByOne(){
+        coins--;
+    }
 
     /**
      * Return the player id
@@ -53,6 +86,14 @@ public class Player {
     }
 
     /**
+     * Return the number of stars
+     * @return star's number
+     */
+    public int getStars(){
+        return stars;
+    }
+
+    /**
      * Raises the number of stars
      * @param raising the number of stars to raise
      */
@@ -66,5 +107,21 @@ public class Player {
      */
     public void decreaseStars(int decreasing){
         stars-=decreasing;
+    }
+
+    /**
+     * Decrease the number of stars
+     * @param Raise The number of stars to decrease
+     */
+    public void RaiseStarsBy(int Raise){
+        coins+=Raise;
+    }
+
+    /**
+     * Decrease the number of stars
+     * @param Decrease The number of stars to decrease
+     */
+    public void DecreaseStarsBy(int Decrease){
+        coins-=Decrease;
     }
 }
