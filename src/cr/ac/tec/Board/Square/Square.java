@@ -139,10 +139,19 @@ public abstract class  Square {
         return List;
     }
 
+    public double getCoordx() {
+        return coordx;
+    }
+
+    public double getCoordy() {
+        return coordy;
+    }
+
     /**
      * An abstract method, will be defined in the subclasses
      */
     public abstract void  Event();
+    public abstract String Color();
 
 
 

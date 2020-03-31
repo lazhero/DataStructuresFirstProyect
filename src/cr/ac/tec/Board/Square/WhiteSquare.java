@@ -17,4 +17,9 @@ public class WhiteSquare extends Square {
     public void Event() {
         //lacks event
     }
+
+    @Override
+    public String Color() {
+        return "WHITE";
+    }
 }
