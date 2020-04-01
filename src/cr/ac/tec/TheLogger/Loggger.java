@@ -1,4 +1,4 @@
-package CR.AC.TEC.Datos1;
+package CR.AC.TEC.TheLogger;
 
 import CR.AC.TEC.Datos1.logger.Control;
 import CR.AC.TEC.Datos1.logger.Utilidades;
@@ -22,12 +22,12 @@ public class Loggger {
     // Preparamos el log para cada paquete del proyecto, esto con el fin de capturar cada log
     // que se genere e irlo pasando al nivel superior hasta que encuentren un handler que los
     // maneje
-    private final static Logger LOG_RAIZ = Logger.getLogger("CR.AC.TEC.Datos1");
-    private final static Logger LOG_SUBNIVEL = Logger.getLogger("CR.AC.TEC.Datos1.logger");
-    private final static Logger LOG_UNDER = Logger.getLogger("CR.AC.TEC.Datos1.logger.update");
+    private final static Logger LOG_RAIZ = Logger.getLogger("CR.AC.TEC.TheLogger");
+    private final static Logger LOG_SUBNIVEL = Logger.getLogger("CR.AC.TEC.TheLogger.logger");
+    private final static Logger LOG_UNDER = Logger.getLogger("CR.AC.TEC.TheLogger.logger.update");
 
     // El log para ESTA clase en particular
-    private final static Logger LOGGER = Logger.getLogger("CR.AC.TEC.Datos1.Loggger");
+    private final static Logger LOGGER = Logger.getLogger("CR.AC.TEC.TheLogger.Loggger");
 
     public static void main(String[] args) {
         try {
@@ -38,7 +38,7 @@ public class Loggger {
             // El segundo argumento controla si se sobre escribe el archivo o se agregan los logs al final
             // Para sobre escribir pase un true para agregar al final, false para sobre escribir
             // todo el archivo
-            Handler fileHandler = new FileHandler("./CR.AC.TEC.Datos1.log", false);
+            Handler fileHandler = new FileHandler("./CR.AC.TEC.TheLogger.log", false);
 
             // El formateador indica como presentar los datos, en este caso usaremos el formaro sencillo
             // el cual es mas facil de leer, si no usamos esto el log estara en formato xml por defecto
