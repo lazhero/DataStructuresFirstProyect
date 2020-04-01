@@ -6,7 +6,7 @@ import cr.ac.tecLinkedList.List.DoubleRoundList;
 import cr.ac.tecLinkedList.List.SingleList;
 
 public class PathGenerator {
-    public static DoubleRoundList<Square> Generate(int SquaresonSide,double posx, double posy,double SquareSide){
+    public static DoubleRoundList<Square> GenerateCircle(int SquaresonSide,double posx, double posy,double SquareSide,boolean onEvent){
         int SquaresNumber=SquaresonSide*4-4;
         final int reg=SquaresNumber;
         DoubleRoundList<Square> List=new DoubleRoundList<Square>();
@@ -18,25 +18,28 @@ public class PathGenerator {
             posy=Coords.get(1);
             int RandomNumber=Random.RandomNumber(5);
             Square sqr=null;
-            if(RandomNumber==5){
-                if(RandomNumber==Random.RandomNumber(5))sqr= new YellowSquare(posx,posy,SquareSide);
-                else{
-                    RandomNumber=Random.RandomNumber(4);
+            if(!onEvent) {
+                if (RandomNumber == 5) {
+                    if (RandomNumber == Random.RandomNumber(5)) sqr = new YellowSquare(posx, posy, SquareSide);
+                    else {
+                        RandomNumber = Random.RandomNumber(4);
+                    }
                 }
+                if (RandomNumber == 4) {
+                    if (Random.RandomNumber(3) == 3) {
+                        sqr = new WhiteSquare(posx, posy, SquareSide);
+                    } else {
+                        RandomNumber = Random.RandomNumber(3);
+                    }
+                }
+                if (RandomNumber == 1) sqr = new BlueSquare(posx, posy, SquareSide);
+                if (RandomNumber == 2) sqr = new GreenSquare(posx, posy, SquareSide);
+                if (RandomNumber == 3) sqr = new RedSquare(posx, posy, SquareSide);
+                if(SquaresNumber==reg)sqr=new BlueSquare(posx, posy, SquareSide);
             }
-            if(RandomNumber==4){
-                if(Random.RandomNumber(3)==3){
-                    sqr=new WhiteSquare(posx,posy,SquareSide);
-                }
-                else{
-                    RandomNumber=Random.RandomNumber(3);
-                }
-                }
-            if(RandomNumber==1)sqr=new BlueSquare(posx,posy,SquareSide);
-            if(RandomNumber==2)sqr=new GreenSquare(posx,posy,SquareSide);
-            if(RandomNumber==3)sqr=new RedSquare(posx,posy,SquareSide);
+            else sqr = new YellowSquare(posx, posy, SquareSide);
 
-            if(SquaresNumber==reg)sqr=new WhiteSquare(posx,posy,SquareSide);
+
             List.AddTail(sqr);
             SquaresNumber--;
             int relocation=(int)((reg-SquaresNumber)/((reg/4)-1));
@@ -60,4 +63,5 @@ public class PathGenerator {
         }
         return List;
     }
+
 }
