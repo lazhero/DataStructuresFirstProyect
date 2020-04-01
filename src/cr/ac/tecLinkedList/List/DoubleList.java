@@ -5,7 +5,7 @@ import cr.ac.tecLinkedList.Nodes.SingleListNode;
 
 import java.time.temporal.Temporal;
 
-public class DoubleList<T> {
+public class DoubleList<T> implements List<T> {
     private DoubleNode<T> head,tail;//The first and last node
     int length;// List length
 

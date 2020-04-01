@@ -2,7 +2,7 @@ package cr.ac.tecLinkedList.List;
 
 import cr.ac.tecLinkedList.Nodes.DoubleNode;
 
-public class DoubleRoundList<T> {
+public class DoubleRoundList<T> implements List<T> {
     private DoubleNode<T> head,tail;//The first and last node reference
     int length;//the list's length
 

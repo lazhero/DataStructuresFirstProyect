@@ -3,7 +3,7 @@ package cr.ac.tecLinkedList.List;
 import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import cr.ac.tecLinkedList.Nodes.SingleListNode;
 
-public class SingleList<T> {
+public class SingleList<T> implements List<T>{
     private SingleListNode<T> head,tail;//The first and last node reference
     int length;//the list length
 
