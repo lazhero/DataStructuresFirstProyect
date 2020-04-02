@@ -1,8 +1,8 @@
 package CR.AC.TEC.TheLogger;
 
-import CR.AC.TEC.Datos1.logger.Control;
-import CR.AC.TEC.Datos1.logger.Utilidades;
-import CR.AC.TEC.Datos1.logger.update.InternalSys;
+import CR.AC.TEC.TheLogger.logger.Control;
+import CR.AC.TEC.TheLogger.logger.Utilidades;
+import CR.AC.TEC.TheLogger.logger.update.InternalSys;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -12,6 +12,7 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+
 
 /**
  *
