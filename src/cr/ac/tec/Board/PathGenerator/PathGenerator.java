@@ -63,5 +63,37 @@ public class PathGenerator {
         }
         return List;
     }
+    public static SingleList<Square> GeneratePhase1(int FirstSquare,int LastSquare,int BranchSize ,double posx,double posy,double sidesize,NewCoordsFactory fact1,NewCoordsFactory fact2, NewCoordsFactory fact3){
+        SingleList<Square> SquareList=new SingleList<>();
+        int mainlen=LastSquare-FirstSquare-1;
+        int totalbranch=2*BranchSize;
+        final double positionx=posx;
+        final double positiony=posy;
+        NewCoordsFactory generatecoords=fact1;
+        while(mainlen+totalbranch>0){
+            if(totalbranch%BranchSize!=0 || mainlen==0){
+                if(mainlen==0)generatecoords=fact3;
+                if(positionx!=posx || positiony!=posy){
+                    SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize);
+                    posx=List.get(0);
+                    posy=List.get(1);
+                }
+                Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
+                SquareList.AddTail(square);
+                totalbranch--;
 
+
+            }
+            else{
+                generatecoords=fact2;
+                SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize);
+                posx=List.get(0);
+                posy=List.get(1);
+                Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
+                SquareList.AddTail(square);
+
+            }
+        }
+        return SquareList;
+    }
 }
