@@ -7,14 +7,14 @@ import cr.ac.tecLinkedList.List.List;
 import cr.ac.tecLinkedList.List.SingleList;
 
 public class PathGenerator {
-    public static DoubleRoundList<Square> GenerateCircle(int SquaresonSide,double posx, double posy,double SquareSide,boolean onEvent){
+    public static DoubleRoundList<Square> GenerateCircle(int SquaresonSide,double posx, double posy,double SquareSide,double SpaceBetween,boolean onEvent){
         int SquaresNumber=SquaresonSide*4-4;
         final int reg=SquaresNumber;
         DoubleRoundList<Square> List=new DoubleRoundList<Square>();
         NewCoordsFactory CoordsFactory=new CoordR();
         posx-=SquareSide;
         while(SquaresNumber>0){
-            SingleList<Double> Coords=CoordsFactory.getCoords(posx,posy,SquareSide);
+            SingleList<Double> Coords=CoordsFactory.getCoords(posx,posy,SquareSide+SpaceBetween);
             posx=Coords.get(0);
             posy=Coords.get(1);
             int RandomNumber=Random.RandomNumber(5);
@@ -47,24 +47,24 @@ public class PathGenerator {
             System.out.println("La relocacion es "+relocation);
             if(relocation==1 && reg-SquaresNumber==SquaresonSide-1){
                 CoordsFactory=new CoordD();
-                posx+=SquareSide;
-                posy-=SquareSide;
+                posx+=SquareSide+SpaceBetween;
+                posy-=SquareSide+SpaceBetween;
             }
             else if(relocation==2 && reg-SquaresNumber==2*(SquaresonSide-1)){
                 CoordsFactory=new CoordL();
-                posy+=SquareSide;
-                posx+=SquareSide;
+                posy+=SquareSide+SpaceBetween;
+                posx+=SquareSide+SpaceBetween;
             }
             else if(relocation==3 && reg-SquaresNumber==3*(SquaresonSide-1)){
                 CoordsFactory=new CoordU();
-                posx-=SquareSide;
-                posy+=SquareSide;
+                posx-=SquareSide+SpaceBetween;
+                posy+=SquareSide+SpaceBetween;
             }
 
         }
         return List;
     }
-    public static SingleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath,double sidesize){
+    public static SingleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath,double sidesize,double SpaceBetween) {
         SingleList<Square> SquareList=new SingleList<>();
         double posx=MainPath.get(FirstSquare-1).getCoordx();
         double posy=MainPath.get(FirstSquare-1).getCoordy();
@@ -79,11 +79,11 @@ public class PathGenerator {
             if(totalbranch%BranchSize!=0 || mainlen==0 || totalbranch==2*BranchSize){
                 if(mainlen==0)generatecoords=fact3;
                 if(totalbranch==BranchSize){
-                   SingleList<Double> receiving=Adjust.adjust(fact2,fact3,sidesize);
+                   SingleList<Double> receiving=Adjust.adjust(fact2,fact3,sidesize+SpaceBetween);
                    posx+=receiving.get(0);
                    posy+=receiving.get(1);
                 }
-                SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize);
+                SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize+SpaceBetween);
                 posx=List.get(0);
                 posy=List.get(1);
                 Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
@@ -92,7 +92,7 @@ public class PathGenerator {
             }
             else{
                 generatecoords=fact2;
-                SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize);
+                SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize+SpaceBetween);
                 posx=List.get(0);
                 posy=List.get(1);
                 Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
