@@ -3,6 +3,7 @@ package cr.ac.tec.Board.PathGenerator;
 import cr.ac.tec.Board.Square.*;
 import cr.ac.tec.Random.Random;
 import cr.ac.tecLinkedList.List.DoubleRoundList;
+import cr.ac.tecLinkedList.List.List;
 import cr.ac.tecLinkedList.List.SingleList;
 
 public class PathGenerator {
@@ -63,26 +64,31 @@ public class PathGenerator {
         }
         return List;
     }
-    public static SingleList<Square> GeneratePhase1(int FirstSquare,int LastSquare,int BranchSize ,double posx,double posy,double sidesize,NewCoordsFactory fact1,NewCoordsFactory fact2, NewCoordsFactory fact3){
+    public static SingleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath,double sidesize){
         SingleList<Square> SquareList=new SingleList<>();
+        double posx=MainPath.get(FirstSquare-1).getCoordx();
+        double posy=MainPath.get(FirstSquare-1).getCoordy();
         int mainlen=LastSquare-FirstSquare-1;
         int totalbranch=2*BranchSize;
-        final double positionx=posx;
-        final double positiony=posy;
+        SingleList<NewCoordsFactory> ReceivingFactory=NewCoordsSequence.getNewCoorsSequence(LastSquare,MainPath.getLength());
+        NewCoordsFactory fact1=ReceivingFactory.get(0);
+        NewCoordsFactory fact2=ReceivingFactory.get(1);
+        NewCoordsFactory fact3=ReceivingFactory.get(2);
         NewCoordsFactory generatecoords=fact1;
         while(mainlen+totalbranch>0){
-            if(totalbranch%BranchSize!=0 || mainlen==0){
+            if(totalbranch%BranchSize!=0 || mainlen==0 || totalbranch==2*BranchSize){
                 if(mainlen==0)generatecoords=fact3;
-                if(positionx!=posx || positiony!=posy){
-                    SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize);
-                    posx=List.get(0);
-                    posy=List.get(1);
+                if(totalbranch==BranchSize){
+                   SingleList<Double> receiving=Adjust.adjust(fact2,fact3,sidesize);
+                   posx+=receiving.get(0);
+                   posy+=receiving.get(1);
                 }
+                SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize);
+                posx=List.get(0);
+                posy=List.get(1);
                 Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
                 SquareList.AddTail(square);
                 totalbranch--;
-
-
             }
             else{
                 generatecoords=fact2;
@@ -91,6 +97,7 @@ public class PathGenerator {
                 posy=List.get(1);
                 Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
                 SquareList.AddTail(square);
+                mainlen--;
 
             }
         }
