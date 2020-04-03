@@ -1,20 +1,28 @@
 package cr.ac.tec.Board.Square;
 import cr.ac.tec.Board.*;
+import cr.ac.tec.Images.GetImages;
 import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+
+import java.io.IOException;
+
 public abstract class  Square {
     private Paint color;//Square color
     private double coordx;//coordx
     private double coordy;//coordy
     private double sideSize;//SideSize
     private AnchorPane panel;//pane created to place the square
-    private int players=0;//Players in the square
-    private DoubleList<RectanglePlaced> SubSquares;//Subsquares list
+    private Node Background;
+    private int players;//Players in the square
+    private DoubleList<Player> NodesinPanel;
 
     /**
      * Class's constructor
@@ -28,8 +36,9 @@ public abstract class  Square {
         this.coordx=coordx;
         this.coordy=coordy;
         this.sideSize=sideSize;
+        this.players=0;
         panel= LayoutCreation.Anchor(sideSize,sideSize);
-        SubSquares=new DoubleList<>();
+        NodesinPanel=new DoubleList<>();
     }
 
     /**
@@ -40,16 +49,19 @@ public abstract class  Square {
         if(Board!=null) {
                double width=sideSize/2;
                double height=width;
-               RectanglePlaced rect1= WidgetCreation.CreateRecP(0,0,width,height,color);
-               RectanglePlaced rect2=WidgetCreation.CreateRecP(width,0,width,height,color);
-               RectanglePlaced rect3=WidgetCreation.CreateRecP(0,height,width,height,color);
-               RectanglePlaced rect4=WidgetCreation.CreateRecP(width,height,width,height,color);
-               panel.getChildren().addAll(rect1,rect2,rect3,rect4);
-               LayoutNewContent.Add(Board,panel,coordy,0,0,coordx);
-               SubSquares.AddTail(rect1);
-               SubSquares.AddTail(rect2);
-               SubSquares.AddTail(rect3);
-               SubSquares.AddTail(rect4);
+               //RectanglePlaced rect1= WidgetCreation.CreateRecP(0,0,width,height,color);
+               //RectanglePlaced rect2=WidgetCreation.CreateRecP(width,0,width,height,color);
+               //RectanglePlaced rect3=WidgetCreation.CreateRecP(0,height,width,height,color);
+               //RectanglePlaced rect4=WidgetCreation.CreateRecP(width,height,width,height,color);
+               //panel.getChildren().addAll(rect1,rect2,rect3,rect4);
+               //LayoutNewContent.Add(Board,panel,coordy,0,0,coordx);
+               //SubSquares.AddTail(rect1);
+               //SubSquares.AddTail(rect2);
+               //SubSquares.AddTail(rect3);
+               //SubSquares.AddTail(rect4);
+                RectanglePlaced rectangle=WidgetCreation.CreateRecP(0,0,sideSize,sideSize,color);
+                panel.getChildren().add(rectangle);
+                LayoutNewContent.Add(Board,panel,coordy,0,0,coordx);
         }
     }
 
@@ -77,27 +89,72 @@ public abstract class  Square {
         return players;
     }
 
-    /**
-     * Create a player in the square
-     * @param node The javafx's node
-     * @param AssignedPosition The position number
-     * @param nodeWidth The node width
-     * @param nodeHeight The node height
-     */
-    public void DrawPlayer(Node node,int AssignedPosition,double nodeWidth,double nodeHeight){
+
+    public void DrawStar(double Side,String path) throws IOException {
+        Label label=new Label("",GetImages.getImageView(path));
+        label.setPrefHeight(Side);
+        label.setPrefWidth(Side);
+        label.setMaxWidth(Side);
+        label.setMaxHeight(Side);
+        label.setMinHeight(Side);
+        label.setMinWidth(Side);
+        this.Background=label;
+        this.DrawingOneNode(label,label.getPrefWidth(),label.getPrefHeight());
+
+
+
+    }
+    public void HideStar(){
+        if(Background!=null){
+            Background.setVisible(false);
+        }
+
+    }
+    public void ShowStar(){
+        if(Background!=null){
+            Background.setVisible(true);
+        }
+
+    }
+    public void DrawPlayer(Player player,double nodeWidth,double nodeHeight){
         players++;
+        if(players==1){
+            DrawingOnePlayer(player,nodeWidth,nodeHeight);
+            NodesinPanel.AddTail(player);
+        }
+        else{
+            DeleteNode(NodesinPanel.get(0).getNode());
+            DrawingTwoPlayer(NodesinPanel.get(0),player,nodeWidth,nodeHeight);
+            //Aqui habria que incluir los eventos de duelo
+        }
+
+    }
+    private void DrawingOnePlayer(Player player,double nodeWidth,double nodeHeight){
+        Node node=player.getNode();
+        double posx=(sideSize/2)-(nodeWidth/2);
+        double posy=(sideSize/2)-(nodeHeight/2);
+        LayoutNewContent.Add(panel,node,posy,0,0,posx);
+
+
+    }
+    private void DrawingTwoPlayer(Player player1,Player player2,double nodeWidth,double nodeHeight){
+        Node node1=player1.getNode();
+        Node node2= player1.getNode();
         double posx=(sideSize/4)-(nodeWidth/2);
         double posy=(sideSize/4)-(nodeHeight/2);
-        if(AssignedPosition==2)posx+=sideSize/2;
-        if(AssignedPosition==3)posy+=sideSize/2;
-        if(AssignedPosition==4){
-            posx+=sideSize/2;
-            posy+=sideSize/2;
-        }
+        LayoutNewContent.Add(panel,node1,posy,0,0,posx);
+        posx+=sideSize/2;
+        posy+=sideSize/2;
+        LayoutNewContent.Add(panel,node2,posy,0,0,posx);
+
+
+    }
+
+    private void DrawingOneNode(Node node,double nodeWidth,double nodeHeight){
+        double posx=(sideSize/2)-(nodeWidth/2);
+        double posy=(sideSize/2)-(nodeHeight/2);
         LayoutNewContent.Add(panel,node,posy,0,0,posx);
-        if(players<=1) {
-            this.DuelTime();
-        }
+
 
     }
 
@@ -115,6 +172,9 @@ public abstract class  Square {
     public void DeleteNode(Node node){
         panel.getChildren().remove(node);
     }
+    public void DeleteAllNode(){
+        //panel.getChildren().
+    }
 
     /**
      * Deletes a player
@@ -130,21 +190,19 @@ public abstract class  Square {
      * @hidden
      * @return A list with player's info
      */
-    private DoubleList<Integer> taken(){//Lacks proves
-        DoubleList<Integer> List=new DoubleList<>();
-        if(SubSquares.get(0).getPlaced())List.AddTail(0);
-        if(SubSquares.get(1).getPlaced())List.AddTail(1);
-        if(SubSquares.get(2).getPlaced())List.AddTail(2);
-        if(SubSquares.get(3).getPlaced())List.AddTail(3);
-        return List;
-    }
-
     public double getCoordx() {
         return coordx;
     }
 
     public double getCoordy() {
         return coordy;
+    }
+    public void setBackground(Node node){
+        this.Background=node;
+    }
+
+    public Node getBackground() {
+        return Background;
     }
 
     /**
