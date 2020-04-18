@@ -1,6 +1,5 @@
-
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
-
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +13,13 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
+
+import javafx.scene.input.MouseEvent;
+
+
+
+import javafx.util.Duration;
+
 
 
 public class memorygame extends Application {
@@ -99,6 +105,66 @@ public class memorygame extends Application {
             getChildren().addAll(border,text);
 
 
+        }
+        public void handleMouseClick(MouseEvent event){
+            if (isOpen() || clickCount==0)
+                return;
+            clickCount--;
+            if (selected==null){
+                selected= this;
+                open(()->{});
+
+            }
+            else {
+                open(() -> {
+                    if (!hasSameValue(selected)) {
+                        selected.close();
+                        this.close();
+                        cont=cont+1;
+                        if(cont%2==0){
+
+                    }
+                    else{
+                        if (cont%2==0){
+                            correct+=1;
+                            scorep1=scorep1+10;
+
+                            score1.setText("Score:"+ scorep1);
+                            System.out.println("player 1  "+scorep1);
+                            cont=cont+1;
+                        }
+                        else{
+                            correct+=1;
+                            scorep2=scorep2+10;
+                            score2.setText("Score:"+ scorep2);
+                            System.out.println("EStoy aqui");
+
+                            System.out.println("player 2  "+ scorep2);;
+                            cont=cont+1;
+                            System.out.println(correct);
+
+
+
+
+                        }
+
+                        if (correct==8){
+
+                            if(scorep1>scorep2){
+
+                            }
+                            else{
+
+                            }
+
+                        }
+
+                    }
+                    selected = null;
+                    clickCount=2;
+                });
+            }
+
 
         }
 
@@ -107,6 +173,27 @@ public class memorygame extends Application {
         }
 
     }
+    public  boolean isOpen(){
+        return text.getOpacity()==1;
+
+    }
+    public void open(Runnable action){
+        FadeTransition ft = new FadeTransition(Duration.seconds(0.5),text);
+        ft.setToValue(1);
+        ft.setOnFinished(e-> action.run());
+
+
+        ft.play();
+
+    }
+
+    public void close(){
+        FadeTransition ft = new FadeTransition(Duration.seconds(1.5),text);
+        ft.setToValue(0);
+        ft.play();
+    }
+
+
 
     public static void main (String[]args){
         launch(args);
