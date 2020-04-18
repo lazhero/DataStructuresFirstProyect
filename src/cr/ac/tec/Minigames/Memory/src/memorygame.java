@@ -1,15 +1,17 @@
 
 import javafx.application.Application;
 
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 
@@ -17,6 +19,7 @@ import javafx.scene.text.Font;
 public class memorygame extends Application {
     private static final int NUM_OF_PAIRS=8;
     private  static final int NUM_PER_ROW=4;
+    private Tile selected = null;
     private int clickCount = 2;
     int cont;
     int correct;
@@ -79,6 +82,32 @@ public class memorygame extends Application {
 
 
     }
+    public class Tile extends StackPane{
+
+        private Text text= new Text();
+
+        public Tile(String value){
+            Rectangle border = new Rectangle(120,120);
+            border.setFill(null);
+            border.setStroke(Color.BLACK);
+
+            text.setText(value);
+            text.setFont(Font.font(50));
+
+            setAlignment(Pos.CENTER);
+
+            getChildren().addAll(border,text);
+
+
+
+        }
+
+
+
+        }
+
+    }
+
     public static void main (String[]args){
         launch(args);
     }
