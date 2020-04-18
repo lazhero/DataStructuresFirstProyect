@@ -192,6 +192,11 @@ public class memorygame extends Application {
         ft.setToValue(0);
         ft.play();
     }
+    public boolean hasSameValue(Tile other){
+        return text.getText().equals(other.text.getText());
+    }
+
+}
 
 
 
