@@ -94,7 +94,9 @@ public class memorygame extends Application {
 
         return root;
     }
-    
+    public void changeturn(String str){
+        turn.setText(str);
+    }
 
     public class Tile extends StackPane{
 
