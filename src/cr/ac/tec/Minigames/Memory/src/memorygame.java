@@ -14,13 +14,10 @@ import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 import javafx.scene.input.MouseEvent;
 
-
-import java.security.cert.TrustAnchor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javafx.util.Duration;
-import java.util.EventObject;
 
 
 public class memorygame extends Application {
@@ -60,18 +57,12 @@ public class memorygame extends Application {
             turn.setFont(Font.font(30));
         }
 
-
-
-
         char c='A';
         List<Tile> tiles =new ArrayList<>();
         for(int i=0; i<NUM_OF_PAIRS;i++){
             tiles.add(new Tile(String.valueOf(c)));
             tiles.add(new Tile(String.valueOf(c)));
             c++;
-
-
-
         }
         Collections.shuffle(tiles);
         for (int i=0;i<tiles.size();i++){
@@ -79,7 +70,6 @@ public class memorygame extends Application {
             tile.setTranslateX(130*((i)%NUM_PER_ROW)+80);
             tile.setTranslateY(130*((i)/NUM_PER_ROW)+10);
             root.getChildren().add(tile);
-
         }
 
         Text player1t = new Text("Player 1");
@@ -92,7 +82,6 @@ public class memorygame extends Application {
         player2t.setTranslateY(580);
         player2t.setFont(Font.font(30));
 
-
         score1.setTranslateX(80);
         score1.setTranslateY(620);
         score1.setFont(Font.font(27));
@@ -101,20 +90,11 @@ public class memorygame extends Application {
         score2.setTranslateY(620);
         score2.setFont(Font.font(27));
 
-
-
-
-
         root.getChildren().addAll(player1t,player2t,score1,score2);
 
         return root;
-
-
     }
-
-
-
-
+    
 
     public class Tile extends StackPane{
 
@@ -176,23 +156,15 @@ public class memorygame extends Application {
                             System.out.println("player 2  "+ scorep2);;
                             cont=cont+1;
                             System.out.println(correct);
-
-
-
-
                         }
-
                         if (correct==8){
-
                             if(scorep1>scorep2){
                                 winner(1);
                             }
                             else{
                                 winner(2);
                             }
-
                         }
-
                     }
                     selected = null;
                     clickCount=2;
@@ -205,21 +177,20 @@ public class memorygame extends Application {
             return text.getOpacity()==1;
 
         }
-
-
-
+        public void winner(int a){
+            if (a==1){
+                victory=1;
+            }
+            if(a==2){
+                victory=2;
+            }
         }
-
         public void open(Runnable action){
             FadeTransition ft = new FadeTransition(Duration.seconds(0.5),text);
             ft.setToValue(1);
             ft.setOnFinished(e-> action.run());
-
-
             ft.play();
-
         }
-
         public void close(){
             FadeTransition ft = new FadeTransition(Duration.seconds(1.5),text);
             ft.setToValue(0);
