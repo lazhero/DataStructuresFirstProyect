@@ -28,6 +28,7 @@ public class TicTacToe extends Application {
 
     private Pane root = new Pane();
 
+
     private Parent createContent(){
         root.setPrefSize(600,600);
 
@@ -65,6 +66,9 @@ public class TicTacToe extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Checks if the game is still playable.
+     */
     private void checkState(){
         for (int i=0; i<combos.getLength();i++){
             if (combos.get(i).isComplete()){
@@ -76,6 +80,10 @@ public class TicTacToe extends Application {
 
     }
 
+    /**
+     * Draws a line across the winning combo
+     * @param combo combination of characters as "x" or "o" that makes a player win a match.
+     */
     private void playWinAnimation(Combo combo){
         Line line = new Line();
         line.setStartX(combo.tiles[0].getCenterX());
@@ -92,12 +100,19 @@ public class TicTacToe extends Application {
         timeline.play();
     }
 
+    /**
+     * Array of combinations that makes a player win a game.
+     */
     private class Combo{
         private Tile[] tiles;
         public Combo(Tile... tiles){
             this.tiles = tiles;
         }
 
+        /**
+         * Checks if a combination is complete.
+         * @return
+         */
         public boolean isComplete(){
             if (tiles[0].getValue().isEmpty())
                 return false;
@@ -114,6 +129,9 @@ public class TicTacToe extends Application {
 
         private Text text = new Text();
 
+        /**
+         * Creates each square(tile) with a blank text in which a player can draw an "x" or "o".
+         */
         public Tile(){
             Rectangle border = new Rectangle(200,200);
             border.setFill(null);
