@@ -78,6 +78,18 @@ public class PRSController {
     public void duelAction(){
 
         if(hand1!=null && hand2!=null){
+            EventHandler<ActionEvent> PauseAction=(event) -> {
+                ImageRight.setImage(null);
+                ImageLeft.setImage(null);
+                ScreenColorChanger.turnoffBtn1();
+                ScreenColorChanger.turnoffBtn2();
+                hand1=null;
+                hand2=null;
+                ScreenColorChanger.setBtn1(null);
+                ScreenColorChanger.setBtn2(null);
+            };
+            PauseTransition pause = new PauseTransition(Duration.seconds(1));
+            pause.setOnFinished(PauseAction);
             ScreenColorChanger.illuminateBtn1();
             ScreenColorChanger.illuminateBtn2();
             int state =HandsDuel.winner(hand1,hand2);
@@ -85,10 +97,12 @@ public class PRSController {
                 ImageRight.setImage(winner);
                 ImageLeft.setImage(loser);
                 //falta accion al ganar
+                pause.play();
             }
             else if(state==2){
                 ImageRight.setImage(loser);
                 ImageLeft.setImage(winner);
+                pause.play();
                 //falta accion al ganar
             }
             else{
@@ -97,21 +111,8 @@ public class PRSController {
                 ImageRight.setImage(tie);
                 ImageLeft.setImage(tie);
                 System.out.println("Hola");
-                PauseTransition pause = new PauseTransition(Duration.seconds(1));
-                pause.setOnFinished(event ->{
-                            ImageRight.setImage(null);
-                            ImageLeft.setImage(null);
-                            ScreenColorChanger.turnoffBtn1();
-                            ScreenColorChanger.turnoffBtn2();
-                            hand1=null;
-                            hand2=null;
-                            ScreenColorChanger.setBtn1(null);
-                            ScreenColorChanger.setBtn2(null);
-
-                        }
-
-
-                );
+                //PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                //pause.setOnFinished(PauseAction);
                 pause.play();
 
 
