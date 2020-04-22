@@ -1,53 +1,67 @@
 package cr.ac.tec.Minigames.RandomNumber;
 
 
-import java.util.Scanner;
+import static cr.ac.tec.Minigames.RandomNumber.Interface.text;
+import static cr.ac.tec.Minigames.RandomNumber.Main.game;
+
 
 public class RandomNumberGame {
-    private static boolean playable = true;
-    private static boolean player1Turn = true;
-    private static double randomNumber;
-    private static double numberPlayer1;
+    public static boolean playable = true;
+    public static boolean player1Turn = true;
+    public static double randomNumber;
+    public static double numberPlayer1;
     public static double numberPlayer2;
 
     public static void main(String[] args){
         generateRand(0,5);
-        inputNumber();
+        System.out.println(randomNumber);
     }
 
-    public static void inputNumber(){
-        Scanner in = new Scanner(System.in);
-        System.out.println(randomNumber);
-        System.out.println("Player 1, enter your number");
-        numberPlayer1 = in.nextDouble();
-        System.out.println("Player 2, enter your number");
-        numberPlayer2 = in.nextDouble();
-        verifyIfPlayable();
+
+    public static void restart(){
+        playable = true;
+        player1Turn = true;
+        game();
+    }
+
+    public static void checkDraw(){
+        if (numberPlayer1 == numberPlayer2){
+            text.setText("Both players guessed\nthe same number, try again!");
+        } else {
+            verifyIfPlayable();
+        }
     }
 
 
     public static void verifyIfPlayable(){
-        if (player1Turn && playable){
-            if (numberPlayer1 == randomNumber){
-                playable = false;
-                System.out.println("Player 1 won!\nThe random number was " + randomNumber + "!");
-                return;
+        if (playable) {
+            if (player1Turn) {
+                if (numberPlayer1 == randomNumber) {
+                    playable = false;
+                    Interface.text.setTranslateX(22);
+                    Interface.text.setText("            Player 1 won!\nThe random number was " + randomNumber + "!");
+                    return;
+                }
+                player1Turn = false;
             }
-        }
-        if (!player1Turn && playable){
-            if (numberPlayer2 == randomNumber){
-                playable = false;
-                System.out.println("Player 2 won!\nThe random number was " + randomNumber + "!");
-                return;
+            if (!player1Turn) {
+                if (numberPlayer2 == randomNumber) {
+                    playable = false;
+                    Interface.text.setTranslateX(22);
+                    Interface.text.setText("            Player 2 won!\nThe random number was " + randomNumber + "!");
+                    return;
+                } else{
+                    player1Turn = true;
+                    game();
+                }
             }
-        } else {
-            inputNumber();
+        } else{
+            return;
         }
     }
 
 
     public static void generateRand(double min, double max){
-        double x = (int)(Math.random()*((max-min)+1))+min;
-        randomNumber=x;
+        randomNumber= (int)(Math.random()*((max-min)+1))+min;
     }
 }
