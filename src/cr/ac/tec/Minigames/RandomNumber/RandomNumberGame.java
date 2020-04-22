@@ -18,12 +18,18 @@ public class RandomNumberGame {
     }
 
 
+    /**
+     * Restarts the mini game from square one
+     */
     public static void restart(){
         playable = true;
         player1Turn = true;
         game();
     }
 
+    /**
+     * Checks if a draw happened between two players, if that's not the case it verify's if the game is still playable.
+     */
     public static void checkDraw(){
         if (numberPlayer1 == numberPlayer2){
             text.setText("Both players guessed\nthe same number, try again!");
@@ -33,6 +39,9 @@ public class RandomNumberGame {
     }
 
 
+    /**
+     * Checks if a player guessed correctly the number, if that's not the case it restarts the game.
+     */
     public static void verifyIfPlayable(){
         if (playable) {
             if (player1Turn) {
@@ -61,6 +70,11 @@ public class RandomNumberGame {
     }
 
 
+    /**
+     * Generates a random number.
+     * @param min smallest number you wish to guess.
+     * @param max highest number you wish to guess.
+     */
     public static void generateRand(double min, double max){
         randomNumber= (int)(Math.random()*((max-min)+1))+min;
     }
