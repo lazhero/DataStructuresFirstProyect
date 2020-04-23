@@ -6,6 +6,10 @@ public class Dice {
     public static void main(String[] args){
     }
 
+    private static void rollDice(){
+        randomNumber();
+    }
+
     private static void randomNumber(){
         diceNumber= (int)(Math.random()*((6-1)+1))+1;
         System.out.println(diceNumber);

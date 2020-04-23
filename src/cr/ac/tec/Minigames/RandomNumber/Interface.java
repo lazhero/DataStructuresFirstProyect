@@ -43,6 +43,7 @@ public class Interface extends Application {
 
 
 
+
         root.getChildren().addAll(inputNumber,button,text,restartButton);
         return root;
     }
