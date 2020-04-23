@@ -9,14 +9,19 @@ import static cr.ac.tec.Minigames.RandomNumber.RandomNumberGame.*;
 
 public class Main extends Application {
 
+    /**
+     * Collects each number input by a player.
+     */
     public static void game(){
         if (playable){
             if (player1Turn) {
                 text.setText("Player 1, enter\n your number");
+                text.setTranslateX(85);
+                text.setTranslateY(100);
                 button.setOnMouseClicked(e -> {
                     numberPlayer1 = Double.parseDouble(getNumber());
                     player1Turn = false;
-                    game();
+                    game(); //We call game() again but this time player1Turn is false, this way it enters the second if.
                 });
             }
             if (!player1Turn){
@@ -24,8 +29,7 @@ public class Main extends Application {
                 button.setOnMouseClicked(e ->{
                     numberPlayer2 = Double.parseDouble(getNumber());
                     player1Turn = true;
-                    checkDraw();
-                    //verifyIfPlayable();
+                    checkDraw(); //Once we finish the second if it checks if the game has a draw.
                 });
             }
         }
@@ -40,7 +44,7 @@ public class Main extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage){
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();
     }

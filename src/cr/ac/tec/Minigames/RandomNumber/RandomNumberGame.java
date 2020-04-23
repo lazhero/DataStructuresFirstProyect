@@ -4,7 +4,11 @@ package cr.ac.tec.Minigames.RandomNumber;
 import static cr.ac.tec.Minigames.RandomNumber.Interface.text;
 import static cr.ac.tec.Minigames.RandomNumber.Main.game;
 
-
+/**
+ * A guessing game in which two players try to guess a random number, the first one to guess the number wins.
+ *
+ * @author migue
+ */
 public class RandomNumberGame {
     public static boolean playable = true;
     public static boolean player1Turn = true;
@@ -22,6 +26,8 @@ public class RandomNumberGame {
      * Restarts the mini game from square one
      */
     public static void restart(){
+        generateRand(0,5);
+        System.out.println(randomNumber);
         playable = true;
         player1Turn = true;
         game();
@@ -31,8 +37,9 @@ public class RandomNumberGame {
      * Checks if a draw happened between two players, if that's not the case it verify's if the game is still playable.
      */
     public static void checkDraw(){
-        if (numberPlayer1 == numberPlayer2){
-            text.setText("Both players guessed\nthe same number, try again!");
+        if (numberPlayer1 == numberPlayer2 && numberPlayer1 == randomNumber){
+            text.setText("      Both players guessed\nthe same number, try again!");
+            text.setTranslateX(22);
         } else {
             verifyIfPlayable();
         }

@@ -17,9 +17,13 @@ public class Interface extends Application {
     public static Pane root = new Pane();
     static TextField inputNumber;
     static Button button = new Button("Go!");
-    static Button restartButton = new Button("Restart");
+    static Button restartButton = new Button("Try again!");
     public static Text text = new Text();
 
+    /**
+     * Creates the interface which the player interacts with.
+     * @return root
+     */
     public static Parent createContent(){
         root.setPrefSize(300,300);
 
@@ -35,16 +39,18 @@ public class Interface extends Application {
         restartButton.setTranslateY(10);
         restartButton.setOnMouseClicked(e -> restart());
 
-        //text.setText("");
         text.setFont(Font.font(20));
-        text.setTranslateX(85);
-        text.setTranslateY(100);
+
 
 
         root.getChildren().addAll(inputNumber,button,text,restartButton);
         return root;
     }
 
+    /**
+     * Getter that returns the number input in the text field.
+     * @return Number input in the text field.
+     */
     public static String getNumber(){
         return inputNumber.getText();
     }
