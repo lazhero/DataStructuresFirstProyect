@@ -14,4 +14,13 @@ public class GetImages {
        return imageView;
 
     }
+    public static Image getImage(String path){
+        try {
+            FileInputStream input = new FileInputStream(path);
+            Image image = new Image(input);
+            return image;
+        }
+        catch (Exception e){return null;}
+
+    }
 }
