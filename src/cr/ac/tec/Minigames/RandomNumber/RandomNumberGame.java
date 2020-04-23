@@ -71,8 +71,6 @@ public class RandomNumberGame {
                     game();
                 }
             }
-        } else{
-            return;
         }
     }
 

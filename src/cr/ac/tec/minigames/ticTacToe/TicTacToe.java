@@ -19,7 +19,11 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-
+/**
+ * Tic tac toe game.
+ *
+ * @author migue
+ */
 public class TicTacToe extends Application {
     private boolean playable = true;
     private boolean turnX = true;
@@ -29,6 +33,10 @@ public class TicTacToe extends Application {
     private Pane root = new Pane();
 
 
+    /**
+     * Creates the interface which the player interacts with.
+     * @return root
+     */
     private Parent createContent(){
         root.setPrefSize(600,600);
 
