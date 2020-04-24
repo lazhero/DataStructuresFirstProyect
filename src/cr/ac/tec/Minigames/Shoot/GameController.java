@@ -14,8 +14,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -45,8 +48,17 @@ public class GameController {
     private boolean pressed=false;
     private boolean ReadytoShoot=true;
     private IntHolder turns;
+    private MediaPlayer mediaPlayer;
 
     public void start(){
+        try{
+            mediaPlayer.stop();
+        }
+        catch (Exception e){}
+        String path="src/Music/DarkCity.mp3";
+        Media media = new Media(new File(path).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
         MyLabel.setVisible(true);
         signal=true;
         pressed=false;
