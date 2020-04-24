@@ -2,35 +2,26 @@ package cr.ac.tec.Dice;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
+public class Animation {
 
-public class Animation extends Application {
+    public static Group dice;
 
-    Image Dice0 = new Image("Images/Dice/Dice0.png");
-    Image Dice1 = new Image("Images/Dice/Dice1.png");
-    Image Dice2 = new Image("Images/Dice/Dice2.png");
-    Image Dice3 = new Image("Images/Dice/Dice3.png");
-    Image Dice4 = new Image("Images/Dice/Dice4.png");
-    Image Dice5 = new Image("Images/Dice/Dice5.png");
-    Image Dice6 = new Image("Images/Dice/Dice6.png");
+    public Animation(){
+        Image Dice0 = new Image("Images/Dice/Dice0.png");
+        Image Dice1 = new Image("Images/Dice/Dice1.png");
+        Image Dice2 = new Image("Images/Dice/Dice2.png");
+        Image Dice3 = new Image("Images/Dice/Dice3.png");
+        Image Dice4 = new Image("Images/Dice/Dice4.png");
+        Image Dice5 = new Image("Images/Dice/Dice5.png");
+        Image Dice6 = new Image("Images/Dice/Dice6.png");
 
-
-    public static void main(String[] args){
-        launch(args);
-    }
-
-    private Group dice;
-
-    @Override
-    public void start(Stage primaryStage){
+        //Group dice;
 
         final ImageView Dice0iv = new ImageView(Dice0);
         final ImageView Dice1iv = new ImageView(Dice1);
@@ -89,7 +80,6 @@ public class Animation extends Application {
         ));
         t.play();
 
-        primaryStage.setScene(new Scene(dice,169,169));
-        primaryStage.show();
     }
+
 }

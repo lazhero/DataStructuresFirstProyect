@@ -3,11 +3,9 @@ package cr.ac.tec.Dice;
 public class Dice {
     private static double diceNumber;
 
-    public static void main(String[] args){
-    }
-
-    private static void rollDice(){
+    static void rollDice(){
         randomNumber();
+        Animation xd = new Animation();
     }
 
     private static void randomNumber(){
