@@ -11,27 +11,41 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Random;
 
 
 public class pressfirst extends Application {
 
-    private int scorep1=0;
-    private int scorep2=0;
+
+
+
+    Random Aleatorio = new Random();
+    int n = (Aleatorio.nextInt(4)+2)*4;
+
+    private int scorep1=n;
+    private int scorep2=n;
     private Text score1 = new Text("Score: " + scorep1);
     private Text score2 = new Text("Score:" + scorep2);
     private Text winnerp= new Text("");
     int cont1;
     int cont2;
     int victory;
+
+
+
+
+
     private Text p1 = new Text();
     private Text p2 = new Text();
     private Text random = new Text();
+
+
     public Parent createContent(){
 
         Pane root = new Pane();
 
 
-
+        System.out.println(n);
         root.setPrefSize(700,700);
         Image img = new Image("/imagenes/fondo.jpg");
         ImageView fondo = new ImageView(img);
@@ -64,7 +78,7 @@ public class pressfirst extends Application {
         p2.setFont(Font.font(25));
         p2.setFill(Color.WHITE);
 
-        random.setText("Deben presionar su respectiva tecla hasta llegar a 0: \n el primero gana GO! \n "+0);
+        random.setText("Deben presionar su respectiva tecla hasta llegar a 0: \n el primero gana GO! \n "+n);
         random.setTranslateY(30);
         random.setTranslateX(50);
         random.setFont(Font.font(25));
