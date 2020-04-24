@@ -90,6 +90,14 @@ public class pressfirst extends Application {
         root.getChildren().addAll(fondo,score1,score2,p1,p2,random,winnerp);
         return root;
     }
+    public void winner(int a,int b) {
+        if (a == 0 && b > 0) {
+            winnerp.setText("Player 1 win");
+        } else if (b == 0 && a > 0) {
+            winnerp.setText("Player 2 win");
+
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -97,13 +105,43 @@ public class pressfirst extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-        
+
         String path = "src/musicf.mp3";
         Media audio = new Media(new File(path).toURI().toString());
         MediaPlayer repro = new MediaPlayer(audio);
         repro.setAutoPlay(true);
 
         Scene scene = new Scene(createContent());
+        scene.setOnKeyPressed(event->{
+            switch (event.getCode()){
+                case A: break;
+                case L: break;
+            }
+        });
+        scene.setOnKeyReleased(event-> {
+            switch (event.getCode()){
+                case A:
+                    scorep1-=1;
+
+                    score1.setText("Score: "+scorep1 );
+                    winner(scorep1,scorep2);
+
+                    if(scorep1<0){
+                        score1.setText("Score: "+0);
+                    }
+                    break;
+                case L:
+                    scorep2-=1;
+                    score2.setText("Score: "+ scorep2);
+
+                    winner(scorep1,scorep2);
+                    if(scorep2<0){
+                        score2.setText("Score: "+0);
+                    }
+                    break;
+            }
+
+        });
         primaryStage.setTitle("Press First");
         primaryStage.setScene(scene);
         primaryStage.show();
