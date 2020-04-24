@@ -1,30 +1,22 @@
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
 import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
+import javafx.scene.text.Text;
+import javafx.scene.text.Font;
+import javafx.scene.media.MediaPlayer;
 import java.io.File;
 import java.util.Random;
 
-
 public class pressfirst extends Application {
-
-
-
 
     Random Aleatorio = new Random();
     int n = (Aleatorio.nextInt(4)+2)*4;
-
     private int scorep1=n;
     private int scorep2=n;
     private Text score1 = new Text("Score: " + scorep1);
@@ -33,26 +25,16 @@ public class pressfirst extends Application {
     int cont1;
     int cont2;
     int victory;
-
-
-
-
-
     private Text p1 = new Text();
     private Text p2 = new Text();
     private Text random = new Text();
 
-
     public Parent createContent(){
-
         Pane root = new Pane();
 
-
-        System.out.println(n);
         root.setPrefSize(700,700);
         Image img = new Image("/imagenes/fondo.jpg");
         ImageView fondo = new ImageView(img);
-
 
         score1.setTranslateY(600);
         score1.setTranslateX(120);
@@ -90,27 +72,23 @@ public class pressfirst extends Application {
         root.getChildren().addAll(fondo,score1,score2,p1,p2,random,winnerp);
         return root;
     }
-    public void winner(int a,int b) {
-        if (a == 0 && b > 0) {
+    public void winner(int a,int b){
+        if (a==0 && b>0){
             winnerp.setText("Player 1 win");
-        } else if (b == 0 && a > 0) {
+        }
+        else if(b==0 && a>0){
             winnerp.setText("Player 2 win");
-
         }
     }
-
     public static void main(String[] args) {
-
         launch(args);
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         String path = "src/musicf.mp3";
         Media audio = new Media(new File(path).toURI().toString());
         MediaPlayer repro = new MediaPlayer(audio);
         repro.setAutoPlay(true);
-
         Scene scene = new Scene(createContent());
         scene.setOnKeyPressed(event->{
             switch (event.getCode()){
@@ -122,10 +100,8 @@ public class pressfirst extends Application {
             switch (event.getCode()){
                 case A:
                     scorep1-=1;
-
                     score1.setText("Score: "+scorep1 );
                     winner(scorep1,scorep2);
-
                     if(scorep1<0){
                         score1.setText("Score: "+0);
                     }
@@ -133,20 +109,15 @@ public class pressfirst extends Application {
                 case L:
                     scorep2-=1;
                     score2.setText("Score: "+ scorep2);
-
                     winner(scorep1,scorep2);
                     if(scorep2<0){
                         score2.setText("Score: "+0);
                     }
                     break;
             }
-
         });
         primaryStage.setTitle("Press First");
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
-
-
 }
