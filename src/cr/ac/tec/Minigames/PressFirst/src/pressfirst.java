@@ -6,11 +6,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.Random;
 
 
@@ -94,7 +97,11 @@ public class pressfirst extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        
+        String path = "src/musicf.mp3";
+        Media audio = new Media(new File(path).toURI().toString());
+        MediaPlayer repro = new MediaPlayer(audio);
+        repro.setAutoPlay(true);
 
         Scene scene = new Scene(createContent());
         primaryStage.setTitle("Press First");
