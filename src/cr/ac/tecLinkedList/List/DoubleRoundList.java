@@ -58,6 +58,28 @@ public class DoubleRoundList<T> implements List<T> {
         length++;
 
     }
+    public void AddMid(T NewInfo,int pos){
+        if(pos==0){
+            AddHead(NewInfo);
+        }
+        else if(pos==length){
+            AddTail(NewInfo);
+        }
+        else if(pos>0 && pos<length){
+            DoubleNode<T> temp=head;
+            pos--;
+            while(pos>0){
+                temp=temp.getFront();
+            }
+            DoubleNode<T> NewNode=new DoubleNode<>(NewInfo,null,null);
+            NewNode.setBack(temp);
+            NewNode.setFront(temp.getFront());
+            temp.getFront().setBack(NewNode);
+            temp.setFront(NewNode);
+
+        }
+
+    }
 
     /**
      * Delete the node in the first position
@@ -185,6 +207,19 @@ public class DoubleRoundList<T> implements List<T> {
         }
         return null;
     }
+    public DoubleNode<T> getNode(int position){
+        if(position>-1 && position<length){
+            if(position==0)return head;
+            if(position==length-1)return tail;
+            DoubleNode<T> temp=head.getFront();
+            for(int i=1;i!=position;i++){
+                temp=temp.getFront();
+            }
+            return temp;
+
+        }
+        return null;
+    }
 
     /**
      * Deletes a node into an specified position
@@ -230,6 +265,27 @@ public class DoubleRoundList<T> implements List<T> {
      */
     public int getLength(){
         return length;
+    }
+    public DoubleList<T> Switch(DoubleList<T> List,int Init,int Finish,boolean condition){
+        if(List.getLength()>0 && Init>0 && Init<length-1 && Finish>0 && Finish<length-1 && Finish>Init ) {
+            DoubleNode<T> nodeinit = getNode(Init);
+            DoubleNode<T> nodeFini = getNode(Finish);
+            DoubleList<T> temp=new DoubleList<>();
+            for(int i=Init+1;i<Finish;i++ ){
+                temp.AddTail(this.get(i));
+            }
+            List.getNode(0).setBack(nodeinit);
+            List.getNode(List.getLength()-1).setFront(nodeFini);
+            nodeinit.setFront(List.getNode(0));
+            if(condition){
+                nodeFini.setBack(List.getNode(List.getLength() - 1));
+            }
+            length=length-(Finish-Init-1)+List.getLength();
+            return temp;
+
+        }
+        return null;
+
     }
 
 }

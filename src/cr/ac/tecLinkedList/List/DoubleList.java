@@ -7,7 +7,7 @@ import java.time.temporal.Temporal;
 
 public class DoubleList<T> implements List<T> {
     private DoubleNode<T> head,tail;//The first and last node
-    int length;// List length
+    private int length;// List length
 
     /**
      * Creates an empty list, without any node
@@ -34,6 +34,19 @@ public class DoubleList<T> implements List<T> {
        length++;
 
     }
+    void AddHeadNode(DoubleNode<T> NewInfo){
+        DoubleNode<T> temp=NewInfo;
+        if(head==null){
+            head=tail=temp;
+        }
+        else {
+            head.setBack(temp);
+            temp.setFront(head);
+            head = temp;
+        }
+        length++;
+
+    }
 
     /**
      * Adds a node in the las position
@@ -41,6 +54,19 @@ public class DoubleList<T> implements List<T> {
      */
     public void AddTail(T Newinfo){
         DoubleNode<T> temp=new DoubleNode<T>(Newinfo);
+        if(head==null){
+            head=tail=temp;
+        }
+        else {
+            tail.setFront(temp);
+            temp.setBack(tail);
+            tail=temp;
+        }
+        length++;
+
+    }
+     void AddTailNode(DoubleNode<T> Newinfo){
+        DoubleNode<T> temp=Newinfo;
         if(head==null){
             head=tail=temp;
         }
@@ -190,6 +216,19 @@ public class DoubleList<T> implements List<T> {
                 temp=temp.getFront();
             }
             return temp.getInfo();
+
+        }
+        return null;
+    }
+    DoubleNode<T> getNode(int position){
+        if(position>-1 && position<length){
+            if(position==0)return head;
+            if(position==length-1)return tail;
+            DoubleNode<T> temp=head.getFront();
+            for(int i=1;i!=position;i++){
+                temp=temp.getFront();
+            }
+            return temp;
 
         }
         return null;
