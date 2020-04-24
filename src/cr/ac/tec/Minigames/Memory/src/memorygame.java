@@ -1,3 +1,4 @@
+
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -144,19 +145,18 @@ public class memorygame extends Application {
                         if (cont%2==0){
                             correct+=1;
                             scorep1=scorep1+10;
-                            changeturn("Player 2 turn");
+
                             score1.setText("Score:"+ scorep1);
                             System.out.println("player 1  "+scorep1);
-                            cont=cont+1;
+                            cont=cont+2;
                         }
                         else{
                             correct+=1;
                             scorep2=scorep2+10;
                             score2.setText("Score:"+ scorep2);
-                            System.out.println("EStoy aqui");
-                            changeturn("Player 1 turn");
+
                             System.out.println("player 2  "+ scorep2);;
-                            cont=cont+1;
+                            cont=cont+2;
                             System.out.println(correct);
                         }
                         if (correct==8){
