@@ -9,6 +9,7 @@ public interface List<T> {
     public abstract T DeleteFromTail();
     public abstract boolean isEmpty();
     public abstract boolean inList(T info);
+    public abstract void ChangeContent(int position,T content);
 
     public abstract T get(int position);
     public abstract void delete(int position);

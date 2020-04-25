@@ -234,6 +234,14 @@ public class DoubleList<T> implements List<T> {
         return null;
     }
 
+    @Override
+    public void ChangeContent(int position, T content) {
+        if(position>=0 && position<length){
+            DoubleNode<T> temp=getNode(position);
+            temp.setInfo(content);
+        }
+    }
+
     /**
      * prints every node
      */

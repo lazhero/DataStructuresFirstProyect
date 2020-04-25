@@ -164,6 +164,18 @@ public class SingleList<T> implements List<T>{
         }
         else return null;
     }
+    private SingleListNode<T> getNode(int position){
+        if(position>-1 && position<length){
+            if(position==0)return head;
+            if(position==length-1)return tail;
+            SingleListNode<T> temp=head.getNextnode();
+            for(int i=1;i!=position;i++){
+                temp=temp.getNextnode();
+            }
+            return temp;
+        }
+        else return null;
+    }
 
     /**
      * Erase a node in the specified position
@@ -181,6 +193,14 @@ public class SingleList<T> implements List<T>{
                 temp.setNextnode(temp.getNextnode().getNextnode());
             }
             length--;
+        }
+    }
+
+    @Override
+    public void ChangeContent(int position, T content) {
+        if(position>=0 && position<length) {
+            SingleListNode<T> Temp = getNode(position);
+            Temp.setInfo(content);
         }
     }
 
