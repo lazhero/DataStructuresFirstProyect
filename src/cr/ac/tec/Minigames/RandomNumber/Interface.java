@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import static cr.ac.tec.Minigames.RandomNumber.RandomNumberGame.restart;
 
-public class Interface extends Application {
+public class Interface{
 
     public static Pane root = new Pane();
     static TextField inputNumber;
@@ -67,15 +67,5 @@ public class Interface extends Application {
         return temp;
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(new Scene(createContent()));
-        primaryStage.show();
 
-    }
-
-    public static void main(String[] args){
-        launch(args);
-
-    }
 }

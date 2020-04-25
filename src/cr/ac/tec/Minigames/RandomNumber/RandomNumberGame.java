@@ -16,12 +16,6 @@ public class RandomNumberGame {
     public static double numberPlayer1;
     public static double numberPlayer2;
 
-    public static void main(String[] args){
-        generateRand(0,5);
-        System.out.println(randomNumber);
-    }
-
-
     /**
      * Restarts the mini game from square one
      */

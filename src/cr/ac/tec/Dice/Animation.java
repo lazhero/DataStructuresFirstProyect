@@ -11,6 +11,7 @@ import javafx.util.Duration;
 public class Animation {
 
     public static Group dice;
+    public static Timeline t = new Timeline();
 
     public Animation(){
         Image Dice0 = new Image("Images/Dice/Dice0.png");
@@ -21,7 +22,6 @@ public class Animation {
         Image Dice5 = new Image("Images/Dice/Dice5.png");
         Image Dice6 = new Image("Images/Dice/Dice6.png");
 
-        //Group dice;
 
         final ImageView Dice0iv = new ImageView(Dice0);
         final ImageView Dice1iv = new ImageView(Dice1);
@@ -33,7 +33,7 @@ public class Animation {
 
         dice = new Group(Dice0iv);
 
-        Timeline t = new Timeline();
+        //Timeline t = new Timeline();
         t.setCycleCount(Timeline.INDEFINITE);
 
         t.getKeyFrames().add(new KeyFrame(
@@ -78,8 +78,16 @@ public class Animation {
                     dice.getChildren().setAll(Dice6iv);
                 }
         ));
-        t.play();
 
+
+    }
+
+    public static void playAnimation(){
+        t.play();
+    }
+
+    public static void stopAnimation(){
+        t.stop();
     }
 
 }
