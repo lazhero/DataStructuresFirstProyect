@@ -9,8 +9,10 @@ public class Dice {
     private static double diceNumber;
 
 
+
+
     static void rollDice(){
-        Animation xd = new Animation();
+        Animation newAnimation = new Animation();
         Animation.playAnimation();
         randomNumber();
         if (diceNumber==1){
