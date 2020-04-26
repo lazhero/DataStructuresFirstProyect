@@ -12,6 +12,7 @@ public class Main extends Application {
     /**
      * Collects each number input by a player.
      */
+
     public static void game(){
         if (playable){
             if (player1Turn) {
@@ -35,12 +36,16 @@ public class Main extends Application {
         }
     }
 
+
+
+
     public static void main(String[] args){
         generateRand(0,5);
         System.out.println(randomNumber);
         game();
         launch(args);
     }
+
 
 
     @Override

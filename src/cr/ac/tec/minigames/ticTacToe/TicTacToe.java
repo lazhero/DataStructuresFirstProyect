@@ -4,10 +4,9 @@ import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -15,30 +14,43 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+
+
 
 /**
  * Tic tac toe game.
  *
  * @author migue
  */
-public class TicTacToe extends Application {
-    private boolean playable = true;
-    private boolean turnX = true;
-    private Tile[][] board = new Tile[3][3];
-    private DoubleList<Combo> combos = new DoubleList<>();
+public class TicTacToe{
+    public static Button button = new Button("Try again!");
+    public static boolean playable = true;
+    public static boolean turnX = true;
+    public static Tile[][] board = new Tile[3][3];
+    public static DoubleList<Combo> combos = new DoubleList<>();
+    public static Pane root = new Pane();
 
-    private Pane root = new Pane();
+
+    public static void restart(){
+
+    }
 
 
     /**
      * Creates the interface which the player interacts with.
      * @return root
      */
-    private Parent createContent(){
-        root.setPrefSize(600,600);
+    public static Parent createContent(){
+        button.setPrefSize(100,20);
+        button.setFont(Font.font(16));
+        button.setTranslateX(250);
+        button.setTranslateY(604);
+        //button.setOnMouseClicked(e -> createContent());
+
+        root.getChildren().add(button);
+        root.setPrefSize(600,643);
 
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
@@ -68,16 +80,12 @@ public class TicTacToe extends Application {
         return root;
     }
 
-    @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setScene(new Scene(createContent()));
-        primaryStage.show();
-    }
+
 
     /**
      * Checks if the game is still playable.
      */
-    private void checkState(){
+    private static void checkState(){
         for (int i=0; i<combos.getLength();i++){
             if (combos.get(i).isComplete()){
                 playable = false;
@@ -92,7 +100,7 @@ public class TicTacToe extends Application {
      * Draws a line across the winning combo
      * @param combo combination of characters as "x" or "o" that makes a player win a match.
      */
-    private void playWinAnimation(Combo combo){
+    private static void playWinAnimation(Combo combo){
         Line line = new Line();
         line.setStartX(combo.tiles[0].getCenterX());
         line.setStartY(combo.tiles[0].getCenterY());
@@ -111,7 +119,7 @@ public class TicTacToe extends Application {
     /**
      * Array of combinations that makes a player win a game.
      */
-    private class Combo{
+    private static class Combo{
         private Tile[] tiles;
         public Combo(Tile... tiles){
             this.tiles = tiles;
@@ -133,8 +141,9 @@ public class TicTacToe extends Application {
 
 
 
-    private class Tile extends StackPane {
+    private static class Tile extends StackPane {
 
+        boolean editable = true;
         private Text text = new Text();
 
         /**
@@ -154,16 +163,18 @@ public class TicTacToe extends Application {
                 if (!playable)
                     return;
 
-                if (event.getButton()== MouseButton.PRIMARY){
+                if (event.getButton()== MouseButton.PRIMARY && editable){
                     if (!turnX)
                         return;
+                    editable = false;
                     drawX();
                     turnX = false;
                     checkState();
                 }
-                else if (event.getButton() == MouseButton.SECONDARY){
+                else if (event.getButton() == MouseButton.SECONDARY && editable){
                     if (turnX)
                         return;
+                    editable = false;
                     drawO();
                     turnX = true;
                     checkState();
@@ -192,7 +203,4 @@ public class TicTacToe extends Application {
         }
     }
 
-    public static void main(String[] args){
-        launch(args);
-    }
 }

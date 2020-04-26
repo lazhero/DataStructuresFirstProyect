@@ -1,7 +1,7 @@
 package cr.ac.tec.Minigames.RandomNumber;
 
 
-import static cr.ac.tec.Minigames.RandomNumber.Interface.text;
+import static cr.ac.tec.Minigames.RandomNumber.Interface.*;
 import static cr.ac.tec.Minigames.RandomNumber.Main.game;
 
 /**
@@ -15,6 +15,7 @@ public class RandomNumberGame {
     public static double randomNumber;
     public static double numberPlayer1;
     public static double numberPlayer2;
+
 
     /**
      * Restarts the mini game from square one
