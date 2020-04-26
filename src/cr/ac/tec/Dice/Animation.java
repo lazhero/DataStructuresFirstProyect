@@ -13,7 +13,26 @@ public class Animation {
     public static Group dice;
     public static Timeline t = new Timeline();
 
+    public static Image Dice0 = new Image("Images/Dice/Dice0.png");
+    public static Image Dice1 = new Image("Images/Dice/Dice1.png");
+    public static Image Dice2 = new Image("Images/Dice/Dice2.png");
+    public static Image Dice3 = new Image("Images/Dice/Dice3.png");
+    public static Image Dice4 = new Image("Images/Dice/Dice4.png");
+    public static Image Dice5 = new Image("Images/Dice/Dice5.png");
+    public static Image Dice6 = new Image("Images/Dice/Dice6.png");
+
+
+    public static ImageView Dice0iv = new ImageView(Dice0);
+    public static ImageView Dice1iv = new ImageView(Dice1);
+    public static ImageView Dice2iv = new ImageView(Dice2);
+    public static ImageView Dice3iv = new ImageView(Dice3);
+    public static ImageView Dice4iv = new ImageView(Dice4);
+    public static ImageView Dice5iv = new ImageView(Dice5);
+    public static ImageView Dice6iv = new ImageView(Dice6);
+
+
     public Animation(){
+        /*
         Image Dice0 = new Image("Images/Dice/Dice0.png");
         Image Dice1 = new Image("Images/Dice/Dice1.png");
         Image Dice2 = new Image("Images/Dice/Dice2.png");
@@ -31,16 +50,21 @@ public class Animation {
         final ImageView Dice5iv = new ImageView(Dice5);
         final ImageView Dice6iv = new ImageView(Dice6);
 
+         */
+
         dice = new Group(Dice0iv);
 
-        //Timeline t = new Timeline();
-        t.setCycleCount(Timeline.INDEFINITE);
+        //t.setCycleCount(Timeline.INDEFINITE);
+        t.setCycleCount(1);
+
+
 
         t.getKeyFrames().add(new KeyFrame(
                 Duration.millis(600),
                 (ActionEvent event)-> {
                     dice.getChildren().setAll(Dice1iv);
                 }
+
         ));
         t.getKeyFrames().add(new KeyFrame(
                 Duration.millis(1200),
@@ -78,9 +102,16 @@ public class Animation {
                     dice.getChildren().setAll(Dice6iv);
                 }
         ));
+        t.getKeyFrames().add(new KeyFrame(
+                Duration.millis(4800),
+                (ActionEvent event)-> {
+                    dice.getChildren().setAll(Dice6iv);
+                }
+        ));
 
 
     }
+
 
     public static void playAnimation(){
         t.play();

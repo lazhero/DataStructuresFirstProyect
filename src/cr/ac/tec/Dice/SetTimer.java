@@ -13,10 +13,10 @@ public class SetTimer {
 
             @Override
             public void run() {
-                Animation.stopAnimation();
                 System.out.println("timer stopped");
             }
         }, time);
+
     }
 
 }
