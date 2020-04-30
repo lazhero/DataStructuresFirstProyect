@@ -184,7 +184,7 @@ public class SingleList<T> implements List<T>{
     public void delete(int position){
         if(position>-1 && position<length){
             if(position==0)this.DeleteFromHead();
-            if(position==length-1)this.DeleteFromTail();
+            else if(position==length-1)this.DeleteFromTail();
             else{
                 SingleListNode<T> temp=head;
                 for(int i=0;i!=position-1;i++){
