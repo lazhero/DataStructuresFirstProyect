@@ -1,2 +1,2 @@
 # DataStructuresFirstProyect
-A board game, Monopoly like
+A board game similar to monopoly.
