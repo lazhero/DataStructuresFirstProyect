@@ -1,12 +1,16 @@
 package cr.ac.tec.Board.Square;
 import com.sun.media.jfxmediaimpl.platform.Platform;
 import cr.ac.tec.Board.*;
+import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Images.GetImages;
 import cr.ac.tecLinkedList.List.DoubleList;
+import javafx.animation.PauseTransition;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
+import javafx.util.Duration;
+
 import java.io.IOException;
 public abstract class  Square {
     private Paint color;//Square color
@@ -114,6 +118,10 @@ public abstract class  Square {
         return players;
     }
 
+    public DoubleList<Player> ListPlayer(){
+        return PlayersinPanel;
+    }
+
 
 
 
@@ -163,6 +171,9 @@ public abstract class  Square {
         if(players==1){
             DrawingOnePlayer(player,nodeWidth,nodeHeight);
             PlayersinPanel.AddTail(player);
+            if(StoppingFlag){
+                Event();
+            }
         }
         else if(players>1){
             for(int i= 0;i<PlayersinPanel.getLength();i++){
@@ -171,12 +182,6 @@ public abstract class  Square {
             PlayersinPanel.AddTail(player);
             DrawingTwoPlayer(PlayersinPanel.get(0),PlayersinPanel.get(1),nodeWidth,nodeHeight);
 
-
-            if(StoppingFlag){
-                //Aqui se llama el duelo
-                DeletingPlayer(PlayersinPanel.get(0),nodeWidth,nodeHeight);
-
-            }
         }
 
     }
@@ -246,11 +251,9 @@ public abstract class  Square {
             for(int i=0;i<PlayersinPanel.getLength();i++){
                 DeleteNode(PlayersinPanel.get(i).getNode());
             }
-            System.out.println("Len de la lista antes del delete"+PlayersinPanel.getLength());
-            System.out.println("El numero que estoy intentando imprimir es "+pos);
+
             PlayersinPanel.delete(pos);
-            System.out.println("len de la lista despues del delete"+PlayersinPanel.getLength());
-            System.out.println("El numero de jugadores que siguen en lista es "+players);
+
             Player temp= PlayersinPanel.get(0);
             PlayersinPanel.delete(0);
             DrawPlayer(temp,nodeWidth,nodeHeight,false);
