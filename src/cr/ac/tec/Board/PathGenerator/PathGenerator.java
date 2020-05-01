@@ -65,7 +65,7 @@ public class PathGenerator {
         }
         return List;
     }
-    public static DoubleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath, double sidesize, double SpaceBetween) {
+    public static DoubleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath, double sidesize, double SpaceBetween,boolean JustEvents) {
         DoubleList<Square> SquareList=new DoubleList<>();
         double posx=MainPath.get(FirstSquare).getCoordx();
         double posy=MainPath.get(FirstSquare).getCoordy();
@@ -88,6 +88,9 @@ public class PathGenerator {
                 posx=List.get(0);
                 posy=List.get(1);
                 Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
+                if(JustEvents){
+                    square=new YellowSquare(posx,posy,sidesize);
+                }
                 SquareList.AddTail(square);
                 totalbranch--;
             }
@@ -97,6 +100,9 @@ public class PathGenerator {
                 posx=List.get(0);
                 posy=List.get(1);
                 Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
+                if(JustEvents){
+                    square=new YellowSquare(posx,posy,sidesize);
+                }
                 SquareList.AddTail(square);
                 mainlen--;
 
@@ -104,4 +110,5 @@ public class PathGenerator {
         }
         return SquareList;
     }
+
 }
