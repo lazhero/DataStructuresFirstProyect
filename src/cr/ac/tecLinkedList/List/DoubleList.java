@@ -174,13 +174,14 @@ public class DoubleList<T> implements List<T> {
             else {
                 DoubleNode<T> temp = head.getFront();
 
-                for (int i = 1; i != position; i++) {
+                for (int i = 1; i < position; i++) {
                     temp = temp.getFront();
                 }
                 temp.getBack().setFront(temp.getFront());
                 temp.getFront().setBack(temp.getBack());
+                length--;
             }
-            length--;
+
         }
     }
 
@@ -192,12 +193,18 @@ public class DoubleList<T> implements List<T> {
     public int FindFirstInstancePosition(T value){
         if(!this.isEmpty()){
             DoubleNode<T> temp;
-            int i=-1;
+            int i=0;
             for(temp=head;temp.getFront()!=null;temp=temp.getFront()){
+                try{
+                    if(temp.getInfo()==value)return i;
+                }
+                catch (Exception e){
+                    if(temp.getInfo().equals(value))return i;
+                }
+
                 i++;
-                if(temp.getInfo()==value)return i;
             }
-            if(tail.getInfo()==value)return length-1;
+
         }
         return -1;
     }

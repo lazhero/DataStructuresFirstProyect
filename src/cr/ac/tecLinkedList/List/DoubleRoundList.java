@@ -236,8 +236,9 @@ public class DoubleRoundList<T> implements List<T> {
                 }
                 temp.getBack().setFront(temp.getFront());
                 temp.getFront().setBack(temp.getBack());
+                length--;
             }
-            length--;
+
         }
     }
 

@@ -191,8 +191,9 @@ public class SingleList<T> implements List<T>{
                     temp=temp.getNextnode();
                 }
                 temp.setNextnode(temp.getNextnode().getNextnode());
+                length--;
             }
-            length--;
+
         }
     }
 
