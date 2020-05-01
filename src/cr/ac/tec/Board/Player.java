@@ -13,7 +13,7 @@ public class Player {
      * @param id an identification to the node
      * @param node A javafx node, that will work as the picture showing in screen
      */
-    Player(int id, Node node){
+    public Player(int id, Node node){
         this.id=id;
         this.node=node;
         this.stars=0;
