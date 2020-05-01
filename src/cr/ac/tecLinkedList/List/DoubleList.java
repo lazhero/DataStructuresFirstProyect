@@ -227,7 +227,7 @@ public class DoubleList<T> implements List<T> {
         }
         return null;
     }
-    DoubleNode<T> getNode(int position){
+    public DoubleNode<T> getNode(int position){
         if(position>-1 && position<length){
             if(position==0)return head;
             if(position==length-1)return tail;
