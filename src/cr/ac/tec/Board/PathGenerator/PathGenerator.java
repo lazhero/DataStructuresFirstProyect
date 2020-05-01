@@ -2,6 +2,7 @@ package cr.ac.tec.Board.PathGenerator;
 
 import cr.ac.tec.Board.Square.*;
 import cr.ac.tec.Random.Random;
+import cr.ac.tecLinkedList.List.DoubleList;
 import cr.ac.tecLinkedList.List.DoubleRoundList;
 import cr.ac.tecLinkedList.List.List;
 import cr.ac.tecLinkedList.List.SingleList;
@@ -64,10 +65,10 @@ public class PathGenerator {
         }
         return List;
     }
-    public static SingleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath,double sidesize,double SpaceBetween) {
-        SingleList<Square> SquareList=new SingleList<>();
-        double posx=MainPath.get(FirstSquare-1).getCoordx();
-        double posy=MainPath.get(FirstSquare-1).getCoordy();
+    public static DoubleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath, double sidesize, double SpaceBetween) {
+        DoubleList<Square> SquareList=new DoubleList<>();
+        double posx=MainPath.get(FirstSquare).getCoordx();
+        double posy=MainPath.get(FirstSquare).getCoordy();
         int mainlen=LastSquare-FirstSquare-1;
         int totalbranch=2*BranchSize;
         SingleList<NewCoordsFactory> ReceivingFactory=NewCoordsSequence.getNewCoorsSequence(LastSquare,MainPath.getLength());
