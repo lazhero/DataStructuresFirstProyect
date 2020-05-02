@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60463a44-58d4-495c-bc31-2158f5347eb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/Images/Dice1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Dice/Prueba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/cr/ac/tec/minigames/RandomNumber/Interface.class" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/cr/ac/tec/minigames/RandomNumber/Interface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Dice/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Dice/Dice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/RandomNumber/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/RandomNumber/Interface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/Images/ImagenesDePrueba/Background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/PruebaJuego/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/cr/ac/tec/minigames/RandomNumber/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/cr/ac/tec/minigames/RandomNumber/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,36 +38,26 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/DataStructuresFirstProyect/src" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/Extra Clase #1" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\Images\DinoRunner" />
+      <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\cr\ac\tec\Minigames\RandomNumber" />
+      <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\Images\Dice" />
       <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\Images" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Prueba">
-    <configuration name="Dice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Dice.Dice" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.PruebaJuego.Game" />
       <module name="ProyectoDatos_I" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cr.ac.tec.Dice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Interface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.RandomNumber.Interface" />
-      <module name="ProyectoDatos_I" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cr.ac.tec.Minigames.RandomNumber.*" />
+          <option name="PATTERN" value="cr.ac.tec.Minigames.PruebaJuego.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,8 +78,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Prueba" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Dice.Prueba" />
+    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.ticTacToe.Main" />
+      <module name="ProyectoDatos_I" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cr.ac.tec.Minigames.ticTacToe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Dice.Main" />
       <module name="ProyectoDatos_I" />
       <extension name="coverage">
         <pattern>
@@ -102,12 +104,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TicTacToe" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.ticTacToe.TicTacToe" />
+    <configuration name="Prove" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.Shoot.Prove" />
       <module name="ProyectoDatos_I" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cr.ac.tec.Minigames.ticTacToe.*" />
+          <option name="PATTERN" value="cr.ac.tec.Minigames.Shoot.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -138,19 +140,19 @@
     <list>
       <item itemvalue="Application.main" />
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.TicTacToe" />
-      <item itemvalue="Application.Interface" />
       <item itemvalue="Application.Main (1)" />
-      <item itemvalue="Application.Dice" />
-      <item itemvalue="Application.Prueba" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main (2)" />
+      <item itemvalue="Application.Prove" />
+      <item itemvalue="Application.Game" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Prueba" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Game" />
+        <item itemvalue="Application.Prove" />
         <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.Dice" />
-        <item itemvalue="Application.TicTacToe" />
-        <item itemvalue="Application.Interface" />
+        <item itemvalue="Application.Main (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -171,6 +173,14 @@
       <workItem from="1587332973177" duration="466000" />
       <workItem from="1587333465503" duration="5769000" />
       <workItem from="1587496703826" duration="38072000" />
+      <workItem from="1587671798786" duration="43342000" />
+      <workItem from="1587937634046" duration="2462000" />
+      <workItem from="1588028740176" duration="3019000" />
+      <workItem from="1588233263432" duration="104000" />
+      <workItem from="1588233913634" duration="33000" />
+      <workItem from="1588239670888" duration="1136000" />
+      <workItem from="1588241843386" duration="2619000" />
+      <workItem from="1588283069430" duration="1091000" />
     </task>
     <task id="LOCAL-00001" summary="[DAT-76] created visuals of tic tac toe with a working x and o function.">
       <created>1587174761952</created>
@@ -242,7 +252,56 @@
       <option name="project" value="LOCAL" />
       <updated>1587602568861</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="[DAT-37] Created a dice animation.">
+      <created>1587679722723</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587679722723</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[DAT-97] Created a method which rolls the dice.">
+      <created>1587695283096</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587695283096</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[DAT-122] Created a setTimer to stop the dice from rolling.">
+      <created>1587852308950</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587852308950</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[DAT-123] Finish dice animation.">
+      <created>1587867111843</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587867111843</updated>
+    </task>
+    <task id="LOCAL-00015" summary="[DAT-124] Fixed overwrite bug in tic tac toe.">
+      <created>1587869926574</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587869926574</updated>
+    </task>
+    <task id="LOCAL-00016" summary="[DAT-109] Moving game() from main to RandomNumberGame, safe commit.">
+      <created>1587877123099</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587877123099</updated>
+    </task>
+    <task id="LOCAL-00017" summary="[DAT-109] Moved game() from main to RandomNumberGame.">
+      <created>1587877528977</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1587877528977</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +318,14 @@
     <MESSAGE value="[DAT-36] Created dice class." />
     <MESSAGE value="[DAT-96] Created dice class." />
     <MESSAGE value="[DAT-96] Created a random number generator." />
-    <option name="LAST_COMMIT_MESSAGE" value="[DAT-96] Created a random number generator." />
+    <MESSAGE value="[DAT-37] Created a dice animation." />
+    <MESSAGE value="[DAT-97] Created a method which rolls the dice." />
+    <MESSAGE value="[DAT-122] Created a setTimer to stop the dice from rolling." />
+    <MESSAGE value="[DAT-123] Finish dice animation." />
+    <MESSAGE value="[DAT-124] Fixed overwrite bug in tic tac toe." />
+    <MESSAGE value="[DAT-109] Moving game() from main to RandomNumberGame, safe commit." />
+    <MESSAGE value="[DAT-109] Moved game() from main to RandomNumberGame." />
+    <option name="LAST_COMMIT_MESSAGE" value="[DAT-109] Moved game() from main to RandomNumberGame." />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Project_Structure" timestamp="1584864662085">
@@ -270,15 +336,19 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587513103801" />
-    <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584866486792">
+    <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587941904027">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584866486792" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1587614002031">
+    <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587941904027" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1588030131078">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587169394936" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587614002031" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588030131078" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587674694402">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587674694402" />
     <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1587239184066">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -287,39 +357,39 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="486" y="86" key="#main_(1)/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584866926919" />
-    <state x="366" y="5" key="CommitChangelistDialog2" timestamp="1587602567996">
+    <state x="366" y="5" key="CommitChangelistDialog2" timestamp="1587877528445">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255849756" />
-    <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587602567996" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1587598256743">
+    <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587877528445" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1588030027450">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587598256743" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588030027450" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586378252345" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1587615233811">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1588032233618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587615233811" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588032233618" />
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1587615233811">
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1588032233618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587615233811" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588032233618" />
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1587615233811">
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1588032233618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587615233811" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588032233618" />
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1587615233811">
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1588032233618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587615233811" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588032233618" />
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
     <state width="1491" height="261" key="GridCell.Tab.1.bottom" timestamp="1584867682538">
       <screen x="0" y="0" width="1536" height="824" />
@@ -345,15 +415,15 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="481" y="128" key="MultipleFileMergeDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584928103669" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1584866914781">
+    <state x="249" y="0" key="SettingsEditor" timestamp="1588030029602">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584866914781" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1587602583037">
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588030029602" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1587877532239">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255860221" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587602583037" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587877532239" />
     <state x="584" y="193" key="chooseDestDirectoryDialog" timestamp="1584866210334">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -362,32 +432,56 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584862698266" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1587877336551">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587877336551" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587602176864">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255806660" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587602176864" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1586377870352" />
-    <state x="1920" y="0" width="1254" height="575" key="dock-window-1" timestamp="1587512871982">
+    <state x="1913" y="0" width="974" height="1047" maximized="true" key="dock-window-1" timestamp="1587674214986">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1920" y="0" width="1254" height="575" key="dock-window-1/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587512871982" />
-    <state x="2130" y="34" width="1254" height="575" maximized="true" key="dock-window-2" timestamp="1587513351399">
+    <state x="1913" y="0" width="974" height="1047" maximized="true" key="dock-window-1/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587674214986" />
+    <state x="2319" y="0" width="1187" height="575" maximized="true" key="dock-window-2" timestamp="1587676323441">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2130" y="34" width="1254" height="575" maximized="true" key="dock-window-2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587513351399" />
-    <state x="1920" y="0" width="1191" height="575" maximized="true" key="dock-window-3" timestamp="1587671808945">
+    <state x="2319" y="0" width="1187" height="575" maximized="true" key="dock-window-2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587676323441" />
+    <state x="1920" y="0" width="1187" height="575" maximized="true" key="dock-window-3" timestamp="1587687518368">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1920" y="0" width="1191" height="575" maximized="true" key="dock-window-3/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587671808945" />
-    <state x="209" y="36" key="new project wizard" timestamp="1587256861471">
+    <state x="1920" y="0" width="1187" height="575" maximized="true" key="dock-window-3/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587687518368" />
+    <state x="1920" y="0" width="1187" height="575" key="dock-window-4" timestamp="1587685631049">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1920" y="0" width="1187" height="575" key="dock-window-4/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587685631049" />
+    <state x="164" y="45" width="1187" height="575" key="dock-window-5" timestamp="1587688087522">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="164" y="45" width="1187" height="575" key="dock-window-5/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587688087522" />
+    <state x="1920" y="0" width="1187" height="575" maximized="true" key="dock-window-6" timestamp="1587688090648">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1920" y="0" width="1187" height="575" maximized="true" key="dock-window-6/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587688090648" />
+    <state x="209" y="36" key="new project wizard" timestamp="1588031093517">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="36" key="new project wizard/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256861471" />
-    <state x="209" y="36" key="new project wizard/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584867669090" />
+    <state x="209" y="36" key="new project wizard/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588031093517" />
+    <state x="475" y="31" key="refactoring.ChangeSignatureDialog" timestamp="1587869364538">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="475" y="31" key="refactoring.ChangeSignatureDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587869364538" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1587246331844">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="189" key="run.anything.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587246331844" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587873830411">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587873830411" />
   </component>
 </project>
