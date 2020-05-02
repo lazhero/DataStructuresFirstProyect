@@ -1,8 +1,8 @@
 package cr.ac.tec.Events;
 
-public class WinTwoStars extends Event {
+public class WinFiveStars extends Event {
     @Override
     public void event() {
-
+        
     }
 }
