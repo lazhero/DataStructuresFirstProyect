@@ -1,8 +1,8 @@
 package cr.ac.tec.Events;
 
-public class StealStar extends Event {
+public class WinTwoStars extends Event {
     @Override
     public void event() {
-
+        
     }
 }
