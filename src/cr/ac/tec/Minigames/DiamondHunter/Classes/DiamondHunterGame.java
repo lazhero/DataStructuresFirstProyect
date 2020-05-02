@@ -27,6 +27,19 @@ public class DiamondHunterGame extends Application {
     }
 
 
+    public void gameCycle(){
+        long initialTime = System.nanoTime();
+        AnimationTimer animationTimer = new AnimationTimer() {
+
+            //Este metodo se ejecuta aproximadamente unas 60 veces por segundo 60FPS.
+            @Override
+            public void handle(long currentTime) {
+                double t = (currentTime - initialTime) / 1000000000.0;
+                //System.out.println(t);
+            }
+        };
+        animationTimer.start();//Empieza el ciclo de juego.
+    }
 
 
     public static void main(String[] args){launch(args);}
@@ -37,6 +50,6 @@ public class DiamondHunterGame extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Diamond Hunter");
         primaryStage.show();
-        //gameCycle();
+        gameCycle();
     }
 }
