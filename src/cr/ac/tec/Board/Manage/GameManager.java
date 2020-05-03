@@ -19,74 +19,129 @@ import javafx.util.Duration;
 import static cr.ac.tec.Images.GetImages.getImageView;
 
 public class GameManager {
+    private static GameManager instance=null;
   private DoubleRoundList<Square> SquareList=new DoubleRoundList<>();
    private DoubleList<Square> Phase1=new DoubleList<>();
+    private DoubleList<Square> Phase2=new DoubleList<>();
    private DoubleRoundList<Player>  PlayerList=new DoubleRoundList<>();
-   private DoubleRoundList<Integer> PositionOnBoard=new DoubleRoundList<>();
+   private DoubleRoundList<Integer> InitCondition=new DoubleRoundList<>();
+   private DoubleList<DoubleNode<Square>> PlayersNodes=new DoubleList<>();
+    private DoubleList<DoubleNode<Square>> Switching=new DoubleList<>();
+    private DoubleList<Boolean> GatesState=new DoubleList<>();
 
 
    private int turns;
    private int rounds;
-   //private Timeline timeline=new Timeline();
    private boolean running=false;
+   private boolean Backing=false;
 
-   public GameManager(int PlayersNum,int Rounds){
+   private GameManager(int PlayersNum,int Rounds){
       this.turns=-1;
       this.rounds=Rounds;
-      int i=1;
+       SquareList= PathGenerator.GenerateCircle(10,150,50,50,5,false);
+       Phase1=PathGenerator.GeneratePhase1(11,16,3,SquareList,50,5,false);
+      Phase1.getNode(Phase1.getLength()-1).setFront(SquareList.getNode(16));
+      Phase1.getNode(0).setBack(SquareList.getNode(11));
+      Phase2=PathGenerator.GeneratePhase1(20,25,2,SquareList,50,5,true);
+      Phase2.getNode(0).setBack(SquareList.getNode(20));
+      Phase2.getNode(Phase2.getLength()-1).setFront(SquareList.getNode(25));
+       GatesState.AddTail(false);
+       GatesState.AddTail(true);
+      Switching.AddTail(SquareList.getNode(11));
+      Switching.AddTail(SquareList.getNode(20));
+       int i=1;
 
       while(i<=PlayersNum){
           String path=null;
           try {
              path="src/Images/Piece"+Integer.toString(i)+".png";
               PlayerList.AddTail(new Player(i,getImageView(path)));
-              PositionOnBoard.AddTail(-1);
+              InitCondition.AddTail(-1);
+             PlayersNodes.AddTail(new DoubleNode<Square>(null,SquareList.getNode(SquareList.getLength()-1),SquareList.getNode(0)));
 
          }
          catch (Exception e){}
 
         i++;
       }
-      SquareList= PathGenerator.GenerateCircle(10,150,50,50,5,false);
-      Phase1=PathGenerator.GeneratePhase1(11,16,3,SquareList,50,5);
+
+   }
+   public static GameManager getInstance(int PlayersNum,int Rounds){
+       if(instance==null){
+           synchronized(GameManager.class){
+               if(instance==null){
+                   instance=new GameManager(PlayersNum,Rounds);
+               }
+
+           }
+       }
+       return instance;
    }
 
    public void StartTurn(int steps){
-       if(!running) {
+       if(!running || Backing) {
            running=true;
+           Backing=false;
            turns++;
            int PlayerTurn = turns % PlayerList.getLength();
-           System.out.println("Jugador " + PlayerTurn);
            Timeline timeline=new Timeline();
-           int raise;
+           final int raise;
            if(steps>0){
                raise=1;
            }
-           else raise=-1;
-           int i = 0;
+           else{
+               raise=-1;
+           }
+           int i=0;
+           System.out.println("Estoy en en turno del jugador "+PlayerTurn);
            while (Math.abs(i) < Math.abs(steps)) {
                final int f=i;
                timeline.getKeyFrames().add(new KeyFrame(
-                       Duration.millis(200 * (Math.abs(i)+1)),
+                       Duration.millis(600 * (Math.abs(i)+1)),
                        (ActionEvent event) -> {
-                           int PosNow = PositionOnBoard.get(PlayerTurn);
-                           if (PosNow != -1) {
-                               //System.out.println("La posicion de que me borre es "+PosNow);
-                               SquareList.get(PosNow).DeletingPlayer(PlayerList.get(PlayerTurn),40,40);
-                           }
-                           PosNow = (PosNow + 1) % SquareList.getLength();
-                           PositionOnBoard.ChangeContent(PlayerTurn, PosNow);
+                           DoubleNode<Square> Temp=PlayersNodes.get(PlayerTurn);
+                           if (InitCondition.get(PlayerTurn)!= -1) {
 
-                           SquareList.get(PosNow).DrawPlayer(PlayerList.get(PlayerTurn), 40, 40,(Math.abs(f)+1==Math.abs(steps)));
-                           //System.out.println(PosNow);
+                               Temp.getInfo().DeletingPlayer(PlayerList.get(PlayerTurn),40,40);
+                           }
+
+                           Temp=GetNextNode(Temp,raise);
+                           Temp.getInfo().DrawPlayer(PlayerList.get(PlayerTurn), 40, 40,(Math.abs(f)+1==Math.abs(steps)));
+                            InitCondition.ChangeContent(PlayerTurn,5);
+                            PlayersNodes.ChangeContent(PlayerTurn,Temp);
                        }
                ));
                i+=raise;
            }
            timeline.setCycleCount(1);
-           timeline.setOnFinished(e->{running=false;
-               System.out.println("ya termine");
-               PositionOnBoard.printing();
+           timeline.setOnFinished(e->{
+               PauseTransition pauseTransition=new PauseTransition();
+               pauseTransition.setDuration(Duration.millis(3000));
+               pauseTransition.setOnFinished(k->{
+                   DoubleNode<Square> Temp=PlayersNodes.get(PlayerTurn);
+                   if (Temp.getInfo().getPlayers()>1 && Temp.getInfo().getPlayers()<=2){
+                       DoubleList<Player> List=Temp.getInfo().ListPlayer();
+
+                       Player loser=List.get(1);//The loser should be gotten from the event
+                       int counter=0;
+                       while(Temp.getInfo().getPlayers()>=1){
+                           Temp=Temp.getBack();
+                           counter--;
+                       }
+
+
+                       MovePlayer(loser,counter);
+
+
+
+                   }
+
+                   running=false;
+
+               });
+               pauseTransition.play();
+
+
                });
            timeline.play();
 
@@ -103,11 +158,52 @@ public class GameManager {
            for(int i=0;i<Phase1.getLength();i++){
                Phase1.get(i).Draw(anchorPane);
            }
+           for(int i=0;i<Phase2.getLength();i++){
+               Phase2.get(i).Draw(anchorPane);
+           }
        }
        catch (Exception e){
 
        }
    }
+   public DoubleNode<Square> GetNextNode(DoubleNode<Square> node,int Raise){
+       if(node==Switching.get(0)){
+           if(GatesState.get(0)) {
+               GatesState.ChangeContent(0,false);
+               return Phase1.getNode(0);
+           }
+           else{
+               GatesState.ChangeContent(0,true);
+               return node.getFront();
+           }
+       }
+       else if(node==Switching.get(1)){
+           if(GatesState.get(1)){
+               GatesState.ChangeContent(1,false);
+               return Phase2.getNode(0);
+           }
+           else {
+               GatesState.ChangeContent(1,true);
+               return node.getFront();
+           }
+       }
+       else{
+           if(Raise==-1){
+               return node.getBack();
+           }
+           return node.getFront();
+       }
+
+   }
+   public void MovePlayer(Player player,int Steps){
+       Backing=true;
+       final int Backup=turns;
+       turns=PlayerList.FindFirstInstancePosition(player)-1;
+       StartTurn(Steps);
+       turns=Backup;
+
+   }
+
 
 
 
