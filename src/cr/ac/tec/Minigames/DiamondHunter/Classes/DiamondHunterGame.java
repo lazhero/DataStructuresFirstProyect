@@ -1,12 +1,15 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
+import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
@@ -17,22 +20,34 @@ public class DiamondHunterGame extends Application {
     private Scene scene;
     private Canvas canvas;
     public static HashMap<String, Image> images;
-
+    private Background background;
+    public static boolean up;
+    public static boolean down;
+    public static boolean left;
+    public static boolean right;
 
 
     /**
      * Creates the interface in which the player interacts with.
      */
     public void createContent(){
+        images = new HashMap<String, Image>();
+        loadImages();
+        background = new Background(0,0,0,"map");
         root = new Group();
-        scene = new Scene(root,300,300);
-        canvas = new Canvas(300,300);
+        scene = new Scene(root,500,500);
+        canvas = new Canvas(500,500);
         root.getChildren().add(canvas);
         graphicsContext = canvas.getGraphicsContext2D();
     }
 
-    public void draw(){
+    public void loadImages(){
+        images.put("map", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/map.png"));
+        //images.put("diamond", new Image("Images/diamond.png"));
+    }
 
+    public void draw(){
+        background.draw(graphicsContext);
     }
 
     /**
@@ -61,6 +76,8 @@ public class DiamondHunterGame extends Application {
         };
         animationTimer.start();//Empieza el ciclo de juego.
     }
+
+
 
 
 
