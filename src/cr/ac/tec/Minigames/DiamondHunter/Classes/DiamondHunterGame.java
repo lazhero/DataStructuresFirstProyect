@@ -33,7 +33,7 @@ public class DiamondHunterGame extends Application {
     public void createContent(){
         images = new HashMap<String, Image>();
         loadImages();
-        background = new Background(0,0,0,"map");
+        background = new Background(0,0,5,"map");
         root = new Group();
         scene = new Scene(root,500,500);
         canvas = new Canvas(500,500);
@@ -55,6 +55,7 @@ public class DiamondHunterGame extends Application {
      * @param t
      */
     public void updateState(double t){
+        background.move();
     }
 
 
@@ -150,6 +151,7 @@ public class DiamondHunterGame extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         createContent();
+        eventHandler();
         primaryStage.setScene(scene);
         primaryStage.setTitle("Diamond Hunter");
         primaryStage.show();

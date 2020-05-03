@@ -14,5 +14,12 @@ public class Background extends GameObject{
 
     @Override
     public void move() {
+        if (DiamondHunterGame.right && x > -2040){ x -= velocity; }
+
+        if (DiamondHunterGame.left && x < 0) { x += velocity; }
+
+        if (DiamondHunterGame.down && y > -1600){ y -= velocity; }
+
+        if (DiamondHunterGame.up && y < 0) { y += velocity; }
     }
 }
