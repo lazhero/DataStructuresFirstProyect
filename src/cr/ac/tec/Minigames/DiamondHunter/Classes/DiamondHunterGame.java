@@ -78,6 +78,70 @@ public class DiamondHunterGame extends Application {
     }
 
 
+    public void eventHandler(){
+        boolean[] isPressable = {true};
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            //El metodo handle se ejecuta cada vez que presiono una tecla.
+            @Override
+            public void handle(KeyEvent event) {
+                if (isPressable[0]) {
+                    if (event.getCode().toString() == "A") {
+                        isPressable[0] = false;
+                        left = true;
+                        //animatedPlayer.setCurrentAnimation("runLeft");
+                        return;
+                    }
+                    if (event.getCode().toString() == "W") {
+                        isPressable[0] = false;
+                        up = true;
+                        //animatedPlayer.setCurrentAnimation("runBack");
+                        return;
+                    }
+                    if (event.getCode().toString() == "S") {
+                        isPressable[0] = false;
+                        down = true;
+                        //animatedPlayer.setCurrentAnimation("runFront");
+                        return;
+                    }
+                    if (event.getCode().toString() == "D") {
+                        isPressable[0] = false;
+                        right = true;
+                        //animatedPlayer.setCurrentAnimation("runRight");
+                    }
+                }
+            }
+        });
+        scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
+
+            //Este metodo se ejecuta cuando se suelta una tecla.
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode().toString() == "A" && left){
+                    isPressable[0] = true;
+                    left = false;
+                    //animatedPlayer.setCurrentAnimation("restLeft");
+                    return;
+                }
+                if (event.getCode().toString() == "W" && up){
+                    isPressable[0] = true;
+                    up = false;
+                    //animatedPlayer.setCurrentAnimation("restBack");
+                    return;
+                }
+                if (event.getCode().toString() == "S" && down){
+                    isPressable[0] = true;
+                    down = false;
+                    //animatedPlayer.setCurrentAnimation("restFront");
+                    return;
+                }
+                if (event.getCode().toString() == "D" && right){
+                    isPressable[0] = true;
+                    right = false;
+                    //animatedPlayer.setCurrentAnimation("restRight");
+                }
+            }
+        });
+    }
 
 
 
