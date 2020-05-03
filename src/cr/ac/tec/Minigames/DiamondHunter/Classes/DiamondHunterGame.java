@@ -21,6 +21,7 @@ public class DiamondHunterGame extends Application {
     private Canvas canvas;
     public static HashMap<String, Image> images;
     private Background background;
+    private AnimatedPlayer animatedPlayer;
     public static boolean up;
     public static boolean down;
     public static boolean left;
@@ -33,6 +34,7 @@ public class DiamondHunterGame extends Application {
     public void createContent(){
         images = new HashMap<String, Image>();
         loadImages();
+        animatedPlayer = new AnimatedPlayer(10,10,3,"link",0,"restFront");
         background = new Background(0,0,5,"map");
         root = new Group();
         scene = new Scene(root,500,500);
@@ -43,11 +45,13 @@ public class DiamondHunterGame extends Application {
 
     public void loadImages(){
         images.put("map", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/map.png"));
+        images.put("link", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/linkSprites.png"));
         //images.put("diamond", new Image("Images/diamond.png"));
     }
 
     public void draw(){
         background.draw(graphicsContext);
+        animatedPlayer.draw(graphicsContext);
     }
 
     /**
@@ -55,6 +59,8 @@ public class DiamondHunterGame extends Application {
      * @param t
      */
     public void updateState(double t){
+        animatedPlayer.move();
+        animatedPlayer.calculateFrame(t);
         background.move();
     }
 
@@ -89,25 +95,25 @@ public class DiamondHunterGame extends Application {
                     if (event.getCode().toString() == "A") {
                         isPressable[0] = false;
                         left = true;
-                        //animatedPlayer.setCurrentAnimation("runLeft");
+                        animatedPlayer.setCurrentAnimation("runLeft");
                         return;
                     }
                     if (event.getCode().toString() == "W") {
                         isPressable[0] = false;
                         up = true;
-                        //animatedPlayer.setCurrentAnimation("runBack");
+                        animatedPlayer.setCurrentAnimation("runBack");
                         return;
                     }
                     if (event.getCode().toString() == "S") {
                         isPressable[0] = false;
                         down = true;
-                        //animatedPlayer.setCurrentAnimation("runFront");
+                        animatedPlayer.setCurrentAnimation("runFront");
                         return;
                     }
                     if (event.getCode().toString() == "D") {
                         isPressable[0] = false;
                         right = true;
-                        //animatedPlayer.setCurrentAnimation("runRight");
+                        animatedPlayer.setCurrentAnimation("runRight");
                     }
                 }
             }
@@ -120,25 +126,25 @@ public class DiamondHunterGame extends Application {
                 if (event.getCode().toString() == "A" && left){
                     isPressable[0] = true;
                     left = false;
-                    //animatedPlayer.setCurrentAnimation("restLeft");
+                    animatedPlayer.setCurrentAnimation("restLeft");
                     return;
                 }
                 if (event.getCode().toString() == "W" && up){
                     isPressable[0] = true;
                     up = false;
-                    //animatedPlayer.setCurrentAnimation("restBack");
+                    animatedPlayer.setCurrentAnimation("restBack");
                     return;
                 }
                 if (event.getCode().toString() == "S" && down){
                     isPressable[0] = true;
                     down = false;
-                    //animatedPlayer.setCurrentAnimation("restFront");
+                    animatedPlayer.setCurrentAnimation("restFront");
                     return;
                 }
                 if (event.getCode().toString() == "D" && right){
                     isPressable[0] = true;
                     right = false;
-                    //animatedPlayer.setCurrentAnimation("restRight");
+                    animatedPlayer.setCurrentAnimation("restRight");
                 }
             }
         });

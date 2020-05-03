@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60463a44-58d4-495c-bc31-2158f5347eb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Images/linkSprites.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/AnimatedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/AnimatedPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/DiamondHunterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/DiamondHunterGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Images/diamond.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,46 +44,50 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\cr\ac\tec\Minigames\DiamondHunter\Images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\cr\ac\tec\Minigames\DiamondHunter\Images" />
       <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\Images\DinoRunner" />
       <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\cr\ac\tec\Minigames\RandomNumber" />
       <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\Images\Dice" />
       <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\Images" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.DiamondHunterGame">
+    <configuration name="DiamondHunterGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame" />
+      <module name="ProyectoDatos_I" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cr.ac.tec.Minigames.DiamondHunter.Classes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Game (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.DiamondHunter.Classes.Game" />
+      <module name="ProyectoDatos_I" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cr.ac.tec.Minigames.DiamondHunter.Classes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.PruebaJuego.Game" />
       <module name="ProyectoDatos_I" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cr.ac.tec.Minigames.PruebaJuego.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.RandomNumber.Main" />
-      <module name="ProyectoDatos_I" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cr.ac.tec.Minigames.RandomNumber.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.ticTacToe.Main" />
-      <module name="ProyectoDatos_I" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cr.ac.tec.Minigames.ticTacToe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,7 +129,6 @@
       </method>
     </configuration>
     <configuration name="main" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.minigames.interfacePackage.main" />
       <module name="ProyectoDatos_I" />
       <extension name="coverage">
         <pattern>
@@ -137,19 +143,19 @@
     <list>
       <item itemvalue="Application.main" />
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.Main (1)" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Main (2)" />
       <item itemvalue="Application.Prove" />
       <item itemvalue="Application.Game" />
+      <item itemvalue="Application.Game (1)" />
+      <item itemvalue="Application.DiamondHunterGame" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DiamondHunterGame" />
+        <item itemvalue="Application.Game (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Game" />
         <item itemvalue="Application.Prove" />
-        <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.Main (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +185,7 @@
       <workItem from="1588241843386" duration="2619000" />
       <workItem from="1588283069430" duration="1091000" />
       <workItem from="1588323749453" duration="57000" />
-      <workItem from="1588459591564" duration="2794000" />
+      <workItem from="1588459591564" duration="18751000" />
     </task>
     <task id="LOCAL-00001" summary="[DAT-76] created visuals of tic tac toe with a working x and o function.">
       <created>1587174761952</created>
@@ -307,14 +313,76 @@
       <option name="project" value="LOCAL" />
       <updated>1588460496378</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="[DAT-153] Create a gameCycle (FPS)">
+      <created>1588463126242</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1588463126242</updated>
+    </task>
+    <task id="LOCAL-00020" summary="[DAT-153] Create a gameCycle (FPS)">
+      <created>1588463154228</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1588463154228</updated>
+    </task>
+    <task id="LOCAL-00021" summary="[DAT-154] Created a tile map.">
+      <created>1588466526173</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1588466526173</updated>
+    </task>
+    <task id="LOCAL-00022" summary="[DAT-155] Created a Background class.">
+      <created>1588479508043</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1588479508043</updated>
+    </task>
+    <task id="LOCAL-00023" summary="[DAT-156] Created an event handler.">
+      <created>1588479572285</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1588479572285</updated>
+    </task>
+    <task id="LOCAL-00024" summary="[DAT-155] Background moves with key events.">
+      <created>1588483673624</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1588483673624</updated>
+    </task>
+    <task id="LOCAL-00025" summary="[DAT-157] Background moves with key events.">
+      <created>1588484183261</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1588484183261</updated>
+    </task>
+    <task id="LOCAL-00026" summary="[DAT-157] Create an AnimatedPlayer class.">
+      <created>1588484335099</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1588484335099</updated>
+    </task>
+    <task id="LOCAL-00027" summary="[DAT-158] Created an Animation class.">
+      <created>1588484540801</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1588484540801</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[DAT-76] created visuals of tic tac toe with a working x and o function." />
     <MESSAGE value="[DAT-76] finished tic tac toe mini game." />
     <MESSAGE value="[DAT-76] tic tac toe commented." />
     <MESSAGE value="[DAT-73] Created a random number guessing game." />
@@ -332,7 +400,15 @@
     <MESSAGE value="[DAT-109] Moving game() from main to RandomNumberGame, safe commit." />
     <MESSAGE value="[DAT-109] Moved game() from main to RandomNumberGame." />
     <MESSAGE value="[DAT-152] Create a GameObject abstract class." />
-    <option name="LAST_COMMIT_MESSAGE" value="[DAT-152] Create a GameObject abstract class." />
+    <MESSAGE value="[DAT-153] Create a gameCycle (FPS)" />
+    <MESSAGE value="[DAT-154] Created a tile map." />
+    <MESSAGE value="[DAT-155] Created a Background class." />
+    <MESSAGE value="[DAT-156] Created an event handler." />
+    <MESSAGE value="[DAT-155] Background moves with key events." />
+    <MESSAGE value="[DAT-157] Background moves with key events." />
+    <MESSAGE value="[DAT-157] Create an AnimatedPlayer class." />
+    <MESSAGE value="[DAT-158] Created an Animation class." />
+    <option name="LAST_COMMIT_MESSAGE" value="[DAT-158] Created an Animation class." />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Project_Structure" timestamp="1584864662085">
@@ -343,15 +419,15 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587513103801" />
-    <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587941904027">
+    <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588462496145">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587941904027" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1588461187641">
+    <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588462496145" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1588484120855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587169394936" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588461187641" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588484120855" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587674694402">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -364,42 +440,42 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="486" y="86" key="#main_(1)/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584866926919" />
-    <state x="366" y="5" key="CommitChangelistDialog2" timestamp="1588460495775">
+    <state x="366" y="5" key="CommitChangelistDialog2" timestamp="1588484539725">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255849756" />
-    <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588460495775" />
+    <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588484539725" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1588030027450">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588030027450" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586378252345" />
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1588323806030">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1588486488706">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588032233618" />
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588486488706" />
     <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1588323806030">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1588486488706">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588032233618" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588486488706" />
     <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1588323806030">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1588486488706">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588032233618" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588486488706" />
     <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1588323806030">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1588486488706">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588032233618" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588486488706" />
     <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
     <state width="1491" height="261" key="GridCell.Tab.1.bottom" timestamp="1584867682538">
@@ -430,11 +506,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588030029602" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1588460498124">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1588484543104">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255860221" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588460498124" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588484543104" />
     <state x="584" y="193" key="chooseDestDirectoryDialog" timestamp="1584866210334">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
