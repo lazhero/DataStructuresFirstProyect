@@ -4,7 +4,8 @@ import cr.ac.tec.Board.Player;
 
 public class Duel extends Event{
     /**
-     * In this event two players will face each other in a minigame
+     * A mini-game is triggered, where the randomly chosen players will face a duel (minigame 1v1),
+     * the winner will get glory (coins), and the loser will lose coins.
      *
      * @param player
      */

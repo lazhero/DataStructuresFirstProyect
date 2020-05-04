@@ -4,7 +4,7 @@ import cr.ac.tec.Board.Player;
 
 public class LoseOneStar extends Event {
     /**
-     * In this event the player who activates it will lose a star
+     * The player loses a star and it is given to another random player.
      * @param player
      */
 

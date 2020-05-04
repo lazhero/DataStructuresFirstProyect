@@ -4,7 +4,7 @@ import cr.ac.tec.Board.Player;
 
 public class GiveAwayCoins extends Event {
     /**
-     * In this event the player who activates it will receive some coins
+     * The player who activates the event loses a random amount of coins and is dealt equally among the other players.
      * @param player
      */
 
