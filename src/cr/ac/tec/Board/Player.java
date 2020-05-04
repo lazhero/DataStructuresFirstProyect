@@ -7,6 +7,8 @@ public class Player {
     Node node;//player javafx's node
     int stars;//Number of start
     int coins;//Number of coins
+    boolean lose; //Lose or win, for movement
+
 
     /**
      * Creates a player with the  id and node info,
@@ -18,6 +20,7 @@ public class Player {
         this.node=node;
         this.stars=0;
         this.coins=0;
+        this.lose=false;
     }
 
     /**
