@@ -147,17 +147,25 @@ public class AnimatedPlayer extends GameObject{
 
     @Override
     public void move() {
-        if (DiamondHunterGame.right)//Mover hacia la derecha
+
+        if (DiamondHunterGame.right) {//Mover hacia la derecha
             x += velocity;
+            return;
+        }
 
-        if (DiamondHunterGame.left)//Mover hacia la izquierda
+        if (DiamondHunterGame.left) {//Mover hacia la izquierda
             x -= velocity;
+            return;
+        }
 
-        if (DiamondHunterGame.up)//Mover hacia arriba
+        if (DiamondHunterGame.up) {//Mover hacia arriba
             y -= velocity;
+            return;
+        }
 
-        if (DiamondHunterGame.down)//Mover hacia abajo
+        if (DiamondHunterGame.down) {//Mover hacia abajo
             y += velocity;
+        }
     }
 
 }

@@ -11,8 +11,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
 import java.util.HashMap;
+
 
 public class DiamondHunterGame extends Application {
     private GraphicsContext graphicsContext;
@@ -22,6 +22,7 @@ public class DiamondHunterGame extends Application {
     public static HashMap<String, Image> images;
     private Background background;
     private AnimatedPlayer animatedPlayer;
+    private DoubleList<Barrier> barriers;
     public static boolean up;
     public static boolean down;
     public static boolean left;
@@ -34,8 +35,9 @@ public class DiamondHunterGame extends Application {
     public void createContent(){
         images = new HashMap<String, Image>();
         loadImages();
-        animatedPlayer = new AnimatedPlayer(10,10,3,"link",0,"restFront");
-        background = new Background(0,0,5,"map");
+        animatedPlayer = new AnimatedPlayer(230,220,2,"link",0,"restFront");
+        background = new Background(0,0,10,"map");
+        initializeTiles();
         root = new Group();
         scene = new Scene(root,500,500);
         canvas = new Canvas(500,500);
@@ -43,23 +45,38 @@ public class DiamondHunterGame extends Application {
         graphicsContext = canvas.getGraphicsContext2D();
     }
 
+    public void initializeTiles(){
+        barriers = new DoubleList<>();
+        for(int i=0; i<TileMap.tilemap.length; i++){
+            for(int j=0; j<TileMap.tilemap[i].length; j++){
+                if (TileMap.tilemap[i][j] != 0)
+                    this.barriers.AddHead(new Barrier(TileMap.tilemap[i][j],j*47,i*47,10,"tilemap",0,0,0,0));
+            }
+        }
+    }
+
     public void loadImages(){
         images.put("map", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/map.png"));
         images.put("link", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/linkSprites.png"));
-        //images.put("diamond", new Image("Images/diamond.png"));
+        images.put("tilemap", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/tilemap.png"));
     }
 
     public void draw(){
         background.draw(graphicsContext);
+        for (int i=0; i < barriers.getLength(); i++) {
+            barriers.get(i).draw(graphicsContext);
+        }
         animatedPlayer.draw(graphicsContext);
     }
 
     /**
-     * Everything we need to be updating per frame second will go in here, like movements and collisions.
+     * Everything we need to be wupdating per frame second will go in here, like movements and collisions.
      * @param t
      */
     public void updateState(double t){
-        animatedPlayer.move();
+        //animatedPlayer.move();
+        for (int i=0; i < barriers.getLength(); i++)
+            barriers.get(i).move();
         animatedPlayer.calculateFrame(t);
         background.move();
     }
@@ -83,6 +100,8 @@ public class DiamondHunterGame extends Application {
         };
         animationTimer.start();//Empieza el ciclo de juego.
     }
+
+
 
 
     public void eventHandler(){
