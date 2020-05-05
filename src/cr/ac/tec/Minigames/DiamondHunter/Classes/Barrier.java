@@ -66,6 +66,7 @@ public class Barrier extends GameObject {
     @Override
     public void move() {
 
+        check();
         //RIGHT
         if (DiamondHunterGame.right && x <= initialX) {
             if (!Background.touching)
@@ -74,10 +75,11 @@ public class Barrier extends GameObject {
                 if (Background.getX() == -2040)
                     return;
                 x -= velocity;
-                //goRight = false;
                 return;
             }
             if (Background.touching){
+                if (goDown || goUp || goRight)
+                    return;
                 goLeft = true;
                 return;
             }
@@ -92,20 +94,18 @@ public class Barrier extends GameObject {
                 goLeft=false;
             }
             if (goLeft) {
-                System.out.println("entra al 1");
                 x += velocity;
-                //goLeft = false;
                 return;
             }
             if (Background.touching){
-                System.out.println("entra al 2");
+                if (goUp || goDown || goLeft)
+                    return;
                 goRight = true;
                 return;
 
-            }else {
-                System.out.println("entra al else");
-                x += velocity;
             }
+            x += velocity;
+
         }
 
         //DOWN
@@ -118,6 +118,9 @@ public class Barrier extends GameObject {
                 return;
             }
             if (Background.touching){
+                if (goRight || goLeft || goDown){
+                    return;
+                }
                 goUp = true;
                 return;
             }
@@ -136,12 +139,41 @@ public class Barrier extends GameObject {
                 return;
             }
             if (Background.touching){
+                if (goLeft || goRight || goUp)
+                    return;
                 goDown = true;
                 return;
             }
             y += velocity;
         }
 
+    }
+
+    public void check(){
+        if (goRight){
+            System.out.println("right");
+            goUp=false;
+            goDown=false;
+            goLeft=false;
+        }
+        if (goUp){
+            System.out.println("up");
+            goLeft=false;
+            goRight=false;
+            goDown=false;
+        }
+        if (goLeft){
+            System.out.println("left");
+            goRight=false;
+            goDown=false;
+            goUp=false;
+        }
+        if (goDown){
+            System.out.println("down");
+            goLeft=false;
+            goRight=false;
+            goUp=false;
+        }
     }
 
 }

@@ -53,8 +53,8 @@ public class Background extends GameObject{
     @Override
     public void draw(GraphicsContext graphicsContext) {
         graphicsContext.drawImage(DiamondHunterGame.images.get(this.imageName),this.x,this.y);
-        graphicsContext.setStroke(Color.BLACK);
-        graphicsContext.strokeRect(230,220,50,50);
+        //graphicsContext.setStroke(Color.BLACK);
+        //graphicsContext.strokeRect(230,220,50,50);
 
     }
 
