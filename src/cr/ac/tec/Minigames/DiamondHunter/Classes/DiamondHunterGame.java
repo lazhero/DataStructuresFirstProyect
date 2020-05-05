@@ -4,12 +4,14 @@ import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.util.HashMap;
 
@@ -37,7 +39,7 @@ public class DiamondHunterGame extends Application {
         loadImages();
         animatedPlayer = new AnimatedPlayer(230,220,2,"link",0,"restFront");
         background = new Background(0,0,10,"map");
-        initializeTiles();
+        initializeBarriers();
         root = new Group();
         scene = new Scene(root,500,500);
         canvas = new Canvas(500,500);
@@ -45,21 +47,26 @@ public class DiamondHunterGame extends Application {
         graphicsContext = canvas.getGraphicsContext2D();
     }
 
-    public void initializeTiles(){
+    /**
+     * Creates a barrier in every tile where there is not a 0 on the tile map.
+     */
+    public void initializeBarriers(){
         barriers = new DoubleList<>();
         for(int i=0; i<TileMap.tilemap.length; i++){
             for(int j=0; j<TileMap.tilemap[i].length; j++){
-                if (TileMap.tilemap[i][j] != 0)
-                    this.barriers.AddHead(new Barrier(TileMap.tilemap[i][j],j*47,i*47,10,"tilemap",0,0,0,0));
+                if (TileMap.tilemap[i][j]  != 0)
+                    this.barriers.AddHead(new Barrier(TileMap.tilemap[i][j],j*50,i*50,10,"tilemap",50,50,0,0));
             }
         }
     }
+
 
     public void loadImages(){
         images.put("map", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/map.png"));
         images.put("link", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/linkSprites.png"));
         images.put("tilemap", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/tilemap.png"));
     }
+
 
     public void draw(){
         background.draw(graphicsContext);
@@ -69,16 +76,30 @@ public class DiamondHunterGame extends Application {
         animatedPlayer.draw(graphicsContext);
     }
 
+    public void checkCollision(){
+        CustomRectangle playerRectangle = background.playerCustomRectangle();
+        for (int i=0; i < barriers.getLength(); i++){
+            CustomRectangle barrierRectangle = barriers.get(i).customRectangle();
+            if (playerRectangle.isOverlapping(barrierRectangle)){
+                background.setTouching(true);
+                return;
+            }
+        }
+        background.setTouching(false);
+    }
+
     /**
-     * Everything we need to be wupdating per frame second will go in here, like movements and collisions.
+     * Everything we need to be updating per frame second will go in here, like movements and collisions.
      * @param t
      */
     public void updateState(double t){
         //animatedPlayer.move();
-        for (int i=0; i < barriers.getLength(); i++)
-            barriers.get(i).move();
-        animatedPlayer.calculateFrame(t);
+        checkCollision();
         background.move();
+        for (int i=0; i < barriers.getLength(); i++) {
+            barriers.get(i).move();
+        }
+        animatedPlayer.calculateFrame(t);
     }
 
 
