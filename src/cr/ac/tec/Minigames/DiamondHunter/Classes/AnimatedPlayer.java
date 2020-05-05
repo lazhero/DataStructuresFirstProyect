@@ -1,6 +1,7 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.util.HashMap;
@@ -34,8 +35,9 @@ public class AnimatedPlayer extends GameObject{
     public void setCurrentAnimation(String currentAnimation){ this.currentAnimation = currentAnimation;}
 
     public Rectangle obtainRectangle(){
-        return new Rectangle(x,y,imageWidth,imageHeight);
+        return new Rectangle(x,y,47,47);
     }
+
 
 
     public void initializeAnimations(){
@@ -44,6 +46,7 @@ public class AnimatedPlayer extends GameObject{
                 new Rectangle(125,0,91,116),
                 new Rectangle(245,0,91,116)
         };
+
         Animation restFrontAnimation = new Animation(0.1,restFrontCoordinates);
         animations.put("restFront", restFrontAnimation);
 
@@ -140,10 +143,17 @@ public class AnimatedPlayer extends GameObject{
     }
 
 
-    @Override
+
+    //@Override
     public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(DiamondHunterGame.images.get(imageName), xImage, yImage, imageWidth, imageHeight, x, y, 47, 47);
+        //graphicsContext.drawImage(DiamondHunterGame.images.get(imageName), xImage, yImage, imageWidth, imageHeight, x, y, 50, 50);
+        graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
+
+        //graphicsContext.setStroke(Color.RED);
+        //graphicsContext.strokeRect(x,y,47,47);
     }
+
+
 
     @Override
     public void move() {

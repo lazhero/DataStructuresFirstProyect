@@ -2,17 +2,20 @@ package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Barrier extends GameObject {
 
     private int tileType;
-
+    public static boolean goLeft = false;
+    public static boolean goRight = false;
+    public static boolean goUp = false;
+    public static boolean goDown = false;
+    private boolean touching;
     final int initialX = x;
     final int initialY = y;
-
     private int xImage;//Extraer fragmento
     private int yImage;//de la imagen original.
-
     private int xSize;//Nuevo tamano que
     private int ySize;//desea darle al tile.
 
@@ -22,92 +25,123 @@ public class Barrier extends GameObject {
         this.height = height;
         this.xSize = xSize;
         this.ySize = ySize;
+        //System.out.println(String.format("%d: x(%d) y(%d) rectangle(%s)",tileType,x,y,obtainRectangle()));
 
-
-
-        switch (tileType){
-            case 1:
-                this.xImage = 0;
-                this.yImage = 0;
-                break;
-            case 2:
-                this.xImage = 0;
-                this.yImage = 132;
-                break;
-            case 3:
-                this.xImage = 0;
-                this.yImage = 264;
-                break;
-            case 4:
-                this.xImage = 0;
-                this.yImage = 396;
-                break;
-        }
     }
 
 
-    public int getxImage() {
-        return xImage;
+
+    public boolean isTouching() {
+        return touching;
     }
 
-    public void setxImage(int xImage) {
-        this.xImage = xImage;
+    public void setTouching(boolean touching) {
+        this.touching = touching;
     }
 
-    public int getyImage() {
-        return yImage;
+    /**
+     * Creates a rectangle on each barrier.
+     * @return
+     */
+    public CustomRectangle customRectangle(){
+        return new CustomRectangle(x,y,50,50);
     }
 
-    public void setyImage(int yImage) {
-        this.yImage = yImage;
-    }
 
-    public int getxSize() {
-        return xSize;
-    }
 
-    public void setxSize(int xSize) {
-        this.xSize = xSize;
-    }
-
-    public int getySize() {
-        return ySize;
-    }
-
-    public void setySize(int ySize) {
-        this.ySize = ySize;
-    }
-
+    /**
+     * Draws a rectangle over each barrier.
+     * @param graphicsContext
+     */
     @Override
     public void draw(GraphicsContext graphicsContext) {
-        //graphicsContext.drawImage(DiamondHunterGame.images.get(imageName),xImage, yImage, width, height,x,y,xSize,ySize);//(Posicion esquina superior derecha del tile, tamano del tile, donde quiere posicionarlo, tamano que tiene cada tile, nuevo tamano que desea darle)
-        graphicsContext.setStroke(Color.RED);
-        graphicsContext.strokeRect(x,y,47,47);
+        //graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
+        graphicsContext.setStroke(Color.BLACK);
+        graphicsContext.strokeRect(x,y,50,50);
     }
 
+    /**
+     * Moves each barrier as if it was stuck to the background.
+     */
     @Override
     public void move() {
-        if (DiamondHunterGame.right && x <= initialX){
+
+        //RIGHT
+        if (DiamondHunterGame.right && x <= initialX) {
+            if (!Background.touching)
+                goRight=false;
+            if (goRight){
+                if (Background.getX() == -2040)
+                    return;
+                x -= velocity;
+                //goRight = false;
+                return;
+            }
+            if (Background.touching){
+                goLeft = true;
+                return;
+            }
             if (Background.getX() == -2040)
                 return;
             x -= velocity;
         }
 
-        if (DiamondHunterGame.left && x < initialX) {
-            x += velocity;
+        //LEFT
+        if (DiamondHunterGame.left && x < initialX ) {
+            if(!Background.touching){
+                goLeft=false;
+            }
+            if (goLeft) {
+                System.out.println("entra al 1");
+                x += velocity;
+                //goLeft = false;
+                return;
+            }
+            if (Background.touching){
+                System.out.println("entra al 2");
+                goRight = true;
+                return;
+
+            }else {
+                System.out.println("entra al else");
+                x += velocity;
+            }
         }
 
-        if (DiamondHunterGame.down && y <= initialY){
-            if(Background.getY() == -1600)
+        //DOWN
+        if (DiamondHunterGame.down && y <= initialY) {
+            if (!Background.touching){
+                goDown=false;
+            }
+            if (goDown){
+                y -= velocity;
+                return;
+            }
+            if (Background.touching){
+                goUp = true;
+                return;
+            }
+            if (Background.getY() == -1600)
                 return;
             y -= velocity;
-
         }
 
+        //UP
         if (DiamondHunterGame.up && y < initialY) {
+            if (!Background.touching){
+                goUp=false;
+            }
+            if (goUp){
+                y += velocity;
+                return;
+            }
+            if (Background.touching){
+                goDown = true;
+                return;
+            }
             y += velocity;
-
         }
+
     }
 
 }

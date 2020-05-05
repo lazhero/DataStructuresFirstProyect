@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60463a44-58d4-495c-bc31-2158f5347eb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Images/diamond.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Images/tilemap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/CustomRectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/AnimatedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/AnimatedPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Background.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Barrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Barrier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/DiamondHunterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/DiamondHunterGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/TileMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/TileMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Images/map.png" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Images/map.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +47,6 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\cr\ac\tec\Minigames\DiamondHunter\Images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\cr\ac\tec\Minigames\DiamondHunter\Images" />
       <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\Images\DinoRunner" />
@@ -57,8 +54,24 @@
       <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\Images\Dice" />
       <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\Images" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\migue\OneDrive\Escritorio\ProyectoDatos_I\DataStructuresFirstProyect\src\cr\ac\tec\Minigames\DiamondHunter\Images" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.DiamondHunterGame">
+    <configuration name="CircleCollisionTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.DiamondHunter.Classes.CircleCollisionTester" />
+      <module name="ProyectoDatos_I" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cr.ac.tec.Minigames.DiamondHunter.Classes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiamondHunterGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame" />
       <module name="ProyectoDatos_I" />
@@ -72,25 +85,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Game (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.DiamondHunter.Classes.Game" />
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.ticTacToe.Main" />
       <module name="ProyectoDatos_I" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cr.ac.tec.Minigames.DiamondHunter.Classes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.PruebaJuego.Game" />
-      <module name="ProyectoDatos_I" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cr.ac.tec.Minigames.PruebaJuego.*" />
+          <option name="PATTERN" value="cr.ac.tec.Minigames.ticTacToe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -104,19 +104,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cr.ac.tec.Dice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Prove" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cr.ac.tec.Minigames.Shoot.Prove" />
-      <module name="ProyectoDatos_I" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cr.ac.tec.Minigames.Shoot.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,22 +130,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="memorygame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="memorygame" />
+      <module name="ProyectoDatos_I" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.main" />
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Prove" />
-      <item itemvalue="Application.Game" />
-      <item itemvalue="Application.Game (1)" />
       <item itemvalue="Application.DiamondHunterGame" />
+      <item itemvalue="Application.Main (1)" />
+      <item itemvalue="Application.memorygame" />
+      <item itemvalue="Application.CircleCollisionTester" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.DiamondHunterGame" />
-        <item itemvalue="Application.Game (1)" />
+        <item itemvalue="Application.CircleCollisionTester" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Game" />
-        <item itemvalue="Application.Prove" />
+        <item itemvalue="Application.memorygame" />
+        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -191,6 +185,8 @@
       <workItem from="1588459591564" duration="18751000" />
       <workItem from="1588486510046" duration="5809000" />
       <workItem from="1588496364281" duration="2489000" />
+      <workItem from="1588546842965" duration="26544000" />
+      <workItem from="1588585375069" duration="34632000" />
     </task>
     <task id="LOCAL-00001" summary="[DAT-76] created visuals of tic tac toe with a working x and o function.">
       <created>1587174761952</created>
@@ -388,14 +384,20 @@
       <option name="project" value="LOCAL" />
       <updated>1588487680237</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="[DAT-163] Created a barrier class">
+      <created>1588565794124</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1588565794124</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[DAT-76] tic tac toe commented." />
     <MESSAGE value="[DAT-73] Created a random number guessing game." />
     <MESSAGE value="[DAT-73] Finished a random number guessing game." />
     <MESSAGE value="[DAT-73] Commented RandomNumberGame" />
@@ -420,7 +422,8 @@
     <MESSAGE value="[DAT-157] Create an AnimatedPlayer class." />
     <MESSAGE value="[DAT-158] Created an Animation class." />
     <MESSAGE value="[DAT-157] Created an AnimatedPlayer with walking sprites." />
-    <option name="LAST_COMMIT_MESSAGE" value="[DAT-157] Created an AnimatedPlayer with walking sprites." />
+    <MESSAGE value="[DAT-163] Created a barrier class" />
+    <option name="LAST_COMMIT_MESSAGE" value="[DAT-163] Created a barrier class" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Project_Structure" timestamp="1584864662085">
@@ -435,11 +438,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588462496145" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1588493716020">
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1588660629351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587169394936" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588493716020" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588660629351" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588545943937">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -452,42 +455,42 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="486" y="86" key="#main_(1)/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584866926919" />
-    <state x="366" y="5" key="CommitChangelistDialog2" timestamp="1588487678991">
+    <state x="366" y="5" key="CommitChangelistDialog2" timestamp="1588565792983">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255849756" />
-    <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588487678991" />
+    <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588565792983" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1588030027450">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588030027450" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586378252345" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1588546833193">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1588669881440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588546833193" />
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588669881440" />
     <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1588546833193">
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1588669881440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588546833193" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588669881440" />
     <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1588546833193">
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1588669881440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588546833193" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588669881440" />
     <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1588546833193">
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1588669881440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588546833193" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588669881440" />
     <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
     <state width="1491" height="261" key="GridCell.Tab.1.bottom" timestamp="1584867682538">
@@ -518,11 +521,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588030029602" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1588487682211">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1588565796250">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255860221" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588487682211" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588565796250" />
     <state x="584" y="193" key="chooseDestDirectoryDialog" timestamp="1584866210334">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -541,10 +544,10 @@
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255806660" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587602176864" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1586377870352" />
-    <state x="1913" y="0" width="974" height="1047" maximized="true" key="dock-window-1" timestamp="1587674214986">
+    <state x="1920" y="0" width="1183" height="576" maximized="true" key="dock-window-1" timestamp="1588559439528">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1913" y="0" width="974" height="1047" maximized="true" key="dock-window-1/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587674214986" />
+    <state x="1920" y="0" width="1183" height="576" maximized="true" key="dock-window-1/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588559439528" />
     <state x="2319" y="0" width="1187" height="575" maximized="true" key="dock-window-2" timestamp="1587676323441">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -574,13 +577,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="475" y="31" key="refactoring.ChangeSignatureDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587869364538" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1587246331844">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1588653482386">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="189" key="run.anything.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587246331844" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587873830411">
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588653482386" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1588636221762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587873830411" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588636221762" />
   </component>
 </project>
