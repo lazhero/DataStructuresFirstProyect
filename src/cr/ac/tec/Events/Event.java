@@ -10,5 +10,20 @@ public abstract  class Event {
 
     public abstract void event(Player player);
 
+    /**
+     * Depend on each event, but events with two players
+     * @param player1
+     * @param player2
+     */
+
+    public abstract void event2 (Player player1, Player player2);
+
+    /**
+     * Information of the event
+     * @param player
+     */
+
+    public abstract void EventData(Player player);
+
 
 }
