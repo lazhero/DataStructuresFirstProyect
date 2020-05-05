@@ -36,11 +36,11 @@ public class WinFiveStars extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Change Place");
+        tittle.setText("Win 5 Stars");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will be changed by");
+        changeT.setText("You will win 5 stars");
         buttock.setOnMouseClicked(e->{
             event(player);
 

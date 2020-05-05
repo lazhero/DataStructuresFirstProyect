@@ -35,11 +35,11 @@ public class StealCoins extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Change Place");
+        tittle.setText("Steal Coins");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will be changed by");
+        changeT.setText("You can steal coins from another player");
         buttock.setOnMouseClicked(e->{
             event(player);
 

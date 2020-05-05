@@ -35,11 +35,11 @@ public class GiveAwayCoins extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Change Place");
+        tittle.setText("Give Aways Coins");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will be changed by");
+        changeT.setText("You will be given coins");
         buttock.setOnMouseClicked(e->{
             event(player);
 

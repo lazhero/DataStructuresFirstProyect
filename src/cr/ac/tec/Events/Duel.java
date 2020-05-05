@@ -39,11 +39,11 @@ public class Duel extends Event{
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Change Place");
+        tittle.setText("Duel");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will be changed by");
+        changeT.setText("2 players will face each other in a duel");
         buttock.setOnMouseClicked(e->{
             event(player);
 
