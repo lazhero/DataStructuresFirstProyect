@@ -15,6 +15,7 @@ import cr.ac.tecLinkedList.List.SingleList;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -28,11 +29,17 @@ public class Board extends Application {
     public void start(Stage MainWindow) {
         AnchorPane FirstLevelAnchorPane = LayoutCreation.Anchor(1300, 700);
         FirstLevelAnchorPane.setStyle("-fx-background-color: #0078d7");
-        GameManager gameManager=GameManager.getInstance(2,5);
+        TextField b = new TextField();
+        b.setText("0");
+        FirstLevelAnchorPane.setTopAnchor(b,155.0);
+        GameManager gameManager=GameManager.getInstance(4,5);
         Button btn=WidgetCreation.CreateButton("Hola");
+        Button btn1=new Button("Comprobar");
+        btn1.setOnAction(e->gameManager.confirm());
+        FirstLevelAnchorPane.setTopAnchor(btn1,400.0);
         gameManager.Draw(FirstLevelAnchorPane);
-        btn.setOnAction(e->gameManager.StartTurn(2));
-        FirstLevelAnchorPane.getChildren().add(btn);
+        btn.setOnAction(e->gameManager.StartTurn(Integer.parseInt(b.getText())));
+        FirstLevelAnchorPane.getChildren().addAll(btn,b,btn1);
         Scene scene =new Scene(FirstLevelAnchorPane,1300,700, Color.RED);
         MainWindow.setScene(scene);
         MainWindow.show();
