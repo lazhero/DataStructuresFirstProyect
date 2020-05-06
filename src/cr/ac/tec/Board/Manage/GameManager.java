@@ -97,7 +97,7 @@ public class GameManager {
            while (Math.abs(i) < Math.abs(steps)) {
                final int f=i;
                timeline.getKeyFrames().add(new KeyFrame(
-                       Duration.millis(600 * (Math.abs(i)+1)),
+                       Duration.millis(150 * (Math.abs(i)+1)),
                        (ActionEvent event) -> {
                            DoubleNode<Square> Temp=PlayersNodes.get(PlayerTurn);
                            if (InitCondition.get(PlayerTurn)!= -1) {
@@ -107,7 +107,7 @@ public class GameManager {
 
                            Temp=GetNextNode(Temp,raise);
                            Temp.getInfo().DrawPlayer(PlayerList.get(PlayerTurn), 40, 40,(Math.abs(f)+1==Math.abs(steps)));
-                            InitCondition.ChangeContent(PlayerTurn,5);
+                            InitCondition.ChangeContent(PlayerTurn,InitCondition.get(PlayerTurn)+raise);
                             PlayersNodes.ChangeContent(PlayerTurn,Temp);
                        }
                ));
@@ -116,7 +116,9 @@ public class GameManager {
            timeline.setCycleCount(1);
            timeline.setOnFinished(e->{
                PauseTransition pauseTransition=new PauseTransition();
-               pauseTransition.setDuration(Duration.millis(3000));
+               pauseTransition.setDuration(Duration.millis(1));
+               pauseTransition.setAutoReverse(false);
+               pauseTransition.setCycleCount(1);
                pauseTransition.setOnFinished(k->{
                    DoubleNode<Square> Temp=PlayersNodes.get(PlayerTurn);
                    if (Temp.getInfo().getPlayers()>1 && Temp.getInfo().getPlayers()<=2){
@@ -134,8 +136,10 @@ public class GameManager {
 
 
 
-                   }
 
+                   }
+                   System.out.println("Imprimiendo ..................");
+                    InitCondition.printing();
                    running=false;
 
                });
@@ -202,6 +206,17 @@ public class GameManager {
        StartTurn(Steps);
        turns=Backup;
 
+   }
+   public void confirm(){
+       for(int i=0;i<SquareList.getLength();i++){
+           System.out.println("Casilla numero "+ i+" .........................................................................");
+           DoubleList<Player> List=SquareList.get(i).ListPlayer();
+           if(List.getLength()>0){
+               System.out.println("El numero de jugadores registrados es "+SquareList.get(i).getPlayers());
+               System.out.println("El len de mi lista es "+List.getLength());
+               List.printing();
+           }
+       }
    }
 
 
