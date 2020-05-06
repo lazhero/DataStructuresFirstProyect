@@ -194,7 +194,7 @@ public class DoubleList<T> implements List<T> {
         if(!this.isEmpty()){
             DoubleNode<T> temp;
             int i=0;
-            for(temp=head;temp.getFront()!=null;temp=temp.getFront()){
+            for(temp=head;temp!=null;temp=temp.getFront()){
                 try{
                     if(temp.getInfo()==value)return i;
                 }
