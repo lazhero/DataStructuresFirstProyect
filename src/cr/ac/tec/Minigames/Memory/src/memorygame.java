@@ -1,3 +1,4 @@
+package cr.ac.tec.Minigames.Memory.src;
 
 import javafx.animation.FadeTransition;
 import javafx.application.Application;

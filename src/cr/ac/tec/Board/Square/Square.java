@@ -1,5 +1,5 @@
 package cr.ac.tec.Board.Square;
-import com.sun.media.jfxmediaimpl.platform.Platform;
+//import com.sun.media.jfxmediaimpl.platform.Platform;
 import cr.ac.tec.Board.*;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Images.GetImages;
