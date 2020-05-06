@@ -56,8 +56,8 @@ public class Barrier extends GameObject {
     @Override
     public void draw(GraphicsContext graphicsContext) {
         //graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
-        graphicsContext.setStroke(Color.BLACK);
-        graphicsContext.strokeRect(x,y,50,50);
+        //graphicsContext.setStroke(Color.BLACK);
+        //graphicsContext.strokeRect(x,y,50,50);
     }
 
     /**

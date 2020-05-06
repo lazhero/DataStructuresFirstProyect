@@ -35,9 +35,15 @@ public class AnimatedPlayer extends GameObject{
     public void setCurrentAnimation(String currentAnimation){ this.currentAnimation = currentAnimation;}
 
     public Rectangle obtainRectangle(){
-        return new Rectangle(x,y,47,47);
+        return new Rectangle(x,y,50,50);
     }
 
+
+    public void verifyItemCollision(Item item){
+        if (!item.isCaptured() && this.obtainRectangle().getBoundsInLocal().intersects(item.obtainRectangle().getBoundsInLocal())){
+            item.setCaptured(true);
+        }
+    }
 
 
     public void initializeAnimations(){
