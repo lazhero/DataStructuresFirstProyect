@@ -35,11 +35,11 @@ public class LoseOneStar extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Change Place");
+        tittle.setText("Lose One Star");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will be changed by");
+        changeT.setText("You lose one star and give away to a random player");
         buttock.setOnMouseClicked(e->{
             event(player);
 

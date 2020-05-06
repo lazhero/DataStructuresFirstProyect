@@ -34,11 +34,11 @@ public class Teleport extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Change Place");
+        tittle.setText("Teleport");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will be changed by");
+        changeT.setText("You will be teleported to another place");
         buttock.setOnMouseClicked(e->{
             event(player);
 
