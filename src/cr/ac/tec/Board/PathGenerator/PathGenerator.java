@@ -42,6 +42,7 @@ public class PathGenerator {
             else sqr = new YellowSquare(posx, posy, SquareSide);
 
 
+
             List.AddTail(sqr);
             SquaresNumber--;
             int relocation=(int)((reg-SquaresNumber)/((reg/4)-1));
