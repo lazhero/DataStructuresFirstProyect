@@ -172,10 +172,10 @@ public abstract class  Square {
             DrawingOnePlayer(player,nodeWidth,nodeHeight);
             PlayersinPanel.AddTail(player);
             if(StoppingFlag){
-                Event();
+               // Event();
             }
         }
-        else if(players>1){
+        else if(players>1 && players<=2){
             for(int i= 0;i<PlayersinPanel.getLength();i++){
                 DeleteNode(PlayersinPanel.get(i).getNode());
             }
@@ -245,15 +245,14 @@ public abstract class  Square {
 
 
         }
-        else if(players>1){
+        else if(players>1 && players<=2){
             players-=2;
-            int pos=PlayersinPanel.FindFirstInstancePosition(player);
+
             for(int i=0;i<PlayersinPanel.getLength();i++){
                 DeleteNode(PlayersinPanel.get(i).getNode());
             }
-
+            int pos=PlayersinPanel.FindFirstInstancePosition(player);
             PlayersinPanel.delete(pos);
-
             Player temp= PlayersinPanel.get(0);
             PlayersinPanel.delete(0);
             DrawPlayer(temp,nodeWidth,nodeHeight,false);
