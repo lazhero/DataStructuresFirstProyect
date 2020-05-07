@@ -46,7 +46,6 @@ public class DiamondHunterGame extends Application {
         background = new Background(0,0,5,"map");
         initializeBarriers();
         adItems();
-        //item = new Item(300,300,5,"diamond",1);
         root = new Group();
         scene = new Scene(root,500,500);
         canvas = new Canvas(500,500);
@@ -70,14 +69,14 @@ public class DiamondHunterGame extends Application {
 
 
     /**
-     * Has a bug that item doesnt spawn where its supposed to.
+     *
      */
     public void adItems() {
         items = new DoubleList<>();
         int itemsOnMap = 5;
         while (itemsOnMap > 0) {
-            int randomNumber1 = (int) (Math.random() * ((42 - 1) + 1)) + 1;
-            int randomNumber2 = (int) (Math.random() * ((42 - 1) + 1)) + 1;
+            int randomNumber1 = (int) (Math.random() * ((37 - 4) + 1)) + 4;
+            int randomNumber2 = (int) (Math.random() * ((37 - 4) + 1)) + 4;
             if (TileMap.tilemap[randomNumber1][randomNumber2] == 0){
                 this.items.AddHead(new Item(randomNumber2*50,randomNumber1*50,5,"item",0));
                 itemsOnMap--;
@@ -175,7 +174,7 @@ public class DiamondHunterGame extends Application {
             @Override
             public void handle(long currentTime) {
                 double t = (currentTime - initialTime) / 1000000000.0;
-                //System.out.println(t);
+                //System.out.println((int)t);
                 updateState(t);
                 draw();
             }
