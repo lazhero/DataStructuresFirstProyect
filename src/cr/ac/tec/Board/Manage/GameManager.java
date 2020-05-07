@@ -26,7 +26,7 @@ public class GameManager {
     private DoubleList<Square> Phase2=new DoubleList<>();
     private DoubleList<Square> Phase3=new DoubleList<>();
     private DoubleRoundList<Square> Phase4=new DoubleRoundList<>();
-   private DoubleRoundList<Player>  PlayerList=new DoubleRoundList<>();
+   private DoubleList<Player>  PlayerList=new DoubleList<>();
    private DoubleRoundList<Integer> InitCondition=new DoubleRoundList<>();
    private DoubleList<DoubleNode<Square>> PlayersNodes=new DoubleList<>();
     private DoubleList<DoubleNode<Square>> Switching=new DoubleList<>();
@@ -92,7 +92,7 @@ public class GameManager {
    }
 
    public void StartTurn(int steps){
-       if(!running || Backing) {
+       if((!running || Backing)&& steps!=0) {
            running=true;
            Backing=false;
            turns++;
@@ -265,6 +265,21 @@ public class GameManager {
                List.printing();
            }
        }
+   }
+   public void teleport(Player player){
+       int pos=player.getId()-1;
+       PlayersNodes.get(pos).getInfo().DeletingPlayer(player,50,50);
+       if(SquareList.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo())!=-1){
+           PlayersNodes.ChangeContent(pos,Phase4.getNode(0));
+       }
+       else{
+           PlayersNodes.ChangeContent(pos,SquareList.getNode(0));
+       }
+       PlayersNodes.get(pos).getInfo().DrawPlayer(player,50,50,false);
+
+   }
+   public void example(int pos){
+       teleport(PlayerList.get(pos));
    }
 
 
