@@ -1,8 +1,8 @@
-package CR.AC.TEC.TheLogger;
+package cr.ac.tec.TheLogger;
 
-import CR.AC.TEC.TheLogger.logger.Control;
-import CR.AC.TEC.TheLogger.logger.Utilidades;
-import CR.AC.TEC.TheLogger.logger.update.InternalSys;
+import cr.ac.tec.TheLogger.logger.Control;
+import cr.ac.tec.TheLogger.logger.Utilidades;
+import cr.ac.tec.TheLogger.logger.update.InternalSys;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -38,7 +38,7 @@ public class Loggger {
             // Con el manejador de archivo, indicamos el archivo donde se mandaran los logs
             // El segundo argumento controla si se sobre escribe el archivo o se agregan los logs al final
             // Para sobre escribir pase un true para agregar al final, false para sobre escribir
-            // todo el archivo
+            //
             Handler fileHandler = new FileHandler("./CR.AC.TEC.TheLogger.log", false);
 
             // El formateador indica como presentar los datos, en este caso usaremos el formaro sencillo

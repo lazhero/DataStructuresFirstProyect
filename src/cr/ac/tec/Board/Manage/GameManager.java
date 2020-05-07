@@ -282,10 +282,4 @@ public class GameManager {
        teleport(PlayerList.get(pos));
    }
 
-
-
-
-
-
-
 }

@@ -16,11 +16,7 @@ public class ListOfEvents{
     static Integer LoseOneStar=6;
 
 
-
-
-
-    public static void main(String[] args) {
-
+    public  void EventsList(){
 
         ArrayList<String>  mylist = new ArrayList<String>();
 
@@ -54,26 +50,9 @@ public class ListOfEvents{
         for (int i=0; i<LoseOneStar;i++){
             mylist.add("LoseOneStar");
         }
-
-
         System.out.println("Original List : \n" + mylist);
-
         Collections.shuffle(mylist);
-
         System.out.println("\nShuffled List : \n" + mylist);
-
-
-        ArrayList<String> milista = new ArrayList<>();
-        milista.add("MemoryGame");
-        milista.add("PRS");
-        milista.add("TicTacToe");
-        milista.add("PressFirst");
-        milista.add("DiamondHunter");
-        milista.add("Shoot");
-        milista.add("RandomNumber");
-
-        System.out.println(milista);
-        Collections.shuffle(milista);
-        System.out.println(milista);
+        return;
     }
 }
