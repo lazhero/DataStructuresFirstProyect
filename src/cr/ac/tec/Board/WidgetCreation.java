@@ -64,8 +64,8 @@ public class WidgetCreation {
         rect.setWidth(width);
         rect.setHeight(height);
         rect.setFill(color);
-        rect.setArcHeight(20);
-        rect.setArcWidth(20);
+        rect.setArcHeight(35);
+        rect.setArcWidth(25);
         return rect;
 
     }
