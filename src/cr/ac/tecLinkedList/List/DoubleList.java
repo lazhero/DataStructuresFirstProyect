@@ -193,16 +193,15 @@ public class DoubleList<T> implements List<T> {
     public int FindFirstInstancePosition(T value){
         if(!this.isEmpty()){
             DoubleNode<T> temp;
-            int i=0;
-            for(temp=head;temp!=null;temp=temp.getFront()){
+            temp=head;
+            for(int i=0;i<length;i++){
                 try{
                     if(temp.getInfo()==value)return i;
                 }
                 catch (Exception e){
                     if(temp.getInfo().equals(value))return i;
                 }
-
-                i++;
+                temp=temp.getFront();
             }
 
         }
