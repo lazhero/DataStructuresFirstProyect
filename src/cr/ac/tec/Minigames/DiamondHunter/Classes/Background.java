@@ -8,7 +8,17 @@ import javafx.scene.shape.Rectangle;
 
 public class Background extends GameObject{
 
-    public static boolean touching = false;
+
+    public static boolean touchingLeftSide = false;
+    public static boolean touchingRightSide = false;
+    public static boolean touchingUpSide = false;
+    public static boolean touchingDownSide = false;
+
+
+    private CustomRectangle leftSide;
+    private CustomRectangle rightSide;
+    private CustomRectangle upSide;
+    private CustomRectangle downSide;
 
     public static int x;
     public static int y;
@@ -24,21 +34,80 @@ public class Background extends GameObject{
         return x;
     }
 
-
-    public boolean isTouching() {
-        return touching;
+    public static boolean isTouchingLeftSide() {
+        return touchingLeftSide;
     }
 
-    public void setTouching(boolean touching) {
-        this.touching = touching;
+    public static void setTouchingLeftSide(boolean touchingLeftSide) {
+        Background.touchingLeftSide = touchingLeftSide;
     }
+
+    public static boolean isTouchingRightSide() {
+        return touchingRightSide;
+    }
+
+    public static void setTouchingRightSide(boolean touchingRightSide) {
+        Background.touchingRightSide = touchingRightSide;
+    }
+
+    public static boolean isTouchingUpSide() {
+        return touchingUpSide;
+    }
+
+    public static void setTouchingUpSide(boolean touchingUpSide) {
+        Background.touchingUpSide = touchingUpSide;
+    }
+
+    public static boolean isTouchingDownSide() {
+        return touchingDownSide;
+    }
+
+    public static void setTouchingDownSide(boolean touchingDownSide) {
+        Background.touchingDownSide = touchingDownSide;
+    }
+
+    public CustomRectangle getLeftSide() {
+        return leftSide;
+    }
+
+    public void setLeftSide(CustomRectangle leftSide) {
+        this.leftSide = leftSide;
+    }
+
+    public CustomRectangle getRightSide() {
+        return rightSide;
+    }
+
+    public void setRightSide(CustomRectangle rightSide) {
+        this.rightSide = rightSide;
+    }
+
+    public CustomRectangle getUpSide() {
+        return upSide;
+    }
+
+    public void setUpSide(CustomRectangle upSide) {
+        this.upSide = upSide;
+    }
+
+    public CustomRectangle getDownSide() {
+        return downSide;
+    }
+
+    public void setDownSide(CustomRectangle downSide) {
+        this.downSide = downSide;
+    }
+
 
     /**
      * Creates a rectangle on the coordinates where the player is standing.
      * @return
      */
-    public CustomRectangle playerCustomRectangle(){
-        return new CustomRectangle(230, 220, 50, 50);
+    public void playerCustomRectangle(){
+        upSide = new CustomRectangle(232,220,36,2);
+        leftSide = new CustomRectangle(230,222,2,36);
+        rightSide = new CustomRectangle(268,222,2,36);
+        downSide = new CustomRectangle(232,258,36,2);
     }
 
     public Rectangle playerRectangle(){
@@ -53,9 +122,12 @@ public class Background extends GameObject{
     @Override
     public void draw(GraphicsContext graphicsContext) {
         graphicsContext.drawImage(DiamondHunterGame.images.get(this.imageName),this.x,this.y);
-        //graphicsContext.setStroke(Color.BLACK);
-        //graphicsContext.strokeRect(230,220,50,50);
-
+        /*
+        graphicsContext.strokeRect(232,220,36,2);//Arriba
+        graphicsContext.strokeRect(230,222,2,36);//Izquierdo
+        graphicsContext.strokeRect(268,222,2,36);//Derecha
+        graphicsContext.strokeRect(232,258,36,2);//Abajo
+         */
     }
 
     /**
@@ -64,48 +136,32 @@ public class Background extends GameObject{
     @Override
     public void move() {
 
-        if (DiamondHunterGame.right && x > -2040){
-            if (touching){
-                if (Barrier.goRight) {
-                    x -= velocity;
-                    return;
-                }
-                return;
-            }
-            x -= velocity;
-        }
+        if (!DiamondHunterGame.GameOver) {
 
-        if (DiamondHunterGame.left && x < 0) {
-            if (touching){
-                if (Barrier.goLeft) {
-                    x += velocity;
+            if (DiamondHunterGame.right && x > -2040) {
+                if (touchingRightSide)
                     return;
-                }
-                return;
+                x -= velocity;
             }
-            x += velocity;
-        }
 
-        if (DiamondHunterGame.down && y > -1600){
-            if (touching){
-                if (Barrier.goDown){
-                    y -= velocity;
+            if (DiamondHunterGame.left && x < 0) {
+                if (touchingLeftSide)
                     return;
-                }
-                return;
+                x += velocity;
             }
-            y -= velocity;
-        }
 
-        if (DiamondHunterGame.up && y < 0) {
-            if (touching){
-                if (Barrier.goUp){
-                    y += velocity;
+            if (DiamondHunterGame.down && y > -1600) {
+                if (touchingDownSide)
                     return;
-                }
-                return;
+                y -= velocity;
             }
-            y += velocity;
+
+            if (DiamondHunterGame.up && y < 0) {
+                if (touchingUpSide)
+                    return;
+                y += velocity;
+            }
         }
     }
+
 }

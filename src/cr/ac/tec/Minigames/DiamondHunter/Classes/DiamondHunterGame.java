@@ -25,7 +25,11 @@ public class DiamondHunterGame extends Application {
     private Background background;
     private AnimatedPlayer animatedPlayer;
     private DoubleList<Barrier> barriers;
-    private Item item;
+    private DoubleList<Item> items;
+
+    public static boolean GameOver = false;
+    public static int totalDiamondsCollected = 0;
+
     public static boolean up;
     public static boolean down;
     public static boolean left;
@@ -41,7 +45,8 @@ public class DiamondHunterGame extends Application {
         animatedPlayer = new AnimatedPlayer(230,220,2,"link",0,"restFront");
         background = new Background(0,0,5,"map");
         initializeBarriers();
-        item = new Item(300,300,5,"diamond",1);
+        adItems();
+        //item = new Item(300,300,5,"diamond",1);
         root = new Group();
         scene = new Scene(root,500,500);
         canvas = new Canvas(500,500);
@@ -56,8 +61,26 @@ public class DiamondHunterGame extends Application {
         barriers = new DoubleList<>();
         for(int i=0; i<TileMap.tilemap.length; i++){
             for(int j=0; j<TileMap.tilemap[i].length; j++){
-                if (TileMap.tilemap[i][j]  != 0)
-                    this.barriers.AddHead(new Barrier(TileMap.tilemap[i][j],j*50,i*50,5,"tilemap",50,50,0,0));
+                if (TileMap.tilemap[i][j]  != 0) {
+                    this.barriers.AddHead(new Barrier(TileMap.tilemap[i][j], j * 50, i * 50, 5, "tilemap", 50, 50, 0, 0));
+                }
+            }
+        }
+    }
+
+
+    /**
+     * Has a bug that item doesnt spawn where its supposed to.
+     */
+    public void adItems() {
+        items = new DoubleList<>();
+        int itemsOnMap = 5;
+        while (itemsOnMap > 0) {
+            int randomNumber1 = (int) (Math.random() * ((42 - 1) + 1)) + 1;
+            int randomNumber2 = (int) (Math.random() * ((42 - 1) + 1)) + 1;
+            if (TileMap.tilemap[randomNumber1][randomNumber2] == 0){
+                this.items.AddHead(new Item(randomNumber2*50,randomNumber1*50,5,"item",0));
+                itemsOnMap--;
             }
         }
     }
@@ -77,20 +100,42 @@ public class DiamondHunterGame extends Application {
         for (int i=0; i < barriers.getLength(); i++) {
             barriers.get(i).draw(graphicsContext);
         }
+        for (int i=0; i < items.getLength(); i++){
+            items.get(i).draw(graphicsContext);
+        }
         animatedPlayer.draw(graphicsContext);
-        item.draw(graphicsContext);
+        //item.draw(graphicsContext);
     }
 
     public void checkCollision(){
-        CustomRectangle playerRectangle = background.playerCustomRectangle();
+        background.playerCustomRectangle();
         for (int i=0; i < barriers.getLength(); i++){
             CustomRectangle barrierRectangle = barriers.get(i).customRectangle();
-            if (playerRectangle.isOverlapping(barrierRectangle)){
-                background.setTouching(true);
+            if (background.getLeftSide().isOverlapping(barrierRectangle)){
+                //System.out.println("left");
+                Background.setTouchingLeftSide(true);
+                return;
+            }
+            if (background.getRightSide().isOverlapping(barrierRectangle)){
+                //System.out.println("right");
+                Background.setTouchingRightSide(true);
+                return;
+            }
+            if (background.getUpSide().isOverlapping(barrierRectangle)){
+                //System.out.println("up");
+                Background.setTouchingUpSide(true);
+                return;
+            }
+            if (background.getDownSide().isOverlapping(barrierRectangle)){
+                //System.out.println("down");
+                Background.setTouchingDownSide(true);
                 return;
             }
         }
-        background.setTouching(false);
+        Background.setTouchingLeftSide(false);
+        Background.setTouchingDownSide(false);
+        Background.setTouchingRightSide(false);
+        Background.setTouchingUpSide(false);
     }
 
     /**
@@ -98,16 +143,26 @@ public class DiamondHunterGame extends Application {
      * @param t
      */
     public void updateState(double t){
-        //animatedPlayer.verifyItemCollision(item);
+        isFinished();
         checkCollision();
-        item.move();
         background.move();
+        for (int i=0; i < items.getLength(); i++){
+            animatedPlayer.verifyItemCollision(items.get(i));
+        }
         for (int i=0; i < barriers.getLength(); i++) {
             barriers.get(i).move();
+        }
+        for (int i=0; i < items.getLength(); i++){
+            items.get(i).move();
         }
         animatedPlayer.calculateFrame(t);
     }
 
+    public void isFinished(){
+        if (totalDiamondsCollected==5){
+            GameOver = true;
+        }
+    }
 
     /**
      * Sets an animation timer to see the games current frames per second and constantly updates the game with its images.

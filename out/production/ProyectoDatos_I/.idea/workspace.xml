@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60463a44-58d4-495c-bc31-2158f5347eb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/out/production/ProyectoDatos_I/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/AnimatedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/AnimatedPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Background.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Barrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/Barrier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/DiamondHunterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/DiamondHunterGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/TileMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataStructuresFirstProyect/src/cr/ac/tec/Minigames/DiamondHunter/Classes/TileMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/DataStructuresFirstProyect/src" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProyectoDatos_I - copia" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -185,6 +187,10 @@
       <workItem from="1588546842965" duration="26544000" />
       <workItem from="1588585375069" duration="34632000" />
       <workItem from="1588669890343" duration="8990000" />
+      <workItem from="1588759219360" duration="4466000" />
+      <workItem from="1588764062128" duration="477000" />
+      <workItem from="1588764548918" duration="1617000" />
+      <workItem from="1588807964585" duration="1748000" />
     </task>
     <task id="LOCAL-00001" summary="[DAT-76] created visuals of tic tac toe with a working x and o function.">
       <created>1587174761952</created>
@@ -403,14 +409,20 @@
       <option name="project" value="LOCAL" />
       <updated>1588681799395</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="[DAT-170] Add movement to items.">
+      <created>1588759875622</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1588759875622</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[DAT-73] Finished a random number guessing game." />
     <MESSAGE value="[DAT-73] Commented RandomNumberGame" />
     <MESSAGE value="[DAT-94] Fixed the draw bug in the RandomNumberGame" />
     <MESSAGE value="[DAT-36] Created dice class." />
@@ -435,7 +447,8 @@
     <MESSAGE value="[DAT-157] Created an AnimatedPlayer with walking sprites." />
     <MESSAGE value="[DAT-163] Created a barrier class" />
     <MESSAGE value="[DAT-151] Developed a game called DiamondHunter." />
-    <option name="LAST_COMMIT_MESSAGE" value="[DAT-151] Developed a game called DiamondHunter." />
+    <MESSAGE value="[DAT-170] Add movement to items." />
+    <option name="LAST_COMMIT_MESSAGE" value="[DAT-170] Add movement to items." />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Project_Structure" timestamp="1584864662085">
@@ -450,11 +463,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="224" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588462496145" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1588660629351">
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1588762984181">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587169394936" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588660629351" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588762984181" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588545943937">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -467,42 +480,42 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="486" y="86" key="#main_(1)/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1584866926919" />
-    <state x="366" y="5" key="CommitChangelistDialog2" timestamp="1588681798071">
+    <state x="366" y="5" key="CommitChangelistDialog2" timestamp="1588759874939">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255849756" />
-    <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588681798071" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1588030027450">
+    <state x="366" y="5" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588759874939" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1588808016962">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588030027450" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588808016962" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586378252345" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1588736047343">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1588766167659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588736047343" />
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588766167659" />
     <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1588736047343">
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1588766167659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588736047343" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588766167659" />
     <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1588736047343">
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1588766167659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588736047343" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588766167659" />
     <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1588736047343">
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1588766167659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587256866895" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588736047343" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588766167659" />
     <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588323806030" />
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586378180166" />
     <state width="1491" height="261" key="GridCell.Tab.1.bottom" timestamp="1584867682538">
@@ -533,11 +546,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588030029602" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1588671292426">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1588759879146">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1587255860221" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588671292426" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588759879146" />
     <state x="584" y="193" key="chooseDestDirectoryDialog" timestamp="1584866210334">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -35,7 +35,7 @@ public class AnimatedPlayer extends GameObject{
     public void setCurrentAnimation(String currentAnimation){ this.currentAnimation = currentAnimation;}
 
     public Rectangle obtainRectangle(){
-        return new Rectangle(x,y,50,50);
+        return new Rectangle(x,y,40,40);
     }
 
 
@@ -152,7 +152,7 @@ public class AnimatedPlayer extends GameObject{
 
     //@Override
     public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(DiamondHunterGame.images.get(imageName), xImage, yImage, imageWidth, imageHeight, x, y, 50, 50);
+        graphicsContext.drawImage(DiamondHunterGame.images.get(imageName), xImage, yImage, imageWidth, imageHeight, x, y, 40, 40);
         //graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
 
         //graphicsContext.setStroke(Color.RED);

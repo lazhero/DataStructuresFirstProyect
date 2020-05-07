@@ -15,6 +15,8 @@ public class Item extends GameObject {
 
     public void setCaptured(boolean captured) {
         this.captured = captured;
+        DiamondHunterGame.totalDiamondsCollected++;
+        System.out.println(DiamondHunterGame.totalDiamondsCollected);
     }
 
 
@@ -44,61 +46,25 @@ public class Item extends GameObject {
     public void move() {
         //RIGHT
         if (DiamondHunterGame.right && x <= initialX) {
-            if (!Background.touching)
-                Barrier.goRight=false;
-            if (Barrier.goRight){
-                if (Background.getX() == -2040)
-                    return;
-                x -= velocity;
+            if (Background.touchingRightSide)
                 return;
-            }
-            if (Background.touching){
-                if (Barrier.goDown || Barrier.goUp || Barrier.goRight)
-                    return;
-                Barrier.goLeft = true;
-                return;
-            }
             if (Background.getX() == -2040)
                 return;
             x -= velocity;
+
         }
 
         //LEFT
         if (DiamondHunterGame.left && x < initialX ) {
-            if(!Background.touching){
-                Barrier.goLeft=false;
-            }
-            if (Barrier.goLeft) {
-                x += velocity;
+            if (Background.touchingLeftSide)
                 return;
-            }
-            if (Background.touching){
-                if (Barrier.goUp || Barrier.goDown || Barrier.goLeft)
-                    return;
-                Barrier.goRight = true;
-                return;
-
-            }
             x += velocity;
-
         }
 
         //DOWN
         if (DiamondHunterGame.down && y <= initialY) {
-            if (!Background.touching){
-                Barrier.goDown=false;
-            }
-            if (Barrier.goDown){
-                y -= velocity;
+            if (Background.touchingDownSide)
                 return;
-            }
-            if (Background.touching){
-                if (Barrier.goRight || Barrier.goLeft || Barrier.goDown){
-                    return;
-                }
-                Barrier.goUp = true;
-                return;
-            }
             if (Background.getY() == -1600)
                 return;
             y -= velocity;
@@ -106,19 +72,8 @@ public class Item extends GameObject {
 
         //UP
         if (DiamondHunterGame.up && y < initialY) {
-            if (!Background.touching){
-                Barrier.goUp=false;
-            }
-            if (Barrier.goUp){
-                y += velocity;
+            if (Background.touchingUpSide)
                 return;
-            }
-            if (Background.touching){
-                if (Barrier.goLeft || Barrier.goRight || Barrier.goUp)
-                    return;
-                Barrier.goDown = true;
-                return;
-            }
             y += velocity;
         }
 

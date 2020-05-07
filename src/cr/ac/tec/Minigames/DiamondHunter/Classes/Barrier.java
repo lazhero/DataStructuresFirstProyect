@@ -48,6 +48,17 @@ public class Barrier extends GameObject {
     }
 
 
+    public int getInitialX() {
+        return initialX;
+    }
+
+    public int getInitialY() {
+        return initialY;
+    }
+
+    public int getTileType() {
+        return tileType;
+    }
 
     /**
      * Draws a rectangle over each barrier.
@@ -66,114 +77,40 @@ public class Barrier extends GameObject {
     @Override
     public void move() {
 
-        check();
-        //RIGHT
-        if (DiamondHunterGame.right && x <= initialX) {
-            if (!Background.touching)
-                goRight=false;
-            if (goRight){
+        if (!DiamondHunterGame.GameOver) {
+
+            //RIGHT
+            if (DiamondHunterGame.right && x <= initialX) {
+                if (Background.touchingRightSide)
+                    return;
                 if (Background.getX() == -2040)
                     return;
                 x -= velocity;
-                return;
-            }
-            if (Background.touching){
-                if (goDown || goUp || goRight)
-                    return;
-                goLeft = true;
-                return;
-            }
-            if (Background.getX() == -2040)
-                return;
-            x -= velocity;
-        }
 
-        //LEFT
-        if (DiamondHunterGame.left && x < initialX ) {
-            if(!Background.touching){
-                goLeft=false;
             }
-            if (goLeft) {
+
+            //LEFT
+            if (DiamondHunterGame.left && x < initialX) {
+                if (Background.touchingLeftSide)
+                    return;
                 x += velocity;
-                return;
             }
-            if (Background.touching){
-                if (goUp || goDown || goLeft)
+
+            //DOWN
+            if (DiamondHunterGame.down && y <= initialY) {
+                if (Background.touchingDownSide)
                     return;
-                goRight = true;
-                return;
-
-            }
-            x += velocity;
-
-        }
-
-        //DOWN
-        if (DiamondHunterGame.down && y <= initialY) {
-            if (!Background.touching){
-                goDown=false;
-            }
-            if (goDown){
+                if (Background.getY() == -1600)
+                    return;
                 y -= velocity;
-                return;
             }
-            if (Background.touching){
-                if (goRight || goLeft || goDown){
-                    return;
-                }
-                goUp = true;
-                return;
-            }
-            if (Background.getY() == -1600)
-                return;
-            y -= velocity;
-        }
 
-        //UP
-        if (DiamondHunterGame.up && y < initialY) {
-            if (!Background.touching){
-                goUp=false;
-            }
-            if (goUp){
+            //UP
+            if (DiamondHunterGame.up && y < initialY) {
+                if (Background.touchingUpSide)
+                    return;
                 y += velocity;
-                return;
             }
-            if (Background.touching){
-                if (goLeft || goRight || goUp)
-                    return;
-                goDown = true;
-                return;
-            }
-            y += velocity;
-        }
-
-    }
-
-    public void check(){
-        if (goRight){
-            System.out.println("right");
-            goUp=false;
-            goDown=false;
-            goLeft=false;
-        }
-        if (goUp){
-            System.out.println("up");
-            goLeft=false;
-            goRight=false;
-            goDown=false;
-        }
-        if (goLeft){
-            System.out.println("left");
-            goRight=false;
-            goDown=false;
-            goUp=false;
-        }
-        if (goDown){
-            System.out.println("down");
-            goLeft=false;
-            goRight=false;
-            goUp=false;
         }
     }
-
 }
