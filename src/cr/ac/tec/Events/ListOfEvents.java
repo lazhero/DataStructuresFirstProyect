@@ -1,7 +1,5 @@
 package cr.ac.tec.Events;
 
-import cr.ac.tec.Board.Player;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -22,6 +20,7 @@ public class ListOfEvents{
 
 
     public static void main(String[] args) {
+
 
         ArrayList<String>  mylist = new ArrayList<String>();
 
@@ -63,5 +62,18 @@ public class ListOfEvents{
 
         System.out.println("\nShuffled List : \n" + mylist);
 
+
+        ArrayList<String> milista = new ArrayList<>();
+        milista.add("MemoryGame");
+        milista.add("PRS");
+        milista.add("TicTacToe");
+        milista.add("PressFirst");
+        milista.add("DiamondHunter");
+        milista.add("Shoot");
+        milista.add("RandomNumber");
+
+        System.out.println(milista);
+        Collections.shuffle(milista);
+        System.out.println(milista);
     }
 }
