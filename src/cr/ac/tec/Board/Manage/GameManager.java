@@ -12,6 +12,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.geometry.HPos;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -23,12 +24,14 @@ public class GameManager {
   private DoubleRoundList<Square> SquareList=new DoubleRoundList<>();
    private DoubleList<Square> Phase1=new DoubleList<>();
     private DoubleList<Square> Phase2=new DoubleList<>();
+    private DoubleList<Square> Phase3=new DoubleList<>();
+    private DoubleRoundList<Square> Phase4=new DoubleRoundList<>();
    private DoubleRoundList<Player>  PlayerList=new DoubleRoundList<>();
    private DoubleRoundList<Integer> InitCondition=new DoubleRoundList<>();
    private DoubleList<DoubleNode<Square>> PlayersNodes=new DoubleList<>();
     private DoubleList<DoubleNode<Square>> Switching=new DoubleList<>();
     private DoubleList<Boolean> GatesState=new DoubleList<>();
-
+    private DoubleList<Boolean> PlayerReverse=new DoubleList<>();
 
    private int turns;
    private int rounds;
@@ -38,17 +41,27 @@ public class GameManager {
    private GameManager(int PlayersNum,int Rounds){
       this.turns=-1;
       this.rounds=Rounds;
-       SquareList= PathGenerator.GenerateCircle(10,150,50,50,5,false);
+       SquareList= PathGenerator.GenerateCircle(10,200,20,50,5,false);
        Phase1=PathGenerator.GeneratePhase1(11,16,3,SquareList,50,5,false);
       Phase1.getNode(Phase1.getLength()-1).setFront(SquareList.getNode(16));
       Phase1.getNode(0).setBack(SquareList.getNode(11));
       Phase2=PathGenerator.GeneratePhase1(20,25,2,SquareList,50,5,true);
       Phase2.getNode(0).setBack(SquareList.getNode(20));
       Phase2.getNode(Phase2.getLength()-1).setFront(SquareList.getNode(25));
-       GatesState.AddTail(false);
+      Phase3=PathGenerator.GeneratePhase1(29,34,3,SquareList,50,5,false);
+       Phase3.getNode(0).setBack(SquareList.getNode(29));
+       Phase3.getNode(Phase3.getLength()-1).setFront(SquareList.getNode(34));
+     Phase4=PathGenerator.GenerateCircle(6,310,130,50,5,true);
+
+      GatesState.AddTail(false);
        GatesState.AddTail(true);
+       GatesState.AddTail(true);
+       GatesState.AddTail(false);
       Switching.AddTail(SquareList.getNode(11));
       Switching.AddTail(SquareList.getNode(20));
+      Switching.AddTail(SquareList.getNode(29));
+      Switching.AddTail(SquareList.getNode(34));
+
        int i=1;
 
       while(i<=PlayersNum){
@@ -58,7 +71,7 @@ public class GameManager {
               PlayerList.AddTail(new Player(i,getImageView(path)));
               InitCondition.AddTail(-1);
              PlayersNodes.AddTail(new DoubleNode<Square>(null,SquareList.getNode(SquareList.getLength()-1),SquareList.getNode(0)));
-
+             PlayerReverse.AddTail(false);
          }
          catch (Exception e){}
 
@@ -97,7 +110,7 @@ public class GameManager {
            while (Math.abs(i) < Math.abs(steps)) {
                final int f=i;
                timeline.getKeyFrames().add(new KeyFrame(
-                       Duration.millis(150 * (Math.abs(i)+1)),
+                       Duration.millis(300 * (Math.abs(i)+1)),
                        (ActionEvent event) -> {
                            DoubleNode<Square> Temp=PlayersNodes.get(PlayerTurn);
                            if (InitCondition.get(PlayerTurn)!= -1) {
@@ -105,7 +118,7 @@ public class GameManager {
                                Temp.getInfo().DeletingPlayer(PlayerList.get(PlayerTurn),40,40);
                            }
 
-                           Temp=GetNextNode(Temp,raise);
+                           Temp=GetNextNode(Temp,raise,PlayerReverse.get(PlayerTurn));
                            Temp.getInfo().DrawPlayer(PlayerList.get(PlayerTurn), 40, 40,(Math.abs(f)+1==Math.abs(steps)));
                             InitCondition.ChangeContent(PlayerTurn,InitCondition.get(PlayerTurn)+raise);
                             PlayersNodes.ChangeContent(PlayerTurn,Temp);
@@ -138,8 +151,6 @@ public class GameManager {
 
 
                    }
-                   System.out.println("Imprimiendo ..................");
-                    InitCondition.printing();
                    running=false;
 
                });
@@ -165,12 +176,18 @@ public class GameManager {
            for(int i=0;i<Phase2.getLength();i++){
                Phase2.get(i).Draw(anchorPane);
            }
+           for(int i=0;i<Phase3.getLength();i++){
+               Phase3.get(i).Draw(anchorPane);
+           }
+           for(int i=0;i<Phase4.getLength();i++){
+               Phase4.get(i).Draw(anchorPane);
+           }
        }
        catch (Exception e){
 
        }
    }
-   public DoubleNode<Square> GetNextNode(DoubleNode<Square> node,int Raise){
+   public DoubleNode<Square> GetNextNode(DoubleNode<Square> node,int Raise,boolean Reverse){
        if(node==Switching.get(0)){
            if(GatesState.get(0)) {
                GatesState.ChangeContent(0,false);
@@ -188,6 +205,37 @@ public class GameManager {
            }
            else {
                GatesState.ChangeContent(1,true);
+               return node.getFront();
+           }
+       }
+       else if(node==Switching.get(2)){
+           if(GatesState.get(2)){
+               GatesState.ChangeContent(2,false);
+               PlayerReverse.ChangeContent(turns%PlayerReverse.getLength(),false);
+               return Phase3.getNode(0);
+           }
+           else{
+               GatesState.ChangeContent(2,true);
+               return node.getFront();
+           }
+
+       }
+       else if(node==Switching.get(3)){
+           if(GatesState.get(3)){
+               GatesState.ChangeContent(3,false);
+               PlayerReverse.ChangeContent(turns%PlayerReverse.getLength(),true);
+               return Phase3.getNode(Phase3.getLength()-1);
+           }
+           else{
+               GatesState.ChangeContent(3,true);
+               return node.getFront();
+           }
+       }
+       else if(Phase3.FindFirstInstancePosition(node.getInfo())!=-1){
+           if(Reverse){
+               return node.getBack();
+           }
+           else{
                return node.getFront();
            }
        }
