@@ -1,5 +1,6 @@
 package cr.ac.tec.Events;
 
+import cr.ac.tec.Board.Board;
 import cr.ac.tec.Board.Player;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -48,7 +49,9 @@ public class ChangePlace extends Event {
 
 
 
+
         });
+
 
 
         vb.getChildren().addAll(buttock,tittle,buttock);

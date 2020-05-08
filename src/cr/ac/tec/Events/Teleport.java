@@ -17,8 +17,10 @@ public class Teleport extends Event {
 
     }
 
+
     @Override
-    public void event2(Player player1, Player player2) {
+    public void event2(Player player1, Player change) {
+
 
     }
     /**
@@ -26,6 +28,7 @@ public class Teleport extends Event {
      * @param player
      */
     @Override
+
     public void EventData(Player player) {
         VBox vb = new VBox();
         Button buttock = new Button("OK");

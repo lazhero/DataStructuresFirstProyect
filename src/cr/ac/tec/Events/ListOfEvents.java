@@ -1,7 +1,5 @@
 package cr.ac.tec.Events;
 
-import cr.ac.tec.Board.Player;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -18,10 +16,7 @@ public class ListOfEvents{
     static Integer LoseOneStar=6;
 
 
-
-
-
-    public static void main(String[] args) {
+    public  void EventsList(){
 
         ArrayList<String>  mylist = new ArrayList<String>();
 
@@ -55,13 +50,9 @@ public class ListOfEvents{
         for (int i=0; i<LoseOneStar;i++){
             mylist.add("LoseOneStar");
         }
-
-
         System.out.println("Original List : \n" + mylist);
-
         Collections.shuffle(mylist);
-
         System.out.println("\nShuffled List : \n" + mylist);
-
+        return;
     }
 }

@@ -1,4 +1,4 @@
-package CR.AC.TEC.TheLogger.logger;
+package cr.ac.tec.TheLogger.logger;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
