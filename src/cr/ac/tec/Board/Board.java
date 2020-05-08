@@ -36,10 +36,16 @@ public class Board extends Application {
         Button btn=WidgetCreation.CreateButton("Hola");
         Button btn1=new Button("Comprobar");
         btn1.setOnAction(e->gameManager.confirm());
+        Button btn2=new Button("Teleport");
+        btn2.setOnAction(e->gameManager.example(Integer.parseInt(b.getText())));
+        Button btn3=new Button("Intercambio ");
+        btn3.setOnAction(e->gameManager.prove(Integer.parseInt(b.getText())));
         FirstLevelAnchorPane.setTopAnchor(btn1,400.0);
+        FirstLevelAnchorPane.setTopAnchor(btn2,500.0);
+        FirstLevelAnchorPane.setTopAnchor(btn3,600.0);
         gameManager.Draw(FirstLevelAnchorPane);
         btn.setOnAction(e->gameManager.StartTurn(Integer.parseInt(b.getText())));
-        FirstLevelAnchorPane.getChildren().addAll(btn,b,btn1);
+        FirstLevelAnchorPane.getChildren().addAll(btn,b,btn1,btn2,btn3);
         Scene scene =new Scene(FirstLevelAnchorPane,1300,700, Color.RED);
         MainWindow.setScene(scene);
         MainWindow.show();

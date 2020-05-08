@@ -4,6 +4,7 @@ import cr.ac.tec.Board.PathGenerator.PathGenerator;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
 import cr.ac.tec.Images.GetImages;
+import cr.ac.tec.Random.Random;
 import cr.ac.tecLinkedList.List.DoubleList;
 import cr.ac.tecLinkedList.List.DoubleRoundList;
 import cr.ac.tecLinkedList.List.SingleList;
@@ -35,8 +36,11 @@ public class GameManager {
 
    private int turns;
    private int rounds;
+   private int RoundsCount=1;
    private boolean running=false;
    private boolean Backing=false;
+   private DoubleNode<Square> StarHolder;
+   boolean StarTaken=false;
 
    private GameManager(int PlayersNum,int Rounds){
       this.turns=-1;
@@ -122,6 +126,9 @@ public class GameManager {
                            Temp.getInfo().DrawPlayer(PlayerList.get(PlayerTurn), 40, 40,(Math.abs(f)+1==Math.abs(steps)));
                             InitCondition.ChangeContent(PlayerTurn,InitCondition.get(PlayerTurn)+raise);
                             PlayersNodes.ChangeContent(PlayerTurn,Temp);
+                            if(Temp==StarHolder){
+                                StarTaken=true;
+                            }
                        }
                ));
                i+=raise;
@@ -152,6 +159,41 @@ public class GameManager {
 
                    }
                    running=false;
+                   PlayersNodes.get(PlayerTurn).getInfo().Event();
+                   if(PlayerTurn==PlayerList.getLength()-1){
+                       RoundsCount++;
+                   }
+                   if(StarHolder!= null && StarTaken){
+                       try {
+                           StarHolder.getInfo().HideStar();
+                           StarHolder.getInfo().DrawStar(50, null);
+                           StarHolder=null;
+                           StarTaken=false;
+                           StarHolder=getFreePos(SquareList);
+                           System.out.println("Intente dibujar una estrella");
+                           StarHolder.getInfo().DrawStar(50,"src/Images/MarioStar.png");
+                           StarHolder.getInfo().ShowStar();
+
+
+
+                       }
+                       catch (Exception f){}
+                   }
+                   if(RoundsCount>=2 && RoundsCount<=rounds && StarHolder==null){
+                       StarHolder=getFreePos(SquareList);
+                       try{
+                           System.out.println("Intente dibujar una estrella");
+                           StarHolder.getInfo().DrawStar(50,"src/Images/MarioStar.png");
+                           StarHolder.getInfo().ShowStar();
+                       }
+                       catch (Exception Ex){
+
+                       }
+
+                   }
+
+
+
 
                });
                pauseTransition.play();
@@ -268,19 +310,69 @@ public class GameManager {
    }
    public void teleport(Player player){
        int pos=player.getId()-1;
-       PlayersNodes.get(pos).getInfo().DeletingPlayer(player,50,50);
-       if(SquareList.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo())!=-1){
-           PlayersNodes.ChangeContent(pos,Phase4.getNode(0));
+       if(InitCondition.get(pos)!=-1) {
+           PlayersNodes.get(pos).getInfo().DeletingPlayer(player, 50, 50);
+           if (SquareList.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1 || Phase1.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1 || Phase2.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1 || Phase3.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1 || Phase4.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1) {
+               int random = Random.RandomNumber(5);
+               DoubleNode<Square> Temp = null;
+               if (random == 1) {
+                   Temp = getFreePos(SquareList);
+               }
+               else if (random == 2) {
+                   Temp = getFreePos(Phase1);
+               }
+               else if (random == 3) {
+                   Temp = getFreePos(Phase2);
+               }
+               else if (random == 4) {
+                   Temp = getFreePos(Phase3);
+                   boolean condition = false;
+                   if (Random.RandomNumber(2) == 1) condition = true;
+                   PlayerReverse.ChangeContent(pos, condition);
+               }
+               else {
+                   Temp = getFreePos(Phase4);
+               }
+               
+               PlayersNodes.ChangeContent(pos, Temp);
+           }
+           PlayersNodes.get(pos).getInfo().DrawPlayer(player, 50, 50, false);
        }
-       else{
-           PlayersNodes.ChangeContent(pos,SquareList.getNode(0));
-       }
-       PlayersNodes.get(pos).getInfo().DrawPlayer(player,50,50,false);
-
-
    }
    public void example(int pos){
        teleport(PlayerList.get(pos));
    }
+   public void exchangePosition(Player player1,Player player2){
+       int posP1=player1.getId()-1;
+       int posP2=player2.getId()-1;
+       if(InitCondition.get(posP1)!=-1 && InitCondition.get(posP2)!=-1) {
+           DoubleNode<Square> node1 = PlayersNodes.get(posP1);
+           DoubleNode<Square> node2 = PlayersNodes.get(posP2);
+           node1.getInfo().DeletingPlayer(player1, 50, 50);
+           node2.getInfo().DeletingPlayer(player2, 50, 50);
+           node1.getInfo().DrawPlayer(player2, 50, 50, false);
+           node2.getInfo().DrawPlayer(player1, 50, 50, false);
+           PlayersNodes.ChangeContent(posP1, node2);
+           PlayersNodes.ChangeContent(posP2, node1);
+       }
+   }
+   public void prove(int pos){
+       int pos1=(pos+1)%PlayerList.getLength();
+       exchangePosition(PlayerList.get(pos),PlayerList.get(pos1));
+   }
+   private DoubleNode<Square> getFreePos(DoubleList<Square> List){
+       DoubleNode<Square> Temp=null;
+       while(Temp==null || Temp.getInfo().getPlayers()>0){
+           Temp=List.getNode(Random.RandomNumber(List.getLength()-1));
+       }
+       return Temp;
+   }
+    private DoubleNode<Square> getFreePos(DoubleRoundList<Square> List){
+        DoubleNode<Square> Temp=null;
+        while(Temp==null || Temp.getInfo().getPlayers()>0){
+            Temp=List.getNode(Random.RandomNumber(List.getLength()-1));
+        }
+        return Temp;
+    }
 
 }

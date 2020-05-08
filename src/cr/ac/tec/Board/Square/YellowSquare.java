@@ -18,8 +18,7 @@ public class YellowSquare extends Square {
 
     @Override
     public void Event() {
-        GameManager gameManager = GameManager.getInstance(0,0);
-        gameManager.teleport(super.ListPlayer().get(0));
+
     }
 
     @Override
