@@ -277,6 +277,7 @@ public class GameManager {
        }
        PlayersNodes.get(pos).getInfo().DrawPlayer(player,50,50,false);
 
+
    }
    public void example(int pos){
        teleport(PlayerList.get(pos));

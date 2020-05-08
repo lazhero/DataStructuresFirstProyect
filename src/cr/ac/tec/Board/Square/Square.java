@@ -329,7 +329,7 @@ public abstract class  Square {
     /**
      * An abstract method, will be defined in the subclasses
      */
-    public abstract void  Event();
+    public abstract void Event();
     public abstract String Color();
 
 
