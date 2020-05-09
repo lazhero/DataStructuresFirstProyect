@@ -22,6 +22,7 @@ import static cr.ac.tec.Images.GetImages.getImageView;
 
 public class GameManager {
     private static GameManager instance=null;
+    private AnchorPane anchorPane;
   private DoubleRoundList<Square> SquareList=new DoubleRoundList<>();
    private DoubleList<Square> Phase1=new DoubleList<>();
     private DoubleList<Square> Phase2=new DoubleList<>();
@@ -166,18 +167,20 @@ public class GameManager {
                    if(StarHolder!= null && StarTaken){
                        try {
                            StarHolder.getInfo().HideStar();
+
                            StarHolder.getInfo().DrawStar(50, null);
                            StarHolder=null;
                            StarTaken=false;
                            StarHolder=getFreePos(SquareList);
-                           System.out.println("Intente dibujar una estrella");
                            StarHolder.getInfo().DrawStar(50,"src/Images/MarioStar.png");
                            StarHolder.getInfo().ShowStar();
 
 
 
                        }
-                       catch (Exception f){}
+                       catch (Exception f){
+                           System.out.println("Falle en dibujar una estrella");
+                       }
                    }
                    if(RoundsCount>=2 && RoundsCount<=rounds && StarHolder==null){
                        StarHolder=getFreePos(SquareList);
@@ -208,6 +211,7 @@ public class GameManager {
 
    }
    public void Draw(AnchorPane anchorPane){
+       this.anchorPane=anchorPane;
        try{
            for(int i=0;i<SquareList.getLength();i++){
                SquareList.get(i).Draw(anchorPane);
@@ -373,6 +377,9 @@ public class GameManager {
             Temp=List.getNode(Random.RandomNumber(List.getLength()-1));
         }
         return Temp;
+    }
+    public AnchorPane getAnchorPane(){
+       return this.anchorPane;
     }
 
 }
