@@ -1,5 +1,6 @@
 package cr.ac.tecLinkedList.List;
 
+import cr.ac.tec.Random.Random;
 import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import cr.ac.tecLinkedList.Nodes.SingleListNode;
 
@@ -266,5 +267,19 @@ public class DoubleList<T> implements List<T> {
      */
     public int getLength(){
         return length;
+    }
+
+
+    public DoubleList<T> Shuffle(){
+        DoubleList<T> List=new DoubleList<>();
+        DoubleList<Integer> record=new DoubleList<>();
+        while(List.getLength()<length){
+            int pos= Random.RandomNumber(length)-1;
+            if(record.FindFirstInstancePosition(pos)==-1){
+                record.AddTail(pos);
+                List.AddTail(get(pos));
+            }
+        }
+        return List;
     }
 }
