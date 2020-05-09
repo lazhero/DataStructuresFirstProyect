@@ -1,5 +1,6 @@
 package cr.ac.tec.Board.Square;
 
+import cr.ac.tec.Board.Manage.GameManager;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
@@ -15,7 +16,6 @@ public class WhiteSquare extends Square {
     }
     @Override
     public void Event() {
-        //lacks event
     }
 
     @Override

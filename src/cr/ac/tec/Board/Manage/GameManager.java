@@ -337,7 +337,7 @@ public class GameManager {
                else {
                    Temp = getFreePos(Phase4);
                }
-
+               
                PlayersNodes.ChangeContent(pos, Temp);
            }
            PlayersNodes.get(pos).getInfo().DrawPlayer(player, 50, 50, false);
