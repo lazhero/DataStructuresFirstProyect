@@ -1,4 +1,4 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Player;
 

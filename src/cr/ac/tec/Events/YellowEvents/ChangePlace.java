@@ -1,4 +1,4 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Player;
 import javafx.geometry.Pos;
@@ -7,11 +7,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class GiveAwayCoins extends Event {
+public class ChangePlace extends Event {
     /**
-     * The player who activates the event loses a random amount of coins and is dealt equally among the other players.
+     * In this event one player will be changed instead of another player
      * @param player
      */
+
 
     @Override
     public void event1(Player player) {
@@ -19,13 +20,15 @@ public class GiveAwayCoins extends Event {
     }
 
     @Override
-    public void event2(Player player1, Player player2) {
+    public void event2 (Player player1, Player player2) {
 
     }
+
     /**
-     * Information of the event
+     * Is the information of the event
      * @param player
      */
+
     @Override
     public void EventData(Player player) {
         VBox vb = new VBox();
@@ -35,17 +38,19 @@ public class GiveAwayCoins extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Give Aways Coins");
+        tittle.setText("Change Place");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will be given coins");
+        changeT.setText("You will be changed by");
         buttock.setOnMouseClicked(e->{
             event1(player);
 
 
 
+
         });
+
 
 
         vb.getChildren().addAll(buttock,tittle,buttock);
@@ -53,6 +58,6 @@ public class GiveAwayCoins extends Event {
 
 
 
-
     }
+
 }

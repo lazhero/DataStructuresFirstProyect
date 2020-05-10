@@ -1,18 +1,18 @@
-package cr.ac.tec.Events;
 
-import cr.ac.tec.Board.Player;
+package cr.ac.tec.Events.YellowEvents;
+import cr.ac.tec.Events.YellowEvents.Event;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import cr.ac.tec.Board.Player;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class LoseOneStar extends Event {
+public class WinTwoStars extends Event {
     /**
-     * The player loses a star and it is given to another random player.
+     * The player wins two stars and feels cool.
      * @param player
      */
-
     @Override
     public void event1(Player player) {
 
@@ -35,11 +35,11 @@ public class LoseOneStar extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Lose One Star");
+        tittle.setText("Win 2 stars");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You lose one star and give away to a random player");
+        changeT.setText("You will win 2 stars ");
         buttock.setOnMouseClicked(e->{
             event1(player);
 

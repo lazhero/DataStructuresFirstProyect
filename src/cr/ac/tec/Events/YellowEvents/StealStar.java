@@ -1,35 +1,31 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.YellowEvents;
 
-import cr.ac.tec.Board.Board;
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.YellowEvents.Event;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class ChangePlace extends Event {
+public class StealStar extends Event {
     /**
-     * In this event one player will be changed instead of another player
+     * The player can steal a star from another random player.
      * @param player
      */
-
-
     @Override
     public void event1(Player player) {
 
     }
 
     @Override
-    public void event2 (Player player1, Player player2) {
+    public void event2(Player player1, Player player2) {
 
     }
-
     /**
-     * Is the information of the event
+     * Information of the event
      * @param player
      */
-
     @Override
     public void EventData(Player player) {
         VBox vb = new VBox();
@@ -39,19 +35,17 @@ public class ChangePlace extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Change Place");
+        tittle.setText("Steal Star");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will be changed by");
+        changeT.setText("You can steal one star from another player");
         buttock.setOnMouseClicked(e->{
             event1(player);
 
 
 
-
         });
-
 
 
         vb.getChildren().addAll(buttock,tittle,buttock);
@@ -60,5 +54,4 @@ public class ChangePlace extends Event {
 
 
     }
-
 }

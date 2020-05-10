@@ -1,30 +1,25 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Player;
-import cr.ac.tec.Board.Square.Square;
-import cr.ac.tec.Random.Random;
-import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class Teleport extends Event {
+public class GiveAwayCoins extends Event {
     /**
-     * The player is teleported to some random place on the map.
+     * The player who activates the event loses a random amount of coins and is dealt equally among the other players.
      * @param player
      */
+
     @Override
     public void event1(Player player) {
 
-
     }
 
-
     @Override
-    public void event2(Player player1, Player change) {
-
+    public void event2(Player player1, Player player2) {
 
     }
     /**
@@ -32,7 +27,6 @@ public class Teleport extends Event {
      * @param player
      */
     @Override
-
     public void EventData(Player player) {
         VBox vb = new VBox();
         Button buttock = new Button("OK");
@@ -41,11 +35,11 @@ public class Teleport extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Teleport");
+        tittle.setText("Give Aways Coins");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will be teleported to another place");
+        changeT.setText("You will be given coins");
         buttock.setOnMouseClicked(e->{
             event1(player);
 
@@ -55,6 +49,7 @@ public class Teleport extends Event {
 
 
         vb.getChildren().addAll(buttock,tittle,buttock);
+
 
 
 

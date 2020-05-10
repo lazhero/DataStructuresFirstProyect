@@ -1,4 +1,4 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.lists;
 
 import java.util.ArrayList;
 import java.util.Collections;

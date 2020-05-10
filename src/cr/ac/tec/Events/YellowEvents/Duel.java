@@ -1,4 +1,4 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Player;
 import javafx.geometry.Pos;
@@ -7,13 +7,17 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class StealStar extends Event {
+public class Duel extends Event {
     /**
-     * The player can steal a star from another random player.
+     * A mini-game is triggered, where the randomly chosen players will face a duel (minigame 1v1),
+     * the winner will get glory (coins), and the loser will lose coins.
+     *
      * @param player
      */
+
     @Override
     public void event1(Player player) {
+
 
     }
 
@@ -21,6 +25,7 @@ public class StealStar extends Event {
     public void event2(Player player1, Player player2) {
 
     }
+
     /**
      * Information of the event
      * @param player
@@ -34,11 +39,11 @@ public class StealStar extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Steal Star");
+        tittle.setText("Duel");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You can steal one star from another player");
+        changeT.setText("2 players will face each other in a duel");
         buttock.setOnMouseClicked(e->{
             event1(player);
 
@@ -52,5 +57,12 @@ public class StealStar extends Event {
 
 
 
+
+
     }
+
+
 }
+
+
+

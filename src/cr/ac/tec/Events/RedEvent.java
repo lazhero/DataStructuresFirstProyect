@@ -44,10 +44,15 @@ public class RedEvent{
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
-            int actualCoins= player.getCoins();
-            player.setCoins(actualCoins-coins);
-            System.out.println(player.getCoins());
-            return;
+            if (player.getCoins()<=coins){
+                player.setCoins(0);
+                System.out.println(player.getCoins());
+            }else {
+                int actualCoins = player.getCoins();
+                player.setCoins(actualCoins - coins);
+                System.out.println(player.getCoins());
+                return;
+            }
 
         });
 

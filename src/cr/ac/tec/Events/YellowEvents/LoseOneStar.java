@@ -1,23 +1,21 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.YellowEvents.Event;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class Duel extends Event{
+public class LoseOneStar extends Event {
     /**
-     * A mini-game is triggered, where the randomly chosen players will face a duel (minigame 1v1),
-     * the winner will get glory (coins), and the loser will lose coins.
-     *
+     * The player loses a star and it is given to another random player.
      * @param player
      */
 
     @Override
     public void event1(Player player) {
-
 
     }
 
@@ -25,7 +23,6 @@ public class Duel extends Event{
     public void event2(Player player1, Player player2) {
 
     }
-
     /**
      * Information of the event
      * @param player
@@ -39,11 +36,11 @@ public class Duel extends Event{
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Duel");
+        tittle.setText("Lose One Star");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("2 players will face each other in a duel");
+        changeT.setText("You lose one star and give away to a random player");
         buttock.setOnMouseClicked(e->{
             event1(player);
 
@@ -57,12 +54,5 @@ public class Duel extends Event{
 
 
 
-
-
     }
-
-
 }
-
-
-

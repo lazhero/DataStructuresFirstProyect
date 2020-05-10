@@ -1,26 +1,28 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.YellowEvents.Event;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class WinFiveStars extends Event {
-
+public class Teleport extends Event {
     /**
-     * The player wins five stars and feels cooler.
+     * The player is teleported to some random place on the map.
      * @param player
      */
-
     @Override
     public void event1(Player player) {
 
+
     }
 
+
     @Override
-    public void event2(Player player1, Player player2) {
+    public void event2(Player player1, Player change) {
+
 
     }
     /**
@@ -28,6 +30,7 @@ public class WinFiveStars extends Event {
      * @param player
      */
     @Override
+
     public void EventData(Player player) {
         VBox vb = new VBox();
         Button buttock = new Button("OK");
@@ -36,11 +39,11 @@ public class WinFiveStars extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Win 5 Stars");
+        tittle.setText("Teleport");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will win 5 stars");
+        changeT.setText("You will be teleported to another place");
         buttock.setOnMouseClicked(e->{
             event1(player);
 

@@ -1,17 +1,20 @@
+package cr.ac.tec.Events.YellowEvents;
 
-package cr.ac.tec.Events;
+import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.YellowEvents.Event;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import cr.ac.tec.Board.Player;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class WinTwoStars extends Event {
+public class WinFiveStars extends Event {
+
     /**
-     * The player wins two stars and feels cool.
+     * The player wins five stars and feels cooler.
      * @param player
      */
+
     @Override
     public void event1(Player player) {
 
@@ -34,11 +37,11 @@ public class WinTwoStars extends Event {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Win 2 stars");
+        tittle.setText("Win 5 Stars");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text changeT = new Text();
-        changeT.setText("You will win 2 stars ");
+        changeT.setText("You will win 5 stars");
         buttock.setOnMouseClicked(e->{
             event1(player);
 
