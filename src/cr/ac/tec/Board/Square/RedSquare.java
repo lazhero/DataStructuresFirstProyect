@@ -17,6 +17,11 @@ public class RedSquare extends Square {
         super(Color.RED,coordx,coordy,sideSize);
     }
 
+    /**
+     *this event removes coins from the activator
+     * @param player
+     */
+
     @Override
     public void event(Player player) {
 
@@ -27,12 +32,17 @@ public class RedSquare extends Square {
         }else{
             int actualCoins= player.getCoins();
             player.setCoins(actualCoins-lose);
-           
+
         }
 
 
 
     }
+
+    /**
+     * Definde the square's color
+     * @return
+     */
 
     @Override
     public String Color() {

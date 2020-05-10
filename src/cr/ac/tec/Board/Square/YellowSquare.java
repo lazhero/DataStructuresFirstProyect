@@ -19,6 +19,11 @@ public class YellowSquare extends Square {
 
     }
 
+    /**
+     * This event activate different events
+     * @param player
+     */
+
     @Override
     public void event(Player player) {
         GameManager gameManager = GameManager.getInstance(0,0);
@@ -26,6 +31,11 @@ public class YellowSquare extends Square {
         
 
     }
+
+    /**
+     * Define the square's color
+     * @return
+     */
 
     @Override
     public String Color() {

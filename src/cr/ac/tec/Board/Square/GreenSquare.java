@@ -18,6 +18,12 @@ public class GreenSquare extends Square {
 
     }
 
+    /**
+     *
+     * this event gives coins to the one who activates it
+     * @param player
+     */
+
     @Override
     public void event(Player player) {
         System.out.println(player.getCoins());
@@ -29,6 +35,10 @@ public class GreenSquare extends Square {
 
     }
 
+    /**
+     * Define the square's color
+     * @return
+     */
     @Override
     public String Color() {
         return "GREEN";

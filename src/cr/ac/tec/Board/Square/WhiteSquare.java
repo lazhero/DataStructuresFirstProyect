@@ -17,6 +17,11 @@ public class WhiteSquare extends Square {
     public WhiteSquare(double coordx, double coordy, double sideSize){
         super(Color.WHITE,coordx,coordy,sideSize);
     }
+
+    /**
+     *this event goes back or forward to the player who activates it
+     * @param player
+     */
     @Override
     public void event(Player player) {
 
@@ -35,6 +40,11 @@ public class WhiteSquare extends Square {
 
         }
     }
+
+    /**
+     * Definde Square's color
+     * @return
+     */
 
     @Override
     public String Color() {

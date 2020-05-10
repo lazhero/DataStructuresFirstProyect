@@ -15,13 +15,22 @@ public class BlueSquare extends Square {
     public BlueSquare(double coordx, double coordy, double sideSize){
         super(Color.BLUE,coordx,coordy,sideSize);
 
+
     }
 
+    /**
+     *It is neutral, it does nothing
+     * @param player
+     */
     @Override
     public void event(Player player) {
-        //lacks event
+        //nothing
     }
 
+    /**
+     * define the square's color
+     * @return
+     */
     @Override
     public String Color() {
         return "BLUE";
