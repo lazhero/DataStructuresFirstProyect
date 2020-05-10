@@ -3,6 +3,7 @@ package cr.ac.tecLinkedList.Nodes;
 public class SingleListNode<T> {
     private T info;// Node's content
     private SingleListNode<T> Nextnode;//Next Node reference
+
     public SingleListNode(){
         this(null,null);
 

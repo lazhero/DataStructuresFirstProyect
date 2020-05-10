@@ -19,6 +19,6 @@ public class ListOfMiniGames {
         System.out.println(milista);
         Collections.shuffle(milista);
         System.out.println(milista);
-        return;
+
     }
 }

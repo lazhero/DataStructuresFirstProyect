@@ -1,6 +1,9 @@
 package cr.ac.tec.Board.Square;
 
 import cr.ac.tec.Board.Manage.GameManager;
+import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.Teleport;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
@@ -17,7 +20,10 @@ public class YellowSquare extends Square {
     }
 
     @Override
-    public void Event() {
+    public void event(Player player) {
+        GameManager gameManager = GameManager.getInstance(0,0);
+        gameManager.teleport(super.ListPlayer().get(0));
+        
 
     }
 

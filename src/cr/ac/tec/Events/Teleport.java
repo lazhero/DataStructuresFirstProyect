@@ -1,6 +1,9 @@
 package cr.ac.tec.Events;
 
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Board.Square.Square;
+import cr.ac.tec.Random.Random;
+import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -14,6 +17,7 @@ public class Teleport extends Event {
      */
     @Override
     public void event(Player player) {
+
 
     }
 

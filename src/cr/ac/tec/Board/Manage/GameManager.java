@@ -160,7 +160,7 @@ public class GameManager {
 
                    }
                    running=false;
-                   PlayersNodes.get(PlayerTurn).getInfo().Event();
+                   PlayersNodes.get(PlayerTurn).getInfo().event(PlayerList.get(PlayerTurn));
                    if(PlayerTurn==PlayerList.getLength()-1){
                        RoundsCount++;
                    }
