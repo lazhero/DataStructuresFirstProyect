@@ -3,17 +3,14 @@ package cr.ac.tec.Board.Manage;
 import cr.ac.tec.Board.PathGenerator.PathGenerator;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
-import cr.ac.tec.Images.GetImages;
 import cr.ac.tec.Random.Random;
 import cr.ac.tecLinkedList.List.DoubleList;
 import cr.ac.tecLinkedList.List.DoubleRoundList;
-import cr.ac.tecLinkedList.List.SingleList;
 import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.geometry.HPos;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -34,7 +31,10 @@ public class GameManager {
     private DoubleList<DoubleNode<Square>> Switching=new DoubleList<>();
     private DoubleList<Boolean> GatesState=new DoubleList<>();
     private DoubleList<Boolean> PlayerReverse=new DoubleList<>();
-
+    private String PlayersRoute;
+    private String ImagesFormat;
+    private String StarRoute;
+    private double SquareSide;
    private int turns;
    private int rounds;
    private int RoundsCount=1;
@@ -43,20 +43,24 @@ public class GameManager {
    private DoubleNode<Square> StarHolder;
    boolean StarTaken=false;
 
-   private GameManager(int PlayersNum,int Rounds){
+   private GameManager(int PlayersNum,int Rounds,double SquareSide,String PlayersRoute,String StarRoute,String ImagesFormat){
+       this.SquareSide=SquareSide;
+       this.PlayersRoute=PlayersRoute;
+       this.StarRoute=StarRoute;
+       this.ImagesFormat=ImagesFormat;
       this.turns=-1;
       this.rounds=Rounds;
-       SquareList= PathGenerator.GenerateCircle(10,200,20,50,5,false);
-       Phase1=PathGenerator.GeneratePhase1(11,16,3,SquareList,50,5,false);
+       SquareList= PathGenerator.GenerateCircle(10,200,20,this.SquareSide,this.SquareSide/10,false);
+       Phase1=PathGenerator.GeneratePhase1(11,16,3,SquareList,this.SquareSide,this.SquareSide/10,false);
       Phase1.getNode(Phase1.getLength()-1).setFront(SquareList.getNode(16));
       Phase1.getNode(0).setBack(SquareList.getNode(11));
-      Phase2=PathGenerator.GeneratePhase1(20,25,2,SquareList,50,5,true);
+      Phase2=PathGenerator.GeneratePhase1(20,25,2,SquareList,this.SquareSide,this.SquareSide/10,true);
       Phase2.getNode(0).setBack(SquareList.getNode(20));
       Phase2.getNode(Phase2.getLength()-1).setFront(SquareList.getNode(25));
-      Phase3=PathGenerator.GeneratePhase1(29,34,3,SquareList,50,5,false);
+      Phase3=PathGenerator.GeneratePhase1(29,34,3,SquareList,this.SquareSide,this.SquareSide/10,false);
        Phase3.getNode(0).setBack(SquareList.getNode(29));
        Phase3.getNode(Phase3.getLength()-1).setFront(SquareList.getNode(34));
-     Phase4=PathGenerator.GenerateCircle(6,310,130,50,5,true);
+     Phase4=PathGenerator.GenerateCircle(6,310,130,this.SquareSide,this.SquareSide/10,true);
 
       GatesState.AddTail(false);
        GatesState.AddTail(true);
@@ -72,7 +76,7 @@ public class GameManager {
       while(i<=PlayersNum){
           String path=null;
           try {
-             path="src/Images/Piece"+Integer.toString(i)+".png";
+             path=PlayersRoute+Integer.toString(i)+ImagesFormat;
               PlayerList.AddTail(new Player(i,getImageView(path)));
               InitCondition.AddTail(-1);
              PlayersNodes.AddTail(new DoubleNode<Square>(null,SquareList.getNode(SquareList.getLength()-1),SquareList.getNode(0)));
@@ -84,11 +88,11 @@ public class GameManager {
       }
 
    }
-   public static GameManager getInstance(int PlayersNum,int Rounds){
+   public static GameManager getInstance(int PlayersNum,int Rounds,double SquareSide,String PlayersRoute,String StarRoute,String ImagesFormat){
        if(instance==null){
            synchronized(GameManager.class){
                if(instance==null){
-                   instance=new GameManager(PlayersNum,Rounds);
+                   instance=new GameManager(PlayersNum,Rounds,SquareSide,PlayersRoute,StarRoute,ImagesFormat);
                }
 
            }
@@ -167,26 +171,23 @@ public class GameManager {
                    if(StarHolder!= null && StarTaken){
                        try {
                            StarHolder.getInfo().HideStar();
-
-                           StarHolder.getInfo().DrawStar(50, null);
+                           StarHolder.getInfo().DrawStar(2*SquareSide,null);
                            StarHolder=null;
                            StarTaken=false;
-                           StarHolder=getFreePos(SquareList);
-                           StarHolder.getInfo().DrawStar(50,"src/Images/MarioStar.png");
-                           StarHolder.getInfo().ShowStar();
 
 
 
                        }
                        catch (Exception f){
-                           System.out.println("Falle en dibujar una estrella");
+
+
                        }
                    }
                    if(RoundsCount>=2 && RoundsCount<=rounds && StarHolder==null){
                        StarHolder=getFreePos(SquareList);
                        try{
                            System.out.println("Intente dibujar una estrella");
-                           StarHolder.getInfo().DrawStar(50,"src/Images/MarioStar.png");
+                           StarHolder.getInfo().DrawStar(this.SquareSide,StarRoute+ImagesFormat);
                            StarHolder.getInfo().ShowStar();
                        }
                        catch (Exception Ex){
@@ -313,9 +314,12 @@ public class GameManager {
        }
    }
    public void teleport(Player player){
-       int pos=player.getId()-1;
-       if(InitCondition.get(pos)!=-1) {
-           PlayersNodes.get(pos).getInfo().DeletingPlayer(player, 50, 50);
+       int pos=-1;
+       if(player!=null && PlayerList.FindFirstInstancePosition(player)!=-1){
+           pos=player.getId()-1;
+       }
+       if(pos!=-1 &&InitCondition.get(pos)!=-1) {
+           PlayersNodes.get(pos).getInfo().DeletingPlayer(player, this.SquareSide, this.SquareSide);
            if (SquareList.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1 || Phase1.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1 || Phase2.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1 || Phase3.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1 || Phase4.FindFirstInstancePosition(PlayersNodes.get(pos).getInfo()) != -1) {
                int random = Random.RandomNumber(5);
                DoubleNode<Square> Temp = null;
@@ -340,22 +344,29 @@ public class GameManager {
                
                PlayersNodes.ChangeContent(pos, Temp);
            }
-           PlayersNodes.get(pos).getInfo().DrawPlayer(player, 50, 50, false);
+           PlayersNodes.get(pos).getInfo().DrawPlayer(player, this.SquareSide, this.SquareSide, false);
        }
    }
    public void example(int pos){
        teleport(PlayerList.get(pos));
    }
    public void exchangePosition(Player player1,Player player2){
-       int posP1=player1.getId()-1;
-       int posP2=player2.getId()-1;
-       if(InitCondition.get(posP1)!=-1 && InitCondition.get(posP2)!=-1) {
+
+       int posP1=-1;
+       int posP2=-1;
+       if(player1!=null && PlayerList.FindFirstInstancePosition(player1)!=-1){
+           posP1=player1.getId()-1;
+       }
+       if(player2!=null && PlayerList.FindFirstInstancePosition(player2)!=-1){
+           posP2=player2.getId()-1;
+       }
+       if(posP1!=-1 && posP2!=-1 && InitCondition.get(posP1)!=-1 && InitCondition.get(posP2)!=-1) {
            DoubleNode<Square> node1 = PlayersNodes.get(posP1);
            DoubleNode<Square> node2 = PlayersNodes.get(posP2);
-           node1.getInfo().DeletingPlayer(player1, 50, 50);
-           node2.getInfo().DeletingPlayer(player2, 50, 50);
-           node1.getInfo().DrawPlayer(player2, 50, 50, false);
-           node2.getInfo().DrawPlayer(player1, 50, 50, false);
+           node1.getInfo().DeletingPlayer(player1, this.SquareSide, this.SquareSide);
+           node2.getInfo().DeletingPlayer(player2, this.SquareSide, this.SquareSide);
+           node1.getInfo().DrawPlayer(player2, this.SquareSide, this.SquareSide, false);
+           node2.getInfo().DrawPlayer(player1, this.SquareSide, this.SquareSide, false);
            PlayersNodes.ChangeContent(posP1, node2);
            PlayersNodes.ChangeContent(posP2, node1);
        }
