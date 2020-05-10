@@ -14,7 +14,7 @@ public class StealCoins extends Event {
      * @param player
      */
     @Override
-    public void event(Player player) {
+    public void event1(Player player) {
 
     }
 
@@ -41,7 +41,7 @@ public class StealCoins extends Event {
         Text changeT = new Text();
         changeT.setText("You can steal coins from another player");
         buttock.setOnMouseClicked(e->{
-            event(player);
+            event1(player);
 
 
 

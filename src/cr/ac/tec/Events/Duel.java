@@ -16,7 +16,7 @@ public class Duel extends Event{
      */
 
     @Override
-    public void event(Player player) {
+    public void event1(Player player) {
 
 
     }
@@ -45,7 +45,7 @@ public class Duel extends Event{
         Text changeT = new Text();
         changeT.setText("2 players will face each other in a duel");
         buttock.setOnMouseClicked(e->{
-            event(player);
+            event1(player);
 
 
 

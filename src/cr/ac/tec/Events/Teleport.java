@@ -16,7 +16,7 @@ public class Teleport extends Event {
      * @param player
      */
     @Override
-    public void event(Player player) {
+    public void event1(Player player) {
 
 
     }
@@ -47,7 +47,7 @@ public class Teleport extends Event {
         Text changeT = new Text();
         changeT.setText("You will be teleported to another place");
         buttock.setOnMouseClicked(e->{
-            event(player);
+            event1(player);
 
 
 

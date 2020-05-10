@@ -15,7 +15,7 @@ public class WinFiveStars extends Event {
      */
 
     @Override
-    public void event(Player player) {
+    public void event1(Player player) {
 
     }
 
@@ -42,7 +42,7 @@ public class WinFiveStars extends Event {
         Text changeT = new Text();
         changeT.setText("You will win 5 stars");
         buttock.setOnMouseClicked(e->{
-            event(player);
+            event1(player);
 
 
 

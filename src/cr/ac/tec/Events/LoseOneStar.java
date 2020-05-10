@@ -14,7 +14,7 @@ public class LoseOneStar extends Event {
      */
 
     @Override
-    public void event(Player player) {
+    public void event1(Player player) {
 
     }
 
@@ -41,7 +41,7 @@ public class LoseOneStar extends Event {
         Text changeT = new Text();
         changeT.setText("You lose one star and give away to a random player");
         buttock.setOnMouseClicked(e->{
-            event(player);
+            event1(player);
 
 
 

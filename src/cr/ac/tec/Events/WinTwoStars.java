@@ -13,7 +13,7 @@ public class WinTwoStars extends Event {
      * @param player
      */
     @Override
-    public void event(Player player) {
+    public void event1(Player player) {
 
     }
 
@@ -40,7 +40,7 @@ public class WinTwoStars extends Event {
         Text changeT = new Text();
         changeT.setText("You will win 2 stars ");
         buttock.setOnMouseClicked(e->{
-            event(player);
+            event1(player);
 
 
 

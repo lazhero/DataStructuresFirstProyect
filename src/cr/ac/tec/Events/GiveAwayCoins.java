@@ -14,7 +14,7 @@ public class GiveAwayCoins extends Event {
      */
 
     @Override
-    public void event(Player player) {
+    public void event1(Player player) {
 
     }
 
@@ -41,7 +41,7 @@ public class GiveAwayCoins extends Event {
         Text changeT = new Text();
         changeT.setText("You will be given coins");
         buttock.setOnMouseClicked(e->{
-            event(player);
+            event1(player);
 
 
 
