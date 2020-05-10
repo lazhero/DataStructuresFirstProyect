@@ -34,7 +34,6 @@ public class LayoutNewContent {
      * @param Bottom the distance from the Bottom,if  is 0 wont be setted
      * @param Right the distance from the Right,if  is 0 wont be setted
      * @param Left the distance from the Left,if  is 0 wont be setted
-     * @deprecated
      */
     public static void Add(AnchorPane anchorPane, Pane node, double Top, double Bottom, double Right, double Left){
         anchorPane.getChildren().add(node);
@@ -42,6 +41,8 @@ public class LayoutNewContent {
         if(Bottom!=0.0)anchorPane.setBottomAnchor(node,Bottom);
         if(Left!=0.0)anchorPane.setLeftAnchor(node,Left);
         if(Right!=0.0)anchorPane.setRightAnchor(node,Right);
+        if(Top==Bottom)anchorPane.setTopAnchor(node,Top);
+        if(Left==Right)anchorPane.setLeftAnchor(node,Left);
     }
 
     /**
