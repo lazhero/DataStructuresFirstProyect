@@ -23,7 +23,7 @@ public class WhiteEvent {
             Data="You will be advance: "+ squares +" Squares";
         }
         GameManager gameManager = GameManager.getInstance(0,0);
-        gameManager.setRunning(false);
+        gameManager.setRunning(true);
 
 
         Button buttock = new Button("OK");
@@ -32,7 +32,7 @@ public class WhiteEvent {
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Evento");
+        tittle.setText("You activated an event");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text message = new Text();
@@ -46,7 +46,7 @@ public class WhiteEvent {
             }catch (InterruptedException interruptedException){
                 interruptedException.printStackTrace();
             }
-            gameManager.setRunning(true);
+            gameManager.setRunning(false);
             gameManager.MovePlayer(player,squares);
             return;
 

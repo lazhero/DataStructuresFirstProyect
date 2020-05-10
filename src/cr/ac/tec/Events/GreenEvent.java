@@ -29,7 +29,7 @@ public class GreenEvent{
         vb.setAlignment(Pos.CENTER);
 
         Text tittle = new Text();
-        tittle.setText("Usted ha activado un evento");
+        tittle.setText("You activated an event");
         tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text message = new Text();
