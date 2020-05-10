@@ -5,6 +5,8 @@ import cr.ac.tec.Board.Player;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
+import java.util.Random;
+
 public class WhiteSquare extends Square {
     /**
      * Class's constructor
@@ -17,6 +19,21 @@ public class WhiteSquare extends Square {
     }
     @Override
     public void event(Player player) {
+
+        int casillasN = new Random().nextInt(2)-2;
+        int casillasP = new Random().nextInt(2)+1;
+        int random = new Random().nextInt(2);
+        if (random==0){
+            System.out.println("jugador"+ListPlayer().get(0)+"seras retrocedido"+casillasN+"pos");
+            GameManager gameManager = GameManager.getInstance(0,0);
+            gameManager.MovePlayer(super.ListPlayer().get(0),casillasN);
+        }else if (random==1){
+            System.out.println("jugador"+ListPlayer().get(0)+"seras adelantado"+casillasP+"pos");
+
+            GameManager gameManager = GameManager.getInstance(0,0);
+            gameManager.MovePlayer(super.ListPlayer().get(0),casillasP);
+
+        }
     }
 
     @Override
