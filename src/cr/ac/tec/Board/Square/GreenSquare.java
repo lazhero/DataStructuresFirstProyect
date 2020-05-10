@@ -4,6 +4,8 @@ import cr.ac.tec.Board.Player;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
+import java.util.Random;
+
 public class GreenSquare extends Square {
     /**
      *
@@ -18,7 +20,13 @@ public class GreenSquare extends Square {
 
     @Override
     public void event(Player player) {
-        //lacks event
+        System.out.println(player.getCoins());
+        int win= new Random().nextInt(3)+1;
+        int actualCoins= player.getCoins();
+        player.setCoins(actualCoins+win);
+        //Actualizar
+        System.out.println(player.getCoins());
+
     }
 
     @Override
