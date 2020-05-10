@@ -1,6 +1,8 @@
 package cr.ac.tec.Board.Square;
 
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.GreenEvent;
+import cr.ac.tec.Events.RedEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
@@ -25,19 +27,10 @@ public class RedSquare extends Square {
     @Override
     public void event(Player player) {
 
-        System.out.println(player.getCoins());
         int lose= new Random().nextInt(3)+1;
-        if (player.getCoins()<=lose){
-            player.setCoins(0);
-        }else{
-            int actualCoins= player.getCoins();
-            player.setCoins(actualCoins-lose);
+        new RedEvent(lose,ListPlayer().get(0));
 
         }
-
-
-
-    }
 
     /**
      * Definde the square's color

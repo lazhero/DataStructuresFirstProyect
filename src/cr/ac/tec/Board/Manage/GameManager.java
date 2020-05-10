@@ -3,17 +3,14 @@ package cr.ac.tec.Board.Manage;
 import cr.ac.tec.Board.PathGenerator.PathGenerator;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
-import cr.ac.tec.Images.GetImages;
 import cr.ac.tec.Random.Random;
 import cr.ac.tecLinkedList.List.DoubleList;
 import cr.ac.tecLinkedList.List.DoubleRoundList;
-import cr.ac.tecLinkedList.List.SingleList;
 import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.geometry.HPos;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -381,5 +378,14 @@ public class GameManager {
     public AnchorPane getAnchorPane(){
        return this.anchorPane;
     }
+
+    public boolean isRunning() {
+        return this.running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+
 
 }

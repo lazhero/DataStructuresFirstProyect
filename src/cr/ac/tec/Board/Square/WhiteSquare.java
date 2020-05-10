@@ -2,6 +2,7 @@ package cr.ac.tec.Board.Square;
 
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.WhiteEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
@@ -25,29 +26,23 @@ public class WhiteSquare extends Square {
     @Override
     public void event(Player player) {
 
-        int casillasN = new Random().nextInt(2)-2;
-        int casillasP = new Random().nextInt(2)+1;
+        int casillasN = new Random().nextInt(2) - 2;
+        int casillasP = new Random().nextInt(2) + 1;
         int random = new Random().nextInt(2);
-        if (random==0){
-            System.out.println("jugador"+ListPlayer().get(0)+"seras retrocedido"+casillasN+"pos");
-            GameManager gameManager = GameManager.getInstance(0,0);
-            gameManager.MovePlayer(super.ListPlayer().get(0),casillasN);
-        }else if (random==1){
-            System.out.println("jugador"+ListPlayer().get(0)+"seras adelantado"+casillasP+"pos");
-
-            GameManager gameManager = GameManager.getInstance(0,0);
-            gameManager.MovePlayer(super.ListPlayer().get(0),casillasP);
-
+        if (random == 0) {
+            System.out.println("jugador" + player + "seras retrocedido" + casillasN + "pos");
+            new WhiteEvent("back", casillasN, ListPlayer().get(0));
+        } else if (random == 1) {
+            System.out.println("jugador" + player + "seras adelantado" + casillasP + "pos");
+            new WhiteEvent("advance", casillasP, ListPlayer().get(0));
         }
     }
 
     /**
-     * Definde Square's color
+     * Define Square's color
      * @return
      */
-
     @Override
     public String Color() {
-        return "WHITE";
-    }
+        return "WHITE"; }
 }

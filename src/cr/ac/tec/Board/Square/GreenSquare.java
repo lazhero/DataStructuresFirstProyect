@@ -1,6 +1,7 @@
 package cr.ac.tec.Board.Square;
 
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.GreenEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
@@ -26,12 +27,12 @@ public class GreenSquare extends Square {
 
     @Override
     public void event(Player player) {
-        System.out.println(player.getCoins());
+
         int win= new Random().nextInt(3)+1;
-        int actualCoins= player.getCoins();
-        player.setCoins(actualCoins+win);
-        //Actualizar
-        System.out.println(player.getCoins());
+        new GreenEvent(win,ListPlayer().get(0));
+
+
+
 
     }
 
