@@ -128,15 +128,24 @@ public abstract class  Square {
 
 
     public void DrawStar(double Side,String path) throws IOException {
-        Label label=new Label("",GetImages.getImageView(path));
-        label.setPrefHeight(Side);
-        label.setPrefWidth(Side);
-        label.setMaxWidth(Side);
-        label.setMaxHeight(Side);
-        label.setMinHeight(Side);
-        label.setMinWidth(Side);
-        this.Background=label;
-        this.DrawingOneNode(label,label.getPrefWidth(),label.getPrefHeight());
+        if(path!=null && Side>0) {
+            Label label = new Label("", GetImages.getImageView(path));
+            label.setPrefHeight(Side);
+            label.setPrefWidth(Side);
+            label.setMaxWidth(Side);
+            label.setMaxHeight(Side);
+            label.setMinHeight(Side);
+            label.setMinWidth(Side);
+            this.Background = label;
+            label.setOpacity(0.7);
+            this.DrawingOneNode(label, label.getPrefWidth(), label.getPrefHeight());
+        }
+        else{
+            if(this.Background!=null){
+                DeleteNode(this.Background);
+            }
+            Background=null;
+        }
 
 
 
