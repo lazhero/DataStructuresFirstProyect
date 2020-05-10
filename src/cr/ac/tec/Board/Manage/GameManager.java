@@ -99,6 +99,12 @@ public class GameManager {
        }
        return instance;
    }
+   public static GameManager getInstance(int PlayerNum,int Rounds){
+       return instance;
+   }
+   public static GameManager getInstance(){
+       return instance;
+   }
 
    public void StartTurn(int steps){
        if((!running || Backing)&& steps!=0) {
