@@ -1,4 +1,4 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.lists;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,6 +19,6 @@ public class ListOfMiniGames {
         System.out.println(milista);
         Collections.shuffle(milista);
         System.out.println(milista);
-        return;
+
     }
 }

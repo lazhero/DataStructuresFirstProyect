@@ -1,4 +1,4 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Player;
 
@@ -8,7 +8,7 @@ public abstract  class Event {
      * @param player
      */
 
-    public abstract void event(Player player);
+    public abstract void event1(Player player);
 
     /**
      * Depend on each event, but events with two players

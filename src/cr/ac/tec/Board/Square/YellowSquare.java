@@ -1,8 +1,8 @@
 package cr.ac.tec.Board.Square;
 
 import cr.ac.tec.Board.Manage.GameManager;
+import cr.ac.tec.Board.Player;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
 public class YellowSquare extends Square {
     /**
@@ -16,10 +16,23 @@ public class YellowSquare extends Square {
 
     }
 
+    /**
+     * This event activate different events
+     * @param player
+     */
+
     @Override
-    public void Event() {
+    public void event(Player player) {
+        GameManager gameManager = GameManager.getInstance(0,0);
+        gameManager.teleport(super.ListPlayer().get(0));
+        
 
     }
+
+    /**
+     * Define the square's color
+     * @return
+     */
 
     @Override
     public String Color() {

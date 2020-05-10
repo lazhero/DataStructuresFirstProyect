@@ -1,7 +1,11 @@
 package cr.ac.tec.Board.Square;
 
+import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.GreenEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+
+import java.util.Random;
 
 public class GreenSquare extends Square {
     /**
@@ -15,11 +19,27 @@ public class GreenSquare extends Square {
 
     }
 
+    /**
+     *
+     * this event gives coins to the one who activates it
+     * @param player
+     */
+
     @Override
-    public void Event() {
-        //lacks event
+    public void event(Player player) {
+
+        int win= new Random().nextInt(3)+1;
+        new GreenEvent(win,ListPlayer().get(0));
+
+
+
+
     }
 
+    /**
+     * Define the square's color
+     * @return
+     */
     @Override
     public String Color() {
         return "GREEN";

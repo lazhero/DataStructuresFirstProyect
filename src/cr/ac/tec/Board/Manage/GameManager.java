@@ -164,7 +164,7 @@ public class GameManager {
 
                    }
                    running=false;
-                   PlayersNodes.get(PlayerTurn).getInfo().Event();
+                   PlayersNodes.get(PlayerTurn).getInfo().event(PlayerList.get(PlayerTurn));
                    if(PlayerTurn==PlayerList.getLength()-1){
                        RoundsCount++;
                    }
@@ -392,5 +392,14 @@ public class GameManager {
     public AnchorPane getAnchorPane(){
        return this.anchorPane;
     }
+
+    public boolean isRunning() {
+        return this.running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+
 
 }
