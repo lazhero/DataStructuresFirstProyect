@@ -48,25 +48,7 @@ public class StealCoins extends Event {
         ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-        if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
-            listaaleatoria.AddTail(1);
-            listaaleatoria.AddTail(2);
-            listaaleatoria.AddTail(3);
-        }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
-            listaaleatoria.AddTail(0);
-            listaaleatoria.AddTail(2);
-            listaaleatoria.AddTail(3);
 
-        }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
-            listaaleatoria.AddTail(0);
-            listaaleatoria.AddTail(1);
-            listaaleatoria.AddTail(3);
-        }
-        else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==3){
-            listaaleatoria.AddTail(0);
-            listaaleatoria.AddTail(1);
-            listaaleatoria.AddTail(2);
-        }
         VBox vb = new VBox();
         ListOfEvents.getInstance().getDoubleList().delete(0);
 
@@ -79,19 +61,72 @@ public class StealCoins extends Event {
 
         Text data = new Text();
         data.setText(Data);
+        Button b1 = new Button();
+        Button b2 = new Button();
+        Button b3 = new Button();
+
+        if (gameManager.getPlayerList().getLength() == 2) {
+            if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                listaaleatoria.AddTail(1);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                listaaleatoria.AddTail(0);
+            }
+            b1.setText("Player"+listaaleatoria.get(0));
+            b2.relocate(1000,1000);
+            b3.relocate(1000,1000);
+        }else if(gameManager.getPlayerList().getLength()==3){
+            if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(2);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(2);
 
 
-        Button b1= new Button("Player"+listaaleatoria.get(0));
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(1);
+            }
+            b1.setText("Player"+listaaleatoria.get(0));
+            b2.setText("Player"+listaaleatoria.get(1));
+            b3.relocate(1000,1000);
+        }
+        else if(gameManager.getPlayerList().getLength()==4){
+            if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(2);
+                listaaleatoria.AddTail(3);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(2);
+                listaaleatoria.AddTail(3);
+
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(3);
+            }
+            else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==3){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(2);
+
+            }
+            b1.setText("Player"+listaaleatoria.get(0));
+            b2.setText("Player"+listaaleatoria.get(1));
+            b3.setText("Player"+listaaleatoria.get(2));
+        }
+
         vb.setLayoutX(300);
         vb.setLayoutY(300);
         vb.setAlignment(Pos.CENTER);
 
-        Button b2= new Button("Player"+listaaleatoria.get(1));
+
         vb.setLayoutX(300);
         vb.setLayoutY(300);
         vb.setAlignment(Pos.CENTER);
 
-        Button b3= new Button("Player"+listaaleatoria.get(2));
+
         vb.setLayoutX(300);
         vb.setLayoutY(300);
         vb.setAlignment(Pos.CENTER);

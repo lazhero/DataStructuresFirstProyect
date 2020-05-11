@@ -47,29 +47,55 @@ public class LoseOneStar extends Event {
     public void EventData(Player player) {
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-        if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
-            listaaleatoria.AddTail(1);
-            listaaleatoria.AddTail(2);
-            listaaleatoria.AddTail(3);
-        }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
-            listaaleatoria.AddTail(0);
-            listaaleatoria.AddTail(2);
-            listaaleatoria.AddTail(3);
+        int random = 0;
+        if (gameManager.getPlayerList().getLength() == 2) {
+            if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                listaaleatoria.AddTail(1);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                listaaleatoria.AddTail(0);
+            }
+            random=0;
 
-        }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
-            listaaleatoria.AddTail(0);
-            listaaleatoria.AddTail(1);
-            listaaleatoria.AddTail(3);
+        }else if(gameManager.getPlayerList().getLength()==3){
+            if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(2);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(2);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(1);
+            }
+            random=new Random().nextInt(2);
+
         }
-        else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==3){
-            listaaleatoria.AddTail(0);
-            listaaleatoria.AddTail(1);
-            listaaleatoria.AddTail(2);
+        else if(gameManager.getPlayerList().getLength()==4){
+            if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(2);
+                listaaleatoria.AddTail(3);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(2);
+                listaaleatoria.AddTail(3);
+
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(3);
+            }
+            else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==3){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(2);
+            }
+            random=new Random().nextInt(3);
         }
         ListOfEvents.getInstance().getDoubleList().delete(0);
-        int random = new Random().nextInt(3);
+        int aleatorio=random;
         VBox vb = new VBox();
-        Data="Sorry,you lose 1 star, this will be obtained by the player: " + listaaleatoria.get(random) ;
+        Data="Sorry,you lose 1 star, this will be obtained by the player: " + listaaleatoria.get(aleatorio) ;
         gameManager.setRunning(true);
 
         Button buttock = new Button("OK");
@@ -91,7 +117,7 @@ public class LoseOneStar extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
-            event2(player,gameManager.getPlayerList().get(listaaleatoria.get(random)));
+            event2(player,gameManager.getPlayerList().get(listaaleatoria.get(aleatorio)));
             return;
 
         });

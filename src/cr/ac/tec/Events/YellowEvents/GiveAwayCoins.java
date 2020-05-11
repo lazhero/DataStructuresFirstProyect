@@ -35,7 +35,30 @@ public class GiveAwayCoins extends Event {
     public void event2(Player player1, Player player2) {
 
     }
-    public void event3(Player player1, Player player2, Player player3, Player player4,int coins){
+    public void event3(Player player1,Player player2,int coins){
+        GameManager gameManager = GameManager.getInstance(0,0);
+        if (player1.getCoins()<gameManager.getPlayerList().getLength()){
+            player1.setCoins(0);
+        }
+        else{
+            player1.setCoins(player1.getCoins()-gameManager.getPlayerList().getLength());
+            player2.setCoins(player2.getCoins()+1);
+        }
+
+    }
+    public void event4(Player player1,Player player2,Player player3,int coins){
+        GameManager gameManager = GameManager.getInstance(0,0);
+        if (player1.getCoins()<gameManager.getPlayerList().getLength()){
+            player1.setCoins(0);
+        }
+        else{
+            player1.setCoins(player1.getCoins()-gameManager.getPlayerList().getLength());
+            player2.setCoins(player2.getCoins()+1);
+            player3.setCoins(player3.getCoins()+1);
+        }
+
+    }
+    public void event5(Player player1, Player player2, Player player3, Player player4,int coins){
         GameManager gameManager = GameManager.getInstance(0,0);
         if (player1.getCoins()<gameManager.getPlayerList().getLength()){
             player1.setCoins(0);
@@ -45,10 +68,11 @@ public class GiveAwayCoins extends Event {
             player2.setCoins(player2.getCoins()+1);
             player3.setCoins(player2.getCoins()+1);
             player4.setCoins(player2.getCoins()+1);
-
         }
 
     }
+
+
 
 
     /**
@@ -59,15 +83,16 @@ public class GiveAwayCoins extends Event {
     public void EventData(Player player) {
         ListOfEvents.getInstance().getDoubleList().delete(0);
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-        coins = new Random().nextInt(gameManager.getPlayerList().getLength())-1;
 
+        coins = new Random().nextInt(gameManager.getPlayerList().getLength()-1)+1;
+        System.out.println("cantidad es "+ coins);
         VBox vb = new VBox();
         Button buttock = new Button("OK");
         vb.setLayoutX(300);
         vb.setLayoutY(300);
         vb.setAlignment(Pos.CENTER);
         gameManager.setRunning(true);
-        Data = "Sorry!! You lost" + coins + " coins, will be dealt to the other player s";
+        Data = "Sorry!! You lost " + coins + " coins, will be dealt to the other players";
         buttock.setOnMouseClicked(e -> {
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
@@ -76,8 +101,36 @@ public class GiveAwayCoins extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
-            event3(player,gameManager.getPlayerList().get(0),gameManager.getPlayerList().get(1),gameManager.getPlayerList().get(2),coins);
-            return;
+            if(gameManager.getPlayerList().getLength()==2){
+                if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                    event3(player,gameManager.getPlayerList().get(1),coins);
+                }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                    event3(player,gameManager.getPlayerList().get(0),coins);
+                }
+
+
+            }else if(gameManager.getPlayerList().getLength()==3){
+                if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                    event4(player,gameManager.getPlayerList().get(1),gameManager.getPlayerList().get(2),coins);
+                }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                    event4(player,gameManager.getPlayerList().get(0),gameManager.getPlayerList().get(2),coins);
+                }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2) {
+                    event4(player, gameManager.getPlayerList().get(0), gameManager.getPlayerList().get(1), coins);
+                }
+
+
+            }else if(gameManager.getPlayerList().getLength()==4) {
+                if (gameManager.getTurns() % gameManager.getPlayerList().getLength() == 0) {
+                    event5(player, gameManager.getPlayerList().get(1), gameManager.getPlayerList().get(2), gameManager.getPlayerList().get(3), coins);
+                } else if (gameManager.getTurns() % gameManager.getPlayerList().getLength() == 1) {
+                    event5(player, gameManager.getPlayerList().get(0), gameManager.getPlayerList().get(2), gameManager.getPlayerList().get(3), coins);
+                } else if (gameManager.getTurns() % gameManager.getPlayerList().getLength() == 2) {
+                    event5(player, gameManager.getPlayerList().get(0), gameManager.getPlayerList().get(1), gameManager.getPlayerList().get(3), coins);
+                } else if (gameManager.getTurns() % gameManager.getPlayerList().getLength() == 3) {
+                    event5(player, gameManager.getPlayerList().get(0), gameManager.getPlayerList().get(1), gameManager.getPlayerList().get(2), coins);
+                }
+                return;
+            }
 
         });
 
