@@ -90,6 +90,7 @@ public class DiamondHunterGame extends Application {
         images.put("link", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/linkSprites.png"));
         images.put("tilemap", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/tilemap.png"));
         images.put("diamond", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/diamond.png"));
+        //images.put("dice",new Image("cr/ac/tec/Minigames/DiamondHunter/Images/dice.png"));
 
     }
 
