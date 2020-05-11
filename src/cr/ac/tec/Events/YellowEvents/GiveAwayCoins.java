@@ -35,6 +35,20 @@ public class GiveAwayCoins extends Event {
     public void event2(Player player1, Player player2) {
 
     }
+    public void event3(Player player1, Player player2, Player player3, Player player4,int coins){
+        GameManager gameManager = GameManager.getInstance(0,0);
+        if (player1.getCoins()<gameManager.getPlayerList().getLength()){
+            player1.setCoins(0);
+        }
+        else{
+            player1.setCoins(player1.getCoins()-gameManager.getPlayerList().getLength());
+            player2.setCoins(player2.getCoins()+1);
+            player3.setCoins(player2.getCoins()+1);
+            player4.setCoins(player2.getCoins()+1);
+
+        }
+
+    }
 
 
     /**
@@ -44,57 +58,28 @@ public class GiveAwayCoins extends Event {
     @Override
     public void EventData(Player player) {
         ListOfEvents.getInstance().getDoubleList().delete(0);
-        System.out.println("AACA");
-        amountplayers = new Random().nextInt(3)+1;
-        coins = new Random().nextInt(amountplayers)+1;
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
+        coins = new Random().nextInt(gameManager.getPlayerList().getLength())-1;
+
         VBox vb = new VBox();
         Button buttock = new Button("OK");
         vb.setLayoutX(300);
         vb.setLayoutY(300);
         vb.setAlignment(Pos.CENTER);
         gameManager.setRunning(true);
+        Data = "Sorry!! You lost" + coins + " coins, will be dealt to the other player s";
+        buttock.setOnMouseClicked(e -> {
+            gameManager.getAnchorPane().getChildren().remove(vb);
+            try {
+                TimeUnit.MILLISECONDS.sleep(700);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
+            gameManager.setRunning(false);
+            event3(player,gameManager.getPlayerList().get(0),gameManager.getPlayerList().get(1),gameManager.getPlayerList().get(2),coins);
+            return;
 
-        if (coins%amountplayers==0) {
-            Data = "Sorry!! You lost" + coins + " coins, will be dealt to the other player s";
-            buttock.setOnMouseClicked(e -> {
-                gameManager.getAnchorPane().getChildren().remove(vb);
-                try {
-                    TimeUnit.MILLISECONDS.sleep(700);
-                } catch (InterruptedException interruptedException) {
-                    interruptedException.printStackTrace();
-                }
-                gameManager.setRunning(false);
-                return;
-
-            });
-        }else if (coins>amountplayers){
-            Data="Sorry!! You lost"+amountplayers+" coins, will be dealt to the other player s";
-            buttock.setOnMouseClicked(e -> {
-                gameManager.getAnchorPane().getChildren().remove(vb);
-                try {
-                    TimeUnit.MILLISECONDS.sleep(700);
-                } catch (InterruptedException interruptedException) {
-                    interruptedException.printStackTrace();
-                }
-                gameManager.setRunning(false);
-                return;
-            });
-
-        } else {
-            Data="You don’t have enough funds, lose all you coins";
-            Data="Sorry!! You lost"+amountplayers+" coins, will be dealt to the other player s";
-            buttock.setOnMouseClicked(e -> {
-                gameManager.getAnchorPane().getChildren().remove(vb);
-                try {
-                    TimeUnit.MILLISECONDS.sleep(700);
-                } catch (InterruptedException interruptedException) {
-                    interruptedException.printStackTrace();
-                }
-                gameManager.setRunning(false);
-                return;
-            });
-        }
+        });
 
         Text tittle = new Text();
         tittle.setText("You activated an event");

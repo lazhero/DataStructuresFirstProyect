@@ -40,8 +40,8 @@ public class YellowSquare extends Square {
             }
         }
 
-        //CallToEvent(ListOfEvents.getInstance().getDoubleList().get(0)).EventData(player);
-        new ChangePlace().EventData(player);
+        CallToEvent(ListOfEvents.getInstance().getDoubleList().get(0)).EventData(player);
+        //new LoseOneStar().EventData(player);
     }
 
 

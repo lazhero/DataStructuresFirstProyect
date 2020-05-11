@@ -4,6 +4,7 @@ import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.YellowEvents.Event;
 import cr.ac.tec.Events.lists.ListOfEvents;
+import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -14,8 +15,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class LoseOneStar extends Event {
-    private int amountplayer;
-    private int star;
+    private String Data;
     /**
      * The player loses a star and it is given to another random player.
      * @param player
@@ -23,19 +23,20 @@ public class LoseOneStar extends Event {
 
     @Override
     public void event1(Player player) {
-        int actualstars=player.getStars();
-        if (player.getStars()<=1){
-            player.setStars(0);
-        }
-        else {
-            player.setStars(actualstars+-1);
-            System.out.println(player.getStars());
-        }
+
 
     }
 
     @Override
     public void event2(Player player1, Player player2) {
+        if (player1.getStars()<1){
+            player1.setStars(0);
+            player2.setStars(player2.getStars());
+        }
+        else {
+            player1.setStars(player1.getStars()+-1);
+            player2.setStars(player2.getStars()+1);
+        }
 
     }
     /**
@@ -44,13 +45,31 @@ public class LoseOneStar extends Event {
      */
     @Override
     public void EventData(Player player) {
-        ListOfEvents.getInstance().getDoubleList().delete(0);
-        amountplayer= new Random().nextInt(3)+1;
-        VBox vb = new VBox();
-        System.out.println("AACA");
-        String Data;
-        Data="Sorry,you lose 1 star, this will be obtained by the player: " + amountplayer ;
+        DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
+        if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+            listaaleatoria.AddTail(1);
+            listaaleatoria.AddTail(2);
+            listaaleatoria.AddTail(3);
+        }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+            listaaleatoria.AddTail(0);
+            listaaleatoria.AddTail(2);
+            listaaleatoria.AddTail(3);
+
+        }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
+            listaaleatoria.AddTail(0);
+            listaaleatoria.AddTail(1);
+            listaaleatoria.AddTail(3);
+        }
+        else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==3){
+            listaaleatoria.AddTail(0);
+            listaaleatoria.AddTail(1);
+            listaaleatoria.AddTail(2);
+        }
+        ListOfEvents.getInstance().getDoubleList().delete(0);
+        int random = new Random().nextInt(3);
+        VBox vb = new VBox();
+        Data="Sorry,you lose 1 star, this will be obtained by the player: " + listaaleatoria.get(random) ;
         gameManager.setRunning(true);
 
         Button buttock = new Button("OK");
@@ -72,7 +91,7 @@ public class LoseOneStar extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
-            event1(player);
+            event2(player,gameManager.getPlayerList().get(listaaleatoria.get(random)));
             return;
 
         });
