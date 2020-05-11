@@ -3,6 +3,7 @@ package cr.ac.tec.Events.YellowEvents;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.YellowEvents.Event;
+import cr.ac.tec.Events.lists.ListOfEvents;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -35,10 +36,10 @@ public class StealStar extends Event {
     public void EventData(Player player) {
         amountplayer= new Random().nextInt(3)+1;
         VBox vb = new VBox();
-
+        ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         Data="Congratulations, you can steal 1 star from another player";
-        GameManager gameManager = GameManager.getInstance(0,0);
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
 
 

@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-import java.util.Random;
+
 import java.util.concurrent.TimeUnit;
 
 public class WhiteEvent {
@@ -22,7 +22,7 @@ public class WhiteEvent {
         else if(action=="advance"){
             Data="You will be advance: "+ squares +" Squares";
         }
-        GameManager gameManager = GameManager.getInstance(0,0);
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
 
 

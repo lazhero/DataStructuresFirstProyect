@@ -2,6 +2,7 @@ package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.lists.ListOfEvents;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -42,9 +43,11 @@ public class GiveAwayCoins extends Event {
      */
     @Override
     public void EventData(Player player) {
+        ListOfEvents.getInstance().getDoubleList().delete(0);
+        System.out.println("AACA");
         amountplayers = new Random().nextInt(3)+1;
         coins = new Random().nextInt(amountplayers)+1;
-        GameManager gameManager = GameManager.getInstance(0,0);
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         VBox vb = new VBox();
         Button buttock = new Button("OK");
         vb.setLayoutX(300);

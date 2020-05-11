@@ -2,6 +2,7 @@ package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.lists.ListOfEvents;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -37,10 +38,11 @@ public class Duel extends Event {
      */
     @Override
     public void EventData(Player player) {
-
+        ListOfEvents.getInstance().getDoubleList().delete(0);
+        System.out.println("AACA");
         String Data;
         Data="You’ll have a duel with the player"+playerchange;
-        GameManager gameManager = GameManager.getInstance(0,0);
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
 
         VBox vb = new VBox();
 

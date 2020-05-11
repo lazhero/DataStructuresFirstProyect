@@ -2,7 +2,16 @@ package cr.ac.tec.Board.Square;
 
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
+
+import cr.ac.tec.Events.YellowEvents.*;
+import cr.ac.tec.Events.lists.ListOfEvents;
+
+
+import cr.ac.tecLinkedList.List.List;
 import javafx.scene.paint.Color;
+
+
+import java.util.concurrent.TimeUnit;
 
 public class YellowSquare extends Square {
     /**
@@ -15,27 +24,32 @@ public class YellowSquare extends Square {
         super(Color.YELLOW,coordx,coordy,sideSize);
 
     }
-
-    /**
-     * This event activate different events
-     * @param player
-     */
-
-    @Override
-    public void event(Player player) {
-        GameManager gameManager = GameManager.getInstance(0,0);
-        gameManager.teleport(super.ListPlayer().get(0));
-        
-
-    }
-
-    /**
-     * Define the square's color
-     * @return
-     */
-
     @Override
     public String Color() {
         return "YELLOW";
+    }
+
+    @Override
+    public void event(Player player) {
+        if(ListOfEvents.getInstance().getDoubleList().isEmpty()){
+            ListOfEvents.instance=null;
+            try{
+                TimeUnit.MILLISECONDS.sleep(400);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+
+        //CallToEvent(ListOfEvents.getInstance().getDoubleList().get(0)).EventData(player);
+        new ChangePlace().EventData(player);
+    }
+
+
+
+
+
+
+    public Event CallToEvent (Object object){
+        return (Event) object;
     }
 }

@@ -2,6 +2,7 @@
 package cr.ac.tec.Events.YellowEvents;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Events.YellowEvents.Event;
+import cr.ac.tec.Events.lists.ListOfEvents;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -18,7 +19,9 @@ public class WinTwoStars extends Event {
      */
     @Override
     public void event1(Player player) {
-
+        int actualstars=player.getStars();
+        player.setStars(actualstars+2);
+        System.out.println(player.getStars());
     }
 
     @Override
@@ -31,13 +34,14 @@ public class WinTwoStars extends Event {
      */
     @Override
     public void EventData(Player player) {
+        System.out.println(player.getStars());
         VBox vb = new VBox();
-
+        ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         Data="Congrats!!! you won 2 stars";
-        GameManager gameManager = GameManager.getInstance(0,0);
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
-
+        System.out.println("AACA");
         Button buttock = new Button("OK");
         vb.setLayoutX(300);
         vb.setLayoutY(300);
@@ -57,6 +61,7 @@ public class WinTwoStars extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
+            event1(player);
             return;
 
         });

@@ -3,6 +3,7 @@ package cr.ac.tec.Events.YellowEvents;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.YellowEvents.Event;
+import cr.ac.tec.Events.lists.ListOfEvents;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -22,6 +23,14 @@ public class LoseOneStar extends Event {
 
     @Override
     public void event1(Player player) {
+        int actualstars=player.getStars();
+        if (player.getStars()<=1){
+            player.setStars(0);
+        }
+        else {
+            player.setStars(actualstars+-1);
+            System.out.println(player.getStars());
+        }
 
     }
 
@@ -35,12 +44,13 @@ public class LoseOneStar extends Event {
      */
     @Override
     public void EventData(Player player) {
+        ListOfEvents.getInstance().getDoubleList().delete(0);
         amountplayer= new Random().nextInt(3)+1;
         VBox vb = new VBox();
-
+        System.out.println("AACA");
         String Data;
         Data="Sorry,you lose 1 star, this will be obtained by the player: " + amountplayer ;
-        GameManager gameManager = GameManager.getInstance(0,0);
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
 
         Button buttock = new Button("OK");
@@ -62,6 +72,7 @@ public class LoseOneStar extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
+            event1(player);
             return;
 
         });

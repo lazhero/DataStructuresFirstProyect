@@ -35,6 +35,7 @@ public class WhiteSquare extends Square {
         } else if (random == 1) {
             System.out.println("jugador" + player + "seras adelantado" + casillasP + "pos");
             new WhiteEvent("advance", casillasP, ListPlayer().get(0));
+
         }
     }
 

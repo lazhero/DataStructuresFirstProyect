@@ -2,7 +2,11 @@ package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Board.Square.Square;
 import cr.ac.tec.Events.YellowEvents.Event;
+import cr.ac.tec.Events.lists.ListOfEvents;
+import cr.ac.tec.Random.Random;
+import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -18,8 +22,8 @@ public class Teleport extends Event {
      */
     @Override
     public void event1(Player player) {
-
-
+        GameManager gameManager = GameManager.getInstance(0,0);
+        gameManager.teleport(player);
     }
 
 
@@ -36,10 +40,10 @@ public class Teleport extends Event {
 
     public void EventData(Player player) {
         VBox vb = new VBox();
-
+        ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         Data="you will be teleported to a random location";
-        GameManager gameManager = GameManager.getInstance(0,0);
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
 
         Button buttock = new Button("OK");
@@ -61,6 +65,7 @@ public class Teleport extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
+            event1(player);
             return;
 
         });

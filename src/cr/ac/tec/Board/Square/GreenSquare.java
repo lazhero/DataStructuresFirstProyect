@@ -2,6 +2,7 @@ package cr.ac.tec.Board.Square;
 
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.GreenEvent;
+import cr.ac.tec.Events.lists.ListOfEvents;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
@@ -30,7 +31,7 @@ public class GreenSquare extends Square {
 
         int win= new Random().nextInt(3)+1;
         new GreenEvent(win,ListPlayer().get(0));
-
+        System.out.println(ListOfEvents.getInstance().getDoubleList());
 
 
 

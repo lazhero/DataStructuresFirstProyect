@@ -407,5 +407,11 @@ public class GameManager {
         this.running = running;
     }
 
+    public DoubleList<Player> getPlayerList() {
+        return PlayerList;
+    }
 
+    public int getTurns() {
+        return turns;
+    }
 }
