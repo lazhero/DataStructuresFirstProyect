@@ -30,7 +30,6 @@ public class Teleport extends Event {
     @Override
     public void event2(Player player1, Player change) {
 
-
     }
     /**
      * Information of the event
@@ -69,12 +68,7 @@ public class Teleport extends Event {
             return;
 
         });
-
         vb.getChildren().addAll(tittle,buttock,data);
         gameManager.getAnchorPane().getChildren().add(vb);
-
-
-
-
     }
 }

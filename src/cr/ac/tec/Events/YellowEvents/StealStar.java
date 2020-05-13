@@ -49,7 +49,6 @@ public class StealStar extends Event {
         String Data;
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
 
-
         VBox vb = new VBox();
         ListOfEvents.getInstance().getDoubleList().delete(0);
 
@@ -81,8 +80,6 @@ public class StealStar extends Event {
             }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(2);
-
-
             }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(1);
@@ -110,14 +107,12 @@ public class StealStar extends Event {
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(1);
                 listaaleatoria.AddTail(2);
-
             }
             b1.setText("Player"+listaaleatoria.get(0));
             b2.setText("Player"+listaaleatoria.get(1));
             b3.setText("Player"+listaaleatoria.get(2));
         }
 
-
         vb.setLayoutX(300);
         vb.setLayoutY(300);
         vb.setAlignment(Pos.CENTER);
@@ -126,7 +121,6 @@ public class StealStar extends Event {
         vb.setLayoutX(300);
         vb.setLayoutY(300);
         vb.setAlignment(Pos.CENTER);
-
 
         vb.setLayoutX(300);
         vb.setLayoutY(300);
@@ -168,12 +162,8 @@ public class StealStar extends Event {
             return;
 
         });
-
         vb.getChildren().addAll(tittle,data,b1,b2,b3);
         gameManager.getAnchorPane().getChildren().add(vb);
-
-
         }
-
     }
 

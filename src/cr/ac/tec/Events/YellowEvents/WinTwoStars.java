@@ -63,14 +63,8 @@ public class WinTwoStars extends Event {
             gameManager.setRunning(false);
             event1(player);
             return;
-
         });
-
         vb.getChildren().addAll(tittle,buttock,data);
         gameManager.getAnchorPane().getChildren().add(vb);
-
-
-
-
     }
 }

@@ -167,9 +167,7 @@ public class StealCoins extends Event {
             return;
 
         });
-
         vb.getChildren().addAll(tittle,data,b1,b2,b3);
         gameManager.getAnchorPane().getChildren().add(vb);
-
     }
 }

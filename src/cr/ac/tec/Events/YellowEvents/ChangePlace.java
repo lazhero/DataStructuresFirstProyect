@@ -88,7 +88,6 @@ public class ChangePlace extends Event {
         Text data = new Text();
         data.setText(Data);
 
-
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
@@ -100,15 +99,9 @@ public class ChangePlace extends Event {
             event2(player,gameManager.getPlayerList().get(finalListaaleatoria.get(random)));
             System.out.println(gameManager.getTurns());
             return;
-
         });
-
         vb.getChildren().addAll(tittle,buttock,data);
         gameManager.getAnchorPane().getChildren().add(vb);
-
-
-
-
     }
 
 }

@@ -121,12 +121,7 @@ public class LoseOneStar extends Event {
             return;
 
         });
-
         vb.getChildren().addAll(tittle,buttock,data);
         gameManager.getAnchorPane().getChildren().add(vb);
-
-
-
-
     }
 }

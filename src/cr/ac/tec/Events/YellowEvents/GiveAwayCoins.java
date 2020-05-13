@@ -72,9 +72,6 @@ public class GiveAwayCoins extends Event {
 
     }
 
-
-
-
     /**
      * Information of the event
      * @param player
@@ -133,7 +130,6 @@ public class GiveAwayCoins extends Event {
             }
 
         });
-
         Text tittle = new Text();
         tittle.setText("You activated an event");
         tittle.setTextAlignment(TextAlignment.CENTER);

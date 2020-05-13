@@ -25,5 +25,4 @@ public abstract  class Event {
 
     public abstract void EventData(Player player);
 
-
 }
