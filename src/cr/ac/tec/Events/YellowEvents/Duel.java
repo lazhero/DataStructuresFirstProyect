@@ -88,6 +88,7 @@ public class Duel extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
+            event1(player);
             return;
 
         });
