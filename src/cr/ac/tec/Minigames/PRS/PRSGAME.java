@@ -12,23 +12,23 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.IOException;
 
-public class PRSGAME extends Application {
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent Root= FXMLLoader.load(getClass().getResource("GameScene.fxml"));
+public class PRSGAME  {
+    public void StarGame(){
+        Stage primaryStage = new Stage();
+        Parent Root= null;
+        try {
+            Root = FXMLLoader.load(getClass().getResource("GameScene.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene=new Scene(Root);
         primaryStage.setScene(scene);
         primaryStage.show();
 
-
-
     }
+
     public  Scene getGame() throws Exception{
         Parent Root= FXMLLoader.load(getClass().getResource("GameScene.fxml"));
         return new Scene(Root);

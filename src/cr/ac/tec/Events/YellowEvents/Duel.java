@@ -5,6 +5,7 @@ import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.lists.ListOfEvents;
 import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 import cr.ac.tec.Minigames.Memory.memorygame;
+import cr.ac.tec.Minigames.ticTacToe.Main;
 import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -20,6 +21,7 @@ import cr.ac.tec.Minigames.PRS.*;
 import cr.ac.tec.Minigames.RandomNumber.*;
 import cr.ac.tec.Minigames.Shoot.*;
 import cr.ac.tec.Minigames.ticTacToe.*;
+import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -55,10 +57,10 @@ public class Duel extends Event {
             new memorygame().StarGame();
             milista.delete(0);
         }else if(milista.get(0).toString()=="PRS"){
-            //new PRSGAME().StarGame();
+            new PRSGAME().StarGame();
             milista.delete(0);
         }else if(milista.get(0).toString()=="TicTacToe"){
-            //new TicTacToe().StartGame();
+            new Main().StartGame();
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="PressFirst"){
@@ -66,15 +68,15 @@ public class Duel extends Event {
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="DiamondHunter"){
-            //DiamondHunterGame.StartGame();
+            new DiamondHunterGame().StartGame();
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="Shoot"){
-            //new Shoot.StartGame();
+            new Prove().StartGame();
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="RandomNumber"){
-            //new RandomNumberGame().StarGame();
+            new cr.ac.tec.Minigames.RandomNumber.Main().StartGame();
             milista.delete(0);
 
         }

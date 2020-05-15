@@ -7,16 +7,10 @@ import javafx.stage.Stage;
 import static cr.ac.tec.Minigames.ticTacToe.TicTacToe.createContent;
 
 
-public class Main extends Application {
-
-    public static void main(String[] args){
-        launch(args);
-    }
-    @Override
-    public void start(Stage primaryStage){
+public class Main  {
+    public void StartGame(){
+        Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();
     }
-
-
 }

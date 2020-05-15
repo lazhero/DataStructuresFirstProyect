@@ -1,11 +1,13 @@
 package cr.ac.tec.Events;
 
 import cr.ac.tec.Board.Manage.GameManager;
+import cr.ac.tec.Events.YellowEvents.Duel;
 
 public class Tournament {
 
-    private Tournament() {
-        /**
+    public void Tournament() {
+
+     /**
         GameManager gameManager = GameManager.getInstance(0,0);
 
 
@@ -73,9 +75,6 @@ public class Tournament {
                     }
                 }
             }
-
-
-
 
         } else if (gameManager.getPlayerList().getLength()==4) {
             new minigame(player1,player2);
@@ -178,9 +177,11 @@ public class Tournament {
                 }
             }
         }
+        */
+    }
+    public void TournamentData(){
 
-*/
-
+        
     }
 
 
