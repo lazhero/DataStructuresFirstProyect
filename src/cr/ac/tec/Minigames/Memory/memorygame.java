@@ -1,6 +1,7 @@
 package cr.ac.tec.Minigames.Memory;
 
 import cr.ac.tec.Board.Manage.GameManager;
+import cr.ac.tec.Board.Player;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -34,25 +35,27 @@ public class memorygame {
     int victory;
     private int scorep1=0;
     private int scorep2=0;
+    private int dat1;
+    private int dat2;
     private Text turn= new Text();
     private Text score1=new Text("Score:"+ scorep1);
     private Text score2=new Text("Score:"+ scorep2);
 
-    public Parent createContent(){
+    public Parent createContent(int player1,int player2){
 
 
         Pane root = new Pane();
         root.setPrefSize(700,700);
         root.getChildren().addAll(turn);
         if (cont%2==0){
-            turn.setText("Player 1 turn");
+            turn.setText("Player " +player1+ "turn");
             turn.setTranslateY(650);
             turn.setTranslateX(120);
             turn.setFont(Font.font(30));
 
         }
         else{
-            turn.setText("Player 2 turn");
+            turn.setText("Player "+player2+" turn");
             turn.setTranslateY(580);
             turn.setTranslateX(300);
             turn.setFont(Font.font(30));
@@ -73,12 +76,12 @@ public class memorygame {
             root.getChildren().add(tile);
         }
 
-        Text player1t = new Text("Player 1");
+        Text player1t = new Text("Player "+player1);
         player1t.setTranslateY(580);
         player1t.setTranslateX(80);
         player1t.setFont(Font.font(30));
 
-        Text player2t = new Text("Player 2");
+        Text player2t = new Text("Player "+player2);
         player2t.setTranslateX(450);
         player2t.setTranslateY(580);
         player2t.setFont(Font.font(30));
@@ -90,6 +93,8 @@ public class memorygame {
         score2.setTranslateX(450);
         score2.setTranslateY(620);
         score2.setFont(Font.font(27));
+        dat1=player1;
+        dat2=player2;
 
         root.getChildren().addAll(player1t,player2t,score1,score2);
 
@@ -135,10 +140,10 @@ public class memorygame {
                         this.close();
                         cont=cont+1;
                         if(cont%2==0){
-                            changeturn("Player 1 turn");
+                            changeturn("Player "+dat1+" turn");
                         }
 
-                        else changeturn("Player 2 turn");
+                        else changeturn("Player "+dat2+ " turn");
 
                     }
                     else{
@@ -147,7 +152,7 @@ public class memorygame {
                             scorep1=scorep1+10;
 
                             score1.setText("Score:"+ scorep1);
-                            System.out.println("player 1  "+scorep1);
+
                             cont=cont+2;
                         }
                         else{
@@ -181,10 +186,10 @@ public class memorygame {
         }
         public void winner(int a){
             if (a==1){
-                victory=1;
+                victory=dat1;
             }
             if(a==2){
-                victory=2;
+                victory=dat2;
             }
         }
         public void open(Runnable action){
@@ -203,11 +208,11 @@ public class memorygame {
         }
 
     }
-    public void StarGame(){
+    public void StarGame(int player1,int player2){
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.getAnchorPane().setVisible(true);
         Stage primaryStage = new Stage();
-        primaryStage.setScene(new Scene(createContent()));
+        primaryStage.setScene(new Scene(createContent(player1,player2)));
         primaryStage.setTitle("Memory Game, GOOD LUCK!");
         primaryStage.show();
 

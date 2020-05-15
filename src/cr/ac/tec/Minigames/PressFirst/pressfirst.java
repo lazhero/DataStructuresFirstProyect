@@ -31,8 +31,13 @@ public class pressfirst  {
     private Text p1 = new Text();
     private Text p2 = new Text();
     private Text random = new Text();
+    private int dat1;
+    private int dat2;
 
-    public Parent createContent(){
+
+
+
+    public Parent createContent(int dato1, int dato2){
         Pane root = new Pane();
 
         root.setPrefSize(700,700);
@@ -53,13 +58,13 @@ public class pressfirst  {
         winnerp.setFont(Font.font(25));
         winnerp.setFill(Color.WHITE);
 
-        p1.setText("Player 1 \nPress 'A'");
+        p1.setText("Player"+ dato1 + "\nPress 'A'");
         p1.setTranslateY(530);
         p1.setTranslateX(120);
         p1.setFont(Font.font(25));
         p1.setFill(Color.WHITE);
 
-        p2.setText("Player 2 \nPress 'L' " );
+        p2.setText("Player "+ dato2+ " \nPress 'L' " );
         p2.setTranslateY(530);
         p2.setTranslateX(450);
         p2.setFont(Font.font(25));
@@ -70,19 +75,21 @@ public class pressfirst  {
         random.setTranslateX(50);
         random.setFont(Font.font(25));
         random.setFill(Color.WHITE);
+        dat1=dato1;
+        dat2=dato2;
 
         root.getChildren().addAll(score1,score2,p1,p2,random,winnerp);
         return root;
     }
     public void winner(int a,int b){
         if (a==0 && b>0){
-            winnerp.setText("Player 1 win");
+            winnerp.setText("Player "+dat1 + " win");
         }
         else if(b==0 && a>0){
-            winnerp.setText("Player 2 win");
+            winnerp.setText("Player "+ dat2+" win");
         }
     }
-    public void StartGame(){
+    public void StartGame(int dat1, int dat2){
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.getAnchorPane().setVisible(true);
 
@@ -91,7 +98,7 @@ public class pressfirst  {
         //MediaPlayer repro = new MediaPlayer(audio);
        // repro.setAutoPlay(true);
         Stage primaryStage = new Stage();
-        Scene scene = new Scene(createContent());
+        Scene scene = new Scene(createContent(dat1,dat2));
         scene.setOnKeyPressed(event->{
             switch (event.getCode()){
                 case A: break;
@@ -119,7 +126,7 @@ public class pressfirst  {
             }
         });
 
-        primaryStage.setScene(new Scene(createContent()));
+        primaryStage.setScene(scene);
         primaryStage.setTitle("Press First, GOOD LUCK!");
         primaryStage.show();
 

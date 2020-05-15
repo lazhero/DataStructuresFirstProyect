@@ -13,12 +13,12 @@ public class ListOfMiniGames {
     private ListOfMiniGames(){
         milista = new DoubleList<String>();
         milista.AddTail("MemoryGame");
-        milista.AddTail("PRS");
-        milista.AddTail("TicTacToe");
-        milista.AddTail("PressFirst");
-        milista.AddTail("DiamondHunter");
-        milista.AddTail("Shoot");
-        milista.AddTail("RandomNumber");
+        //milista.AddTail("PRS");
+        //milista.AddTail("TicTacToe");
+        //milista.AddTail("PressFirst");
+        //milista.AddTail("DiamondHunter");
+        //milista.AddTail("Shoot");
+        //milista.AddTail("RandomNumber");
         milista=milista.Shuffle();
     }
     public static ListOfMiniGames getInstance() {

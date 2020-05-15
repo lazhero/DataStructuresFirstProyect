@@ -51,28 +51,28 @@ public class Duel extends Event {
     }
 
 
-    public void event3(Player player1, Player player2,DoubleList milista) {
+    public void event3(Player player1, Player player2,DoubleList milista,int dato1,int dato2) {
 
         if(milista.get(0).toString()=="MemoryGame"){
-            new memorygame().StarGame();
+            new memorygame().StarGame(dato1,dato2);
             milista.delete(0);
         }else if(milista.get(0).toString()=="PRS"){
-            new PRSGAME().StarGame();
+            //new PRSGAME().StarGame(dato1,dato2);
             milista.delete(0);
         }else if(milista.get(0).toString()=="TicTacToe"){
-            new Main().StartGame();
+            //new Main().StartGame(dato1,dato2);
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="PressFirst"){
-            new pressfirst().StartGame();
+            new pressfirst().StartGame(dato1,dato2);
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="DiamondHunter"){
-            new DiamondHunterGame().StartGame();
+            //new DiamondHunterGame().StartGame(dato1,dato2);
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="Shoot"){
-            new Prove().StartGame();
+            //new Prove().StartGame(dato1,dato2);
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="RandomNumber"){
@@ -92,7 +92,8 @@ public class Duel extends Event {
         System.out.println(ListOfMiniGames.getInstance().getDoubleList().get(0).toString());
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-
+        int dato1;
+        int dato2;
         if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
             listaaleatoria.AddTail(1);
             listaaleatoria.AddTail(2);
@@ -113,7 +114,9 @@ public class Duel extends Event {
             listaaleatoria.AddTail(2);
         }
         random= new Random().nextInt(3);
-        Data="You’ll have a duel with the player"+listaaleatoria.get(random);
+        dato1=gameManager.getTurns()%gameManager.getPlayerList().getLength();
+        dato2=listaaleatoria.get(random);
+        Data="You’ll have a duel with the player"+dato2;
         VBox vb = new VBox();
         gameManager.setRunning(true);
 
@@ -136,7 +139,7 @@ public class Duel extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
-            event3(player,gameManager.getPlayerList().get(listaaleatoria.get(random)),ListOfMiniGames.getInstance().getDoubleList());
+            event3(player,gameManager.getPlayerList().get(listaaleatoria.get(random)),ListOfMiniGames.getInstance().getDoubleList(),dato1,dato2);
             return;
 
         });

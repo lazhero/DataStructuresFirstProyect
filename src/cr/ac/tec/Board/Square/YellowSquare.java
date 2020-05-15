@@ -16,13 +16,16 @@ import cr.ac.tec.Minigames.ticTacToe.*;
 import cr.ac.tec.Minigames.RandomNumber.*;
 
 
+import cr.ac.tecLinkedList.List.DoubleList;
 import cr.ac.tecLinkedList.List.List;
 import javafx.scene.paint.Color;
 
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class YellowSquare extends Square {
+    private int random;
     /**
      *
      * @param coordx x-axis position
@@ -40,6 +43,9 @@ public class YellowSquare extends Square {
 
     @Override
     public void event(Player player) {
+        GameManager gameManager = GameManager.getInstance(0,0);
+        DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
+
         if(ListOfEvents.getInstance().getDoubleList().isEmpty()){
             ListOfEvents.instance=null;
             try{
@@ -57,9 +63,10 @@ public class YellowSquare extends Square {
             }
         }
 
+
         //CallToEvent(ListOfEvents.getInstance().getDoubleList().get(0)).EventData(player);
         new Duel().EventData(player);
-        //new memorygame().StarGame();
+        //new memorygame().StarGame(1,2);
         //new pressfirst().StartGame();
         //new PRSGAME().StarGame();
         //new Prove().StartGame();
