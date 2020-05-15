@@ -44,7 +44,6 @@ public class Board extends Application {
         FirstLevelAnchorPane.setTopAnchor(btn3,600.0);
         gameManager.Draw(FirstLevelAnchorPane);
         btn.setOnAction(e->gameManager.StartTurn(Integer.parseInt(b.getText())));
-
         FirstLevelAnchorPane.getChildren().addAll(btn,b,btn1,btn2,btn3);
         Scene scene =new Scene(FirstLevelAnchorPane,1300,700, Color.RED);
         MainWindow.setScene(scene);
