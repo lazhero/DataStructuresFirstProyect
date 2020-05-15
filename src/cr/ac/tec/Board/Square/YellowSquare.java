@@ -5,6 +5,7 @@ import cr.ac.tec.Board.Player;
 
 import cr.ac.tec.Events.YellowEvents.*;
 import cr.ac.tec.Events.lists.ListOfEvents;
+import cr.ac.tec.Events.lists.ListOfMiniGames;
 import cr.ac.tec.Minigames.Memory.memorygame;
 import cr.ac.tec.Minigames.PRS.*;
 import cr.ac.tec.Minigames.PressFirst.*;
@@ -42,11 +43,19 @@ public class YellowSquare extends Square {
                 e.printStackTrace();
             }
         }
+        if(ListOfMiniGames.getInstance().getDoubleList().isEmpty()){
+            ListOfMiniGames.instance=null;
+            try{
+                TimeUnit.MILLISECONDS.sleep(400);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
 
         //CallToEvent(ListOfEvents.getInstance().getDoubleList().get(0)).EventData(player);
-        //new StealStar().EventData(player);
+        new Duel().EventData(player);
         //new memorygame().StarGame();
-        new pressfirst().StartGame();
+        //new pressfirst().StartGame();
 
     }
 

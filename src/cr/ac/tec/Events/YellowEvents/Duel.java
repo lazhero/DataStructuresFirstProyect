@@ -3,12 +3,23 @@ package cr.ac.tec.Events.YellowEvents;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.lists.ListOfEvents;
+import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
+import cr.ac.tec.Minigames.Memory.memorygame;
 import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import cr.ac.tec.Events.lists.ListOfMiniGames;
+
+import cr.ac.tec.Minigames.Memory.*;
+import cr.ac.tec.Minigames.PressFirst.*;
+import cr.ac.tec.Minigames.PRS.*;
+
+import cr.ac.tec.Minigames.RandomNumber.*;
+import cr.ac.tec.Minigames.Shoot.*;
+import cr.ac.tec.Minigames.ticTacToe.*;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -16,6 +27,7 @@ import java.util.concurrent.TimeUnit;
 public class Duel extends Event {
     private String Data;
     private int random;
+
 
     /**
      * A mini-game is triggered, where the randomly chosen players will face a duel (minigame 1v1),
@@ -28,11 +40,44 @@ public class Duel extends Event {
     public void event1(Player player) {
 
 
+
     }
 
     @Override
     public void event2(Player player1, Player player2) {
 
+    }
+
+
+    public void event3(Player player1, Player player2,DoubleList milista) {
+
+        if(milista.get(0).toString()=="MemoryGame"){
+            new memorygame().StarGame();
+            milista.delete(0);
+        }else if(milista.get(0).toString()=="PRS"){
+            //new PRSGAME().StarGame();
+            milista.delete(0);
+        }else if(milista.get(0).toString()=="TicTacToe"){
+            //new TicTacToe().StartGame();
+            milista.delete(0);
+
+        }else if(milista.get(0).toString()=="PressFirst"){
+            new pressfirst().StartGame();
+            milista.delete(0);
+
+        }else if(milista.get(0).toString()=="DiamondHunter"){
+            //DiamondHunterGame.StartGame();
+            milista.delete(0);
+
+        }else if(milista.get(0).toString()=="Shoot"){
+            //new Shoot.StartGame();
+            milista.delete(0);
+
+        }else if(milista.get(0).toString()=="RandomNumber"){
+            //new RandomNumberGame().StarGame();
+            milista.delete(0);
+
+        }
     }
 
     /**
@@ -42,6 +87,7 @@ public class Duel extends Event {
     @Override
     public void EventData(Player player) {
         ListOfEvents.getInstance().getDoubleList().delete(0);
+        System.out.println(ListOfMiniGames.getInstance().getDoubleList().get(0).toString());
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
 
@@ -88,7 +134,7 @@ public class Duel extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
-            event1(player);
+            event3(player,gameManager.getPlayerList().get(listaaleatoria.get(random)),ListOfMiniGames.getInstance().getDoubleList());
             return;
 
         });
