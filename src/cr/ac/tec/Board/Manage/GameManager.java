@@ -1,5 +1,7 @@
 package cr.ac.tec.Board.Manage;
 
+import cr.ac.tec.Board.Count.StarCounter;
+import cr.ac.tec.Board.LayoutNewContent;
 import cr.ac.tec.Board.PathGenerator.PathGenerator;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
@@ -234,6 +236,12 @@ public class GameManager {
            }
            for(int i=0;i<Phase4.getLength();i++){
                Phase4.get(i).Draw(anchorPane);
+           }
+           for(int i=0;i<PlayerList.getLength();i++){
+               StarCounter starCounter=new StarCounter(100,60,"src/Images/Numero",".png");
+               PlayerList.get(i).attachCoinObserver(starCounter);
+               //starCounter.getCounter().setCount(0);
+               LayoutNewContent.Add(anchorPane,starCounter.getCounter().getAnchorPane(),20,0,0,50);
            }
        }
        catch (Exception e){
