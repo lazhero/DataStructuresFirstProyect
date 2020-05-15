@@ -3,6 +3,7 @@ package cr.ac.tec.Events.YellowEvents;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.YellowEvents.Event;
+import cr.ac.tec.Events.lists.ListOfEvents;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -20,6 +21,9 @@ public class WinFiveStars extends Event {
 
     @Override
     public void event1(Player player) {
+        int actualstars=player.getStars();
+        player.setStars(actualstars+5);
+        System.out.println(player.getStars());
 
     }
 
@@ -33,18 +37,17 @@ public class WinFiveStars extends Event {
      */
     @Override
     public void EventData(Player player) {
+        System.out.println(player.getStars());
         VBox vb = new VBox();
-
+        ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         Data="Congrats!!, you won 5 stars";
-        GameManager gameManager = GameManager.getInstance(0,0);
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
-
         Button buttock = new Button("OK");
         vb.setLayoutX(300);
         vb.setLayoutY(300);
         vb.setAlignment(Pos.CENTER);
-
         Text tittle = new Text();
         tittle.setText("You activated an event");
         tittle.setTextAlignment(TextAlignment.CENTER);
@@ -59,14 +62,10 @@ public class WinFiveStars extends Event {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
+            event1(player);
             return;
-
         });
-
         vb.getChildren().addAll(tittle,buttock,data);
         gameManager.getAnchorPane().getChildren().add(vb);
-
-
-
     }
 }

@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.util.HashMap;
 
 
-public class DiamondHunterGame extends Application {
+public class DiamondHunterGame{
     private GraphicsContext graphicsContext;
     private Group root;
     private Scene scene;
@@ -90,6 +90,7 @@ public class DiamondHunterGame extends Application {
         images.put("link", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/linkSprites.png"));
         images.put("tilemap", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/tilemap.png"));
         images.put("diamond", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/diamond.png"));
+        //images.put("dice",new Image("cr/ac/tec/Minigames/DiamondHunter/Images/dice.png"));
 
     }
 
@@ -249,13 +250,8 @@ public class DiamondHunterGame extends Application {
             }
         });
     }
-
-
-
-    public static void main(String[] args){launch(args);}
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void StartGame(){
+        Stage primaryStage = new Stage();
         createContent();
         eventHandler();
         primaryStage.setScene(scene);
@@ -263,4 +259,6 @@ public class DiamondHunterGame extends Application {
         primaryStage.show();
         gameCycle();
     }
+
+
 }

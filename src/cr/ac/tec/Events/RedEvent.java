@@ -19,7 +19,7 @@ public class RedEvent{
         Data= "You Lose: "+coins+" coins";
         System.out.println(player.getCoins());
 
-        GameManager gameManager = GameManager.getInstance(0,0);
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
 
 

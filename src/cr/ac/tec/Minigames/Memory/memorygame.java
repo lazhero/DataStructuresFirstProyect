@@ -1,5 +1,6 @@
-package cr.ac.tec.Minigames.Memory.src;
+package cr.ac.tec.Minigames.Memory;
 
+import cr.ac.tec.Board.Manage.GameManager;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -22,7 +23,7 @@ import java.util.List;
 import javafx.util.Duration;
 
 
-public class memorygame extends Application {
+public class memorygame {
 
     private static final int NUM_OF_PAIRS=8;
     private  static final int NUM_PER_ROW=4;
@@ -42,9 +43,7 @@ public class memorygame extends Application {
 
         Pane root = new Pane();
         root.setPrefSize(700,700);
-        Image img = new Image("/imagenes/fondo1.jpg");
-        ImageView fondo = new ImageView(img);
-        root.getChildren().addAll(fondo,turn);
+        root.getChildren().addAll(turn);
         if (cont%2==0){
             turn.setText("Player 1 turn");
             turn.setTranslateY(650);
@@ -204,15 +203,15 @@ public class memorygame extends Application {
         }
 
     }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void StarGame(){
+        GameManager gameManager = GameManager.getInstance(0,0);
+        gameManager.getAnchorPane().setVisible(true);
+        Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.setTitle("Memory Game, GOOD LUCK!");
         primaryStage.show();
+
     }
+
+
 }

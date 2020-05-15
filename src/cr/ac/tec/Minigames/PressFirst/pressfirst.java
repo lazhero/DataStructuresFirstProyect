@@ -1,5 +1,6 @@
-package cr.ac.tec.Minigames.PressFirst.src;
+package cr.ac.tec.Minigames.PressFirst;
 
+import cr.ac.tec.Board.Manage.GameManager;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,7 +16,7 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 import java.util.Random;
 
-public class pressfirst extends Application {
+public class pressfirst  {
 
     Random Aleatorio = new Random();
     int n = (Aleatorio.nextInt(4)+2)*4;
@@ -35,8 +36,7 @@ public class pressfirst extends Application {
         Pane root = new Pane();
 
         root.setPrefSize(700,700);
-        Image img = new Image("/imagenes/fondo.jpg");
-        ImageView fondo = new ImageView(img);
+
 
         score1.setTranslateY(600);
         score1.setTranslateX(120);
@@ -71,7 +71,7 @@ public class pressfirst extends Application {
         random.setFont(Font.font(25));
         random.setFill(Color.WHITE);
 
-        root.getChildren().addAll(fondo,score1,score2,p1,p2,random,winnerp);
+        root.getChildren().addAll(score1,score2,p1,p2,random,winnerp);
         return root;
     }
     public void winner(int a,int b){
@@ -82,15 +82,15 @@ public class pressfirst extends Application {
             winnerp.setText("Player 2 win");
         }
     }
-    public static void main(String[] args) {
-        launch(args);
-    }
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        String path = "src/musicf.mp3";
-        Media audio = new Media(new File(path).toURI().toString());
-        MediaPlayer repro = new MediaPlayer(audio);
-        repro.setAutoPlay(true);
+    public void StartGame(){
+        GameManager gameManager = GameManager.getInstance(0,0);
+        gameManager.getAnchorPane().setVisible(true);
+
+        //String path = "src/musicf.mp3";
+        //Media audio = new Media(new File(path).toURI().toString());
+        //MediaPlayer repro = new MediaPlayer(audio);
+       // repro.setAutoPlay(true);
+        Stage primaryStage = new Stage();
         Scene scene = new Scene(createContent());
         scene.setOnKeyPressed(event->{
             switch (event.getCode()){
@@ -118,8 +118,11 @@ public class pressfirst extends Application {
                     break;
             }
         });
-        primaryStage.setTitle("Press First");
-        primaryStage.setScene(scene);
+
+        primaryStage.setScene(new Scene(createContent()));
+        primaryStage.setTitle("Press First, GOOD LUCK!");
         primaryStage.show();
+
     }
+
 }

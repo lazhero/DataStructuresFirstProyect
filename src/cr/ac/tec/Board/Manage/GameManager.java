@@ -5,6 +5,8 @@ import cr.ac.tec.Board.LayoutNewContent;
 import cr.ac.tec.Board.PathGenerator.PathGenerator;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
+import cr.ac.tec.Events.YellowEvents.Duel;
+import cr.ac.tec.Events.lists.ListOfMiniGames;
 import cr.ac.tec.Random.Random;
 import cr.ac.tecLinkedList.List.DoubleList;
 import cr.ac.tecLinkedList.List.DoubleRoundList;
@@ -154,14 +156,16 @@ public class GameManager {
                pauseTransition.setCycleCount(1);
                pauseTransition.setOnFinished(k->{
                    DoubleNode<Square> Temp=PlayersNodes.get(PlayerTurn);
+
                    if (Temp.getInfo().getPlayers()>1 && Temp.getInfo().getPlayers()<=2){
                        DoubleList<Player> List=Temp.getInfo().ListPlayer();
-
+                       new Duel().EventData(getPlayerList().get(PlayerTurn));
                        Player loser=List.get(1);//The loser should be gotten from the event
                        int counter=0;
                        while(Temp.getInfo().getPlayers()>=1){
                            Temp=Temp.getBack();
                            counter--;
+                           System.out.println("ATRAS");
                        }
 
 
@@ -364,7 +368,9 @@ public class GameManager {
    public void example(int pos){
        teleport(PlayerList.get(pos));
    }
+
    public void exchangePosition(Player player1,Player player2){
+       System.out.println("Aca estoy");
 
        int posP1=-1;
        int posP2=-1;
@@ -415,5 +421,11 @@ public class GameManager {
         this.running = running;
     }
 
+    public DoubleList<Player> getPlayerList() {
+        return PlayerList;
+    }
 
+    public int getTurns() {
+        return turns;
+    }
 }

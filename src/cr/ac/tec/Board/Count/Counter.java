@@ -4,13 +4,15 @@ import cr.ac.tec.Board.LayoutCreation;
 import cr.ac.tec.Board.LayoutNewContent;
 import cr.ac.tec.Images.GetImages;
 import cr.ac.tecLinkedList.List.DoubleList;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class Counter {
     private AnchorPane anchorPane;
-
+    private DoubleList<ImageView> imageViewDoubleList=new DoubleList<>();
     private double width;
     private double height;
     private String route;
@@ -25,14 +27,28 @@ public class Counter {
 
     }
     public void setCount(int num){
+        ObservableList<Node> Items=anchorPane.getChildren();
+        while(!Items.isEmpty()){
+            Items.get(0).setVisible(false);
+            Items.remove(Items.get(0));
+        }
+        anchorPane.getChildren().clear();
+        DoubleList<ImageView> img=null;
        if(num>0){
-           anchorPane.getChildren().clear();
-           DoubleList<ImageView> img=null;
+
+
            try{
                img=getNumber(num);
            }
            catch (Exception e){
                System.out.println(e.getMessage());
+           }
+           while(img.getLength()<3){
+               try {
+                   img.AddHead(GetImages.getImageView(route+"0"+format));
+               }
+               catch (Exception e){}
+
            }
            double large=(width/img.getLength())*0.80;
            double space=(width/img.getLength())*0.20;
@@ -48,6 +64,27 @@ public class Counter {
 
        }
        else if(num==0){
+           try{
+               img=new DoubleList<>();
+               while(img.getLength()<3){
+                   img.AddTail(GetImages.getImageView(route+"0"+format));
+               }
+
+           }
+           catch (Exception e){}
+           double large=(width/img.getLength())*0.80;
+           double space=(width/img.getLength())*0.20;
+           for(int i=0;i<img.getLength();i++){
+               double posX=getPos(i,large,space);
+               ImageView imageView=img.get(i);
+               imageView.setFitHeight(height);
+               imageView.setFitWidth(large);
+               LayoutNewContent.Add(anchorPane,imageView,0,0,0,posX);
+
+
+           }
+
+
 
        }
     }
@@ -61,7 +98,7 @@ public class Counter {
     }
     private double getPos(int pos,double large,double space){
 
-        return pos*large+pos-space;
+        return pos*large+pos*space;
 
 
     }

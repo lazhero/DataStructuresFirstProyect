@@ -2,11 +2,9 @@ package cr.ac.tec.Board;
 
 import javafx.scene.Node;
 
-public class Player {
+public class Player extends PlayerSubject {
     int id;//player id
     Node node;//player javafx's node
-    int stars;//Number of start
-    int coins;//Number of coins
     boolean lose; //Lose or win, for movement
 
 
@@ -32,6 +30,8 @@ public class Player {
     }
     public void setCoins(int Coins){
         this.coins=Coins;
+        System.out.println("Intente subir monedas");
+        UpdateCoins();
     }
 
     /**
@@ -40,6 +40,7 @@ public class Player {
      */
     public void RaiseCoinsBy(int Coins){
         coins+=Coins;
+        UpdateCoins();
     }
 
     /**
@@ -48,6 +49,7 @@ public class Player {
      */
     public void DecreaseCoinsBy(int Coins){
         coins-=Coins;
+        UpdateCoins();
     }
 
     /**
@@ -55,6 +57,7 @@ public class Player {
      */
     public void RaiseCoinByOne(){
         coins++;
+        UpdateCoins();
     }
 
     /**
@@ -62,6 +65,7 @@ public class Player {
      */
     public void DecreaseCoinsByOne(){
         coins--;
+        UpdateCoins();
     }
 
     /**
@@ -86,6 +90,7 @@ public class Player {
      */
     public void setStars(int stars) {
         this.stars = stars;
+        UpdateStars();
     }
 
     /**
@@ -102,6 +107,7 @@ public class Player {
      */
     public void raiseStars(int raising){
         stars+= raising;
+        UpdateStars();
     }
 
     /**

@@ -122,12 +122,11 @@ public abstract class  Square {
         return PlayersinPanel;
     }
 
+    public DoubleList<Player> getPlayersinPanel() {
+        return PlayersinPanel;
+    }
 
-
-
-
-
-    public void DrawStar(double Side,String path) throws IOException {
+    public void DrawStar(double Side, String path) throws IOException {
         if(path!=null && Side>0) {
             Label label = new Label("", GetImages.getImageView(path));
             label.setPrefHeight(Side);
