@@ -7,19 +7,15 @@ import javafx.stage.Stage;
 import static cr.ac.tec.Minigames.RandomNumber.Interface.*;
 import static cr.ac.tec.Minigames.RandomNumber.RandomNumberGame.*;
 
-public class Main extends Application {
-
-    public static void main(String[] args){
+public class Main  {
+    public void StartGame(){
+        Stage primaryStage=new Stage();
+        primaryStage.setScene(new Scene(createContent()));
+        primaryStage.show();
         generateRand(0,5);
         System.out.println(randomNumber);
         game();
-        launch(args);
+
     }
 
-
-    @Override
-    public void start(Stage primaryStage){
-        primaryStage.setScene(new Scene(createContent()));
-        primaryStage.show();
-    }
 }

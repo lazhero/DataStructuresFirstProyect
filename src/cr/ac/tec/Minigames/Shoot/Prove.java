@@ -6,16 +6,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Prove extends Application {
-    public static void main(String[] args){
-        launch(args);
-    }
-    @Override
-    public void start(Stage stage) throws Exception {
+import java.io.IOException;
+
+public class Prove  {
+    public void StartGame(){
+        Stage stage = new Stage();
         GameController controller=new GameController();
-        Parent Root= FXMLLoader.load(getClass().getResource("ShootInterface.fxml"));
+        Parent Root= null;
+        try {
+            Root = FXMLLoader.load(getClass().getResource("ShootInterface.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene=new Scene(Root);
         stage.setScene(scene);
         stage.show();
+
     }
+
 }
