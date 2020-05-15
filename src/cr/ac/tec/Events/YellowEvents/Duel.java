@@ -89,31 +89,52 @@ public class Duel extends Event {
     @Override
     public void EventData(Player player) {
         ListOfEvents.getInstance().getDoubleList().delete(0);
-        System.out.println(ListOfMiniGames.getInstance().getDoubleList().get(0).toString());
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         int dato1;
         int dato2;
-        if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
-            listaaleatoria.AddTail(1);
-            listaaleatoria.AddTail(2);
-            listaaleatoria.AddTail(3);
-        }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
-            listaaleatoria.AddTail(0);
-            listaaleatoria.AddTail(2);
-            listaaleatoria.AddTail(3);
+        if (gameManager.getPlayerList().getLength() == 2) {
+            if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                listaaleatoria.AddTail(1);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                listaaleatoria.AddTail(0);
+            }
+            random= 0;
+        }else if(gameManager.getPlayerList().getLength()==3){
+            if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(2);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(2);
+            }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(1);
+            }
+            random=new Random().nextInt(2);
+        }
+        else if(gameManager.getPlayerList().getLength()==4) {
+            if (gameManager.getTurns() % gameManager.getPlayerList().getLength() == 0) {
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(2);
+                listaaleatoria.AddTail(3);
+            } else if (gameManager.getTurns() % gameManager.getPlayerList().getLength() == 1) {
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(2);
+                listaaleatoria.AddTail(3);
 
-        }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
-            listaaleatoria.AddTail(0);
-            listaaleatoria.AddTail(1);
-            listaaleatoria.AddTail(3);
+            } else if (gameManager.getTurns() % gameManager.getPlayerList().getLength() == 2) {
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(3);
+            } else if (gameManager.getTurns() % gameManager.getPlayerList().getLength() == 3) {
+                listaaleatoria.AddTail(0);
+                listaaleatoria.AddTail(1);
+                listaaleatoria.AddTail(2);
+
+            }
+            random = new Random().nextInt(3);
         }
-        else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==3){
-            listaaleatoria.AddTail(0);
-            listaaleatoria.AddTail(1);
-            listaaleatoria.AddTail(2);
-        }
-        random= new Random().nextInt(3);
         dato1=gameManager.getTurns()%gameManager.getPlayerList().getLength();
         dato2=listaaleatoria.get(random);
         Data="You’ll have a duel with the player"+dato2;
