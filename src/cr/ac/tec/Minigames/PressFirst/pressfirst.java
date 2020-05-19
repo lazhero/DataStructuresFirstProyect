@@ -1,19 +1,15 @@
 package cr.ac.tec.Minigames.PressFirst;
 
 import cr.ac.tec.Board.Manage.GameManager;
-import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
-import javafx.scene.media.MediaPlayer;
-import java.io.File;
+
 import java.util.Random;
 
 public class pressfirst  {
@@ -84,11 +80,18 @@ public class pressfirst  {
     public void winner(int a,int b){
         if (a==0 && b>0){
             winnerp.setText("Player "+dat1 + " win");
+            victory=dat1;
         }
         else if(b==0 && a>0){
+            victory=dat2;
             winnerp.setText("Player "+ dat2+" win");
         }
     }
+
+    public int getVictory() {
+        return victory;
+    }
+
     public void StartGame(int dat1, int dat2){
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.getAnchorPane().setVisible(true);
