@@ -18,9 +18,7 @@ import java.util.HashMap;
 
 public class DiamondHunterGame{
     private GraphicsContext graphicsContext;
-    private Group root;
     private Scene scene;
-    private Canvas canvas;
     public static HashMap<String, Image> images;
     private Background background;
     private AnimatedPlayer animatedPlayer;
@@ -46,9 +44,9 @@ public class DiamondHunterGame{
         background = new Background(0,0,5,"map");
         initializeBarriers();
         adItems();
-        root = new Group();
+        Group root = new Group();
         scene = new Scene(root,500,500);
-        canvas = new Canvas(500,500);
+        Canvas canvas = new Canvas(500, 500);
         root.getChildren().add(canvas);
         graphicsContext = canvas.getGraphicsContext2D();
     }
@@ -90,8 +88,6 @@ public class DiamondHunterGame{
         images.put("link", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/linkSprites.png"));
         images.put("tilemap", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/tilemap.png"));
         images.put("diamond", new Image("cr/ac/tec/Minigames/DiamondHunter/Images/diamond.png"));
-        //images.put("dice",new Image("cr/ac/tec/Minigames/DiamondHunter/Images/dice.png"));
-
     }
 
 

@@ -14,19 +14,31 @@ import cr.ac.tecLinkedList.List.List;
 import cr.ac.tecLinkedList.List.SingleList;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+
 public class Board extends Application {
+    private GraphicsContext graphicsContext;
+
     public static void main(String[] args){
         launch(args);
     }
     @Override
     public void start(Stage MainWindow) {
-        AnchorPane FirstLevelAnchorPane = LayoutCreation.Anchor(1300, 700);
+        AnchorPane FirstLevelAnchorPane = LayoutCreation.Anchor(1000, 700);
+        Scene scene =new Scene(FirstLevelAnchorPane,1000,700, Color.RED);
+        Canvas canvas = new Canvas(1000,700);
+        graphicsContext = canvas.getGraphicsContext2D();
+        drawImages();
         FirstLevelAnchorPane.setStyle("-fx-background-color: #0078d7");
         TextField b = new TextField();
         b.setText("0");
@@ -44,11 +56,15 @@ public class Board extends Application {
         FirstLevelAnchorPane.setTopAnchor(btn3,600.0);
         gameManager.Draw(FirstLevelAnchorPane);
         btn.setOnAction(e->gameManager.StartTurn(Integer.parseInt(b.getText())));
+
         FirstLevelAnchorPane.getChildren().addAll(btn,b,btn1,btn2,btn3);
-        Scene scene =new Scene(FirstLevelAnchorPane,1300,700, Color.RED);
+
         MainWindow.setScene(scene);
         MainWindow.show();
+    }
 
-
+    public void drawImages(){
+        Image background = new Image("Images/topViewBackground.jpg");
+        graphicsContext.drawImage(background,0,0,1000,700);
     }
 }

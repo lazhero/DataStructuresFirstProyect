@@ -54,7 +54,7 @@ public class AnimatedPlayer extends GameObject{
         };
 
         Animation restFrontAnimation = new Animation(0.1,restFrontCoordinates);
-        System.out.println(restFrontCoordinates.length);
+
         animations.put("restFront", restFrontAnimation);
 
         Rectangle restLeftCoordinates[] = {
@@ -153,8 +153,6 @@ public class AnimatedPlayer extends GameObject{
 
     //@Override
     public void draw(GraphicsContext graphicsContext) {
-        System.out.println(xImage);
-        System.out.println("X= " +x);
         graphicsContext.drawImage(DiamondHunterGame.images.get(imageName), xImage, yImage, imageWidth, imageHeight, x, y, 40, 40);
         //graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
 
