@@ -17,7 +17,7 @@ public class BubbleSort {
                 }
     }
 
-    void printArray(DoubleList<Integer> list){
+    void printDoubleList(DoubleList<Integer> list){
         int n = list.getLength();
         for (int i=0; i<n; ++i)
             System.out.println(list.getNode(i).getInfo() + " ");
@@ -27,7 +27,14 @@ public class BubbleSort {
 
     public static void main(String args[]){
         BubbleSort ob = new BubbleSort();
-
+        DoubleList<Integer> list = new DoubleList<>();
+        list.AddHead(64);
+        list.AddHead(34);
+        list.AddHead(25);
+        list.AddHead(12);
+        list.AddHead(22);
+        ob.bubbleSort(list);
+        ob.printDoubleList(list);
     }
 
 
