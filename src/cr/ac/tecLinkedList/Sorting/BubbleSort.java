@@ -1,7 +1,6 @@
 package cr.ac.tecLinkedList.Sorting;
 
 import cr.ac.tecLinkedList.List.DoubleList;
-import cr.ac.tecLinkedList.Nodes.DoubleNode;
 
 public class BubbleSort {
 

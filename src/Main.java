@@ -9,6 +9,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         DiamondHunterGame xd = new DiamondHunterGame();
-        xd.StartGame();
+        xd.StartGame(1);
     }
 }

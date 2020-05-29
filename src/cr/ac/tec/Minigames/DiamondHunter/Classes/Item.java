@@ -4,6 +4,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import static cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame.GameOver;
+
 public class Item extends GameObject {
     final int initialX = x;
     final int initialY = y;
@@ -44,37 +46,43 @@ public class Item extends GameObject {
 
     @Override
     public void move() {
-        //RIGHT
-        if (DiamondHunterGame.right && x <= initialX) {
-            if (Background.touchingRightSide)
-                return;
-            if (Background.getX() == -2040)
-                return;
-            x -= velocity;
+        if(GameOver){
+            return;
+        } else {
 
-        }
 
-        //LEFT
-        if (DiamondHunterGame.left && x < initialX ) {
-            if (Background.touchingLeftSide)
-                return;
-            x += velocity;
-        }
+            //RIGHT
+            if (DiamondHunterGame.right && x <= initialX) {
+                if (Background.touchingRightSide)
+                    return;
+                if (Background.getX() == -2040)
+                    return;
+                x -= velocity;
 
-        //DOWN
-        if (DiamondHunterGame.down && y <= initialY) {
-            if (Background.touchingDownSide)
-                return;
-            if (Background.getY() == -1600)
-                return;
-            y -= velocity;
-        }
+            }
 
-        //UP
-        if (DiamondHunterGame.up && y < initialY) {
-            if (Background.touchingUpSide)
-                return;
-            y += velocity;
+            //LEFT
+            if (DiamondHunterGame.left && x < initialX) {
+                if (Background.touchingLeftSide)
+                    return;
+                x += velocity;
+            }
+
+            //DOWN
+            if (DiamondHunterGame.down && y <= initialY) {
+                if (Background.touchingDownSide)
+                    return;
+                if (Background.getY() == -1600)
+                    return;
+                y -= velocity;
+            }
+
+            //UP
+            if (DiamondHunterGame.up && y < initialY) {
+                if (Background.touchingUpSide)
+                    return;
+                y += velocity;
+            }
         }
 
     }

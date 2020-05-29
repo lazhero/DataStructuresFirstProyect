@@ -25,6 +25,8 @@ public class DiamondHunterGame{
     private DoubleList<Barrier> barriers;
     private DoubleList<Item> items;
 
+    private StopWatch stopWatch = new StopWatch();
+
     public static boolean GameOver = false;
     public static int totalDiamondsCollected = 0;
 
@@ -38,6 +40,8 @@ public class DiamondHunterGame{
      * Creates the interface in which the player interacts with.
      */
     public void createContent(){
+        stopWatch.start();
+
         images = new HashMap<String, Image>();
         loadImages();
         animatedPlayer = new AnimatedPlayer(230,220,2,"link",0,"restFront");
@@ -71,7 +75,7 @@ public class DiamondHunterGame{
      */
     public void adItems() {
         items = new DoubleList<>();
-        int itemsOnMap = 5;
+        int itemsOnMap = 40;
         while (itemsOnMap > 0) {
             int randomNumber1 = (int) (Math.random() * ((37 - 4) + 1)) + 4;
             int randomNumber2 = (int) (Math.random() * ((37 - 4) + 1)) + 4;
@@ -154,9 +158,16 @@ public class DiamondHunterGame{
         animatedPlayer.calculateFrame(t);
     }
 
+
+    public void score(){
+
+    }
+
+
     public void isFinished(){
         if (totalDiamondsCollected==5){
             GameOver = true;
+            stopWatch.stop();
         }
     }
 
@@ -246,7 +257,7 @@ public class DiamondHunterGame{
             }
         });
     }
-    public void StartGame(){
+    public void StartGame(int numberOfPlayers){
         Stage primaryStage = new Stage();
         createContent();
         eventHandler();
