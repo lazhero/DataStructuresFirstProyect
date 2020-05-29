@@ -87,6 +87,10 @@ public class StopWatch {
         }
     }
 
+    public long time(){
+        return (end-start)/1000000000;
+    }
+
     /**
      * Pauses the Stopwatch
      *

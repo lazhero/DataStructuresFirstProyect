@@ -9,6 +9,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
@@ -24,6 +25,10 @@ public class DiamondHunterGame{
     private AnimatedPlayer animatedPlayer;
     private DoubleList<Barrier> barriers;
     private DoubleList<Item> items;
+
+    private int numberOfPlayers;
+
+    private Button button = new Button("Next player!");
 
     private StopWatch stopWatch = new StopWatch();
 
@@ -42,6 +47,8 @@ public class DiamondHunterGame{
     public void createContent(){
         stopWatch.start();
 
+        nextButton();
+
         images = new HashMap<String, Image>();
         loadImages();
         animatedPlayer = new AnimatedPlayer(230,220,2,"link",0,"restFront");
@@ -51,9 +58,27 @@ public class DiamondHunterGame{
         Group root = new Group();
         scene = new Scene(root,500,500);
         Canvas canvas = new Canvas(500, 500);
-        root.getChildren().add(canvas);
+        root.getChildren().addAll(canvas, button);
         graphicsContext = canvas.getGraphicsContext2D();
     }
+
+    public void nextButton(){
+        button.setTranslateX(15);
+        button.setTranslateY(15);
+        button.setOnMouseClicked(e -> nextPlayerEvent());
+    }
+
+    public void nextPlayerEvent(){
+        System.out.println("nop: " + numberOfPlayers);
+        if (numberOfPlayers>0 && GameOver){
+            GameOver=false;
+            stopWatch.start();
+            totalDiamondsCollected=0;
+            numberOfPlayers--;
+        }
+    }
+
+
 
     /**
      * Creates a barrier in every tile where there is not a 0 on the tile map.
@@ -159,13 +184,8 @@ public class DiamondHunterGame{
     }
 
 
-    public void score(){
-
-    }
-
-
     public void isFinished(){
-        if (totalDiamondsCollected==5){
+        if (totalDiamondsCollected>=5){
             GameOver = true;
             stopWatch.stop();
         }
@@ -189,6 +209,7 @@ public class DiamondHunterGame{
         };
         animationTimer.start();//Empieza el ciclo de juego.
     }
+
 
 
 
@@ -258,6 +279,9 @@ public class DiamondHunterGame{
         });
     }
     public void StartGame(int numberOfPlayers){
+
+        this.numberOfPlayers=numberOfPlayers;
+
         Stage primaryStage = new Stage();
         createContent();
         eventHandler();
