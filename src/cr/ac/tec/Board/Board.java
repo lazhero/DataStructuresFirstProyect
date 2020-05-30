@@ -26,17 +26,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.util.HashMap;
+
 
 public class Board extends Application {
-    private GraphicsContext graphicsContext;
+    public static GraphicsContext graphicsContext;
+    public static HashMap<String, Image> images;
 
     public static void main(String[] args){
         launch(args);
     }
     @Override
     public void start(Stage MainWindow) {
+        images = new HashMap<>();
         Canvas canvas = new Canvas(1000,700);
         graphicsContext = canvas.getGraphicsContext2D();
+        loadImages();
         drawImages();
         AnchorPane FirstLevelAnchorPane = LayoutCreation.Anchor(1000, 700);
         Scene scene =new Scene(FirstLevelAnchorPane,1000,700, Color.RED);
@@ -60,7 +65,9 @@ public class Board extends Application {
         gameManager.Draw(FirstLevelAnchorPane);
         btn.setOnAction(e->gameManager.StartTurn(Integer.parseInt(b.getText())));
 
-        FirstLevelAnchorPane.getChildren().addAll(canvas,btn,b,btn1,btn2,btn3);
+        CustomButton customButton = new CustomButton(images.get("HandRollingDice"),800,525,140,120);
+
+        FirstLevelAnchorPane.getChildren().addAll(canvas,btn,b,btn1,btn2,btn3,customButton);
         MainWindow.setScene(scene);
         MainWindow.show();
     }
@@ -68,5 +75,9 @@ public class Board extends Application {
     public void drawImages(){
         Image background = new Image("Images/topViewBackground.png");
         graphicsContext.drawImage(background,0,0,1000,700);
+    }
+
+    public void loadImages(){
+        images.put("HandRollingDice", new Image("Images/HandRollingDice.png"));
     }
 }

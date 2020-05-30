@@ -165,11 +165,9 @@ public class Dice extends Application {
 
     @Override
     public void start(Stage primaryStage){
-        //createContent();
         rollDice();
         primaryStage.setScene(scene);
         primaryStage.setTitle("Dice");
         primaryStage.show();
-        //cycle();
     }
 }
