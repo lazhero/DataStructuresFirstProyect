@@ -1,17 +1,16 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import cr.ac.tecLinkedList.List.DoubleList;
+import cr.ac.tecLinkedList.Sorting.BubbleSort;
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.util.HashMap;
 
@@ -25,7 +24,17 @@ public class DiamondHunterGame{
     private DoubleList<Barrier> barriers;
     private DoubleList<Item> items;
 
-    public static boolean GameOver = false;
+    private HashMap<Long, String> scoreHashmap = new HashMap<>();
+    private DoubleList<Integer> scores = new DoubleList<>();
+
+    private DoubleList playerList;
+    private int numberOfPlayers;
+    private Button button = new Button("Next player!");
+    private StopWatch stopWatch = new StopWatch();
+
+    private boolean GameOver=false;
+    private boolean Added=false;
+    public static boolean TurnFinished = false;
     public static int totalDiamondsCollected = 0;
 
     public static boolean up;
@@ -38,6 +47,10 @@ public class DiamondHunterGame{
      * Creates the interface in which the player interacts with.
      */
     public void createContent(){
+        stopWatch.start();
+
+        nextButton();
+
         images = new HashMap<String, Image>();
         loadImages();
         animatedPlayer = new AnimatedPlayer(230,220,2,"link",0,"restFront");
@@ -47,9 +60,43 @@ public class DiamondHunterGame{
         Group root = new Group();
         scene = new Scene(root,500,500);
         Canvas canvas = new Canvas(500, 500);
-        root.getChildren().add(canvas);
+        root.getChildren().addAll(canvas, button);
         graphicsContext = canvas.getGraphicsContext2D();
     }
+
+    public void nextButton(){
+        button.setTranslateX(15);
+        button.setTranslateY(15);
+        button.setOnMouseClicked(e -> nextPlayerEvent());
+    }
+
+    public void nextPlayerEvent(){
+        if (numberOfPlayers>1 && TurnFinished){
+            Added=false;
+            TurnFinished =false;
+            stopWatch.start();
+            totalDiamondsCollected=0;
+            numberOfPlayers--;
+        }
+    }
+
+    public void addScores(){
+        if (TurnFinished && !Added) {
+            scores.AddHead((int)stopWatch.time());
+            scoreHashmap.put(stopWatch.time(),playerList.getNode(numberOfPlayers-1).getInfo().toString());
+            Added=true;
+        }
+    }
+
+    public String winner(){
+        if(GameOver){
+            BubbleSort sort = new BubbleSort();
+            sort.bubbleSort(scores);
+            return scoreHashmap.get((long)scores.getNode(0).getInfo());
+        }
+        return null;
+    }
+
 
     /**
      * Creates a barrier in every tile where there is not a 0 on the tile map.
@@ -71,7 +118,7 @@ public class DiamondHunterGame{
      */
     public void adItems() {
         items = new DoubleList<>();
-        int itemsOnMap = 5;
+        int itemsOnMap = 40;
         while (itemsOnMap > 0) {
             int randomNumber1 = (int) (Math.random() * ((37 - 4) + 1)) + 4;
             int randomNumber2 = (int) (Math.random() * ((37 - 4) + 1)) + 4;
@@ -154,9 +201,16 @@ public class DiamondHunterGame{
         animatedPlayer.calculateFrame(t);
     }
 
+
     public void isFinished(){
-        if (totalDiamondsCollected==5){
-            GameOver = true;
+        if (totalDiamondsCollected>=5){
+            TurnFinished = true;
+            stopWatch.stop();
+            addScores();
+        }
+        if(numberOfPlayers==1 && TurnFinished){
+            GameOver=true;
+            winner();
         }
     }
 
@@ -178,6 +232,7 @@ public class DiamondHunterGame{
         };
         animationTimer.start();//Empieza el ciclo de juego.
     }
+
 
 
 
@@ -246,7 +301,10 @@ public class DiamondHunterGame{
             }
         });
     }
-    public void StartGame(){
+    public void StartGame(DoubleList playerList){
+        this.playerList = playerList;
+        this.numberOfPlayers=playerList.getLength();
+
         Stage primaryStage = new Stage();
         createContent();
         eventHandler();

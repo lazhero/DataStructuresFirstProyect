@@ -3,9 +3,7 @@ package cr.ac.tec.Events.YellowEvents;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.lists.ListOfEvents;
-import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 import cr.ac.tec.Minigames.Memory.memorygame;
-import cr.ac.tec.Minigames.ticTacToe.Main;
 import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -14,14 +12,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import cr.ac.tec.Events.lists.ListOfMiniGames;
 
-import cr.ac.tec.Minigames.Memory.*;
 import cr.ac.tec.Minigames.PressFirst.*;
-import cr.ac.tec.Minigames.PRS.*;
-
-import cr.ac.tec.Minigames.RandomNumber.*;
-import cr.ac.tec.Minigames.Shoot.*;
-import cr.ac.tec.Minigames.ticTacToe.*;
-import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
