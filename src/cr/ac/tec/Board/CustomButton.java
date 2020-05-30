@@ -1,5 +1,6 @@
 package cr.ac.tec.Board;
 
+import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -26,11 +27,11 @@ public class CustomButton extends StackPane {
         rectangle.setFill(null);
         rectangle.setStroke(Color.LIGHTGREEN);
         getChildren().addAll(rectangle);
-
-
         draw();
         setOnMouseClicked(e -> System.out.println("xd"));
     }
+
+
 
     public void draw(){
         Board.graphicsContext.drawImage(image,x,y,w,h);
