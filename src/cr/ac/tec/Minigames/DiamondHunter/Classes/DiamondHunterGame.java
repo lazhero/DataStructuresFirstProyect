@@ -1,10 +1,9 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import cr.ac.tecLinkedList.List.DoubleList;
+import cr.ac.tecLinkedList.Sorting.BubbleSort;
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -12,7 +11,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.util.HashMap;
 
@@ -26,13 +24,17 @@ public class DiamondHunterGame{
     private DoubleList<Barrier> barriers;
     private DoubleList<Item> items;
 
+    private HashMap<Long, String> scoreHashmap = new HashMap<>();
+    private DoubleList<Integer> scores = new DoubleList<>();
+
+    private DoubleList playerList;
     private int numberOfPlayers;
-
     private Button button = new Button("Next player!");
-
     private StopWatch stopWatch = new StopWatch();
 
-    public static boolean GameOver = false;
+    private boolean GameOver=false;
+    private boolean Added=false;
+    public static boolean TurnFinished = false;
     public static int totalDiamondsCollected = 0;
 
     public static boolean up;
@@ -69,15 +71,31 @@ public class DiamondHunterGame{
     }
 
     public void nextPlayerEvent(){
-        System.out.println("nop: " + numberOfPlayers);
-        if (numberOfPlayers>0 && GameOver){
-            GameOver=false;
+        if (numberOfPlayers>1 && TurnFinished){
+            Added=false;
+            TurnFinished =false;
             stopWatch.start();
             totalDiamondsCollected=0;
             numberOfPlayers--;
         }
     }
 
+    public void addScores(){
+        if (TurnFinished && !Added) {
+            scores.AddHead((int)stopWatch.time());
+            scoreHashmap.put(stopWatch.time(),playerList.getNode(numberOfPlayers-1).getInfo().toString());
+            Added=true;
+        }
+    }
+
+    public String winner(){
+        if(GameOver){
+            BubbleSort sort = new BubbleSort();
+            sort.bubbleSort(scores);
+            return scoreHashmap.get((long)scores.getNode(0).getInfo());
+        }
+        return null;
+    }
 
 
     /**
@@ -186,8 +204,13 @@ public class DiamondHunterGame{
 
     public void isFinished(){
         if (totalDiamondsCollected>=5){
-            GameOver = true;
+            TurnFinished = true;
             stopWatch.stop();
+            addScores();
+        }
+        if(numberOfPlayers==1 && TurnFinished){
+            GameOver=true;
+            winner();
         }
     }
 
@@ -278,9 +301,9 @@ public class DiamondHunterGame{
             }
         });
     }
-    public void StartGame(int numberOfPlayers){
-
-        this.numberOfPlayers=numberOfPlayers;
+    public void StartGame(DoubleList playerList){
+        this.playerList = playerList;
+        this.numberOfPlayers=playerList.getLength();
 
         Stage primaryStage = new Stage();
         createContent();

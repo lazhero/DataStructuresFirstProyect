@@ -82,7 +82,7 @@ public class StopWatch {
         } else {
             end = System.nanoTime();
             running = false;
-            System.out.println("Your score is: " + ((end-start)/1000000000));
+            //System.out.println("Your score is: " + ((end-start)/1000000000));
             return end - start;
         }
     }
