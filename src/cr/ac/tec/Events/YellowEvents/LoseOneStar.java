@@ -8,6 +8,7 @@ import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
@@ -47,6 +48,7 @@ public class LoseOneStar extends Event {
     public void EventData(Player player) {
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
+        System.out.println("loseonestar");
         int random = 0;
         if (gameManager.getPlayerList().getLength() == 2) {
             if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
@@ -95,20 +97,25 @@ public class LoseOneStar extends Event {
         ListOfEvents.getInstance().getDoubleList().delete(0);
         int aleatorio=random;
         VBox vb = new VBox();
-        Data="Sorry,you lose 1 star, this will be obtained by the player: " + listaaleatoria.get(aleatorio) ;
+        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setMinWidth(500);
+        vb.setMaxWidth(500);
+        vb.setMinHeight(370);
+        vb.setMaxHeight(370);
+        vb.setLayoutX(300);
+        vb.setLayoutY(150);
+        vb.setAlignment(Pos.CENTER);
+        vb.setSpacing(40);
+        Data="Sorry, you activated this event! \n ,you lose 1 star, this will be \n obtained by the random player: " + listaaleatoria.get(aleatorio) ;
         gameManager.setRunning(true);
 
-        Button buttock = new Button("OK");
-        vb.setLayoutX(300);
-        vb.setLayoutY(300);
-        vb.setAlignment(Pos.CENTER);
-
-        Text tittle = new Text();
-        tittle.setText("You activated an event");
-        tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text data = new Text();
         data.setText(Data);
+        data.setStyle("-fx-fill: white");
+        data.setFont(new Font("Verdana",16));
+        data.setTextAlignment(TextAlignment.CENTER);
+        Button buttock = new Button("OK");
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
@@ -121,7 +128,7 @@ public class LoseOneStar extends Event {
             return;
 
         });
-        vb.getChildren().addAll(tittle,buttock,data);
+        vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
     }
 }
