@@ -37,6 +37,7 @@ public class Board extends Application {
     private AnchorPane FirstLevelAnchorPane = LayoutCreation.Anchor(1000, 700);
     public CustomButton customButton;
     public static GameManager gameManager;
+    private TextField textField;
 
     public static void main(String[] args){
         launch(args);
@@ -47,6 +48,11 @@ public class Board extends Application {
         images = new HashMap<>();
         Canvas canvas = new Canvas(1000,700);
         graphicsContext = canvas.getGraphicsContext2D();
+
+        textField = new TextField();
+        textField.setTranslateY(80);
+        textField.setTranslateX(280);
+
         loadImages();
         drawImages();
         Scene scene =new Scene(FirstLevelAnchorPane,1000,700, Color.RED);
@@ -54,14 +60,17 @@ public class Board extends Application {
         FirstLevelAnchorPane.setStyle("-fx-background-color: #0078d7");
         gameManager= GameManager.getInstance(4,25,50,"src/Images/Piece","src/Images/MarioStar",".png");
         gameManager.Draw(FirstLevelAnchorPane);
-        FirstLevelAnchorPane.getChildren().addAll(canvas,customButton);
+        FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,textField);
         MainWindow.setScene(scene);
         MainWindow.show();
     }
 
     public void boardButtons(){
         customButton = new CustomButton(images.get("HandRollingDice"),5,5,140,120);
-        customButton.setOnMouseClicked(e ->dice.start());
+        customButton.setOnMouseClicked(e -> {
+            Board.gameManager.StartTurn(Integer.parseInt(textField.getText()));
+        });
+        //customButton.setOnMouseClicked(e ->dice.start());
     }
 
     public void drawImages(){
