@@ -6,6 +6,7 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
@@ -15,6 +16,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
@@ -201,6 +203,12 @@ public class TicTacToe{
         private void drawO(){
             text.setText("O");
         }
+    }
+
+    public void StartGame(){
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(new Scene(createContent()));
+        primaryStage.show();
     }
 
 }

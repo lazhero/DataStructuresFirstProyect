@@ -4,7 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-import static cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame.GameOver;
+import static cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame.TurnFinished;
 
 public class Item extends GameObject {
     final int initialX = x;
@@ -46,7 +46,7 @@ public class Item extends GameObject {
 
     @Override
     public void move() {
-        if(GameOver){
+        if(TurnFinished){
             return;
         } else {
 

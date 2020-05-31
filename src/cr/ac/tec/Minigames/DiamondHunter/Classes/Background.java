@@ -1,7 +1,6 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 
@@ -136,7 +135,7 @@ public class Background extends GameObject{
     @Override
     public void move() {
 
-        if (!DiamondHunterGame.GameOver) {
+        if (!DiamondHunterGame.TurnFinished) {
 
             if (DiamondHunterGame.right && x > -2040) {
                 if (touchingRightSide)

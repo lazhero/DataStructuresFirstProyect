@@ -5,7 +5,7 @@ import cr.ac.tecLinkedList.List.DoubleList;
 public class BubbleSort {
 
 
-    void bubbleSort(DoubleList<Integer> list){
+    public void bubbleSort(DoubleList<Integer> list){
         int n = list.getLength();
         for (int i = 0; i < n-1; i++)
             for( int j = 0; j < n-1; j++)
@@ -16,7 +16,7 @@ public class BubbleSort {
                 }
     }
 
-    void printDoubleList(DoubleList<Integer> list){
+    public void printDoubleList(DoubleList<Integer> list){
         int n = list.getLength();
         for (int i=0; i<n; ++i)
             System.out.println(list.getNode(i).getInfo() + " ");
