@@ -15,7 +15,7 @@ public class ListOfMiniGames {
         milista.AddTail("MemoryGame");
         //milista.AddTail("PRS");
         //milista.AddTail("TicTacToe");
-        //milista.AddTail("PressFirst");
+        milista.AddTail("PressFirst");
         //milista.AddTail("DiamondHunter");
         //milista.AddTail("Shoot");
         //milista.AddTail("RandomNumber");

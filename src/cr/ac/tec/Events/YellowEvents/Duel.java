@@ -52,6 +52,7 @@ public class Duel extends Event {
 
 
     public void event3(Player player1, Player player2,DoubleList milista,int dato1,int dato2) {
+        GameManager gameManager= GameManager.getInstance(0,0);
 
         if(milista.get(0).toString()=="MemoryGame"){
             new memorygame().StarGame(dato1,dato2);
@@ -64,7 +65,8 @@ public class Duel extends Event {
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="PressFirst"){
-            new pressfirst().StartGame(dato1,dato2);
+            //new pressfirst().StartGame(dato1,dato2);
+
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="DiamondHunter"){
@@ -80,6 +82,11 @@ public class Duel extends Event {
             milista.delete(0);
 
         }
+    }
+    public void move(int player1){
+        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
+        gameManager.MovePlayer(gameManager.getPlayerList().get(player1),-1);
+
     }
 
     /**
