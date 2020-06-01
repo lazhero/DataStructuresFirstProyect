@@ -76,6 +76,14 @@ public class Player extends PlayerSubject {
         return id;
     }
 
+    public boolean isLose() {
+        return lose;
+    }
+
+    public void setLose(boolean lose) {
+        this.lose = lose;
+    }
+
     /**
      * Returns the player's node
      * @return The player's node

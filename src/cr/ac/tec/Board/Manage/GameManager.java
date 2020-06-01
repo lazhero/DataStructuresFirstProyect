@@ -172,8 +172,6 @@ public class GameManager {
                        MovePlayer(loser,counter);
 
 
-
-
                    }
                    running=false;
                    PlayersNodes.get(PlayerTurn).getInfo().event(PlayerList.get(PlayerTurn));

@@ -3,6 +3,7 @@ package cr.ac.tec.Board.Square;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 
+import cr.ac.tec.Events.AfterGameEvent;
 import cr.ac.tec.Events.YellowEvents.*;
 import cr.ac.tec.Events.lists.ListOfEvents;
 import cr.ac.tec.Events.lists.ListOfMiniGames;
@@ -65,12 +66,15 @@ public class YellowSquare extends Square {
 
 
         //CallToEvent(ListOfEvents.getInstance().getDoubleList().get(0)).EventData(player);
-        new Duel().EventData(player);
-        //new memorygame().StarGame(1,2);
+        //new Duel().EventData(player);
+        new memorygame().StarGame(1,3);
         //new pressfirst().StartGame();
         //new PRSGAME().StarGame();
         //new Prove().StartGame();
         //new DiamondHunterGame().StartGame();
+        //new Duel().EventData(player);
+        //new GiveAwayCoins().EventData(player);
+
 
     }
 

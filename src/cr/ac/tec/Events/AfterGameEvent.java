@@ -1,11 +1,14 @@
 package cr.ac.tec.Events;
 
 import cr.ac.tec.Board.Manage.GameManager;
+import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.lists.ListOfEvents;
+import cr.ac.tec.Events.lists.ListOfMiniGames;
 import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
@@ -13,46 +16,57 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class AfterGameEvent {
+    private String Data;
 
-    public void AfterGameEvent(){
-        System.out.println("Llego aca");
+    public void AfterGameEvent(int player1, int player2){
+        GameManager gameManager = GameManager.getInstance(0,0);
+        gameManager.MovePlayer(gameManager.getPlayerList().get(player2),-1);
+
+
+
 
 
     }
     public void AfterGameEventData(int numberofplayerwin,int numberofplayerlose){
-        String Data;
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
 
+        Data="The player who won was the player number: "+ numberofplayerwin+ "\n Player :"+numberofplayerwin +" wins 1 coin: "+"\n The player who lost was the player number :"+numberofplayerlose+" \n The player"+numberofplayerlose+"Lose 1 coin";
         VBox vb = new VBox();
+        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setMinWidth(570);
+        vb.setMaxWidth(570);
+        vb.setMinHeight(370);
+        vb.setMaxHeight(370);
+        vb.setLayoutX(300);
+        vb.setLayoutY(150);
+        vb.setAlignment(Pos.CENTER);
+        vb.setSpacing(40);
         gameManager.setRunning(true);
 
         Button buttock = new Button("OK");
-        vb.setLayoutX(300);
-        vb.setLayoutY(300);
-        vb.setAlignment(Pos.CENTER);
 
-        Text tittle = new Text();
-        tittle.setText("You activated an event");
-        tittle.setTextAlignment(TextAlignment.CENTER);
-        Data="Player :"+ numberofplayerlose+"You lose : 1 Coins "+"and \n" +
-                "go back one box" +"\n"+"Player "+ numberofplayerwin+"You win 1 coin";
         Text data = new Text();
         data.setText(Data);
+        data.setStyle("-fx-fill: white");
+        data.setFont(new Font("Verdana",16));
+        data.setTextAlignment(TextAlignment.CENTER);
+
 
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
-            System.out.println("Estoy acá");
             try {
                 TimeUnit.MILLISECONDS.sleep(700);
             }catch (InterruptedException interruptedException){
                 interruptedException.printStackTrace();
             }
-            AfterGameEvent();
             gameManager.setRunning(false);
+            AfterGameEvent(numberofplayerwin,numberofplayerlose);
             return;
+
         });
-        vb.getChildren().addAll(tittle,buttock,data);
+        vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
+
     }
 
 
