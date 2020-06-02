@@ -8,12 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
-import javax.management.DescriptorRead;
-
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -38,13 +33,23 @@ public class PRSController {
     private ImageView ImageRight;
     @FXML
     private ImageView ImageLeft;
+    @FXML
+    private Label PlayerName1;
+    @FXML
+    private Label PlayerName2;
     private Hand hand1;
     private Hand hand2;
-    //private Image winner= GetImages.getImage("src/Images/Winner.png");
-    //private Image loser= GetImages.getImage("src/Images/Loser.png");
-    //private Image tie= GetImages.getImage("src/Images/tie.png");
+    private Image winner= GetImages.getImage("src/Images/Winner.png");
+    private Image loser= GetImages.getImage("src/Images/Loser.png");
+    private Image tie= GetImages.getImage("src/Images/tie.png");
     private ExecuteButtonAction ScreenColorChanger=new ExecuteButtonAction();
+    private int[] register=new int[2];
+    private int Rounds=3;
 
+    public PRSController(){
+        register[0]=0;
+        register[1]=0;
+    }
     public void rock1Action(){
         hand1=Hand.getHand(0);
         ScreenColorChanger.setBtn1(rock1);
@@ -94,31 +99,42 @@ public class PRSController {
             ScreenColorChanger.illuminateBtn2();
             int state =HandsDuel.winner(hand1,hand2);
             if(state==1){
-                //ImageRight.setImage(winner);
-                //ImageLeft.setImage(loser);
-                //falta accion al ganar
+                ImageRight.setImage(winner);
+                ImageLeft.setImage(loser);
+                register[0]=register[0]+1;
                 pause.play();
             }
             else if(state==2){
-                //ImageRight.setImage(loser);
-                //ImageLeft.setImage(winner);
+                ImageRight.setImage(loser);
+                ImageLeft.setImage(winner);
                 pause.play();
-                //falta accion al ganar
+                register[1]=register[1]+1;
             }
             else{
 
 
-                //ImageRight.setImage(tie);
-                //ImageLeft.setImage(tie);
+                ImageRight.setImage(tie);
+                ImageLeft.setImage(tie);
                 System.out.println("Hola");
-                //PauseTransition pause = new PauseTransition(Duration.seconds(1));
-                //pause.setOnFinished(PauseAction);
+                 pause = new PauseTransition(Duration.seconds(1));
+                pause.setOnFinished(PauseAction);
                 pause.play();
 
 
 
             }
         }
+    }
+    public void setName1(String text){
+        PlayerName1.setText(text);
+
+    }
+    public void setName2(String text){
+        PlayerName2.setText(text);
+
+    }
+    public void setRound(int rounds){
+        this.Rounds=rounds;
     }
 
 
