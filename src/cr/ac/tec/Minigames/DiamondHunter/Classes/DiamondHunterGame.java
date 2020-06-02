@@ -24,7 +24,7 @@ public class DiamondHunterGame{
     private DoubleList<Barrier> barriers;
     private DoubleList<Item> items;
 
-    private HashMap<Long, String> scoreHashmap = new HashMap<>();
+    private HashMap<Long, Integer> scoreHashmap = new HashMap<>();
     private DoubleList<Integer> scores = new DoubleList<>();
 
     private DoubleList playerList;
@@ -83,18 +83,26 @@ public class DiamondHunterGame{
     public void addScores(){
         if (TurnFinished && !Added) {
             scores.AddHead((int)stopWatch.time());
-            scoreHashmap.put(stopWatch.time(),playerList.getNode(numberOfPlayers-1).getInfo().toString());
+            scoreHashmap.put(stopWatch.time(),Integer.parseInt(playerList.getNode(numberOfPlayers-1).getInfo().toString()));
             Added=true;
         }
     }
 
-    public String winner(){
+    public void winner(){
         if(GameOver){
             BubbleSort sort = new BubbleSort();
             sort.bubbleSort(scores);
-            return scoreHashmap.get((long)scores.getNode(0).getInfo());
+            finalList(scores,scoreHashmap);
         }
-        return null;
+    }
+
+    public DoubleList<Integer> finalList(DoubleList<Integer> scores, HashMap<Long,Integer> scoreHashmap){
+        DoubleList<Integer> finalList = new DoubleList();
+        for (int i=0; i<scores.getLength(); i++){
+            finalList.AddTail(scoreHashmap.get((long)scores.getNode(i).getInfo()));
+            System.out.println(finalList.getNode(i).getInfo());
+        }
+        return finalList;
     }
 
 
