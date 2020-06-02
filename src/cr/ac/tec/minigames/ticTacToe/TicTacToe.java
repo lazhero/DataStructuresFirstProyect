@@ -205,7 +205,7 @@ public class TicTacToe{
         }
     }
 
-    public void StartGame(){
+    public void StartGame(int dato1, int dato2){
         Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();

@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Prove  {
-    public void StartGame(){
+    public void StartGame(int dato1, int dato2){
         Stage stage = new Stage();
         GameController controller=new GameController();
         Parent Root= null;

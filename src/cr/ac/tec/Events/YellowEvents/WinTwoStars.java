@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import cr.ac.tec.Board.Player;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
@@ -34,25 +35,31 @@ public class WinTwoStars extends Event {
      */
     @Override
     public void EventData(Player player) {
-        System.out.println(player.getStars());
-        VBox vb = new VBox();
+
         ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
-        Data="Congrats!!! you won 2 stars";
+        Data="Congrats, You activated this event!!!  \n\n you win 2 stars!!";
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
-        System.out.println("AACA");
-        Button buttock = new Button("OK");
+        System.out.println("wintwostars");
+        VBox vb = new VBox();
+        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setMinWidth(320);
+        vb.setMaxWidth(320);
+        vb.setMinHeight(270);
+        vb.setMaxHeight(270);
         vb.setLayoutX(300);
-        vb.setLayoutY(300);
+        vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
-
-        Text tittle = new Text();
-        tittle.setText("You activated an event");
-        tittle.setTextAlignment(TextAlignment.CENTER);
+        vb.setSpacing(40);
 
         Text data = new Text();
         data.setText(Data);
+        data.setText(Data);
+        data.setStyle("-fx-fill: white");
+        data.setFont(new Font("Verdana",16));
+        data.setTextAlignment(TextAlignment.CENTER);
+        Button buttock = new Button("OK");
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
@@ -64,7 +71,7 @@ public class WinTwoStars extends Event {
             event1(player);
             return;
         });
-        vb.getChildren().addAll(tittle,buttock,data);
+        vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
     }
 }

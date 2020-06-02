@@ -7,6 +7,7 @@ import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
@@ -46,6 +47,7 @@ public class ChangePlace extends Event {
 
     @Override
     public void EventData(Player player) {
+        System.out.println("Change");
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         int random= new Random().nextInt(3);
         ListOfEvents.getInstance().getDoubleList().delete(0);
@@ -70,24 +72,33 @@ public class ChangePlace extends Event {
             listaaleatoria.AddTail(1);
             listaaleatoria.AddTail(2);
         }
-        VBox vb = new VBox();
-        System.out.println(listaaleatoria);
         DoubleList<Integer> finalListaaleatoria = listaaleatoria;
-        System.out.println(finalListaaleatoria);
+        VBox vb = new VBox();
+
         gameManager.setRunning(true);
 
-        Button buttock = new Button("OK");
+
+        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setMinWidth(500);
+        vb.setMaxWidth(500);
+        vb.setMinHeight(370);
+        vb.setMaxHeight(370);
         vb.setLayoutX(300);
-        vb.setLayoutY(300);
+        vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
+        vb.setSpacing(40);
 
         Text tittle = new Text();
         tittle.setText("You activated an event");
         tittle.setTextAlignment(TextAlignment.CENTER);
-        Data="You will be exchanged with the player:"+finalListaaleatoria.get(random);
+        Data="Hello! You activated an event \n\n You will be exchanged with the player: "+finalListaaleatoria.get(random);
         Text data = new Text();
         data.setText(Data);
+        data.setStyle("-fx-fill: white");
+        data.setFont(new Font("Verdana",16));
+        data.setTextAlignment(TextAlignment.CENTER);
 
+        Button buttock = new Button("OK");
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
@@ -100,7 +111,7 @@ public class ChangePlace extends Event {
             System.out.println(gameManager.getTurns());
             return;
         });
-        vb.getChildren().addAll(tittle,buttock,data);
+        vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
     }
 

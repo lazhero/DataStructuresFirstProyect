@@ -7,6 +7,7 @@ import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
@@ -48,19 +49,30 @@ public class StealCoins extends Event {
         ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-
-        VBox vb = new VBox();
         ListOfEvents.getInstance().getDoubleList().delete(0);
-
-        Data="Congratulations, you can steal 1 coin from another player";
+        System.out.println("stealcoins");
+        VBox vb = new VBox();
+        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setMinWidth(500);
+        vb.setMaxWidth(500);
+        vb.setMinHeight(370);
+        vb.setMaxHeight(370);
+        vb.setLayoutX(300);
+        vb.setLayoutY(150);
+        vb.setAlignment(Pos.CENTER);
+        vb.setSpacing(40);
+        Data="Hey!! you activated this event" +
+                "\n\n You can steal 1 coin from another player";
         gameManager.setRunning(true);
 
-        Text tittle = new Text();
-        tittle.setText("You activated an event, select the player");
-        tittle.setTextAlignment(TextAlignment.CENTER);
 
         Text data = new Text();
         data.setText(Data);
+        data.setText(Data);
+        data.setStyle("-fx-fill: white");
+        data.setFont(new Font("Verdana",16));
+        data.setTextAlignment(TextAlignment.CENTER);
+
         Button b1 = new Button();
         Button b2 = new Button();
         Button b3 = new Button();
@@ -117,19 +129,6 @@ public class StealCoins extends Event {
             b3.setText("Player"+listaaleatoria.get(2));
         }
 
-        vb.setLayoutX(300);
-        vb.setLayoutY(300);
-        vb.setAlignment(Pos.CENTER);
-
-
-        vb.setLayoutX(300);
-        vb.setLayoutY(300);
-        vb.setAlignment(Pos.CENTER);
-
-
-        vb.setLayoutX(300);
-        vb.setLayoutY(300);
-        vb.setAlignment(Pos.CENTER);
 
         b1.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
@@ -167,7 +166,7 @@ public class StealCoins extends Event {
             return;
 
         });
-        vb.getChildren().addAll(tittle,data,b1,b2,b3);
+        vb.getChildren().addAll(data,b1,b2,b3);
         gameManager.getAnchorPane().getChildren().add(vb);
     }
 }

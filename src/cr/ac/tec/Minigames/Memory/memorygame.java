@@ -2,13 +2,15 @@ package cr.ac.tec.Minigames.Memory;
 
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.AfterGameEvent;
+import cr.ac.tec.Events.YellowEvents.Duel;
+import cr.ac.tec.Events.lists.ListOfMiniGames;
 import javafx.animation.FadeTransition;
-import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -17,7 +19,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 import javafx.scene.input.MouseEvent;
+import cr.ac.tec.Events.AfterGameEvent;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -33,6 +37,7 @@ public class memorygame {
     int cont;
     int correct;
     int victory;
+    int lose;
     private int scorep1=0;
     private int scorep2=0;
     private int dat1;
@@ -41,7 +46,8 @@ public class memorygame {
     private Text score1=new Text("Score:"+ scorep1);
     private Text score2=new Text("Score:"+ scorep2);
 
-    public Parent createContent(int player1,int player2){
+
+    public Parent createContent(int player1,int player2,Stage primaryStage){
 
 
         Pane root = new Pane();
@@ -95,8 +101,17 @@ public class memorygame {
         score2.setFont(Font.font(27));
         dat1=player1;
         dat2=player2;
+        Button butto = new Button("Ok");
+        butto.setOnMouseClicked(event -> {
+            new AfterGameEvent().AfterGameEventData(victory,lose);
+            primaryStage.close();
 
-        root.getChildren().addAll(player1t,player2t,score1,score2);
+        });
+
+        root.getChildren().addAll(player1t,player2t,score1,score2,butto);
+
+
+
 
         return root;
     }
@@ -184,13 +199,24 @@ public class memorygame {
             return text.getOpacity()==1;
 
         }
-        public void winner(int a){
+        public Player winner(int a){
+
             if (a==1){
                 victory=dat1;
+                lose=dat2;
+                System.out.println(victory);
+                System.out.println(lose);
+
             }
             if(a==2){
                 victory=dat2;
+                lose=dat1;
+                System.out.println(victory);
+                System.out.println(lose);
             }
+            return null ;
+
+
         }
         public void open(Runnable action){
             FadeTransition ft = new FadeTransition(Duration.seconds(0.5),text);
@@ -208,13 +234,18 @@ public class memorygame {
         }
 
     }
-    public void StarGame(int player1,int player2){
+
+
+    public void StarGame(int player1, int player2){
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.getAnchorPane().setVisible(true);
         Stage primaryStage = new Stage();
-        primaryStage.setScene(new Scene(createContent(player1,player2)));
+        primaryStage.setScene(new Scene(createContent(player1,player2,primaryStage)));
         primaryStage.setTitle("Memory Game, GOOD LUCK!");
         primaryStage.show();
+
+
+
 
     }
 

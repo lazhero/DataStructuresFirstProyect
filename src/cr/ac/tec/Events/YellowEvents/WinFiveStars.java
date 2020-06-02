@@ -7,12 +7,14 @@ import cr.ac.tec.Events.lists.ListOfEvents;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 import java.util.concurrent.TimeUnit;
 
 public class WinFiveStars extends Event {
+    private String Data;
 
     /**
      * The player wins five stars and feels cooler.
@@ -37,23 +39,32 @@ public class WinFiveStars extends Event {
      */
     @Override
     public void EventData(Player player) {
-        System.out.println(player.getStars());
         VBox vb = new VBox();
         ListOfEvents.getInstance().getDoubleList().delete(0);
-        String Data;
-        Data="Congrats!!, you won 5 stars";
+        System.out.println("winfivestar");
+        Data="Hello! You activated this event " +
+                "\n\n Congrats!!, you win 5 stars";
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
-        Button buttock = new Button("OK");
+
+        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setMinWidth(400);
+        vb.setMaxWidth(400);
+        vb.setMinHeight(270);
+        vb.setMaxHeight(270);
         vb.setLayoutX(300);
-        vb.setLayoutY(300);
+        vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
-        Text tittle = new Text();
-        tittle.setText("You activated an event");
-        tittle.setTextAlignment(TextAlignment.CENTER);
+        vb.setSpacing(40);
 
         Text data = new Text();
         data.setText(Data);
+        data.setText(Data);
+        data.setStyle("-fx-fill: white");
+        data.setFont(new Font("Verdana",16));
+        data.setTextAlignment(TextAlignment.CENTER);
+
+        Button buttock = new Button("OK");
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
@@ -65,7 +76,7 @@ public class WinFiveStars extends Event {
             event1(player);
             return;
         });
-        vb.getChildren().addAll(tittle,buttock,data);
+        vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
     }
 }

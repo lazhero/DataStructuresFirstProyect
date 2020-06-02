@@ -15,7 +15,7 @@ import java.awt.*;
 import java.io.IOException;
 
 public class PRSGAME  {
-    public void StarGame(){
+    public void StarGame(int dato1, int dato2){
         Stage primaryStage = new Stage();
         Parent Root= null;
         try {

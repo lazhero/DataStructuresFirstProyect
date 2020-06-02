@@ -50,7 +50,7 @@ public class ListOfEvents {
             mylist.AddHead(new LoseOneStar());
         }
         mylist=mylist.Shuffle();
-        System.out.println(mylist);
+
     }
 
     public static ListOfEvents getInstance() {
