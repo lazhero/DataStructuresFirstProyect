@@ -30,7 +30,12 @@ public class DiamondHunterGame{
 
     private DoubleList playerList;
     private int numberOfPlayers;
-    private Button button = new Button("Next player!");
+
+    private Button buttonNext = new Button("Next player!");
+
+    private Button buttonOk = new Button("Ok");
+
+
     private StopWatch stopWatch = new StopWatch();
 
     private boolean GameOver=false;
@@ -53,6 +58,7 @@ public class DiamondHunterGame{
         stopWatch.start();
 
         nextButton();
+        okButton();
 
         images = new HashMap<String, Image>();
         loadImages();
@@ -63,14 +69,14 @@ public class DiamondHunterGame{
         Group root = new Group();
         scene = new Scene(root,500,500);
         Canvas canvas = new Canvas(500, 500);
-        root.getChildren().addAll(canvas, button);
+        root.getChildren().addAll(canvas, buttonNext,buttonOk);
         graphicsContext = canvas.getGraphicsContext2D();
     }
 
     public void nextButton(){
-        button.setTranslateX(15);
-        button.setTranslateY(15);
-        button.setOnMouseClicked(e -> nextPlayerEvent());
+        buttonNext.setTranslateX(15);
+        buttonNext.setTranslateY(15);
+        buttonNext.setOnMouseClicked(e -> nextPlayerEvent());
     }
 
     public void nextPlayerEvent(){
@@ -80,10 +86,14 @@ public class DiamondHunterGame{
             stopWatch.start();
             totalDiamondsCollected=0;
             numberOfPlayers--;
-            new AfterGameEvent().AfterGameEventData(1,2);
         }
     }
 
+    public void okButton(){
+        buttonOk.setTranslateX(100);
+        buttonOk.setTranslateY(15);
+        buttonOk.setOnMouseClicked(e -> new AfterGameEvent().AfterGameEventData(1,2));
+    }
 
 
     public void addScores(){
