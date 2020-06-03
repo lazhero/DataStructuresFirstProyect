@@ -245,9 +245,9 @@ public class GameManager {
                Phase4.get(i).Draw(anchorPane);
            }
            for(int i=0;i<PlayerList.getLength();i++){
-               StarCounter starCounter=new StarCounter(100,60,"src/Images/Numero",".png");
+               StarCounter starCounter=new StarCounter(100,60,"src/Resources/Images/Numero",".png");
                PlayerList.get(i).attachCoinObserver(starCounter);
-               //starCounter.getCounter().setCount(0);
+               starCounter.getCounter().setCount(0);
                LayoutNewContent.Add(anchorPane,starCounter.getCounter().getAnchorPane(),20,0,0,50);
            }
        }
