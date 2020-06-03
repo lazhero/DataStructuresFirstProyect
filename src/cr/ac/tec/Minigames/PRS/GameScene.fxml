@@ -12,14 +12,14 @@
          <children>
             <ImageView fitHeight="324.0" fitWidth="583.0" layoutX="20.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Images/PaperBackground.jpg" />
+                  <Image url="@../../../../../Resources/Images/PaperBackground.jpg" />
                </image>
             </ImageView>
             <Button fx:id="paper1" layoutX="114.0" layoutY="265.0" mnemonicParsing="false" onAction="#paper1Action" style="-fx-background-color: #d6fbf8;" underline="true">
                <graphic>
                   <ImageView fx:id="paperImage" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/Papel.png" />
+                        <Image url="@../../../../../Resources/Images/Papel.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -28,7 +28,7 @@
                <graphic>
                   <ImageView fx:id="paperImage1" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/Papel.png" />
+                        <Image url="@../../../../../Resources/Images/Papel.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -37,7 +37,7 @@
                <graphic>
                   <ImageView fx:id="rockImage" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/Piedra.png" />
+                        <Image url="@../../../../../Resources/Images/Piedra.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -46,7 +46,7 @@
                <graphic>
                   <ImageView fx:id="rockImage1" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/Piedra.png" />
+                        <Image url="@../../../../../Resources/Images/Piedra.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -55,7 +55,7 @@
                <graphic>
                   <ImageView fx:id="scissorsImage" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/Tijeras.png" />
+                        <Image url="@../../../../../Resources/Images/Tijeras.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -64,7 +64,7 @@
                <graphic>
                   <ImageView fx:id="sccisorsImage1" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/Tijeras.png" />
+                        <Image url="@../../../../../Resources/Images/Tijeras.png" />
                      </image>
                   </ImageView>
                </graphic>

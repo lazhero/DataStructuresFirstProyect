@@ -40,9 +40,9 @@ public class PRSController {
     private ImageView ImageLeft;
     private Hand hand1;
     private Hand hand2;
-    //private Image winner= GetImages.getImage("src/Images/Winner.png");
-    //private Image loser= GetImages.getImage("src/Images/Loser.png");
-    //private Image tie= GetImages.getImage("src/Images/tie.png");
+    private Image winner= GetImages.getImage("src/Images/Winner.png");
+    private Image loser= GetImages.getImage("src/Images/Loser.png");
+    private Image tie= GetImages.getImage("src/Images/tie.png");
     private ExecuteButtonAction ScreenColorChanger=new ExecuteButtonAction();
 
     public void rock1Action(){
@@ -94,25 +94,25 @@ public class PRSController {
             ScreenColorChanger.illuminateBtn2();
             int state =HandsDuel.winner(hand1,hand2);
             if(state==1){
-                //ImageRight.setImage(winner);
-                //ImageLeft.setImage(loser);
+                ImageRight.setImage(winner);
+                ImageLeft.setImage(loser);
                 //falta accion al ganar
                 pause.play();
             }
             else if(state==2){
-                //ImageRight.setImage(loser);
-                //ImageLeft.setImage(winner);
+                ImageRight.setImage(loser);
+                ImageLeft.setImage(winner);
                 pause.play();
                 //falta accion al ganar
             }
             else{
 
 
-                //ImageRight.setImage(tie);
-                //ImageLeft.setImage(tie);
+                ImageRight.setImage(tie);
+                ImageLeft.setImage(tie);
                 System.out.println("Hola");
                 //PauseTransition pause = new PauseTransition(Duration.seconds(1));
-                //pause.setOnFinished(PauseAction);
+                pause.setOnFinished(PauseAction);
                 pause.play();
 
 
