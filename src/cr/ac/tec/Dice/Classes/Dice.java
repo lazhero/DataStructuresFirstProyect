@@ -69,8 +69,8 @@ public class Dice{
     }
 
     public void loadImages(){
-        images.put("dice", new Image("cr/ac/tec/Dice/Images/dice.png"));
-        images.put("background", new Image("cr/ac/tec/Dice/Images/black.png"));
+        images.put("dice", new Image("Resources/Images/dice.png"));
+        images.put("background", new Image("Resources/Images/black.png"));
     }
 
     public void createContent(){

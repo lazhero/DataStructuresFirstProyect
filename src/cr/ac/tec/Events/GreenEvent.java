@@ -21,7 +21,7 @@ public class GreenEvent{
         gameManager.setRunning(true);
         Data= "Hello! You activated an event \n\n You win: "+coins+" coins";
         VBox vb = new VBox();
-        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(350);
         vb.setMaxWidth(350);
         vb.setMinHeight(250);

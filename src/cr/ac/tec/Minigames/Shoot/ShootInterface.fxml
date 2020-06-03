@@ -11,24 +11,24 @@
    <children>
       <ImageView fx:id="BackGround" fitHeight="400.0" fitWidth="600.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Images/scenary.png" />
+            <Image url="@../../../../../Resources/Images/scenary.png" />
          </image>
       </ImageView>
       <ImageView fx:id="Character1" fitHeight="150.0" fitWidth="115.0" layoutX="44.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Images/Enemigo11.png" />
+            <Image url="@../../../../../Resources/Images/Enemigo11.png" />
          </image>
       </ImageView>
       <ImageView fx:id="Character2" fitHeight="150.0" fitWidth="115.0" layoutX="437.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Images/Enemigo21.png" />
+            <Image url="@../../../../../Resources/Images/Enemigo21.png" />
          </image>
       </ImageView>
       <Button fx:id="button1" layoutX="266.0" layoutY="14.0" mnemonicParsing="false" onAction="#start" onMouseClicked="#hide" style="-fx-background-color: #2D3431;">
          <graphic>
             <ImageView fitHeight="53.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Images/Guns.png" />
+                  <Image url="@../../../../../Resources/Images/Guns.png" />
                </image>
             </ImageView>
          </graphic></Button>

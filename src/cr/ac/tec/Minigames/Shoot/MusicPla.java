@@ -13,7 +13,7 @@ public class MusicPla extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        String path="src/Music/DarkCity.mp3";
+        String path="src/Resources/Music/DarkCity.mp3";
         Media media = new Media(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);

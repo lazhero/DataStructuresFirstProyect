@@ -47,7 +47,7 @@ public class Teleport extends Event {
         System.out.println("telepor");
 
         VBox vb = new VBox();
-        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(360);
         vb.setMaxWidth(360);
         vb.setMinHeight(270);

@@ -22,7 +22,7 @@ public class RedEvent{
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
 
-        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(350);
         vb.setMaxWidth(350);
         vb.setMinHeight(250);

@@ -52,7 +52,7 @@ public class StealCoins extends Event {
         ListOfEvents.getInstance().getDoubleList().delete(0);
         System.out.println("stealcoins");
         VBox vb = new VBox();
-        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(500);
         vb.setMaxWidth(500);
         vb.setMinHeight(370);

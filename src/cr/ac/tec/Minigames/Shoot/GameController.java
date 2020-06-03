@@ -55,7 +55,7 @@ public class GameController {
             mediaPlayer.stop();
         }
         catch (Exception e){}
-        String path="src/Music/DarkCity.mp3";
+        String path="src/Resources/Music/DarkCity.mp3";
         Media media = new Media(new File(path).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -88,8 +88,8 @@ public class GameController {
         int Rigtpos=6;
         turns= new IntHolder(Random.RandomNumber(8)+5);
         StringInterpolator interpolator0=new StringInterpolator(List,Rigtpos,turns,400);
-        ImageInterpolator interpolator=new ImageInterpolator("src/Images/Enemigo1",".png",2,1000);
-        ImageInterpolator interpolator2=new ImageInterpolator("src/Images/Enemigo2",".png",2,1000);
+        ImageInterpolator interpolator=new ImageInterpolator("src/Resources/Images/Enemigo1",".png",2,1000);
+        ImageInterpolator interpolator2=new ImageInterpolator("src/Resources/Images/Enemigo2",".png",2,1000);
        KeyValue key0=new KeyValue(MyLabel.textProperty(),"", interpolator0);
         KeyValue key1=new KeyValue(Character1.imageProperty(),Character1.getImage(),interpolator);
         KeyValue key2=new KeyValue(Character2.imageProperty(),Character2.getImage(),interpolator2);
@@ -125,18 +125,20 @@ public class GameController {
                 if(turns.getSaved()<=0) {
                     System.out.println("Pod");
                     time.stop();
-                    Character1.setImage(GetImages.getImage("src/Images/Enemigo12.png"));
-                    Character2.setImage(GetImages.getImage("src/Images/Enemigo21.png"));
-                    RewardRight.setImage(GetImages.getImage("src/Images/Premio1.png"));
-                    RewardLeft.setImage(GetImages.getImage("src/Images/Premio2.png"));
+                    Character1.setImage(GetImages.getImage("src/Resources/Images/Enemigo12.png"));
+                    Character2.setImage(GetImages.getImage("src/Resources/Images/Enemigo21.png"));
+                    RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
+                    RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
+
                     shooting(true);
                     MyLabel.setVisible(false);
                     signal=false;
                     turns.setSaved(15);
+
                 }
                 else {
-                    RewardRight.setImage(GetImages.getImage("src/Images/Premio2.png"));
-                    RewardLeft.setImage(GetImages.getImage("src/Images/Premio1.png"));
+                    RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
+                    RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
                     signal=false;
                     time.stop();
 
@@ -146,19 +148,19 @@ public class GameController {
                 if(turns.getSaved()<=0) {
                     System.out.println("Matenme");
                     time.stop();
-                    Character1.setImage(GetImages.getImage("src/Images/Enemigo11.png"));
-                    Character2.setImage(GetImages.getImage("src/Images/Enemigo22.png"));
+                    Character1.setImage(GetImages.getImage("src/Resources/Images/Enemigo11.png"));
+                    Character2.setImage(GetImages.getImage("src/Resources/Images/Enemigo22.png"));
                     shooting(false);
                     MyLabel.setVisible(false);
                     signal=false;
                     turns.setSaved(15);
-                    RewardRight.setImage(GetImages.getImage("src/Images/Premio2.png"));
-                    RewardLeft.setImage(GetImages.getImage("src/Images/Premio1.png"));
+                    RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
+                    RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
                 }
                 else {
                     time.stop();
-                    RewardRight.setImage(GetImages.getImage("src/Images/Premio1.png"));
-                    RewardLeft.setImage(GetImages.getImage("src/Images/Premio2.png"));
+                    RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
+                    RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
                     signal=false;
 
 
@@ -172,8 +174,8 @@ public class GameController {
     }
     public void shooting(boolean condition){
         if(condition){
-           ImageInterpolator ImageInterpolator=new ImageInterpolator("src/Images/BD",".png",2,50);
-            BalaIzquierda.setImage(GetImages.getImage("src/Images/BD2.png"));
+           ImageInterpolator ImageInterpolator=new ImageInterpolator("src/Resources/Images/BD",".png",2,50);
+            BalaIzquierda.setImage(GetImages.getImage("src/Resources/Images/BD2.png"));
             double AxisX=BalaIzquierda.getX();
             KeyValue key0=new KeyValue(BalaIzquierda.imageProperty(),BalaIzquierda.getImage(),ImageInterpolator);
             KeyFrame keyFrame0=new KeyFrame(Duration.ZERO,key0);
@@ -186,10 +188,10 @@ public class GameController {
                 BalaIzquierda.setX(AxisX);
                 BalaIzquierda.setImage(null);
                 pressed=false;
-                Character2.setImage(GetImages.getImage("src/Images/Enemigo23.png"));
+                Character2.setImage(GetImages.getImage("src/Resources/Images/Enemigo23.png"));
                 PauseTransition pause=new PauseTransition();
                 EventHandler<ActionEvent> Finished=p->{
-                    Character2.setImage(GetImages.getImage("src/Images/Enemigo21.png"));
+                    Character2.setImage(GetImages.getImage("src/Resources/Images/Enemigo21.png"));
                 };
                 pause.setOnFinished(Finished);
                 pause.play();
@@ -199,7 +201,7 @@ public class GameController {
 
         }
         else{
-            BalaDerecha.setImage(GetImages.getImage("src/Images/BD2.png"));
+            BalaDerecha.setImage(GetImages.getImage("src/Resources/Images/BD2.png"));
             double AxisX=BalaDerecha.getX();
             KeyValue key1=new KeyValue(BalaDerecha.xProperty(),-330,Interpolator.LINEAR);
             KeyFrame keyFrame1=new KeyFrame(Duration.millis(1000),key1);
@@ -209,10 +211,10 @@ public class GameController {
             time.setOnFinished(e->{
                 BalaDerecha.setX(AxisX);
                 BalaDerecha.setImage(null);
-               Character1.setImage(GetImages.getImage("src/Images/Enemigo13.png"));
+               Character1.setImage(GetImages.getImage("src/Resources/Images/Enemigo13.png"));
                PauseTransition pause=new PauseTransition();
                EventHandler<ActionEvent> Finished=p->{
-                   Character1.setImage(GetImages.getImage("src/Images/Enemigo11.png"));
+                   Character1.setImage(GetImages.getImage("src/Resources/Images/Enemigo11.png"));
                };
                pause.setOnFinished(Finished);
                pause.play();

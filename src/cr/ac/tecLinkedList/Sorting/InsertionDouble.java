@@ -24,34 +24,16 @@ public class InsertionDouble<T extends Comparable>  implements Sorting<T> {
 
     @Override
     public void sort() {
-        if (List != null && List.getLength() > 0) {
-            DoubleNode<T> temp=FindSort();
-            DoubleNode<T> tail=List.getNode(List.getLength()-1);
-            DoubleNode<T> Changing;
-            T backup;
-            while(temp!=tail){
-
-                backup=tail.getInfo();
-                for(Changing=findPlace(tail,temp);Changing!=null;Changing=Changing.getFront()){
-                    T Course=Changing.getInfo();
-                    Changing.setInfo(backup);
-                    backup=Course;
-
-                }
-                temp=temp.getFront();
-                tail=List.getNode(List.getLength()-1);
+        for(int i=0;i<List.getLength();i++){
+            T temp;
+            int p=i;
+            while(p>0 && List.get(p).compareTo(List.get(p-1))<0){
+                temp=List.get(p);
+                List.getNode(p).setInfo(List.get(p-1));
+                List.getNode(p-1).setInfo(temp);
+                p--;
             }
-
-
         }
-    }
-    public DoubleNode<T> findPlace(DoubleNode<T> comparing,DoubleNode<T> reference){
-        if(comparing==null || reference==null) return null;
-        DoubleNode<T> temp;
-        for(temp=List.getNode(0);temp.getFront()!=null && comparing.getInfo().compareTo(temp.getInfo())>0 && temp!=reference.getFront();temp=temp.getFront()){
-
-        }
-        return temp;
     }
     @Override
     public void setList(List<T> List){

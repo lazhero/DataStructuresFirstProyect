@@ -43,7 +43,7 @@ public class WinTwoStars extends Event {
         gameManager.setRunning(true);
         System.out.println("wintwostars");
         VBox vb = new VBox();
-        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(320);
         vb.setMaxWidth(320);
         vb.setMinHeight(270);

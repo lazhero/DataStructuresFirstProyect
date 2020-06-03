@@ -17,7 +17,7 @@ public class WhiteEvent {
 
     public WhiteEvent(String action,int squares, Player player){
         VBox vb = new VBox();
-        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         if(action=="back"){
             Data=" Hello! You activated an event \n\n You will be returned: "+ squares*-1 +" Squares";
         }

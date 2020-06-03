@@ -78,7 +78,7 @@ public class ChangePlace extends Event {
         gameManager.setRunning(true);
 
 
-        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(500);
         vb.setMaxWidth(500);
         vb.setMinHeight(370);

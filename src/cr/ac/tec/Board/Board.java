@@ -58,7 +58,7 @@ public class Board extends Application {
         Scene scene =new Scene(FirstLevelAnchorPane,1000,700, Color.RED);
         boardButtons();
         FirstLevelAnchorPane.setStyle("-fx-background-color: #0078d7");
-        gameManager= GameManager.getInstance(4,25,50,"src/Images/Piece","src/Images/MarioStar",".png");
+        gameManager= GameManager.getInstance(4,25,50,"src/Resources/Images/Piece","src/Resources/Images/MarioStar",".png");
         gameManager.Draw(FirstLevelAnchorPane);
         FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,textField);
         MainWindow.setScene(scene);
@@ -74,11 +74,11 @@ public class Board extends Application {
     }
 
     public void drawImages(){
-        Image background = new Image("Images/topViewBackground.png");
+        Image background = new Image("Resources/Images/topViewBackground.png");
         graphicsContext.drawImage(background,0,0,1000,700);
     }
 
     public void loadImages(){
-        images.put("HandRollingDice", new Image("Images/HandRollingDice.png"));
+        images.put("HandRollingDice", new Image("Resources/Images/HandRollingDice.png"));
     }
 }
