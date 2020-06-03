@@ -35,6 +35,7 @@ public class DiamondHunterGame{
 
     private Button buttonOk = new Button("Ok");
 
+    private DoubleList<Integer> finalList;
 
     private StopWatch stopWatch = new StopWatch();
 
@@ -92,9 +93,15 @@ public class DiamondHunterGame{
     public void okButton(){
         buttonOk.setTranslateX(100);
         buttonOk.setTranslateY(15);
-        buttonOk.setOnMouseClicked(e -> new AfterGameEvent().AfterGameEventData(1,2));
+        buttonOk.setOnMouseClicked(e -> {
+            new AfterGameEvent().AfterGameEventData(1,2);
+
+        });
     }
 
+    public DoubleList<Integer> getFinalList() {
+        return finalList;
+    }
 
     public void addScores(){
         if (TurnFinished && !Added) {
@@ -108,14 +115,14 @@ public class DiamondHunterGame{
         if(GameOver){
             BubbleSort sort = new BubbleSort();
             sort.bubbleSort(scores);
-            finalList(scores,scoreHashmap);
+            createFinalList(scores,scoreHashmap);
         }
     }
 
 
 
-    public DoubleList<Integer> finalList(DoubleList<Integer> scores, HashMap<Long,Integer> scoreHashmap){
-        DoubleList<Integer> finalList = new DoubleList();
+    public DoubleList<Integer> createFinalList(DoubleList<Integer> scores, HashMap<Long,Integer> scoreHashmap){
+        finalList = new DoubleList();
         for (int i=0; i<scores.getLength(); i++){
             finalList.AddTail(scoreHashmap.get((long)scores.getNode(i).getInfo()));
             System.out.println(finalList.getNode(i).getInfo());
