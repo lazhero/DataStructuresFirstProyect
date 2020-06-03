@@ -8,7 +8,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+import javax.management.DescriptorRead;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -33,35 +38,13 @@ public class PRSController {
     private ImageView ImageRight;
     @FXML
     private ImageView ImageLeft;
-    @FXML
-    private Label PlayerName1;
-    @FXML
-    private Label PlayerName2;
     private Hand hand1;
     private Hand hand2;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    private Image winner= GetImages.getImage("src/Resources/Images/Winner.png");
-    private Image loser= GetImages.getImage("src/Resources/Images/Loser.png");
-    private Image tie= GetImages.getImage("src/Resources/Images/tie.png");
-=======
-    private Image winner= GetImages.getImage("src/Images/Winner.png");
-    private Image loser= GetImages.getImage("src/Images/Loser.png");
-    private Image tie= GetImages.getImage("src/Images/tie.png");
->>>>>>> 9ac3a0f5154a0a0f5a008bc57cf5c362af464f31
-=======
-    private Image winner= GetImages.getImage("src/Images/Winner.png");
-    private Image loser= GetImages.getImage("src/Images/Loser.png");
-    private Image tie= GetImages.getImage("src/Images/tie.png");
->>>>>>> 9ac3a0f5154a0a0f5a008bc57cf5c362af464f31
+    //private Image winner= GetImages.getImage("src/Images/Winner.png");
+    //private Image loser= GetImages.getImage("src/Images/Loser.png");
+    //private Image tie= GetImages.getImage("src/Images/tie.png");
     private ExecuteButtonAction ScreenColorChanger=new ExecuteButtonAction();
-    private int[] register=new int[2];
-    private int Rounds=3;
 
-    public PRSController(){
-        register[0]=0;
-        register[1]=0;
-    }
     public void rock1Action(){
         hand1=Hand.getHand(0);
         ScreenColorChanger.setBtn1(rock1);
@@ -111,50 +94,31 @@ public class PRSController {
             ScreenColorChanger.illuminateBtn2();
             int state =HandsDuel.winner(hand1,hand2);
             if(state==1){
-                ImageRight.setImage(winner);
-                ImageLeft.setImage(loser);
-<<<<<<< HEAD
-<<<<<<< HEAD
+                //ImageRight.setImage(winner);
+                //ImageLeft.setImage(loser);
                 //falta accion al ganar
-=======
-                register[0]=register[0]+1;
->>>>>>> 9ac3a0f5154a0a0f5a008bc57cf5c362af464f31
-=======
-                register[0]=register[0]+1;
->>>>>>> 9ac3a0f5154a0a0f5a008bc57cf5c362af464f31
                 pause.play();
             }
             else if(state==2){
-                ImageRight.setImage(loser);
-                ImageLeft.setImage(winner);
+                //ImageRight.setImage(loser);
+                //ImageLeft.setImage(winner);
                 pause.play();
-                register[1]=register[1]+1;
+                //falta accion al ganar
             }
             else{
 
 
-                ImageRight.setImage(tie);
-                ImageLeft.setImage(tie);
+                //ImageRight.setImage(tie);
+                //ImageLeft.setImage(tie);
                 System.out.println("Hola");
-                 pause = new PauseTransition(Duration.seconds(1));
-                pause.setOnFinished(PauseAction);
+                //PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                //pause.setOnFinished(PauseAction);
                 pause.play();
 
 
 
             }
         }
-    }
-    public void setName1(String text){
-        PlayerName1.setText(text);
-
-    }
-    public void setName2(String text){
-        PlayerName2.setText(text);
-
-    }
-    public void setRound(int rounds){
-        this.Rounds=rounds;
     }
 
 

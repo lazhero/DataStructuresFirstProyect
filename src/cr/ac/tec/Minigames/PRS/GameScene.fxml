@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="332.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.tec.Minigames.PRS.PRSController">
-   <children>
-      <ImageView fitHeight="335.0" fitWidth="579.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../Images/PaperBackground.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="paper1" layoutX="114.0" layoutY="231.0" mnemonicParsing="false" onAction="#paper1Action" style="-fx-background-color: #d6fbf8;" underline="true">
-         <graphic>
-            <ImageView fx:id="paperImage" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+<TitledPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="601.0" text="Rock,Paper,Sccisors" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.tec.Minigames.PRS.PRSController">
+   <content>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="324.0" fitWidth="583.0" layoutX="20.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  <Image url="@../../../../../Resources/Images/PaperBackground.jpg" />
+                  <Image url="@../../../../../Images/PaperBackground.jpg" />
                </image>
             </ImageView>
             <Button fx:id="paper1" layoutX="114.0" layoutY="265.0" mnemonicParsing="false" onAction="#paper1Action" style="-fx-background-color: #d6fbf8;" underline="true">
                <graphic>
                   <ImageView fx:id="paperImage" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Resources/Images/Papel.png" />
+                        <Image url="@../../../../../Images/Papel.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -36,7 +28,7 @@
                <graphic>
                   <ImageView fx:id="paperImage1" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Resources/Images/Papel.png" />
+                        <Image url="@../../../../../Images/Papel.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -45,7 +37,7 @@
                <graphic>
                   <ImageView fx:id="rockImage" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Resources/Images/Piedra.png" />
+                        <Image url="@../../../../../Images/Piedra.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -54,7 +46,7 @@
                <graphic>
                   <ImageView fx:id="rockImage1" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Resources/Images/Piedra.png" />
+                        <Image url="@../../../../../Images/Piedra.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -63,7 +55,7 @@
                <graphic>
                   <ImageView fx:id="scissorsImage" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Resources/Images/Tijeras.png" />
+                        <Image url="@../../../../../Images/Tijeras.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -72,7 +64,7 @@
                <graphic>
                   <ImageView fx:id="sccisorsImage1" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Resources/Images/Tijeras.png" />
+                        <Image url="@../../../../../Images/Tijeras.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -84,78 +76,3 @@
       </AnchorPane>
    </content>
 </TitledPane>
-=======
-                  <Image url="@../../../../../Images/Papel.png" />
-               </image>
-            </ImageView>
-=======
-                  <Image url="@../../../../../Images/Papel.png" />
-               </image>
-            </ImageView>
->>>>>>> 9ac3a0f5154a0a0f5a008bc57cf5c362af464f31
-         </graphic>
-      </Button>
-      <Button fx:id="paper2" layoutX="416.0" layoutY="231.0" mnemonicParsing="false" onAction="#paper2Action" style="-fx-background-color: #d6fbf8;">
-         <graphic>
-            <ImageView fx:id="paperImage1" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Images/Papel.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="rock1" layoutX="31.0" layoutY="231.0" mnemonicParsing="false" onAction="#rock1Action" style="-fx-background-color: #d6fbf8;">
-         <graphic>
-            <ImageView fx:id="rockImage" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Images/Piedra.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="rock2" layoutX="336.0" layoutY="231.0" mnemonicParsing="false" onAction="#rock2Action" style="-fx-background-color: #d6fbf8;">
-         <graphic>
-            <ImageView fx:id="rockImage1" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Images/Piedra.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="sccisors1" layoutX="191.0" layoutY="231.0" mnemonicParsing="false" onAction="#sccisors1Action" style="-fx-background-color: #d6fbf8;">
-         <graphic>
-            <ImageView fx:id="scissorsImage" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Images/Tijeras.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="sccisors2" layoutX="496.0" layoutY="231.0" mnemonicParsing="false" onAction="#sccisors2Action" style="-fx-background-color: #d6fbf8;">
-         <graphic>
-            <ImageView fx:id="sccisorsImage1" fitHeight="60.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Images/Tijeras.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="Match" layoutX="271.0" layoutY="134.0" mnemonicParsing="false" onAction="#duelAction" text="Button" />
-      <ImageView fx:id="ImageRight" fitHeight="108.0" fitWidth="93.0" layoutX="60.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ImageLeft" fitHeight="108.0" fitWidth="93.0" layoutX="440.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="PlayerName1" alignment="CENTER" layoutX="59.0" layoutY="52.0" prefHeight="25.0" prefWidth="93.0" text="Hola" textAlignment="CENTER" textFill="RED" wrapText="true">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="PlayerName2" alignment="CENTER" layoutX="440.0" layoutY="52.0" prefHeight="25.0" prefWidth="93.0" text="Hola" textAlignment="CENTER" textFill="#5100ff" wrapText="true">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
-<<<<<<< HEAD
->>>>>>> 9ac3a0f5154a0a0f5a008bc57cf5c362af464f31
-=======
->>>>>>> 9ac3a0f5154a0a0f5a008bc57cf5c362af464f31
