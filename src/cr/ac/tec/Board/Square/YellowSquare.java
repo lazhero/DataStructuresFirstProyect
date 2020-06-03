@@ -68,13 +68,13 @@ public class YellowSquare extends Square {
         //CallToEvent(ListOfEvents.getInstance().getDoubleList().get(0)).EventData(player);
         //new Duel().EventData(player);
         //new memorygame().StarGame(1,3);
-        //new pressfirst().StartGame(0,1);
+        new pressfirst().StartGame(0,1);
         //new PRSGAME().StarGame(1,3);
         //new Prove().StartGame(0,1);
         //new DiamondHunterGame().StartGame(gameManager.getPlayerList());
         //new Duel().EventData(player);
         //new GiveAwayCoins().EventData(player);
-        new Main().StartGame(0,1);
+        //new Main().StartGame(0,1);
         //new PRSGAME().StarGame(1,3);
         //new TicTacToe().StartGame(0,1);
 

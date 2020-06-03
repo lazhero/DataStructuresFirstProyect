@@ -11,9 +11,9 @@ public class Main extends Application {
 
     public static void main(String[] args){
         dl = new DoubleList<Integer>();
+        dl.AddHead(0);
         dl.AddHead(1);
         dl.AddHead(2);
-        dl.AddHead(3);
         launch(args);
     }
     @Override

@@ -1,5 +1,6 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
+import cr.ac.tec.Events.AfterGameEvent;
 import cr.ac.tecLinkedList.List.DoubleList;
 import cr.ac.tecLinkedList.Sorting.BubbleSort;
 import javafx.animation.AnimationTimer;
@@ -42,6 +43,8 @@ public class DiamondHunterGame{
     public static boolean left;
     public static boolean right;
 
+    private Stage primaryStage;
+
 
     /**
      * Creates the interface in which the player interacts with.
@@ -77,8 +80,11 @@ public class DiamondHunterGame{
             stopWatch.start();
             totalDiamondsCollected=0;
             numberOfPlayers--;
+            new AfterGameEvent().AfterGameEventData(1,2);
         }
     }
+
+
 
     public void addScores(){
         if (TurnFinished && !Added) {
@@ -95,6 +101,8 @@ public class DiamondHunterGame{
             finalList(scores,scoreHashmap);
         }
     }
+
+
 
     public DoubleList<Integer> finalList(DoubleList<Integer> scores, HashMap<Long,Integer> scoreHashmap){
         DoubleList<Integer> finalList = new DoubleList();
@@ -313,7 +321,7 @@ public class DiamondHunterGame{
         this.playerList = playerList;
         this.numberOfPlayers=playerList.getLength();
 
-        Stage primaryStage = new Stage();
+        primaryStage = new Stage();
         createContent();
         eventHandler();
         primaryStage.setScene(scene);
