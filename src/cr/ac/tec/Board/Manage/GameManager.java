@@ -5,8 +5,10 @@ import cr.ac.tec.Board.LayoutNewContent;
 import cr.ac.tec.Board.PathGenerator.PathGenerator;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
+import cr.ac.tec.Events.Tournament;
 import cr.ac.tec.Events.YellowEvents.Duel;
 import cr.ac.tec.Events.lists.ListOfMiniGames;
+import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 import cr.ac.tec.Random.Random;
 import cr.ac.tecLinkedList.List.DoubleList;
 import cr.ac.tecLinkedList.List.DoubleRoundList;
@@ -172,6 +174,7 @@ public class GameManager {
                        MovePlayer(loser,counter);
 
 
+
                    }
                    running=false;
                    PlayersNodes.get(PlayerTurn).getInfo().event(PlayerList.get(PlayerTurn));
@@ -187,6 +190,7 @@ public class GameManager {
 
 
 
+
                        }
                        catch (Exception f){
 
@@ -199,6 +203,7 @@ public class GameManager {
                            System.out.println("Intente dibujar una estrella");
                            StarHolder.getInfo().DrawStar(this.SquareSide,StarRoute+ImagesFormat);
                            StarHolder.getInfo().ShowStar();
+                           new Tournament().TournamentData(getPlayerList());
                        }
                        catch (Exception Ex){
 

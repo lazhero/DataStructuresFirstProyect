@@ -1,5 +1,6 @@
 package cr.ac.tec.Minigames.ticTacToe;
 
+import cr.ac.tec.Events.AfterGameEvent;
 import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -33,7 +34,8 @@ public class TicTacToe{
     public static Tile[][] board = new Tile[3][3];
     public static DoubleList<Combo> combos = new DoubleList<>();
     public static Pane root = new Pane();
-
+    public static int victory;
+    public static int lose;
 
     public static void restart(){
 
@@ -44,7 +46,7 @@ public class TicTacToe{
      * Creates the interface which the player interacts with.
      * @return root
      */
-    public static Parent createContent(){
+    public static Parent createContent(int player1, int player2, Stage primaryStage){
         button.setPrefSize(100,20);
         button.setFont(Font.font(16));
         button.setTranslateX(250);
@@ -78,6 +80,15 @@ public class TicTacToe{
         //diagonals
         combos.AddHead(new Combo(board[0][0],board[1][1],board[2][2]));
         combos.AddHead(new Combo(board[2][0],board[1][1],board[0][2]));
+
+        Button buttok = new Button("OK");
+        buttok.setOnMouseClicked(event -> {
+            new AfterGameEvent().AfterGameEventData(victory,lose);
+            primaryStage.close();
+
+        });
+
+
 
         return root;
     }
@@ -207,7 +218,7 @@ public class TicTacToe{
 
     public void StartGame(int dato1, int dato2){
         Stage primaryStage = new Stage();
-        primaryStage.setScene(new Scene(createContent()));
+        primaryStage.setScene(new Scene(createContent(dato1,dato2,primaryStage)));
         primaryStage.show();
     }
 

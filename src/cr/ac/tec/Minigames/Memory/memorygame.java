@@ -5,12 +5,15 @@ import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.AfterGameEvent;
 import cr.ac.tec.Events.YellowEvents.Duel;
 import cr.ac.tec.Events.lists.ListOfMiniGames;
+import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -52,7 +55,11 @@ public class memorygame {
 
         Pane root = new Pane();
         root.setPrefSize(700,700);
-        root.getChildren().addAll(turn);
+        Image img = new Image("/Resources/images/fondo1.jpg");
+        ImageView fondo = new ImageView(img);
+        root.getChildren().addAll(fondo,turn);
+
+
         if (cont%2==0){
             turn.setText("Player " +player1+ "turn");
             turn.setTranslateY(650);
@@ -68,14 +75,14 @@ public class memorygame {
         }
 
         char c='A';
-        List<Tile> tiles =new ArrayList<>();
+        DoubleList<Tile> tiles = new DoubleList<>();
         for(int i=0; i<NUM_OF_PAIRS;i++){
-            tiles.add(new Tile(String.valueOf(c)));
-            tiles.add(new Tile(String.valueOf(c)));
+            tiles.AddTail(new Tile(String.valueOf(c)));
+            tiles.AddTail(new Tile(String.valueOf(c)));
             c++;
         }
-        Collections.shuffle(tiles);
-        for (int i=0;i<tiles.size();i++){
+        tiles=tiles.Shuffle();
+        for (int i=0;i<tiles.getLength();i++){
             Tile tile = tiles.get(i);
             tile.setTranslateX(130*((i)%NUM_PER_ROW)+80);
             tile.setTranslateY(130*((i)/NUM_PER_ROW)+10);

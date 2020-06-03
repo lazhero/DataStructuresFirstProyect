@@ -1,5 +1,6 @@
 package cr.ac.tec.Minigames.RandomNumber;
 
+import cr.ac.tec.Events.AfterGameEvent;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,13 +19,16 @@ public class Interface{
     static TextField inputNumber;
     static Button button = new Button("Go!");
     static Button restartButton = new Button("Try again!");
+    static Button Buttok = new Button("Ok!");
     public static Text text = new Text();
+    static int victory;
+    static int lose;
 
     /**
      * Creates the interface which the player interacts with.
      * @return root
      */
-    public static Parent createContent(){
+    public static Parent createContent(int player1,int player2, Stage primaryStage){
         root.setPrefSize(300,300);
 
         inputNumber = createTextField(100,100,200);
@@ -37,14 +41,21 @@ public class Interface{
 
         restartButton.setTranslateX(10);
         restartButton.setTranslateY(10);
-        restartButton.setOnMouseClicked(e -> restart());
+        restartButton.setOnMouseClicked(e -> restart(player1,player2));
 
         text.setFont(Font.font(20));
 
+        Button buttok = new Button("OK");
+        buttok.setOnMouseClicked(event -> {
+            new AfterGameEvent().AfterGameEventData(victory,lose);
+            primaryStage.close();
+
+        });
 
 
 
-        root.getChildren().addAll(inputNumber,button,text,restartButton);
+
+        root.getChildren().addAll(inputNumber,button,text,restartButton,buttok);
         return root;
     }
 
@@ -67,5 +78,19 @@ public class Interface{
         return temp;
     }
 
+    public static void setVictory(int victory) {
+        Interface.victory = victory;
+    }
 
+    public static int getVictory() {
+        return victory;
+    }
+
+    public static int getLose() {
+        return lose;
+    }
+
+    public static void setLose(int lose) {
+        Interface.lose = lose;
+    }
 }

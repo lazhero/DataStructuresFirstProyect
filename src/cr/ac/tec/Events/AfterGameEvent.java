@@ -18,9 +18,21 @@ import java.util.concurrent.TimeUnit;
 public class AfterGameEvent {
     private String Data;
 
-    public void AfterGameEvent(int player1, int player2){
+    public void AfterGameEvent(int playerwin, int playerlose){
+        System.out.println(playerwin);
+        System.out.println(playerlose);
         GameManager gameManager = GameManager.getInstance(0,0);
-        gameManager.MovePlayer(gameManager.getPlayerList().get(player2),-1);
+        gameManager.MovePlayer(gameManager.getPlayerList().get(playerlose),-1);
+
+        gameManager.getPlayerList().get(playerwin).setCoins(gameManager.getPlayerList().get(playerwin).getCoins()+1);
+        if (gameManager.getPlayerList().get(playerlose).getCoins()==0){
+            gameManager.getPlayerList().get(playerlose).setCoins(0);
+        }
+        else{
+            gameManager.getPlayerList().get(playerlose).setCoins(gameManager.getPlayerList().get(playerlose).getCoins()-1);
+
+        }
+
 
 
 
@@ -32,7 +44,7 @@ public class AfterGameEvent {
 
         Data="The player who won was the player number: "+ numberofplayerwin+ "\n Player :"+numberofplayerwin +" wins 1 coin: "+"\n The player who lost was the player number :"+numberofplayerlose+" \n The player"+numberofplayerlose+"Lose 1 coin";
         VBox vb = new VBox();
-        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(570);
         vb.setMaxWidth(570);
         vb.setMinHeight(370);

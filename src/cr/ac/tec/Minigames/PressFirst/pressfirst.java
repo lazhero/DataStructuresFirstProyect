@@ -1,9 +1,12 @@
 package cr.ac.tec.Minigames.PressFirst;
 
 import cr.ac.tec.Board.Manage.GameManager;
+import cr.ac.tec.Events.AfterGameEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -24,6 +27,7 @@ public class pressfirst  {
     int cont1;
     int cont2;
     int victory;
+    int lose;
     private Text p1 = new Text();
     private Text p2 = new Text();
     private Text random = new Text();
@@ -33,10 +37,12 @@ public class pressfirst  {
 
 
 
-    public Parent createContent(int dato1, int dato2){
+    public Parent createContent(int dato1, int dato2,Stage primaryStage){
         Pane root = new Pane();
 
         root.setPrefSize(700,700);
+        Image img = new Image("/Resources/images/fondo.png");
+        ImageView fondo = new ImageView(img);
 
 
         score1.setTranslateY(600);
@@ -74,16 +80,26 @@ public class pressfirst  {
         dat1=dato1;
         dat2=dato2;
 
-        root.getChildren().addAll(score1,score2,p1,p2,random,winnerp);
+        Button buttok = new Button("OK");
+        buttok.setOnMouseClicked(event -> {
+            new AfterGameEvent().AfterGameEventData(victory,lose);
+            primaryStage.close();
+
+        });
+
+        root.getChildren().addAll(fondo,score1,score2,p1,p2,random,winnerp,buttok);
+
         return root;
     }
     public void winner(int a,int b){
         if (a==0 && b>0){
             winnerp.setText("Player "+dat1 + " win");
             victory=dat1;
+            lose=dat2;
         }
         else if(b==0 && a>0){
             victory=dat2;
+            lose=dat1;
             winnerp.setText("Player "+ dat2+" win");
         }
     }
@@ -101,7 +117,7 @@ public class pressfirst  {
         //MediaPlayer repro = new MediaPlayer(audio);
        // repro.setAutoPlay(true);
         Stage primaryStage = new Stage();
-        Scene scene = new Scene(createContent(dat1,dat2));
+        Scene scene = new Scene(createContent(dat1,dat2,primaryStage));
         scene.setOnKeyPressed(event->{
             switch (event.getCode()){
                 case A: break;

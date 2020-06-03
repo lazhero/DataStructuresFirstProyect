@@ -67,7 +67,7 @@ public class Duel extends Event {
             milista.delete(0);
 
         }else if(milista.get(0).toString()=="RandomNumber"){
-            new cr.ac.tec.Minigames.RandomNumber.Main().StartGame();
+            new cr.ac.tec.Minigames.RandomNumber.Main().StartGame(dato1,dato2);
             milista.delete(0);
 
         }
@@ -149,7 +149,7 @@ public class Duel extends Event {
         dato2=listaaleatoria.get(random);
         Data="Hello! You activated an event\n \n"+"You’ll have a duel with the player:  "+dato2+" \n "+gamedescription;
         VBox vb = new VBox();
-        vb.setStyle("-fx-background-image: url(/Images/Vboxbg.jpg)");
+        vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(570);
         vb.setMaxWidth(570);
         vb.setMinHeight(370);
