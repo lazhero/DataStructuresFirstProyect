@@ -3,10 +3,9 @@ package cr.ac.tec.Board.Count;
 import cr.ac.tec.Board.LayoutCreation;
 import cr.ac.tec.Board.LayoutNewContent;
 import cr.ac.tec.Images.GetImages;
-import cr.ac.tecLinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 

@@ -7,7 +7,7 @@ import cr.ac.tec.Minigames.Memory.memorygame;
 import cr.ac.tec.Minigames.PRS.PRSGAME;
 import cr.ac.tec.Minigames.Shoot.Prove;
 import cr.ac.tec.Minigames.ticTacToe.TicTacToe;
-import cr.ac.tecLinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;

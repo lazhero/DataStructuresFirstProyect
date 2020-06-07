@@ -1,6 +1,6 @@
 package cr.ac.tec.Board.PathGenerator;
 
-import cr.ac.tecLinkedList.List.SingleList;
+import cr.ac.tec.LinkedList.List.SingleList;
 
 public class CoordL implements NewCoordsFactory {
 

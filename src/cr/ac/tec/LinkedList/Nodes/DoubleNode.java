@@ -1,4 +1,4 @@
-package cr.ac.tecLinkedList.Nodes;
+package cr.ac.tec.LinkedList.Nodes;
 
 public class DoubleNode<T> {
     private T info;//Stored Information

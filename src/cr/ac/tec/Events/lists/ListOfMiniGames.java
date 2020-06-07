@@ -1,10 +1,7 @@
 package cr.ac.tec.Events.lists;
 
-import cr.ac.tecLinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import cr.ac.tec.Minigames.Memory.*;
 public class ListOfMiniGames {
     protected static DoubleList milista;
     public static ListOfMiniGames instance=null;

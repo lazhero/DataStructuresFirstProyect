@@ -1,6 +1,6 @@
 package cr.ac.tec.Board;
 
-import cr.ac.tecLinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 
 public abstract class PlayerSubject {
     int stars;//Number of start

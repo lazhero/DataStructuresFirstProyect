@@ -3,11 +3,8 @@ package cr.ac.tec.Minigames.Memory;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.AfterGameEvent;
-import cr.ac.tec.Events.YellowEvents.Duel;
-import cr.ac.tec.Events.lists.ListOfMiniGames;
-import cr.ac.tecLinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.animation.FadeTransition;
-import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,12 +19,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 import javafx.scene.input.MouseEvent;
-import cr.ac.tec.Events.AfterGameEvent;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import javafx.util.Duration;
 
 

@@ -1,9 +1,9 @@
-package cr.ac.tecLinkedList.Sorting;
+package cr.ac.tec.LinkedList.Sorting;
 
-import cr.ac.tecLinkedList.List.DoubleList;
-import cr.ac.tecLinkedList.List.List;
-import cr.ac.tecLinkedList.List.Sorting;
-import cr.ac.tecLinkedList.Nodes.DoubleNode;
+import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.List;
+import cr.ac.tec.LinkedList.List.Sorting;
+import cr.ac.tec.LinkedList.Nodes.DoubleNode;
 
 public class InsertionDouble<T extends Comparable>  implements Sorting<T> {
     private DoubleList<T> List;

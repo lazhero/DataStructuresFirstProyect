@@ -1,10 +1,5 @@
-package cr.ac.tecLinkedList.Sorting;
+package cr.ac.tec.LinkedList.Sorting;
 
-import cr.ac.tecLinkedList.List.DoubleList;
-import cr.ac.tecLinkedList.List.List;
-import cr.ac.tecLinkedList.List.Sorting;
-
-import java.util.ArrayList;
 /**
 
 public class SelectionSort<T extends Comparable> implements Sorting {
