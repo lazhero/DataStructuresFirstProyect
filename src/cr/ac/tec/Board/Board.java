@@ -26,6 +26,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
@@ -40,6 +41,7 @@ public class Board extends Application {
     public static GameManager gameManager;
     private TextField textField;
     public static boolean displayHandImage=true;
+    public Button button;
 
     public static void main(String[] args){
         launch(args);
@@ -62,7 +64,7 @@ public class Board extends Application {
         FirstLevelAnchorPane.setStyle("-fx-background-color: #0078d7");
         gameManager= GameManager.getInstance(4,25,50,"src/Resources/Images/Piece","src/Resources/Images/MarioStar",".png");
         gameManager.Draw(FirstLevelAnchorPane);
-        FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,textField);
+        FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,textField,button);
         MainWindow.setScene(scene);
         MainWindow.show();
     }
@@ -73,6 +75,17 @@ public class Board extends Application {
             //Board.gameManager.StartTurn(Integer.parseInt(textField.getText()));
             ThrowDice xd = new ThrowDice();
             xd.start();
+        });
+        button = new Button("Ok!");
+        button.setPrefSize(50,40);
+        button.setTranslateY(85);
+        button.setTranslateX(825);
+        button.setFont(Font.font(14));
+        button.setOnMouseClicked(e ->{
+            Dice xd = new Dice();
+
+            Board.gameManager.StartTurn(Dice.finalNumber);
+            Board.displayHandImage = true;
         });
         //customButton.setOnMouseClicked(e ->dice.start());
     }

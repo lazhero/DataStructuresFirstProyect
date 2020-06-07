@@ -28,14 +28,13 @@ public class Dice{
     private Group root;
     private Scene scene;
     private Canvas canvas;
-    private boolean drawable = true;
+    public static boolean drawable = true;
     private Rectangle[] diceCoordinates;
     private int diceNumber1;
     private int diceNumber2;
     private int customY;
-    private boolean lastDice;
-    private int finalNumber;
-    private Button button;
+    public static boolean lastDice;
+    public static int finalNumber;
 
 
 
@@ -72,23 +71,6 @@ public class Dice{
         images.put("background", new Image("Resources/Images/black.png"));
     }
 
-    public void createContent(){
-        button = new Button("Ok");
-        button.setTranslateY(80);
-        button.setTranslateX(80);
-        button.setFont(Font.font(14));
-        button.setOnMouseClicked(e ->{
-            Board.gameManager.StartTurn(finalNumber);
-            Board.displayHandImage = true;
-        });
-        images = new HashMap<String, Image>();
-        loadImages();
-        root = new Group();
-        scene = new Scene(root,200,115, Color.BLACK);
-        canvas = new Canvas(200,130);
-        root.getChildren().addAll(canvas,button);
-        graphicsContext = canvas.getGraphicsContext2D();
-    }
 
 
     public void calculateFrame(double t){
@@ -156,12 +138,12 @@ public class Dice{
     }
 
     public void draw(){
-        graphicsContext.drawImage(images.get("dice"), x, y, width, height, 100, 0, 100, 100);
-        graphicsContext.drawImage(images.get("dice"), x, y, width, height, 0, 0, 100, 100);
+        Board.graphicsContext.drawImage(images.get("dice"), x, y, width, height, 850, 0, 100, 100);
+        Board.graphicsContext.drawImage(images.get("dice"), x, y, width, height, 750, 0, 100, 100);
         if (lastDice) {
             finalImage(diceNumber2);
             //System.out.println(customY);
-            graphicsContext.drawImage(images.get("dice"), x, customY, width, height, 100, 0, 100, 100);
+            Board.graphicsContext.drawImage(images.get("dice"), x, customY, width, height, 850, 0, 100, 100);
         }
     }
 
@@ -171,14 +153,11 @@ public class Dice{
     public void start(){
         lastDice=false;
         drawable=true;
-        Stage primaryStage = new Stage();
-        createContent();
+        images = new HashMap<String, Image>();
+        loadImages();
         cycle();
         randomNumber();
         animations = new HashMap<String, Animation>();
         initializeAnimations();
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Dice");
-        primaryStage.show();
     }
 }
