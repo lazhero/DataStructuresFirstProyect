@@ -54,7 +54,6 @@ public class Dice{
     }
 
     public void initializeAnimations(){
-        System.out.println(drawable);
         diceCoordinates= new Rectangle[]{
                 new Rectangle(0,1536,512,512),//1
                 new Rectangle(0,0,512,512),//2
@@ -78,7 +77,10 @@ public class Dice{
         button.setTranslateY(80);
         button.setTranslateX(80);
         button.setFont(Font.font(14));
-        button.setOnMouseClicked(e -> Board.gameManager.StartTurn(finalNumber));
+        button.setOnMouseClicked(e ->{
+            Board.gameManager.StartTurn(finalNumber);
+            Board.displayHandImage = true;
+        });
         images = new HashMap<String, Image>();
         loadImages();
         root = new Group();

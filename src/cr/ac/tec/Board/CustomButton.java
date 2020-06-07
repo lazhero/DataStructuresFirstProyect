@@ -27,14 +27,9 @@ public class CustomButton extends StackPane {
         rectangle.setFill(null);
         rectangle.setStroke(Color.LIGHTGREEN);
         getChildren().addAll(rectangle);
-        draw();
-        setOnMouseClicked(e -> System.out.println("xd"));
+
     }
 
 
-
-    public void draw(){
-        Board.graphicsContext.drawImage(image,x,y,w,h);
-    }
 
 }
