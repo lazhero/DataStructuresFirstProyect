@@ -21,7 +21,7 @@ public class Tournament {
 
     public void Tournament(DoubleList playerList) {
         new DiamondHunterGame().StartGame(playerList);
-
+        
     }
     public void TournamentData(DoubleList playerList) {
 

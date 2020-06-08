@@ -1,6 +1,7 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import cr.ac.tec.Events.AfterGameEvent;
+import cr.ac.tec.Events.AfterTournamentEvent;
 import cr.ac.tecLinkedList.List.DoubleList;
 import cr.ac.tecLinkedList.Sorting.BubbleSort;
 import javafx.animation.AnimationTimer;
@@ -94,7 +95,8 @@ public class DiamondHunterGame{
         buttonOk.setTranslateX(100);
         buttonOk.setTranslateY(15);
         buttonOk.setOnMouseClicked(e -> {
-            new AfterGameEvent().AfterGameEventData(1,2);
+            new AfterTournamentEvent().AfterTournamentData(finalList);
+            primaryStage.close();
 
         });
     }
