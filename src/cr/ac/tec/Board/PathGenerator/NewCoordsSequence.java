@@ -1,6 +1,6 @@
 package cr.ac.tec.Board.PathGenerator;
 
-import cr.ac.tec.LinkedList.LinkedList.List.SingleList;
+import cr.ac.tec.LinkedList.List.SingleList;
 
 public class NewCoordsSequence {
    public static SingleList<NewCoordsFactory> getNewCoorsSequence(int pos, int square){

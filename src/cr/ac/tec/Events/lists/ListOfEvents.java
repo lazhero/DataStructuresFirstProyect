@@ -1,7 +1,7 @@
 package cr.ac.tec.Events.lists;
 
 import cr.ac.tec.Events.YellowEvents.*;
-import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 
 
 public class ListOfEvents {

@@ -1,6 +1,6 @@
 package cr.ac.tec.Events.lists;
 
-import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 
 public class ListOfMiniGames {
     protected static DoubleList milista;

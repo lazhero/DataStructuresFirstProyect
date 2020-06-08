@@ -1,7 +1,7 @@
 package cr.ac.tec.Minigames.ticTacToe;
 
 import cr.ac.tec.Events.AfterGameEvent;
-import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
