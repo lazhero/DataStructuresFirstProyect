@@ -1,8 +1,8 @@
 package cr.ac.tec.Events;
 
 import cr.ac.tec.Board.Manage.GameManager;
-import cr.ac.tecLinkedList.List.DoubleList;
-import cr.ac.tecLinkedList.List.List;
+import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.List;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;

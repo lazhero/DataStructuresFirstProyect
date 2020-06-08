@@ -1,6 +1,7 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import cr.ac.tec.Events.AfterGameEvent;
+import cr.ac.tec.Events.AfterTournamentEvent;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import cr.ac.tec.LinkedList.Sorting.BubbleSort;
 import javafx.animation.AnimationTimer;
