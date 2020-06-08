@@ -6,7 +6,7 @@ public class CoordD implements NewCoordsFactory {
 
 
     @Override
-    public SingleList<Double> getCoords(double coordx, double coordy,double sidesize) {
+    public SingleList<Double> getCoords(double coordx, double coordy, double sidesize) {
         coordy+=sidesize;
         SingleList<Double> List=new SingleList<>();
         List.AddTail(coordx);
