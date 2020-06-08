@@ -1,8 +1,7 @@
 package cr.ac.tec.Board.PathGenerator;
 
 
-import cr.ac.tecLinkedList.List.List;
-import cr.ac.tecLinkedList.List.SingleList;
+import cr.ac.tec.LinkedList.List.SingleList;
 
 public class Adjust {
     public static boolean edgetoadjust(NewCoordsFactory first,NewCoordsFactory second){

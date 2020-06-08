@@ -2,11 +2,7 @@ package cr.ac.tec.Events.YellowEvents;
 
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
-import cr.ac.tec.Board.Square.Square;
-import cr.ac.tec.Events.YellowEvents.Event;
 import cr.ac.tec.Events.lists.ListOfEvents;
-import cr.ac.tec.Random.Random;
-import cr.ac.tecLinkedList.Nodes.DoubleNode;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;

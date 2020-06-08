@@ -1,15 +1,12 @@
 package cr.ac.tec.Board.Square;
 //import com.sun.media.jfxmediaimpl.platform.Platform;
 import cr.ac.tec.Board.*;
-import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Images.GetImages;
-import cr.ac.tecLinkedList.List.DoubleList;
-import javafx.animation.PauseTransition;
+import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
-import javafx.util.Duration;
 
 import java.io.IOException;
 public abstract class  Square {

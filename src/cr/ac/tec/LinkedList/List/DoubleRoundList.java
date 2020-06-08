@@ -1,6 +1,6 @@
-package cr.ac.tecLinkedList.List;
+package cr.ac.tec.LinkedList.List;
 
-import cr.ac.tecLinkedList.Nodes.DoubleNode;
+import cr.ac.tec.LinkedList.Nodes.DoubleNode;
 
 public class DoubleRoundList<T> implements List<T> {
     private DoubleNode<T> head,tail;//The first and last node reference

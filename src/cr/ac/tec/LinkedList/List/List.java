@@ -1,6 +1,4 @@
-package cr.ac.tecLinkedList.List;
-
-import cr.ac.tecLinkedList.Nodes.DoubleNode;
+package cr.ac.tec.LinkedList.List;
 
 public interface List<T> {
     public abstract void AddHead(T NewInfo);

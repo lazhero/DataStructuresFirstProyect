@@ -1,9 +1,8 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import cr.ac.tec.Events.AfterGameEvent;
-import cr.ac.tec.Events.AfterTournamentEvent;
-import cr.ac.tecLinkedList.List.DoubleList;
-import cr.ac.tecLinkedList.Sorting.BubbleSort;
+import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.Sorting.BubbleSort;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -261,8 +260,10 @@ public class DiamondHunterGame{
             public void handle(long currentTime) {
                 double t = (currentTime - initialTime) / 1000000000.0;
                 //System.out.println((int)t);
-                updateState(t);
-                draw();
+                if (!TurnFinished) {
+                    updateState(t);
+                    draw();
+                }
             }
         };
         animationTimer.start();//Empieza el ciclo de juego.

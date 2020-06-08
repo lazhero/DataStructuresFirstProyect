@@ -1,6 +1,6 @@
 package cr.ac.tec.Stack;
 
-import cr.ac.tecLinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 
 public class Stack<T> {
     private DoubleList<T> reference;

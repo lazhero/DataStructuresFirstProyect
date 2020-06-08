@@ -1,4 +1,4 @@
-package cr.ac.tecLinkedList.List;
+package cr.ac.tec.LinkedList.List;
 
 public class ComparableDoubleList<T extends Comparable> extends DoubleList<T> {
     private Sorting sortingMethod;

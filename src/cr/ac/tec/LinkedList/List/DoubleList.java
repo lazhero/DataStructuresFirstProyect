@@ -1,10 +1,7 @@
-package cr.ac.tecLinkedList.List;
+package cr.ac.tec.LinkedList.List;
 
 import cr.ac.tec.Random.Random;
-import cr.ac.tecLinkedList.Nodes.DoubleNode;
-import cr.ac.tecLinkedList.Nodes.SingleListNode;
-
-import java.time.temporal.Temporal;
+import cr.ac.tec.LinkedList.Nodes.DoubleNode;
 
 public class DoubleList<T> implements List<T> {
     private DoubleNode<T> head,tail;//The first and last node

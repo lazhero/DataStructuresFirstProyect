@@ -1,10 +1,6 @@
 package cr.ac.tec.Events;
 
 import cr.ac.tec.Board.Manage.GameManager;
-import cr.ac.tec.Board.Player;
-import cr.ac.tec.Events.lists.ListOfEvents;
-import cr.ac.tec.Events.lists.ListOfMiniGames;
-import cr.ac.tecLinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -12,7 +8,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class AfterGameEvent {
