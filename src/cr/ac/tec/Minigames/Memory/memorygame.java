@@ -3,7 +3,7 @@ package cr.ac.tec.Minigames.Memory;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.AfterGameEvent;
-import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;

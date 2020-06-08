@@ -1,8 +1,8 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import cr.ac.tec.Events.AfterGameEvent;
-import cr.ac.tec.LinkedList.List.DoubleList;
-import cr.ac.tec.LinkedList.Sorting.BubbleSort;
+import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.LinkedList.Sorting.BubbleSort;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
