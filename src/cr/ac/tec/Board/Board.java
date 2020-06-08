@@ -58,9 +58,9 @@ public class Board extends Application {
     public void boardButtons(){
         customButton = new CustomButton(images.get("HandRollingDice"),5,5,140,120);
         customButton.setOnMouseClicked(e -> {
-            //Board.gameManager.StartTurn(Integer.parseInt(textField.getText()));
-            ThrowDice xd = new ThrowDice();
-            xd.start();
+            Board.gameManager.StartTurn(Integer.parseInt(textField.getText()));
+            //ThrowDice xd = new ThrowDice();
+            //xd.start();
         });
         button = new Button("Ok!");
         button.setPrefSize(50,40);
