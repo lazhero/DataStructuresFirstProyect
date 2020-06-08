@@ -1,4 +1,4 @@
-package cr.ac.tec.LinkedList.Nodes;
+package cr.ac.tec.LinkedList.LinkedList.Nodes;
 
 public class SingleListNode<T> {
     private T info;// Node's content

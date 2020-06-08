@@ -1,4 +1,4 @@
-package cr.ac.tec.LinkedList.Sorting;
+package cr.ac.tec.LinkedList.LinkedList.Sorting;
 
 /**
 

@@ -2,10 +2,10 @@ package cr.ac.tec.Board.PathGenerator;
 
 import cr.ac.tec.Board.Square.*;
 import cr.ac.tec.Random.Random;
-import cr.ac.tec.LinkedList.List.DoubleList;
-import cr.ac.tec.LinkedList.List.DoubleRoundList;
-import cr.ac.tec.LinkedList.List.List;
-import cr.ac.tec.LinkedList.List.SingleList;
+import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.LinkedList.List.DoubleRoundList;
+import cr.ac.tec.LinkedList.LinkedList.List.List;
+import cr.ac.tec.LinkedList.LinkedList.List.SingleList;
 
 public class PathGenerator {
     public static DoubleRoundList<Square> GenerateCircle(int SquaresonSide,double posx, double posy,double SquareSide,double SpaceBetween,boolean onEvent){

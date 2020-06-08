@@ -1,4 +1,4 @@
-package cr.ac.tec.LinkedList.List;
+package cr.ac.tec.LinkedList.LinkedList.List;
 
 public interface List<T> {
     public abstract void AddHead(T NewInfo);

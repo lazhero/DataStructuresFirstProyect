@@ -9,7 +9,7 @@ import cr.ac.tec.Events.lists.ListOfMiniGames;
 import cr.ac.tec.Minigames.PressFirst.*;
 
 
-import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
 import javafx.scene.paint.Color;
 
 

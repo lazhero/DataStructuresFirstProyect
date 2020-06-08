@@ -1,6 +1,6 @@
 package cr.ac.tec.Board.Square;
 
-import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
 
 public class Prueba {
     public static void main(String[] args){
