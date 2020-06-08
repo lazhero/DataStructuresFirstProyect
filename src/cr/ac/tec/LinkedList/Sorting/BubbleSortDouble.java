@@ -1,7 +1,7 @@
-package cr.ac.tec.LinkedList.LinkedList.Sorting;
-import cr.ac.tec.LinkedList.LinkedList.List.Sorting;
-import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
-import cr.ac.tec.LinkedList.LinkedList.List.List;
+package cr.ac.tec.LinkedList.Sorting;
+import cr.ac.tec.LinkedList.List.Sorting;
+import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.List;
 
 public class BubbleSortDouble<T extends Comparable<T>> implements Sorting<T> {
     DoubleList<T> List;

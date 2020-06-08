@@ -1,4 +1,4 @@
-package cr.ac.tec.LinkedList.LinkedList.List;
+package cr.ac.tec.LinkedList.List;
 
 public interface Sorting<T extends Comparable> {
     public void sort();

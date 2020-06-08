@@ -2,7 +2,7 @@ package cr.ac.tec.Board.Square;
 //import com.sun.media.jfxmediaimpl.platform.Platform;
 import cr.ac.tec.Board.*;
 import cr.ac.tec.Images.GetImages;
-import cr.ac.tec.LinkedList.LinkedList.List.DoubleList;
+import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;

@@ -1,6 +1,6 @@
-package cr.ac.tec.LinkedList.LinkedList.List;
+package cr.ac.tec.LinkedList.List;
 
-import cr.ac.tec.LinkedList.LinkedList.Nodes.SingleListNode;
+import cr.ac.tec.LinkedList.Nodes.SingleListNode;
 
 public class SingleList<T> implements List<T>{
     private SingleListNode<T> head,tail;//The first and last node reference

@@ -1,7 +1,7 @@
-package cr.ac.tec.LinkedList.LinkedList.List;
+package cr.ac.tec.LinkedList.List;
 
 import cr.ac.tec.Random.Random;
-import cr.ac.tec.LinkedList.LinkedList.Nodes.DoubleNode;
+import cr.ac.tec.LinkedList.Nodes.DoubleNode;
 
 public class DoubleList<T> implements List<T> {
     private DoubleNode<T> head,tail;//The first and last node
