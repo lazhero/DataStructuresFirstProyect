@@ -5,6 +5,7 @@ public class HandsDuel {
         int FirstHandValue=hand1.getValue();
         int SecondHandValue= hand2.getValue();
         if((FirstHandValue+1)%3==SecondHandValue){
+
             return 1;
         }
         else if(FirstHandValue==SecondHandValue){
