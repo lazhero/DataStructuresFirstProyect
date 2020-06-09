@@ -215,7 +215,7 @@ public class Background extends GameObject{
      */
     @Override
     public void move() {
-        if (!DiamondHunterGame.TurnFinished) {
+        if (!DiamondHunterGame.TurnFinished && !DiamondHunterGame.GameOver) {
             if (DiamondHunterGame.right && x > -2040) {
                 if (touchingRightSide)
                     return;

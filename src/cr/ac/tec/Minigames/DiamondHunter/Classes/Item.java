@@ -70,7 +70,7 @@ public class Item extends GameObject {
      */
     @Override
     public void move() {
-        if(TurnFinished){
+        if(TurnFinished && DiamondHunterGame.GameOver){
             return;
         } else {
             //RIGHT

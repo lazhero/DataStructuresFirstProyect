@@ -40,7 +40,7 @@ public class DiamondHunterGame{
 
     private StopWatch stopWatch = new StopWatch();
 
-    private boolean GameOver=false;
+    public static boolean GameOver=false;
     private boolean Added=false;
     public static boolean TurnFinished = false;
     public static int totalDiamondsCollected = 0;
