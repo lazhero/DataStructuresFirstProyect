@@ -368,6 +368,9 @@ public class DiamondHunterGame{
     public void StartGame(DoubleList playerList){
         this.playerList = playerList;
         this.numberOfPlayers=playerList.getLength();
+        TurnFinished = false;
+        GameOver = false;
+        totalDiamondsCollected = 0;
 
         primaryStage = new Stage();
         createContent();

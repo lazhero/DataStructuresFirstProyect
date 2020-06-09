@@ -1,5 +1,6 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
+import cr.ac.tec.Board.Board;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Barrier extends GameObject {
@@ -102,7 +103,7 @@ public class Barrier extends GameObject {
      */
     @Override
     public void move() {
-        if (!DiamondHunterGame.TurnFinished) {
+        if (!DiamondHunterGame.TurnFinished && !DiamondHunterGame.GameOver) {
             //RIGHT
             if (DiamondHunterGame.right && x <= initialX) {
                 if (Background.touchingRightSide)
