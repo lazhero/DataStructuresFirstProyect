@@ -22,7 +22,6 @@ public class LayoutCreation {
 
     }
 
-
     /**
      *
      * @param width the scroll width's
@@ -35,5 +34,4 @@ public class LayoutCreation {
         scrolls.setPrefViewportWidth(width);
         return scrolls;
     }
-
 }

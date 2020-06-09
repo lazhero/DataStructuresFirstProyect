@@ -22,9 +22,13 @@ public class StealStar extends Event {
      */
     @Override
     public void event1(Player player) {
-
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     @Override
     public void event2(Player player1, Player player2) {
         if (player2.getStars()==1){
@@ -33,10 +37,9 @@ public class StealStar extends Event {
         }else{
             player2.setStars(player2.getStars());
             player1.setStars(player1.getStars()+1);
-
         }
-
     }
+
     /**
      * Information of the event
      * @param player
@@ -65,7 +68,6 @@ public class StealStar extends Event {
         Data="Hey!! You activated this event \n\n" +
                 " Congratulations, you can steal 1 star from another player \n";
         gameManager.setRunning(true);
-
         Text data = new Text();
         data.setText(Data);
         data.setStyle("-fx-fill: white");
@@ -108,7 +110,6 @@ public class StealStar extends Event {
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(2);
                 listaaleatoria.AddTail(3);
-
             }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(1);
@@ -124,8 +125,6 @@ public class StealStar extends Event {
             b3.setText("Player"+listaaleatoria.get(2));
         }
 
-
-
         b1.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
@@ -136,7 +135,6 @@ public class StealStar extends Event {
             gameManager.setRunning(false);
             event2(player,gameManager.getPlayerList().get(listaaleatoria.get(0)));
             return;
-
         });
         b2.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
@@ -148,7 +146,6 @@ public class StealStar extends Event {
             gameManager.setRunning(false);
             event2(player,gameManager.getPlayerList().get(listaaleatoria.get(1)));
             return;
-
         });
         b3.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
@@ -160,7 +157,6 @@ public class StealStar extends Event {
             gameManager.setRunning(false);
             event2(player,gameManager.getPlayerList().get(listaaleatoria.get(2)));
             return;
-
         });
         vb.getChildren().addAll(data,b1,b2,b3);
         gameManager.getAnchorPane().getChildren().add(vb);

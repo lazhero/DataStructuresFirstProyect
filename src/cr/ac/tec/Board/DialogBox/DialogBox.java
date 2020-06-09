@@ -26,6 +26,11 @@ public class DialogBox extends AnchorPane {
     private String text;
     private ImageView Background;
     private AnchorPane anchorPane;
+
+    /**
+     *
+     * @param builder
+     */
     protected DialogBox(Builder builder){
         this.NoButton=builder.NoButton;
         this.YesButton=builder.YesButton;
@@ -35,12 +40,22 @@ public class DialogBox extends AnchorPane {
         this.text=builder.text;
         this.anchorPane=null;
     }
+
+    /**
+     *
+     * @param pane
+     * @param xAxis
+     * @param yAxis
+     */
     public void Draw(AnchorPane pane,double xAxis,double yAxis){
         if(pane!=null && anchorPane!=null){
             LayoutNewContent.Add(pane,anchorPane,xAxis,0,0,yAxis);
         }
-
     }
+
+    /**
+     *
+     */
     public void setAnchorPane(){
         anchorPane= LayoutCreation.Anchor(width,height);
         Background.setPreserveRatio(true);
@@ -61,14 +76,7 @@ public class DialogBox extends AnchorPane {
         LayoutNewContent.Add(anchorPane,NoButton,0,0,XPosButton,0);
         anchorPane.setTopAnchor(Background,0.0);
         anchorPane.setLeftAnchor(Background,0.0);
-
-
-
-
-
     }
-
-
 
 
     public static class Builder{
@@ -79,7 +87,11 @@ public class DialogBox extends AnchorPane {
         private String text;
         private ImageView Background;
 
-
+        /**
+         *
+         * @param route
+         * @param btn
+         */
         private void SetImage(String route,Button btn){
             ImageView imageView=null;
             try {
@@ -91,39 +103,93 @@ public class DialogBox extends AnchorPane {
             }
             btn=new Button("",imageView);
         }
+
+        /**
+         *
+         * @param route
+         * @return
+         */
         public Builder SetButton1Image(String route){
             SetImage(route,YesButton);
             return this;
         }
+
+        /**
+         *
+         * @param route
+         * @return
+         */
         public Builder SetButton2Image(String route){
             SetImage(route, NoButton);
             return this;
         }
+
+        /**
+         *
+         * @param height
+         * @return
+         */
         public Builder SetHeight(double height){
             this.height=height;
             return this;
         }
+
+        /**
+         *
+         * @param width
+         * @return
+         */
         public Builder SetWidth(double width){
             this.width=width;
             return this;
         }
+
+        /**
+         *
+         * @param eventEventHandler
+         * @param button
+         */
         private void setAction(EventHandler<ActionEvent> eventEventHandler,Button button){
             if(button!=null){
                 button.setOnAction(eventEventHandler);
             }
         }
+
+        /**
+         *
+         * @param eventEventHandler
+         * @return
+         */
         public Builder setAction1(EventHandler<ActionEvent> eventEventHandler){
             setAction(eventEventHandler,YesButton);
             return this;
         }
+
+        /**
+         *
+         * @param eventEventHandler
+         * @return
+         */
         public Builder setAction2(EventHandler<ActionEvent> eventEventHandler ){
             setAction(eventEventHandler,NoButton);
             return this;
         }
+
+        /**
+         *
+         * @param text
+         * @return
+         */
         public Builder setText(String text){
             this.text=text;
             return  this;
         }
+
+        /**
+         *
+         * @param text
+         * @return
+         */
         public Builder setBackGround(String text){
             try{
                 Background=GetImages.getImageView(text);
@@ -133,6 +199,11 @@ public class DialogBox extends AnchorPane {
             }
             return this;
         }
+
+        /**
+         *
+         * @return
+         */
         public DialogBox Build(){
            if(verify()){
               return  new DialogBox(this);
@@ -140,14 +211,16 @@ public class DialogBox extends AnchorPane {
             System.out.println("No todos los parametros estan");
            return null;
         }
+
+        /**
+         *
+         * @return
+         */
         public boolean verify(){
             if(YesButton!=null && NoButton!=null && height>0 & width>0 && YesButton.getOnAction()!=null && NoButton.getOnAction()!=null && text!=null && Background!=null ){
                 return true;
             }
             return false;
         }
-
-
-
     }
 }

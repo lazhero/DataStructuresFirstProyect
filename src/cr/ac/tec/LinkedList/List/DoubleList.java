@@ -4,6 +4,7 @@ import cr.ac.tec.Random.Random;
 import cr.ac.tec.LinkedList.Nodes.DoubleNode;
 
 public class DoubleList<T> implements List<T> {
+
     private DoubleNode<T> head,tail;//The first and last node
     private int length;// List length
 
@@ -30,8 +31,12 @@ public class DoubleList<T> implements List<T> {
            head = temp;
        }
        length++;
-
     }
+
+    /**
+     *
+     * @param NewInfo
+     */
     void AddHeadNode(DoubleNode<T> NewInfo){
         DoubleNode<T> temp=NewInfo;
         if(head==null){
@@ -43,7 +48,6 @@ public class DoubleList<T> implements List<T> {
             head = temp;
         }
         length++;
-
     }
 
     /**
@@ -63,6 +67,11 @@ public class DoubleList<T> implements List<T> {
         length++;
 
     }
+
+    /**
+     *
+     * @param Newinfo
+     */
      void AddTailNode(DoubleNode<T> Newinfo){
         DoubleNode<T> temp=Newinfo;
         if(head==null){
@@ -74,7 +83,6 @@ public class DoubleList<T> implements List<T> {
             tail=temp;
         }
         length++;
-
     }
 
     /**
@@ -171,7 +179,6 @@ public class DoubleList<T> implements List<T> {
             else if(position==length-1)this.DeleteFromTail();
             else {
                 DoubleNode<T> temp = head.getFront();
-
                 for (int i = 1; i < position; i++) {
                     temp = temp.getFront();
                 }
@@ -179,7 +186,6 @@ public class DoubleList<T> implements List<T> {
                 temp.getFront().setBack(temp.getBack());
                 length--;
             }
-
         }
     }
 
@@ -201,7 +207,6 @@ public class DoubleList<T> implements List<T> {
                 }
                 temp=temp.getFront();
             }
-
         }
         return -1;
     }
@@ -220,10 +225,15 @@ public class DoubleList<T> implements List<T> {
                 temp=temp.getFront();
             }
             return temp.getInfo();
-
         }
         return null;
     }
+
+    /**
+     *
+     * @param position
+     * @return
+     */
     public DoubleNode<T> getNode(int position){
         if(position>-1 && position<length){
             if(position==0)return head;
@@ -233,11 +243,15 @@ public class DoubleList<T> implements List<T> {
                 temp=temp.getFront();
             }
             return temp;
-
         }
         return null;
     }
 
+    /**
+     *
+     * @param position
+     * @param content
+     */
     @Override
     public void ChangeContent(int position, T content) {
         if(position>=0 && position<length){
@@ -266,7 +280,10 @@ public class DoubleList<T> implements List<T> {
         return length;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public DoubleList<T> Shuffle(){
         DoubleList<T> List=new DoubleList<>();
         DoubleList<Integer> record=new DoubleList<>();

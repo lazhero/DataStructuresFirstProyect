@@ -24,7 +24,6 @@ public class DoubleRoundList<T> implements List<T> {
            temp.setBack(temp);
            temp.setFront(temp);
            head=tail=temp;
-
        }
        else {
            head.setBack(temp);
@@ -34,7 +33,6 @@ public class DoubleRoundList<T> implements List<T> {
            head = temp;
        }
        length++;
-
     }
 
     /**
@@ -76,9 +74,7 @@ public class DoubleRoundList<T> implements List<T> {
             NewNode.setFront(temp.getFront());
             temp.getFront().setBack(NewNode);
             temp.setFront(NewNode);
-
         }
-
     }
 
     /**
@@ -123,7 +119,6 @@ public class DoubleRoundList<T> implements List<T> {
             length--;
             return info;
         }
-
     }
 
     /**
@@ -175,7 +170,6 @@ public class DoubleRoundList<T> implements List<T> {
             System.out.println(Temp.getInfo());
         }
         System.out.println(head.getInfo());
-
     }
 
     /**
@@ -203,7 +197,6 @@ public class DoubleRoundList<T> implements List<T> {
                 temp=temp.getFront();
             }
             return temp.getInfo();
-
         }
         return null;
     }
@@ -216,7 +209,6 @@ public class DoubleRoundList<T> implements List<T> {
                 temp=temp.getFront();
             }
             return temp;
-
         }
         return null;
     }
@@ -238,7 +230,6 @@ public class DoubleRoundList<T> implements List<T> {
                 temp.getFront().setBack(temp.getBack());
                 length--;
             }
-
         }
     }
 
@@ -267,6 +258,15 @@ public class DoubleRoundList<T> implements List<T> {
     public int getLength(){
         return length;
     }
+
+    /**
+     *
+     * @param List
+     * @param Init
+     * @param Finish
+     * @param condition
+     * @return
+     */
     public DoubleList<T> Switch(DoubleList<T> List,int Init,int Finish,boolean condition){
         if(List.getLength()>0 && Init>0 && Init<length-1 && Finish>0 && Finish<length-1 && Finish>Init ) {
             DoubleNode<T> nodeinit = getNode(Init);
@@ -283,11 +283,15 @@ public class DoubleRoundList<T> implements List<T> {
             }
             length=length-(Finish-Init-1)+List.getLength();
             return temp;
-
         }
         return null;
-
     }
+
+    /**
+     *
+     * @param position
+     * @param content
+     */
     @Override
     public void ChangeContent(int position, T content) {
         if(position>=0 && position<length){
@@ -295,5 +299,4 @@ public class DoubleRoundList<T> implements List<T> {
             temp.setInfo(content);
         }
     }
-
 }

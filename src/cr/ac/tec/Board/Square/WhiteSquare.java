@@ -9,6 +9,7 @@ import javafx.scene.paint.Paint;
 import java.util.Random;
 
 public class WhiteSquare extends Square {
+
     /**
      * Class's constructor
      * @param coordx x-axis position
@@ -25,7 +26,6 @@ public class WhiteSquare extends Square {
      */
     @Override
     public void event(Player player) {
-
         int casillasN = new Random().nextInt(2) - 2;
         int casillasP = new Random().nextInt(2) + 1;
         int random = new Random().nextInt(2);
@@ -35,7 +35,6 @@ public class WhiteSquare extends Square {
         } else if (random == 1) {
             System.out.println("jugador" + player + "seras adelantado" + casillasP + "pos");
             new WhiteEvent("advance", casillasP, ListPlayer().get(0));
-
         }
     }
 

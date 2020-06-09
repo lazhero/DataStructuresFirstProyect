@@ -30,9 +30,7 @@ public class Interface{
      */
     public static Parent createContent(int player1,int player2, Stage primaryStage){
         root.setPrefSize(300,300);
-
         inputNumber = createTextField(100,100,200);
-
         button.setPrefSize(50,50);
         button.setFont(Font.font(16));
         button.setTranslateX(125);
@@ -49,12 +47,7 @@ public class Interface{
         buttok.setOnMouseClicked(event -> {
             new AfterGameEvent().AfterGameEventData(victory,lose);
             primaryStage.close();
-
         });
-
-
-
-
         root.getChildren().addAll(inputNumber,button,text,restartButton,buttok);
         return root;
     }
@@ -67,9 +60,13 @@ public class Interface{
         return inputNumber.getText();
     }
 
-
-
-
+    /**
+     *
+     * @param width
+     * @param posx
+     * @param posy
+     * @return
+     */
     static TextField createTextField(int width, int posx, int posy) {
         TextField temp = new TextField();
         temp.setPrefWidth(width);
@@ -78,18 +75,34 @@ public class Interface{
         return temp;
     }
 
+    /**
+     *
+     * @param victory
+     */
     public static void setVictory(int victory) {
         Interface.victory = victory;
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getVictory() {
         return victory;
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getLose() {
         return lose;
     }
 
+    /**
+     *
+     * @param lose
+     */
     public static void setLose(int lose) {
         Interface.lose = lose;
     }

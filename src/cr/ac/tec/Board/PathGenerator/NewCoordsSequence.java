@@ -3,6 +3,13 @@ package cr.ac.tec.Board.PathGenerator;
 import cr.ac.tec.LinkedList.List.SingleList;
 
 public class NewCoordsSequence {
+
+    /**
+     *
+     * @param pos
+     * @param square
+     * @return
+     */
    public static SingleList<NewCoordsFactory> getNewCoorsSequence(int pos, int square){
        SingleList<NewCoordsFactory> List=new SingleList<>();
        int sideSquare=(square+4)/4;
@@ -27,7 +34,6 @@ public class NewCoordsSequence {
            List.AddTail(new CoordU());
            List.AddTail(new CoordR());
        }
-
        return List;
     }
 }

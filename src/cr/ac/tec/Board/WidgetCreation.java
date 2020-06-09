@@ -10,7 +10,6 @@ public class WidgetCreation {
     /*
     This class creates javafx widgets
      */
-
     /**
      * Creates a button with its text
      * @param text A String with the text that will be shown by the button
@@ -23,8 +22,6 @@ public class WidgetCreation {
         else{
             button=new Button();
         }
-
-
         return button;
     }
 
@@ -67,7 +64,5 @@ public class WidgetCreation {
         rect.setArcHeight(35);
         rect.setArcWidth(25);
         return rect;
-
     }
-
 }

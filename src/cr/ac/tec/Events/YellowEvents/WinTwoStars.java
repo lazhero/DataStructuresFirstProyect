@@ -14,6 +14,7 @@ import javafx.scene.text.TextAlignment;
 import java.util.concurrent.TimeUnit;
 
 public class WinTwoStars extends Event {
+
     /**
      * The player wins two stars and feels cool.
      * @param player
@@ -25,6 +26,11 @@ public class WinTwoStars extends Event {
         System.out.println(player.getStars());
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     @Override
     public void event2(Player player1, Player player2) {
 
@@ -35,7 +41,6 @@ public class WinTwoStars extends Event {
      */
     @Override
     public void EventData(Player player) {
-
         ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         Data="Congrats, You activated this event!!!  \n\n you win 2 stars!!";

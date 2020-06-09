@@ -13,27 +13,30 @@ import java.util.concurrent.TimeUnit;
 public class AfterGameEvent {
     private String Data;
 
+    /**
+     *
+     * @param playerwin
+     * @param playerlose
+     */
     public void AfterGameEvent(int playerwin, int playerlose){
         System.out.println(playerwin);
         System.out.println(playerlose);
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.MovePlayer(gameManager.getPlayerList().get(playerlose),-1);
-
         gameManager.getPlayerList().get(playerwin).setCoins(gameManager.getPlayerList().get(playerwin).getCoins()+1);
         if (gameManager.getPlayerList().get(playerlose).getCoins()==0){
             gameManager.getPlayerList().get(playerlose).setCoins(0);
         }
         else{
             gameManager.getPlayerList().get(playerlose).setCoins(gameManager.getPlayerList().get(playerlose).getCoins()-1);
-
         }
-
-
-
-
-
-
     }
+
+    /**
+     *
+     * @param numberofplayerwin
+     * @param numberofplayerlose
+     */
     public void AfterGameEventData(int numberofplayerwin,int numberofplayerlose){
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
 
@@ -58,7 +61,6 @@ public class AfterGameEvent {
         data.setFont(new Font("Verdana",16));
         data.setTextAlignment(TextAlignment.CENTER);
 
-
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
@@ -69,13 +71,8 @@ public class AfterGameEvent {
             gameManager.setRunning(false);
             AfterGameEvent(numberofplayerwin,numberofplayerlose);
             return;
-
         });
         vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
-
     }
-
-
-
 }

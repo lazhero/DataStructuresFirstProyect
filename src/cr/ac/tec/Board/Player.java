@@ -7,7 +7,6 @@ public class Player extends PlayerSubject {
     Node node;//player javafx's node
     boolean lose; //Lose or win, for movement
 
-
     /**
      * Creates a player with the  id and node info,
      * @param id an identification to the node
@@ -76,10 +75,18 @@ public class Player extends PlayerSubject {
         return id;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isLose() {
         return lose;
     }
 
+    /**
+     *
+     * @param lose
+     */
     public void setLose(boolean lose) {
         this.lose = lose;
     }

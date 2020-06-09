@@ -15,6 +15,15 @@ public class AnimatedPlayer extends GameObject{
     private int imageHeight;
     private HashMap<String, cr.ac.tec.Minigames.DiamondHunter.Classes.Animation> animations;
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param velocity
+     * @param imageName
+     * @param life
+     * @param currentAnimation
+     */
     public AnimatedPlayer(int x, int y, int velocity, String imageName, int life, String currentAnimation) {
         super(x, y, velocity, imageName);
         this.life = life;
@@ -23,36 +32,51 @@ public class AnimatedPlayer extends GameObject{
         initializeAnimations();
     }
 
-
+    /**
+     *
+     * @return
+     */
     public int getLife() {
         return life;
     }
 
+    /**
+     *
+     * @param life
+     */
     public void setLife(int life) {
         this.life = life;
     }
 
+    /**
+     *
+     * @param currentAnimation
+     */
     public void setCurrentAnimation(String currentAnimation){ this.currentAnimation = currentAnimation;}
 
     public Rectangle obtainRectangle(){
         return new Rectangle(x,y,40,40);
     }
 
-
+    /**
+     *
+     * @param item
+     */
     public void verifyItemCollision(Item item){
         if (!item.isCaptured() && this.obtainRectangle().getBoundsInLocal().intersects(item.obtainRectangle().getBoundsInLocal())){
             item.setCaptured(true);
         }
     }
 
-
+    /**
+     *
+     */
     public void initializeAnimations(){
         Rectangle restFrontCoordinates[] = {
                 new Rectangle(5,0,91,116),
                 new Rectangle(125,0,91,116),
                 new Rectangle(245,0,91,116)
         };
-
         Animation restFrontAnimation = new Animation(0.1,restFrontCoordinates);
 
         animations.put("restFront", restFrontAnimation);
@@ -140,7 +164,10 @@ public class AnimatedPlayer extends GameObject{
         animations.put("runBack",runBackAnimation);
     }
 
-
+    /**
+     *
+     * @param t
+     */
     public void calculateFrame(double t){
         Rectangle coordinates = animations.get(currentAnimation).calculateCurrentFrame(t);
         this.xImage = (int) coordinates.getX();
@@ -149,37 +176,35 @@ public class AnimatedPlayer extends GameObject{
         this.imageWidth = (int) coordinates.getWidth();
     }
 
-
-
+    /**
+     *
+     * @param graphicsContext
+     */
     //@Override
     public void draw(GraphicsContext graphicsContext) {
         graphicsContext.drawImage(DiamondHunterGame.images.get(imageName), xImage, yImage, imageWidth, imageHeight, x, y, 40, 40);
         //graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
-
         //graphicsContext.setStroke(Color.RED);
         //graphicsContext.strokeRect(x,y,47,47);
     }
 
-
-
+    /**
+     *
+     */
     @Override
     public void move() {
-
         if (DiamondHunterGame.right) {//Mover hacia la derecha
             x += velocity;
             return;
         }
-
         if (DiamondHunterGame.left) {//Mover hacia la izquierda
             x -= velocity;
             return;
         }
-
         if (DiamondHunterGame.up) {//Mover hacia arriba
             y -= velocity;
             return;
         }
-
         if (DiamondHunterGame.down) {//Mover hacia abajo
             y += velocity;
         }

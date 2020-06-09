@@ -87,6 +87,10 @@ public class StopWatch {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public long time(){
         return (end-start)/1000000000;
     }
@@ -141,5 +145,4 @@ public class StopWatch {
         long enlapsed = elapsed();
         return ((double) enlapsed / 1000000000.0) + " Seconds";
     }
-
 }

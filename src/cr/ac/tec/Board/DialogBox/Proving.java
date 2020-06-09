@@ -10,6 +10,12 @@ public class Proving extends Application {
     public static void main(String[] args){
         launch(args);
     }
+
+    /**
+     *
+     * @param stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage stage) throws Exception {
         AnchorPane anchorPane = LayoutCreation.Anchor(800,650);

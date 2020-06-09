@@ -15,16 +15,16 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class ChangePlace extends Event {
+
+    private int playerchange = new Random().nextInt(4)+1;
+    private String message;
+
     /**
      * In this event one player will be changed instead of another player
      * @param player
      */
-    private int playerchange = new Random().nextInt(4)+1;
-    private String message;
-
     @Override
     public void event1(Player player) {
-
     }
 
     /**
@@ -37,14 +37,12 @@ public class ChangePlace extends Event {
     public void event2 (Player player1, Player player2) {
         GameManager gameManager = GameManager.getInstance();
         gameManager.exchangePosition(player1,player2);
-
     }
 
     /**
      * Is the information of the event
      * @param player
      */
-
     @Override
     public void EventData(Player player) {
         System.out.println("Change");
@@ -114,5 +112,4 @@ public class ChangePlace extends Event {
         vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
     }
-
 }

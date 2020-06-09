@@ -19,6 +19,9 @@ public class ListOfEvents {
     protected static DoubleList mylist;
 
 
+    /**
+     *
+     */
     private ListOfEvents() {
         mylist = new DoubleList<>();
 
@@ -53,6 +56,10 @@ public class ListOfEvents {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public static ListOfEvents getInstance() {
         if (instance == null) {
             instance = new ListOfEvents();
@@ -60,9 +67,11 @@ public class ListOfEvents {
         return instance;
     }
 
+    /**
+     *
+     * @return
+     */
     public DoubleList getDoubleList(){
         return mylist;
     }
-
-
 }

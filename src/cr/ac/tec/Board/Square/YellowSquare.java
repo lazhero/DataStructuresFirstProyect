@@ -10,6 +10,8 @@ import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 
 
 import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.Minigames.PRS.PRSGAME;
+import cr.ac.tec.Minigames.Shoot.Prove;
 import javafx.scene.paint.Color;
 
 
@@ -17,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class YellowSquare extends Square {
     private int random;
+
     /**
      *
      * @param coordx x-axis position
@@ -25,18 +28,25 @@ public class YellowSquare extends Square {
      */
     public YellowSquare(double coordx, double coordy, double sideSize){
         super(Color.YELLOW,coordx,coordy,sideSize);
-
     }
+
+    /**
+     *
+     * @return
+     */
     @Override
     public String Color() {
         return "YELLOW";
     }
 
+    /**
+     *
+     * @param player
+     */
     @Override
     public void event(Player player) {
         GameManager gameManager = GameManager.getInstance(0,0);
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
-
         if(ListOfEvents.getInstance().getDoubleList().isEmpty()){
             ListOfEvents.instance=null;
             try{
@@ -53,8 +63,6 @@ public class YellowSquare extends Square {
                 e.printStackTrace();
             }
         }
-
-
         //CallToEvent(ListOfEvents.getInstance().getDoubleList().get(0)).EventData(player);
         //new Duel().EventData(player);
         //new memorygame().StarGame(1,3);
@@ -67,20 +75,19 @@ public class YellowSquare extends Square {
         //new Main().StartGame(0,1);
         //new PRSGAME().StarGame(1,3);
         //new TicTacToe().StartGame(0,1);
-        DoubleList d = new DoubleList();
-        d.AddHead(1);
-        d.AddHead(2);
-        d.AddHead(3);
-        new DiamondHunterGame().StartGame(d);
-
-
+        //DoubleList d = new DoubleList();
+        //d.AddHead(1);
+        //d.AddHead(2);
+        //d.AddHead(3);
+        //new DiamondHunterGame().StartGame(d);
+        new Prove().StartGame(1,2);
     }
 
-
-
-
-
-
+    /**
+     *
+     * @param object
+     * @return
+     */
     public Event CallToEvent (Object object){
         return (Event) object;
     }

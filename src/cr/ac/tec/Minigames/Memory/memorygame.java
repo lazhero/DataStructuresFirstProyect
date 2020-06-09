@@ -41,23 +41,25 @@ public class memorygame {
     private Text score1=new Text("Score:"+ scorep1);
     private Text score2=new Text("Score:"+ scorep2);
 
-
+    /**
+     *
+     * @param player1
+     * @param player2
+     * @param primaryStage
+     * @return
+     */
     public Parent createContent(int player1,int player2,Stage primaryStage){
-
 
         Pane root = new Pane();
         root.setPrefSize(700,700);
         Image img = new Image("/Resources/images/fondo1.jpg");
         ImageView fondo = new ImageView(img);
         root.getChildren().addAll(fondo,turn);
-
-
         if (cont%2==0){
             turn.setText("Player " +player1+ "turn");
             turn.setTranslateY(650);
             turn.setTranslateX(120);
             turn.setFont(Font.font(30));
-
         }
         else{
             turn.setText("Player "+player2+" turn");
@@ -65,7 +67,6 @@ public class memorygame {
             turn.setTranslateX(300);
             turn.setFont(Font.font(30));
         }
-
         char c='A';
         DoubleList<Tile> tiles = new DoubleList<>();
         for(int i=0; i<NUM_OF_PAIRS;i++){
@@ -104,40 +105,43 @@ public class memorygame {
         butto.setOnMouseClicked(event -> {
             new AfterGameEvent().AfterGameEventData(victory,lose);
             primaryStage.close();
-
         });
-
         root.getChildren().addAll(player1t,player2t,score1,score2,butto);
-
-
-
-
         return root;
     }
+
+    /**
+     *
+     * @param str
+     */
     public void changeturn(String str){
         turn.setText(str);
     }
 
-    public class Tile extends StackPane{
 
+    public class Tile extends StackPane{
         private Text text= new Text();
 
+        /**
+         *
+         * @param value
+         */
         public Tile(String value){
             Rectangle border = new Rectangle(120,120);
             border.setFill(null);
             border.setStroke(Color.BLACK);
-
             text.setText(value);
             text.setFont(Font.font(50));
-
             setAlignment(Pos.CENTER);
-
             getChildren().addAll(border,text);
-
             setOnMouseClicked(this::handleMouseClick);
-
             close();
         }
+
+        /**
+         *
+         * @param event
+         */
         public void handleMouseClick(MouseEvent event){
             if (isOpen() || clickCount==0)
                 return;
@@ -145,7 +149,6 @@ public class memorygame {
             if (selected==null){
                 selected= this;
                 open(()->{});
-
             }
             else {
                 open(() -> {
@@ -156,24 +159,19 @@ public class memorygame {
                         if(cont%2==0){
                             changeturn("Player "+dat1+" turn");
                         }
-
                         else changeturn("Player "+dat2+ " turn");
-
                     }
                     else{
                         if (cont%2==0){
                             correct+=1;
                             scorep1=scorep1+10;
-
                             score1.setText("Score:"+ scorep1);
-
                             cont=cont+2;
                         }
                         else{
                             correct+=1;
                             scorep2=scorep2+10;
                             score2.setText("Score:"+ scorep2);
-
                             System.out.println("player 2  "+ scorep2);;
                             cont=cont+2;
                             System.out.println(correct);
@@ -191,21 +189,26 @@ public class memorygame {
                     clickCount=2;
                 });
             }
-
-
         }
+
+        /**
+         *
+         * @return
+         */
         public  boolean isOpen(){
             return text.getOpacity()==1;
-
         }
+        /**
+         *
+         * @param a
+         * @return
+         */
         public Player winner(int a){
-
             if (a==1){
                 victory=dat1;
                 lose=dat2;
                 System.out.println(victory);
                 System.out.println(lose);
-
             }
             if(a==2){
                 victory=dat2;
@@ -214,27 +217,43 @@ public class memorygame {
                 System.out.println(lose);
             }
             return null ;
-
-
         }
+
+        /**
+         *
+         * @param action
+         */
         public void open(Runnable action){
             FadeTransition ft = new FadeTransition(Duration.seconds(0.5),text);
             ft.setToValue(1);
             ft.setOnFinished(e-> action.run());
             ft.play();
         }
+
+        /**
+         *
+         */
         public void close(){
             FadeTransition ft = new FadeTransition(Duration.seconds(1.5),text);
             ft.setToValue(0);
             ft.play();
         }
+
+        /**
+         *
+         * @param other
+         * @return
+         */
         public boolean hasSameValue(Tile other){
             return text.getText().equals(other.text.getText());
         }
-
     }
 
-
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     public void StarGame(int player1, int player2){
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.getAnchorPane().setVisible(true);
@@ -242,11 +261,5 @@ public class memorygame {
         primaryStage.setScene(new Scene(createContent(player1,player2,primaryStage)));
         primaryStage.setTitle("Memory Game, GOOD LUCK!");
         primaryStage.show();
-
-
-
-
     }
-
-
 }

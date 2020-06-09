@@ -16,7 +16,13 @@ public class Counter {
     private double height;
     private String route;
     private String format;
-
+    /**
+     *
+     * @param width
+     * @param height
+     * @param route
+     * @param format
+     */
    public Counter(double width,double height, String route,String format){
        this.width=width;
        this.height=height;
@@ -25,6 +31,11 @@ public class Counter {
        this.anchorPane= LayoutCreation.Anchor(width,height);
 
     }
+
+    /**
+     *
+     * @param num
+     */
     public void setCount(int num){
         ObservableList<Node> Items=anchorPane.getChildren();
         while(!Items.isEmpty()){
@@ -34,8 +45,6 @@ public class Counter {
         anchorPane.getChildren().clear();
         DoubleList<ImageView> img=null;
        if(num>0){
-
-
            try{
                img=getNumber(num);
            }
@@ -57,10 +66,7 @@ public class Counter {
                imageView.setFitHeight(height);
                imageView.setFitWidth(large);
                LayoutNewContent.Add(anchorPane,imageView,0,0,0,posX);
-
-
            }
-
        }
        else if(num==0){
            try{
@@ -68,7 +74,6 @@ public class Counter {
                while(img.getLength()<3){
                    img.AddTail(GetImages.getImageView(route+"0"+format));
                }
-
            }
            catch (Exception e){}
            double large=(width/img.getLength())*0.80;
@@ -79,14 +84,15 @@ public class Counter {
                imageView.setFitHeight(height);
                imageView.setFitWidth(large);
                LayoutNewContent.Add(anchorPane,imageView,0,0,0,posX);
-
-
            }
-
-
-
        }
     }
+    /**
+     *
+     * @param num
+     * @return
+     * @throws Exception
+     */
     private DoubleList<ImageView> getNumber(int num) throws Exception{
        DoubleList<ImageView> List=new DoubleList<>();
        while(num>0){
@@ -95,15 +101,21 @@ public class Counter {
        }
        return List;
     }
+    /**
+     *
+     * @param pos
+     * @param large
+     * @param space
+     * @return
+     */
     private double getPos(int pos,double large,double space){
-
         return pos*large+pos*space;
-
-
     }
+    /**
+     *
+     * @return
+     */
     public AnchorPane getAnchorPane(){
        return anchorPane;
     }
-
-
 }

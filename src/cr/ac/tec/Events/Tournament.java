@@ -15,13 +15,19 @@ import java.util.concurrent.TimeUnit;
 public class Tournament {
     private String Data;
 
+    /**
+     *
+     * @param playerList
+     */
     public void Tournament(DoubleList playerList) {
         new DiamondHunterGame().StartGame(playerList);
-        
     }
+
+    /**
+     *
+     * @param playerList
+     */
     public void TournamentData(DoubleList playerList) {
-
-
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
 
         Data="Hello!! At the end of each round there \n will be a tournament, in this we \n will play Diamond Hunter, the game consists \n of hunting diamonds by turns, each player \n has to find 5, the less time later up on the \n podium will be, the prize will be coins, \n the first player : will win 5 coins, \n the second: 3 the third: 2 and the last: 1, \n the positioning continues even if there \n are 2,3,4 players. Good luck!";
@@ -56,12 +62,8 @@ public class Tournament {
             gameManager.setRunning(false);
             Tournament(playerList);
             return;
-
-
         });
         vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
-
     }
-
 }

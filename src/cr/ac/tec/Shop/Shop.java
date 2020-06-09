@@ -5,6 +5,11 @@ import cr.ac.tec.Board.Player;
 public class Shop  {
     private static Shop instance=null;
     private int StarsPrice;
+
+    /**
+     *
+     * @param StarsPrice
+     */
     private Shop(int StarsPrice){
         this.StarsPrice=StarsPrice;
     }
@@ -15,6 +20,12 @@ public class Shop  {
         }
         else return instance;
     }
+
+    /**
+     *
+     * @param player
+     * @return
+     */
     public boolean BuyStars(Player player){
         if(player.getCoins()>=StarsPrice){
             player.DecreaseCoinsBy(StarsPrice);

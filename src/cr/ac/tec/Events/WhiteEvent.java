@@ -15,6 +15,12 @@ import java.util.concurrent.TimeUnit;
 public class WhiteEvent {
     public String Data;
 
+    /**
+     *
+     * @param action
+     * @param squares
+     * @param player
+     */
     public WhiteEvent(String action,int squares, Player player){
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
@@ -26,7 +32,6 @@ public class WhiteEvent {
         }
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
-
 
         Button buttock = new Button("OK");
         vb.setMinWidth(400);
@@ -54,12 +59,8 @@ public class WhiteEvent {
             gameManager.setRunning(false);
             gameManager.MovePlayer(player,squares);
             return;
-
         });
-
         vb.getChildren().addAll(message,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
-
-
     }
 }

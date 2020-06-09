@@ -1,5 +1,6 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
+import cr.ac.tec.Board.Board;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Barrier extends GameObject {
@@ -17,6 +18,18 @@ public class Barrier extends GameObject {
     private int xSize;//Nuevo tamano que
     private int ySize;//desea darle al tile.
 
+    /**
+     *
+     * @param tileType
+     * @param x
+     * @param y
+     * @param velocity
+     * @param imageName
+     * @param width
+     * @param height
+     * @param xSize
+     * @param ySize
+     */
     public Barrier(int tileType, int x, int y, int velocity, String imageName, int width, int height, int xSize, int ySize) {
         super(x, y, velocity, imageName);
         this.width = width;
@@ -24,15 +37,20 @@ public class Barrier extends GameObject {
         this.xSize = xSize;
         this.ySize = ySize;
         //System.out.println(String.format("%d: x(%d) y(%d) rectangle(%s)",tileType,x,y,obtainRectangle()));
-
     }
 
-
-
+    /**
+     *
+     * @return
+     */
     public boolean isTouching() {
         return touching;
     }
 
+    /**
+     *
+     * @param touching
+     */
     public void setTouching(boolean touching) {
         this.touching = touching;
     }
@@ -45,15 +63,26 @@ public class Barrier extends GameObject {
         return new CustomRectangle(x,y,50,50);
     }
 
-
+    /**
+     *
+     * @return
+     */
     public int getInitialX() {
         return initialX;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getInitialY() {
         return initialY;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTileType() {
         return tileType;
     }
@@ -74,9 +103,7 @@ public class Barrier extends GameObject {
      */
     @Override
     public void move() {
-
-        if (!DiamondHunterGame.TurnFinished) {
-
+        if (!DiamondHunterGame.TurnFinished && !DiamondHunterGame.GameOver) {
             //RIGHT
             if (DiamondHunterGame.right && x <= initialX) {
                 if (Background.touchingRightSide)
@@ -84,16 +111,13 @@ public class Barrier extends GameObject {
                 if (Background.getX() == -2040)
                     return;
                 x -= velocity;
-
             }
-
             //LEFT
             if (DiamondHunterGame.left && x < initialX) {
                 if (Background.touchingLeftSide)
                     return;
                 x += velocity;
             }
-
             //DOWN
             if (DiamondHunterGame.down && y <= initialY) {
                 if (Background.touchingDownSide)
@@ -102,7 +126,6 @@ public class Barrier extends GameObject {
                     return;
                 y -= velocity;
             }
-
             //UP
             if (DiamondHunterGame.up && y < initialY) {
                 if (Background.touchingUpSide)

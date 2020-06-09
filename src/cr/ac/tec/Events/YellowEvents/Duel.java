@@ -26,14 +26,12 @@ public class Duel extends Event {
     private int random;
     private String gamedescription;
 
-
     /**
      * A mini-game is triggered, where the randomly chosen players will face a duel (minigame 1v1),
      * the winner will get glory (coins), and the loser will lose coins.
      *
      * @param player
      */
-
     @Override
     public void event1(Player player) {
 
@@ -41,12 +39,23 @@ public class Duel extends Event {
 
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     @Override
     public void event2(Player player1, Player player2) {
-
     }
 
-
+    /**
+     *
+     * @param player1
+     * @param player2
+     * @param milista
+     * @param dato1
+     * @param dato2
+     */
     public void event3(Player player1, Player player2,DoubleList milista,int dato1,int dato2) {
         GameManager gameManager= GameManager.getInstance(0,0);
         System.out.println("duel");
@@ -65,19 +74,15 @@ public class Duel extends Event {
         }else if(milista.get(0).toString()=="Shoot"){
             new Prove().StartGame(dato1,dato2);
             milista.delete(0);
-
         }else if(milista.get(0).toString()=="RandomNumber"){
             new cr.ac.tec.Minigames.RandomNumber.Main().StartGame(dato1,dato2);
             milista.delete(0);
-
         }
     }
     public void move(int player1){
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.MovePlayer(gameManager.getPlayerList().get(player1),-1);
-
     }
-
     /**
      * Information of the event
      * @param player
@@ -97,7 +102,6 @@ public class Duel extends Event {
         }else if(ListOfMiniGames.getInstance().getDoubleList().get(0)=="RandomNumber"){
             gamedescription="Welcome to the game Random! \n The game will generate a random number, \n the which is going to be hidden each \n player will have a chance to \n write a number, and the player \n closest to the real number will be \n the winner! Good luck to you!";
         }
-
         ListOfEvents.getInstance().getDoubleList().delete(0);
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
@@ -141,7 +145,6 @@ public class Duel extends Event {
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(1);
                 listaaleatoria.AddTail(2);
-
             }
             random = new Random().nextInt(3);
         }
@@ -183,7 +186,6 @@ public class Duel extends Event {
         });
         vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
-
     }
 }
 

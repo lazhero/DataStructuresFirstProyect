@@ -24,6 +24,7 @@ public class pressfirst  {
     private Text score1 = new Text("Score: " + scorep1);
     private Text score2 = new Text("Score:" + scorep2);
     private Text winnerp= new Text("");
+
     int cont1;
     int cont2;
     int victory;
@@ -34,16 +35,18 @@ public class pressfirst  {
     private int dat1;
     private int dat2;
 
-
-
-
+    /**
+     *
+     * @param dato1
+     * @param dato2
+     * @param primaryStage
+     * @return
+     */
     public Parent createContent(int dato1, int dato2,Stage primaryStage){
         Pane root = new Pane();
-
         root.setPrefSize(700,700);
         Image img = new Image("/Resources/images/fondo.png");
         ImageView fondo = new ImageView(img);
-
 
         score1.setTranslateY(600);
         score1.setTranslateX(120);
@@ -84,13 +87,16 @@ public class pressfirst  {
         buttok.setOnMouseClicked(event -> {
             new AfterGameEvent().AfterGameEventData(victory,lose);
             primaryStage.close();
-
         });
-
         root.getChildren().addAll(fondo,score1,score2,p1,p2,random,winnerp,buttok);
-
         return root;
     }
+
+    /**
+     *
+     * @param a
+     * @param b
+     */
     public void winner(int a,int b){
         if (a==0 && b>0){
             winnerp.setText("Player "+dat1 + " win");
@@ -104,14 +110,22 @@ public class pressfirst  {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getVictory() {
         return victory;
     }
 
+    /**
+     *
+     * @param dat1
+     * @param dat2
+     */
     public void StartGame(int dat1, int dat2){
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.getAnchorPane().setVisible(true);
-
         //String path = "src/musicf.mp3";
         //Media audio = new Media(new File(path).toURI().toString());
         //MediaPlayer repro = new MediaPlayer(audio);
@@ -144,11 +158,8 @@ public class pressfirst  {
                     break;
             }
         });
-
         primaryStage.setScene(scene);
         primaryStage.setTitle("Press First, GOOD LUCK!");
         primaryStage.show();
-
     }
-
 }

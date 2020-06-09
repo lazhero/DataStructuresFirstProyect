@@ -24,7 +24,6 @@ public class SingleList<T> implements List<T>{
             tail=head;
         }
         length++;
-
     }
 
     /**
@@ -81,7 +80,6 @@ public class SingleList<T> implements List<T>{
             tail.setNextnode(null);
             return info;
         }
-
     }
 
     /**
@@ -192,10 +190,14 @@ public class SingleList<T> implements List<T>{
                 temp.setNextnode(temp.getNextnode().getNextnode());
                 length--;
             }
-
         }
     }
 
+    /**
+     *
+     * @param position
+     * @param content
+     */
     @Override
     public void ChangeContent(int position, T content) {
         if(position>=0 && position<length) {

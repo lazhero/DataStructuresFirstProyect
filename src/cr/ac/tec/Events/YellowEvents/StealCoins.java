@@ -23,9 +23,13 @@ public class StealCoins extends Event {
      */
     @Override
     public void event1(Player player) {
-
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     @Override
     public void event2(Player player1, Player player2) {
         if (player2.getCoins()==1){
@@ -34,10 +38,9 @@ public class StealCoins extends Event {
         }else{
             player2.setCoins(player2.getCoins());
             player1.setCoins(player1.getCoins()+1);
-
         }
-
     }
+
     /**
      * Information of the event
      * @param player
@@ -65,7 +68,6 @@ public class StealCoins extends Event {
                 "\n\n You can steal 1 coin from another player";
         gameManager.setRunning(true);
 
-
         Text data = new Text();
         data.setText(Data);
         data.setText(Data);
@@ -76,7 +78,6 @@ public class StealCoins extends Event {
         Button b1 = new Button();
         Button b2 = new Button();
         Button b3 = new Button();
-
         if (gameManager.getPlayerList().getLength() == 2) {
             if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
                 listaaleatoria.AddTail(1);
@@ -93,8 +94,6 @@ public class StealCoins extends Event {
             }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(2);
-
-
             }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(1);
@@ -112,7 +111,6 @@ public class StealCoins extends Event {
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(2);
                 listaaleatoria.AddTail(3);
-
             }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2){
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(1);
@@ -122,13 +120,11 @@ public class StealCoins extends Event {
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(1);
                 listaaleatoria.AddTail(2);
-
             }
             b1.setText("Player"+listaaleatoria.get(0));
             b2.setText("Player"+listaaleatoria.get(1));
             b3.setText("Player"+listaaleatoria.get(2));
         }
-
 
         b1.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
@@ -140,7 +136,6 @@ public class StealCoins extends Event {
             gameManager.setRunning(false);
             event2(player,gameManager.getPlayerList().get(listaaleatoria.get(0)));
             return;
-
         });
         b2.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
@@ -152,7 +147,6 @@ public class StealCoins extends Event {
             gameManager.setRunning(false);
             event2(player,gameManager.getPlayerList().get(listaaleatoria.get(1)));
             return;
-
         });
         b3.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
@@ -164,7 +158,6 @@ public class StealCoins extends Event {
             gameManager.setRunning(false);
             event2(player,gameManager.getPlayerList().get(listaaleatoria.get(2)));
             return;
-
         });
         vb.getChildren().addAll(data,b1,b2,b3);
         gameManager.getAnchorPane().getChildren().add(vb);

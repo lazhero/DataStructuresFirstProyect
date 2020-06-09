@@ -16,11 +16,9 @@ public class RandomNumberGame {
     public static double numberPlayer1;
     public static double numberPlayer2;
 
-
     /**
      * Collects each number input by a player.
      */
-
     public static void game(int player1,int player2){
         if (playable){
             if (player1Turn) {
@@ -43,7 +41,6 @@ public class RandomNumberGame {
             }
         }
     }
-
 
     /**
      * Restarts the mini game from square one
@@ -68,7 +65,6 @@ public class RandomNumberGame {
         }
     }
 
-
     /**
      * Checks if a player guessed correctly the number, if that's not the case it restarts the game.
      */
@@ -81,7 +77,6 @@ public class RandomNumberGame {
                     Interface.text.setText("            Player "+player1+ " won!\nThe random number was " + randomNumber + "!");
                     victory=player1;
                     lose=player2;
-
                     return;
                 }
                 player1Turn = false;
@@ -101,8 +96,6 @@ public class RandomNumberGame {
             }
         }
     }
-
-
 
     /**
      * Generates a random number.

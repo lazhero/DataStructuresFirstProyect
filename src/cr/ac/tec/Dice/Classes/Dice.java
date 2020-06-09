@@ -36,12 +36,17 @@ public class Dice{
     public static boolean lastDice;
     public static int finalNumber;
 
-
-
+    /**
+     *
+     * @return
+     */
     public int getFinalNumber() {
         return finalNumber;
     }
 
+    /**
+     *
+     */
     public void randomNumber(){
         diceNumber1= (int)(Math.random()*((6-1)+1))+1;
         System.out.println(diceNumber1);
@@ -52,6 +57,9 @@ public class Dice{
         System.out.println("Final number: " + finalNumber);
     }
 
+    /**
+     *
+     */
     public void initializeAnimations(){
         diceCoordinates= new Rectangle[]{
                 new Rectangle(0,1536,512,512),//1
@@ -66,13 +74,18 @@ public class Dice{
         animations.put("rollingDice", diceAnimations);
     }
 
+    /**
+     *
+     */
     public void loadImages(){
         images.put("dice", new Image("Resources/Images/dice.png"));
         images.put("background", new Image("Resources/Images/black.png"));
     }
 
-
-
+    /**
+     *
+     * @param t
+     */
     public void calculateFrame(double t){
         Rectangle coordinates = animations.get("rollingDice").calculateCurrentFrame(t);
         this.x = (int) coordinates.getX();
@@ -84,39 +97,44 @@ public class Dice{
         }
     }
 
+    /**
+     *
+     * @param t
+     */
     public void updateState(double t){
         calculateFrame(t);
     }
 
+    /**
+     *
+     * @param number
+     */
     public void finalImage(int number){
         switch (number){
             case 1 :
                 customY=y =1536;
-
                 break;
-
             case 2 :
                 customY=y =0;
                 break;
-
             case 3 :
                 customY=y =1024;
                 break;
-
             case 4 :
                 customY=y =2048;
                 break;
-
             case 5 :
                 customY=y =512;
                 break;
-
             case 6 :
                 customY=y =3072;
                 break;
         }
     }
 
+    /**
+     *
+     */
     public void cycle(){
         long initialTime = System.nanoTime();
         AnimationTimer animationTimer = new AnimationTimer() {
@@ -137,6 +155,9 @@ public class Dice{
         animationTimer.start();
     }
 
+    /**
+     *
+     */
     public void draw(){
         Board.graphicsContext.drawImage(images.get("dice"), x, y, width, height, 850, 0, 100, 100);
         Board.graphicsContext.drawImage(images.get("dice"), x, y, width, height, 750, 0, 100, 100);
@@ -147,9 +168,9 @@ public class Dice{
         }
     }
 
-
-
-
+    /**
+     *
+     */
     public void start(){
         lastDice=false;
         drawable=true;
