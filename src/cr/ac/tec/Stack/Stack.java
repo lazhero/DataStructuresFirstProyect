@@ -24,5 +24,9 @@ public class Stack<T> {
         }
         return null;
     }
+    public void Shuffle(){
+        if(reference.isEmpty()==true)return;
+        reference.Shuffle();
+    }
 
 }
