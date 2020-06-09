@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -43,14 +44,27 @@ public class GameController {
     private Button button1;
     @FXML
     private Label MyLabel;
+    @FXML
+    private Label Name1;
+    @FXML
+    private Label Name2;
     private Timeline time;
     private boolean signal=false;
     private boolean pressed=false;
     private boolean ReadytoShoot=true;
     private IntHolder turns;
     private MediaPlayer mediaPlayer;
+    private int rounds=5;
 
     public void start(){
+        if(signal)return;
+        if(rounds==1){
+            button1.setOnAction(e->stopGame());
+
+        }
+        if (rounds<=0)return;
+
+        rounds--;
         try{
             mediaPlayer.stop();
         }
@@ -225,4 +239,28 @@ public class GameController {
 
         }
     }
+    public void closeGame(){
+        System.out.println("Holi");
+    }
+    public void setName1(String name1){
+        System.out.println("intente hacer cambiar la primera");
+
+        Name1.setText(name1);
+    }
+
+    public void setName2(String name2){
+        System.out.println("intente cambiar la segunda");
+        Name2.setText(name2);
+    }
+    public void setRounds(int rounds){
+        if(rounds<0)return;
+        this.rounds=rounds;
+    }
+    public void stopGame(){
+        if(!signal){
+            System.out.println("Intente acabar el juego");
+        }
+    }
+
+
 }

@@ -12,8 +12,8 @@ public class GetGame {
             FXMLLoader loader= new FXMLLoader(getClass().getResource("GameScene.fxml"));
             Parent Root = loader.load();
             PRSController Controller=loader.getController();
-            //Controller.setName1(text1);
-            //Controller.setName2(text2);
+            Controller.setName1(text1);
+            Controller.setName2(text2);
             return new Scene(Root);
         }
         catch (Exception e){return null;}

@@ -14,6 +14,7 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 import javax.management.DescriptorRead;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -38,12 +39,18 @@ public class PRSController {
     private ImageView ImageRight;
     @FXML
     private ImageView ImageLeft;
+    @FXML
+    private Label Name1;
+    @FXML
+    private Label Name2;
     private Hand hand1;
     private Hand hand2;
-    private Image winner= GetImages.getImage("src/Images/Winner.png");
-    private Image loser= GetImages.getImage("src/Images/Loser.png");
-    private Image tie= GetImages.getImage("src/Images/tie.png");
+    private Image winner= GetImages.getImage("src/Resources/Images/Winner.png");
+    private Image loser= GetImages.getImage("src/Resources/Images/Loser.png");
+    private Image tie= GetImages.getImage("src/Resources/Images/tie.png");
     private ExecuteButtonAction ScreenColorChanger=new ExecuteButtonAction();
+    int rounds=3;
+    private int[] scores={0,0};
 
     public void rock1Action(){
         hand1=Hand.getHand(0);
@@ -77,7 +84,8 @@ public class PRSController {
     }
     public void duelAction(){
 
-        if(hand1!=null && hand2!=null){
+        if(hand1!=null && hand2!=null && rounds>0){
+            rounds--;
             EventHandler<ActionEvent> PauseAction=(event) -> {
                 ImageRight.setImage(null);
                 ImageLeft.setImage(null);
@@ -96,21 +104,20 @@ public class PRSController {
             if(state==1){
                 ImageRight.setImage(winner);
                 ImageLeft.setImage(loser);
-                //falta accion al ganar
+                scores[0]=scores[0]+1;
                 pause.play();
             }
             else if(state==2){
                 ImageRight.setImage(loser);
                 ImageLeft.setImage(winner);
                 pause.play();
-                //falta accion al ganar
+                scores[1]=scores[1]+1;
             }
             else{
 
 
                 ImageRight.setImage(tie);
                 ImageLeft.setImage(tie);
-                System.out.println("Hola");
                 //PauseTransition pause = new PauseTransition(Duration.seconds(1));
                 pause.setOnFinished(PauseAction);
                 pause.play();
@@ -119,6 +126,21 @@ public class PRSController {
 
             }
         }
+        else if(rounds==0){
+            Match.setOnAction(e->closeGame());
+        }
+    }
+    public void setName1(String name1){
+        Name1.setText(name1);
+    }
+    public void setName2(String name2){
+        Name2.setText(name2);
+    }
+    public void setRounds(int rounds){
+        this.rounds=rounds;
+    }
+    public void closeGame(){
+        System.out.println("Holi");
     }
 
 

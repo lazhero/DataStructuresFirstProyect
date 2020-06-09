@@ -9,19 +9,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Prove  {
+    private Stage stage;
     public void StartGame(int dato1, int dato2){
         Stage stage = new Stage();
-        GameController controller=new GameController();
-        Parent Root= null;
-        try {
-            Root = FXMLLoader.load(getClass().getResource("ShootInterface.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Scene scene=new Scene(Root);
+        Scene scene=new GetGame().getScene(dato1,dato2);
         stage.setScene(scene);
+        this.stage=stage;
         stage.show();
 
+    }
+    public Stage getStage(){
+        return this.stage;
     }
 
 }

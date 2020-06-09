@@ -15,26 +15,23 @@ import java.awt.*;
 import java.io.IOException;
 
 public class PRSGAME  {
+    private Stage stage;
     public void StarGame(int dato1, int dato2){
         Stage primaryStage = new Stage();
-        Parent Root= null;
+        Scene scene=null;
         try {
-            Root = FXMLLoader.load(getClass().getResource("GameScene.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
+            scene=new GetGame().getScene(Integer.toString(dato1),Integer.toString(dato2));
+
         }
-        Scene scene=new Scene(Root);
+        catch (Exception e){}
         primaryStage.setScene(scene);
+        this.stage=primaryStage;
         primaryStage.show();
 
     }
+    public Stage getStage(){
+        return stage;
+    }
 
-    public  Scene getGame() throws Exception{
-        Parent Root= FXMLLoader.load(getClass().getResource("GameScene.fxml"));
-        return new Scene(Root);
-    }
-    @FXML
-    public static void hello(){
-        System.out.println("Proving");
-    }
+
 }
