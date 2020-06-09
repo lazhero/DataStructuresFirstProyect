@@ -28,5 +28,9 @@ public class Stack<T> {
         if(reference.isEmpty()==true)return;
         reference.Shuffle();
     }
+    public boolean isEmpty(){
+        if (reference.isEmpty())return true;
+        return false;
+    }
 
 }
