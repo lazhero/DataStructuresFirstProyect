@@ -49,10 +49,8 @@ public class StealCoins extends Event {
     public void EventData(Player player) {
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         int random= new Random().nextInt(3);
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         System.out.println("stealcoins");
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");

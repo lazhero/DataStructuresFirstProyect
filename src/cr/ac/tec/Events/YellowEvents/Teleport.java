@@ -39,7 +39,6 @@ public class Teleport extends Event {
      */
     @Override
     public void EventData(Player player) {
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         Data="Hello!! You activated this event \n\n you will be teleported to a random location";
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);

@@ -48,7 +48,6 @@ public class ChangePlace extends Event {
         System.out.println("Change");
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         int random= new Random().nextInt(3);
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){

@@ -95,7 +95,6 @@ public class LoseOneStar extends Event {
             }
             random=new Random().nextInt(3);
         }
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         int aleatorio=random;
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");

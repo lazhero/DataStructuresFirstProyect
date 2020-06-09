@@ -41,7 +41,6 @@ public class WinTwoStars extends Event {
      */
     @Override
     public void EventData(Player player) {
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         Data="Congrats, You activated this event!!!  \n\n you win 2 stars!!";
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
