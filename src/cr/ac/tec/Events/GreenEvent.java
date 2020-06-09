@@ -15,6 +15,11 @@ import java.util.concurrent.TimeUnit;
 public class GreenEvent{
     public String Data;
 
+    /**
+     *
+     * @param coins
+     * @param player
+     */
     public GreenEvent (int coins, Player player){
 
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
@@ -50,12 +55,8 @@ public class GreenEvent{
             player.setCoins(actualCoins+coins);
             System.out.println(player.getCoins());
             return;
-
         });
-
         vb.getChildren().addAll(message,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
-
-
     }
 }

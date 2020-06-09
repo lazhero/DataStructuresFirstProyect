@@ -20,13 +20,17 @@ public class LoseOneStar extends Event {
      * The player loses a star and it is given to another random player.
      * @param player
      */
-
     @Override
     public void event1(Player player) {
 
 
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     @Override
     public void event2(Player player1, Player player2) {
         if (player1.getStars()<1){
@@ -56,7 +60,6 @@ public class LoseOneStar extends Event {
                 listaaleatoria.AddTail(0);
             }
             random=0;
-
         }else if(gameManager.getPlayerList().getLength()==3){
             if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
                 listaaleatoria.AddTail(1);
@@ -69,7 +72,6 @@ public class LoseOneStar extends Event {
                 listaaleatoria.AddTail(1);
             }
             random=new Random().nextInt(2);
-
         }
         else if(gameManager.getPlayerList().getLength()==4){
             if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
@@ -108,7 +110,6 @@ public class LoseOneStar extends Event {
         Data="Sorry, you activated this event! \n ,you lose 1 star, this will be \n obtained by the random player: " + listaaleatoria.get(aleatorio) ;
         gameManager.setRunning(true);
 
-
         Text data = new Text();
         data.setText(Data);
         data.setStyle("-fx-fill: white");
@@ -125,7 +126,6 @@ public class LoseOneStar extends Event {
             gameManager.setRunning(false);
             event2(player,gameManager.getPlayerList().get(listaaleatoria.get(aleatorio)));
             return;
-
         });
         vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);

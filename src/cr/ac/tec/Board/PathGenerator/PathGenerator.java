@@ -8,6 +8,17 @@ import cr.ac.tec.LinkedList.List.List;
 import cr.ac.tec.LinkedList.List.SingleList;
 
 public class PathGenerator {
+
+    /**
+     *
+     * @param SquaresonSide
+     * @param posx
+     * @param posy
+     * @param SquareSide
+     * @param SpaceBetween
+     * @param onEvent
+     * @return
+     */
     public static DoubleRoundList<Square> GenerateCircle(int SquaresonSide,double posx, double posy,double SquareSide,double SpaceBetween,boolean onEvent){
         int SquaresNumber=SquaresonSide*4-4;
         final int reg=SquaresNumber;
@@ -42,7 +53,6 @@ public class PathGenerator {
             else sqr = new YellowSquare(posx, posy, SquareSide);
 
 
-
             List.AddTail(sqr);
             SquaresNumber--;
             int relocation=(int)((reg-SquaresNumber)/((reg/4)-1));
@@ -62,10 +72,21 @@ public class PathGenerator {
                 posx-=SquareSide+SpaceBetween;
                 posy+=SquareSide+SpaceBetween;
             }
-
         }
         return List;
     }
+
+    /**
+     *
+     * @param FirstSquare
+     * @param LastSquare
+     * @param BranchSize
+     * @param MainPath
+     * @param sidesize
+     * @param SpaceBetween
+     * @param JustEvents
+     * @return
+     */
     public static DoubleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath, double sidesize, double SpaceBetween,boolean JustEvents) {
         DoubleList<Square> SquareList=new DoubleList<>();
         double posx=MainPath.get(FirstSquare).getCoordx();
@@ -106,10 +127,8 @@ public class PathGenerator {
                 }
                 SquareList.AddTail(square);
                 mainlen--;
-
             }
         }
         return SquareList;
     }
-
 }

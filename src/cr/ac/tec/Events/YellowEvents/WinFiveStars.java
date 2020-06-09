@@ -20,15 +20,18 @@ public class WinFiveStars extends Event {
      * The player wins five stars and feels cooler.
      * @param player
      */
-
     @Override
     public void event1(Player player) {
         int actualstars=player.getStars();
         player.setStars(actualstars+5);
         System.out.println(player.getStars());
-
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     @Override
     public void event2(Player player1, Player player2) {
 

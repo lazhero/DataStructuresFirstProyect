@@ -7,12 +7,17 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class GetImages {
+    /**
+     *
+     * @param path
+     * @return
+     * @throws IOException
+     */
     public static ImageView getImageView(String path) throws IOException {//Need to add the logger
         FileInputStream input= new FileInputStream(path);
         Image image=new Image(input);
-       ImageView imageView=new ImageView(image);
-       return imageView;
-
+        ImageView imageView=new ImageView(image);
+        return imageView;
     }
     public static Image getImage(String path){
         try {
@@ -21,6 +26,5 @@ public class GetImages {
             return image;
         }
         catch (Exception e){return null;}
-
     }
 }

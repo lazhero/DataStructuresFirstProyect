@@ -15,6 +15,15 @@ public class AnimatedPlayer extends GameObject{
     private int imageHeight;
     private HashMap<String, cr.ac.tec.Minigames.DiamondHunter.Classes.Animation> animations;
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param velocity
+     * @param imageName
+     * @param life
+     * @param currentAnimation
+     */
     public AnimatedPlayer(int x, int y, int velocity, String imageName, int life, String currentAnimation) {
         super(x, y, velocity, imageName);
         this.life = life;
@@ -23,22 +32,36 @@ public class AnimatedPlayer extends GameObject{
         initializeAnimations();
     }
 
-
+    /**
+     *
+     * @return
+     */
     public int getLife() {
         return life;
     }
 
+    /**
+     *
+     * @param life
+     */
     public void setLife(int life) {
         this.life = life;
     }
 
+    /**
+     *
+     * @param currentAnimation
+     */
     public void setCurrentAnimation(String currentAnimation){ this.currentAnimation = currentAnimation;}
 
     public Rectangle obtainRectangle(){
         return new Rectangle(x,y,40,40);
     }
 
-
+    /**
+     *
+     * @param item
+     */
     public void verifyItemCollision(Item item){
         if (!item.isCaptured() && this.obtainRectangle().getBoundsInLocal().intersects(item.obtainRectangle().getBoundsInLocal())){
             item.setCaptured(true);

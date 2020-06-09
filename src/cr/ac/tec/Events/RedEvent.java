@@ -15,13 +15,16 @@ import java.util.concurrent.TimeUnit;
 public class RedEvent{
     public String Data;
 
+    /**
+     *
+     * @param coins
+     * @param player
+     */
     public RedEvent (int coins, Player player){
         Data= "Hello! You activated an event \n\n You Lose: "+coins+" coins";
         VBox vb = new VBox();
-
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
-
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(350);
         vb.setMaxWidth(350);

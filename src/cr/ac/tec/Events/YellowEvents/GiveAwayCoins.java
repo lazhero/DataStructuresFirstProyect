@@ -17,25 +17,38 @@ public class GiveAwayCoins extends Event {
     private int coins;
     private int amountplayers;
     private String Data;
+
     /**
      * The player who activates the event loses a random amount of coins and is dealt equally among the other players.
      * @param player
      *
      */
-
     @Override
     public void event1(Player player) {
-
-
     }
+
+    /**
+     *
+     * @param player
+     */
     public void eventlosecoins(Player player){
-
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     @Override
     public void event2(Player player1, Player player2) {
-
     }
+
+    /**
+     *
+     * @param player1
+     * @param player2
+     * @param coins
+     */
     public void event3(Player player1,Player player2,int coins){
         GameManager gameManager = GameManager.getInstance(0,0);
         if (player1.getCoins()<gameManager.getPlayerList().getLength()){
@@ -45,8 +58,15 @@ public class GiveAwayCoins extends Event {
             player1.setCoins(player1.getCoins()-gameManager.getPlayerList().getLength());
             player2.setCoins(player2.getCoins()+1);
         }
-
     }
+
+    /**
+     *
+     * @param player1
+     * @param player2
+     * @param player3
+     * @param coins
+     */
     public void event4(Player player1,Player player2,Player player3,int coins){
         GameManager gameManager = GameManager.getInstance(0,0);
         if (player1.getCoins()<gameManager.getPlayerList().getLength()){
@@ -57,8 +77,16 @@ public class GiveAwayCoins extends Event {
             player2.setCoins(player2.getCoins()+1);
             player3.setCoins(player3.getCoins()+1);
         }
-
     }
+
+    /**
+     *
+     * @param player1
+     * @param player2
+     * @param player3
+     * @param player4
+     * @param coins
+     */
     public void event5(Player player1, Player player2, Player player3, Player player4,int coins){
         GameManager gameManager = GameManager.getInstance(0,0);
         if (player1.getCoins()<gameManager.getPlayerList().getLength()){
@@ -70,7 +98,6 @@ public class GiveAwayCoins extends Event {
             player3.setCoins(player2.getCoins()+1);
             player4.setCoins(player2.getCoins()+1);
         }
-
     }
 
     /**
@@ -111,8 +138,6 @@ public class GiveAwayCoins extends Event {
                 }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
                     event3(player,gameManager.getPlayerList().get(0),coins);
                 }
-
-
             }else if(gameManager.getPlayerList().getLength()==3){
                 if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){
                     event4(player,gameManager.getPlayerList().get(1),gameManager.getPlayerList().get(2),coins);
@@ -121,8 +146,6 @@ public class GiveAwayCoins extends Event {
                 }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==2) {
                     event4(player, gameManager.getPlayerList().get(0), gameManager.getPlayerList().get(1), coins);
                 }
-
-
             }else if(gameManager.getPlayerList().getLength()==4) {
                 if (gameManager.getTurns() % gameManager.getPlayerList().getLength() == 0) {
                     event5(player, gameManager.getPlayerList().get(1), gameManager.getPlayerList().get(2), gameManager.getPlayerList().get(3), coins);
@@ -135,17 +158,13 @@ public class GiveAwayCoins extends Event {
                 }
                 return;
             }
-
         });
-
         Text data = new Text();
         data.setText(Data);
         data.setStyle("-fx-fill: white");
         data.setFont(new Font("Verdana",16));
         data.setTextAlignment(TextAlignment.CENTER);
-
         vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
-
     }
 }

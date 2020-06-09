@@ -21,13 +21,16 @@ public class ThrowDice {
     private int heightImage;
     private boolean drawable=true;
 
-
-
+    /**
+     *
+     */
     public void loadImages(){
         images.put("RollingDiceGif", new Image("Resources/Images/RollingDiceGif.png"));
-
     }
 
+    /**
+     *
+     */
     public void initializeAnimations(){
         handCoordinates = new Rectangle[]{
              new Rectangle(0,0,364,312),
@@ -47,6 +50,10 @@ public class ThrowDice {
         animations.put("handAnimation", handAnimation);
     }
 
+    /**
+     *
+     * @param t
+     */
     public void calculateFrame(double t){
         Rectangle coordinates = animations.get("handAnimation").calculateCurrentFrame(t);
         this.xImage = (int) coordinates.getX();
@@ -56,14 +63,20 @@ public class ThrowDice {
 
         if(coordinates.getX()==364 && coordinates.getY()==624){
             drawable=false;
-
         }
     }
 
+    /**
+     *
+     * @param t
+     */
     public void updateState(double t){
         calculateFrame(t);
     }
 
+    /**
+     *
+     */
     public void cycle(){
         long initialTime = System.nanoTime();
         AnimationTimer animationTimer = new AnimationTimer() {
@@ -80,10 +93,16 @@ public class ThrowDice {
         animationTimer.start();
     }
 
+    /**
+     *
+     */
     public void draw(){
         Board.graphicsContext.drawImage(images.get("RollingDiceGif"),xImage,yImage,widthImage,heightImage,5,5,140,120);
     }
 
+    /**
+     *
+     */
     public void start(){
         Board.displayHandImage=false;
         images = new HashMap<String, Image>();
@@ -93,5 +112,4 @@ public class ThrowDice {
         initializeAnimations();
         Board.dice.start();
     }
-
 }

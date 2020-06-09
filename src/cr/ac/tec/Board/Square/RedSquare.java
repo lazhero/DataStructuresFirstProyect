@@ -9,6 +9,7 @@ import javafx.scene.paint.Paint;
 import java.util.Random;
 
 public class RedSquare extends Square {
+
     /**
      * Class's contructor
      * @param coordx x-axis position
@@ -26,10 +27,8 @@ public class RedSquare extends Square {
 
     @Override
     public void event(Player player) {
-
         int lose= new Random().nextInt(3)+1;
         new RedEvent(lose,ListPlayer().get(0));
-
         }
 
     /**

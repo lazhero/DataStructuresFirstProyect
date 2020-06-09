@@ -9,6 +9,10 @@ We add the Placed field to emulate a board game's square
 
 public class RectanglePlaced extends Rectangle {
     private boolean Placed;//Tells whatever the space its full or not
+
+    /**
+     *
+     */
     public RectanglePlaced(){
         super();
         this.Placed=false;

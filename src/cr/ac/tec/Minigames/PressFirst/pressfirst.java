@@ -24,6 +24,7 @@ public class pressfirst  {
     private Text score1 = new Text("Score: " + scorep1);
     private Text score2 = new Text("Score:" + scorep2);
     private Text winnerp= new Text("");
+
     int cont1;
     int cont2;
     int victory;

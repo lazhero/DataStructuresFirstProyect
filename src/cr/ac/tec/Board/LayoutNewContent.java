@@ -26,6 +26,7 @@ public class LayoutNewContent {
         if(Left!=0.0)anchorPane.setLeftAnchor(node,Left);
         if(Right!=0.0)anchorPane.setRightAnchor(node,Right);
     }
+
     /**
      * Add a new layout to an anchor pane
      * @param anchorPane the AnchorPane
@@ -51,8 +52,6 @@ public class LayoutNewContent {
      * @param node The new content
      */
     public static void Update(ScrollPane scroll,Node node){
-
         scroll.setContent(node);
     }
-
 }

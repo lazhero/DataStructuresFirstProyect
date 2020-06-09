@@ -29,11 +29,19 @@ public class Board extends Application {
     public static boolean displayHandImage=true;
     public Button button;
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args){
         launch(args);
     }
     @Override
 
+
+    /**
+    *
+    */
     public void start(Stage MainWindow) {
         images = new HashMap<>();
         Canvas canvas = new Canvas(1000,700);
@@ -55,6 +63,9 @@ public class Board extends Application {
         MainWindow.show();
     }
 
+    /**
+     *
+     */
     public void boardButtons(){
         customButton = new CustomButton(images.get("HandRollingDice"),5,5,140,120);
         customButton.setOnMouseClicked(e -> {
@@ -69,13 +80,15 @@ public class Board extends Application {
         button.setFont(Font.font(14));
         button.setOnMouseClicked(e ->{
             Dice xd = new Dice();
-
             Board.gameManager.StartTurn(Dice.finalNumber);
             Board.displayHandImage = true;
         });
         //customButton.setOnMouseClicked(e ->dice.start());
     }
 
+    /**
+     *
+     */
     public void drawImages(){
         Image background = new Image("Resources/Images/topViewBackground.png");
         Image singleHand = new Image("Resources/Images/SingleHand.png");
@@ -85,9 +98,9 @@ public class Board extends Application {
         }
     }
 
-
-
-
+    /**
+     *
+     */
     public void gameCycle(){
         long initialTime = System.nanoTime();
         AnimationTimer animationTimer = new AnimationTimer() {
@@ -101,5 +114,4 @@ public class Board extends Application {
         };
         animationTimer.start();
     }
-
 }

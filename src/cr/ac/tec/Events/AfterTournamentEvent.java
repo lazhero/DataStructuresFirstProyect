@@ -17,7 +17,6 @@ public class AfterTournamentEvent {
 
     public void AfterTournament(DoubleList playerList) {
         GameManager gameManager = GameManager.getInstance(0,0);
-
         if (playerList.getLength() == 2) {
             gameManager.getPlayerList().get(0).setCoins(gameManager.getPlayerList().get(0).getCoins()+5);
             gameManager.getPlayerList().get(1).setCoins(gameManager.getPlayerList().get(1).getCoins()+3);
@@ -25,38 +24,28 @@ public class AfterTournamentEvent {
             gameManager.getPlayerList().get(0).setCoins(gameManager.getPlayerList().get(0).getCoins()+5);
             gameManager.getPlayerList().get(1).setCoins(gameManager.getPlayerList().get(1).getCoins()+3);
             gameManager.getPlayerList().get(2).setCoins(gameManager.getPlayerList().get(2).getCoins()+2);
-
-
         } else if (playerList.getLength() == 4) {
             gameManager.getPlayerList().get(0).setCoins(gameManager.getPlayerList().get(0).getCoins()+5);
             gameManager.getPlayerList().get(1).setCoins(gameManager.getPlayerList().get(1).getCoins()+3);
             gameManager.getPlayerList().get(2).setCoins(gameManager.getPlayerList().get(2).getCoins()+2);
             gameManager.getPlayerList().get(3).setCoins(gameManager.getPlayerList().get(3).getCoins()+3);
-
         }
     }
     public void AfterTournamentData(DoubleList playerList){
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-
         if (playerList.getLength()==2){
             Data="Hello!! this is the rank \n \n First position player: " +playerList.get(0)+ "Win 5 coins \n" +
                     "Second position player: "+playerList.get(1)+ "Win 3 coins";
-
         }else if(playerList.getLength()==3){
             Data="Hello!! this is the rank \n \n First position player: " +playerList.get(0)+ "Win 5 coins \n" +
                     "Second position player: "+playerList.get(1)+ "Win 3 coins"+
                     "Third position player: "+playerList.get(2)+ "Win 2 coins";
-
         }else if(playerList.getLength()==4){
             Data="Hello!! this is the rank \n \n First position player: " +playerList.get(0)+ "Win 5 coins \n" +
                     "Second position player: "+playerList.get(1)+ "Win 3 coins"+
                     "Third position player: "+playerList.get(2)+ "Win 2 coins"+
                     "Fourth position player: "+playerList.get(3)+ "Win 1 coins";
         }
-
-
-
-
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(600);
@@ -76,8 +65,6 @@ public class AfterTournamentEvent {
         data.setStyle("-fx-fill: white");
         data.setFont(new Font("Verdana",17));
         data.setTextAlignment(TextAlignment.CENTER);
-
-
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
@@ -86,12 +73,9 @@ public class AfterTournamentEvent {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
-
             return;
-
         });
         vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);
-
     }
 }

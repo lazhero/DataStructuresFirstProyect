@@ -23,17 +23,21 @@ public class Teleport extends Event {
         gameManager.teleport(player);
     }
 
-
+    /**
+     *
+     * @param player1
+     * @param change
+     */
     @Override
     public void event2(Player player1, Player change) {
 
     }
+
     /**
      * Information of the event
      * @param player
      */
     @Override
-
     public void EventData(Player player) {
         ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
@@ -56,7 +60,6 @@ public class Teleport extends Event {
         vb.setLayoutY(300);
         vb.setAlignment(Pos.CENTER);
 
-
         Text data = new Text();
         data.setText(Data);
         data.setText(Data);
@@ -75,7 +78,6 @@ public class Teleport extends Event {
             gameManager.setRunning(false);
             event1(player);
             return;
-
         });
         vb.getChildren().addAll(data,buttock);
         gameManager.getAnchorPane().getChildren().add(vb);

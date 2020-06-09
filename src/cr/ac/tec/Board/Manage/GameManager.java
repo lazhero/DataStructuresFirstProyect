@@ -24,14 +24,14 @@ import static cr.ac.tec.Images.GetImages.getImageView;
 public class GameManager {
     private static GameManager instance=null;
     private AnchorPane anchorPane;
-  private DoubleRoundList<Square> SquareList=new DoubleRoundList<>();
-   private DoubleList<Square> Phase1=new DoubleList<>();
+    private DoubleRoundList<Square> SquareList=new DoubleRoundList<>();
+    private DoubleList<Square> Phase1=new DoubleList<>();
     private DoubleList<Square> Phase2=new DoubleList<>();
     private DoubleList<Square> Phase3=new DoubleList<>();
     private DoubleRoundList<Square> Phase4=new DoubleRoundList<>();
-   private DoubleList<Player>  PlayerList=new DoubleList<>();
-   private DoubleRoundList<Integer> InitCondition=new DoubleRoundList<>();
-   private DoubleList<DoubleNode<Square>> PlayersNodes=new DoubleList<>();
+    private DoubleList<Player>  PlayerList=new DoubleList<>();
+    private DoubleRoundList<Integer> InitCondition=new DoubleRoundList<>();
+    private DoubleList<DoubleNode<Square>> PlayersNodes=new DoubleList<>();
     private DoubleList<DoubleNode<Square>> Switching=new DoubleList<>();
     private DoubleList<Boolean> GatesState=new DoubleList<>();
     private DoubleList<Boolean> PlayerReverse=new DoubleList<>();
@@ -39,41 +39,50 @@ public class GameManager {
     private String ImagesFormat;
     private String StarRoute;
     private double SquareSide;
-   private int turns;
-   private int rounds;
-   private int RoundsCount=1;
-   private boolean running=false;
-   private boolean Backing=false;
-   private DoubleNode<Square> StarHolder;
-   boolean StarTaken=false;
+    private int turns;
+    private int rounds;
+    private int RoundsCount=1;
+    private boolean running=false;
+    private boolean Backing=false;
+    private DoubleNode<Square> StarHolder;
+    boolean StarTaken=false;
 
+    /**
+     *
+     * @param PlayersNum
+     * @param Rounds
+     * @param SquareSide
+     * @param PlayersRoute
+     * @param StarRoute
+     * @param ImagesFormat
+     */
    private GameManager(int PlayersNum,int Rounds,double SquareSide,String PlayersRoute,String StarRoute,String ImagesFormat){
        this.SquareSide=SquareSide;
        this.PlayersRoute=PlayersRoute;
        this.StarRoute=StarRoute;
        this.ImagesFormat=ImagesFormat;
-      this.turns=-1;
-      this.rounds=Rounds;
+       this.turns=-1;
+       this.rounds=Rounds;
        SquareList= PathGenerator.GenerateCircle(10,200,20,this.SquareSide,this.SquareSide/10,false);
        Phase1=PathGenerator.GeneratePhase1(11,16,3,SquareList,this.SquareSide,this.SquareSide/10,false);
-      Phase1.getNode(Phase1.getLength()-1).setFront(SquareList.getNode(16));
-      Phase1.getNode(0).setBack(SquareList.getNode(11));
-      Phase2=PathGenerator.GeneratePhase1(20,25,2,SquareList,this.SquareSide,this.SquareSide/10,true);
-      Phase2.getNode(0).setBack(SquareList.getNode(20));
-      Phase2.getNode(Phase2.getLength()-1).setFront(SquareList.getNode(25));
-      Phase3=PathGenerator.GeneratePhase1(29,34,3,SquareList,this.SquareSide,this.SquareSide/10,false);
+       Phase1.getNode(Phase1.getLength()-1).setFront(SquareList.getNode(16));
+       Phase1.getNode(0).setBack(SquareList.getNode(11));
+       Phase2=PathGenerator.GeneratePhase1(20,25,2,SquareList,this.SquareSide,this.SquareSide/10,true);
+       Phase2.getNode(0).setBack(SquareList.getNode(20));
+       Phase2.getNode(Phase2.getLength()-1).setFront(SquareList.getNode(25));
+       Phase3=PathGenerator.GeneratePhase1(29,34,3,SquareList,this.SquareSide,this.SquareSide/10,false);
        Phase3.getNode(0).setBack(SquareList.getNode(29));
        Phase3.getNode(Phase3.getLength()-1).setFront(SquareList.getNode(34));
-     Phase4=PathGenerator.GenerateCircle(6,310,130,this.SquareSide,this.SquareSide/10,true);
+       Phase4=PathGenerator.GenerateCircle(6,310,130,this.SquareSide,this.SquareSide/10,true);
 
-      GatesState.AddTail(false);
+       GatesState.AddTail(false);
        GatesState.AddTail(true);
        GatesState.AddTail(true);
        GatesState.AddTail(false);
-      Switching.AddTail(SquareList.getNode(11));
-      Switching.AddTail(SquareList.getNode(20));
-      Switching.AddTail(SquareList.getNode(29));
-      Switching.AddTail(SquareList.getNode(34));
+       Switching.AddTail(SquareList.getNode(11));
+       Switching.AddTail(SquareList.getNode(20));
+       Switching.AddTail(SquareList.getNode(29));
+       Switching.AddTail(SquareList.getNode(34));
 
        int i=1;
 
@@ -81,8 +90,8 @@ public class GameManager {
           String path=null;
           try {
              path=PlayersRoute+Integer.toString(i)+ImagesFormat;
-              PlayerList.AddTail(new Player(i,getImageView(path)));
-              InitCondition.AddTail(-1);
+             PlayerList.AddTail(new Player(i,getImageView(path)));
+             InitCondition.AddTail(-1);
              PlayersNodes.AddTail(new DoubleNode<Square>(null,SquareList.getNode(SquareList.getLength()-1),SquareList.getNode(0)));
              PlayerReverse.AddTail(false);
          }
@@ -90,26 +99,51 @@ public class GameManager {
 
         i++;
       }
-
    }
+
+    /**
+     *
+     * @param PlayersNum
+     * @param Rounds
+     * @param SquareSide
+     * @param PlayersRoute
+     * @param StarRoute
+     * @param ImagesFormat
+     * @return
+     */
    public static GameManager getInstance(int PlayersNum,int Rounds,double SquareSide,String PlayersRoute,String StarRoute,String ImagesFormat){
        if(instance==null){
            synchronized(GameManager.class){
                if(instance==null){
                    instance=new GameManager(PlayersNum,Rounds,SquareSide,PlayersRoute,StarRoute,ImagesFormat);
                }
-
            }
        }
        return instance;
    }
+
+    /**
+     *
+     * @param PlayerNum
+     * @param Rounds
+     * @return
+     */
    public static GameManager getInstance(int PlayerNum,int Rounds){
        return instance;
    }
+
+    /**
+     *
+     * @return
+     */
    public static GameManager getInstance(){
        return instance;
    }
 
+    /**
+     *
+     * @param steps
+     */
    public void StartTurn(int steps){
        if((!running || Backing)&& steps!=0) {
            running=true;
@@ -133,12 +167,10 @@ public class GameManager {
                        (ActionEvent event) -> {
                            DoubleNode<Square> Temp=PlayersNodes.get(PlayerTurn);
                            if (InitCondition.get(PlayerTurn)!= -1) {
-
                                Temp.getInfo().DeletingPlayer(PlayerList.get(PlayerTurn),40,40);
                            }
-
-                           Temp=GetNextNode(Temp,raise,PlayerReverse.get(PlayerTurn));
-                           Temp.getInfo().DrawPlayer(PlayerList.get(PlayerTurn), 40, 40,(Math.abs(f)+1==Math.abs(steps)));
+                            Temp=GetNextNode(Temp,raise,PlayerReverse.get(PlayerTurn));
+                            Temp.getInfo().DrawPlayer(PlayerList.get(PlayerTurn), 40, 40,(Math.abs(f)+1==Math.abs(steps)));
                             InitCondition.ChangeContent(PlayerTurn,InitCondition.get(PlayerTurn)+raise);
                             PlayersNodes.ChangeContent(PlayerTurn,Temp);
                             if(Temp==StarHolder){
@@ -167,12 +199,7 @@ public class GameManager {
                            counter--;
                            System.out.println("ATRAS");
                        }
-
-
                        MovePlayer(loser,counter);
-
-
-
                    }
                    running=false;
                    PlayersNodes.get(PlayerTurn).getInfo().event(PlayerList.get(PlayerTurn));
@@ -185,14 +212,8 @@ public class GameManager {
                            StarHolder.getInfo().DrawStar(2*SquareSide,null);
                            StarHolder=null;
                            StarTaken=false;
-
-
-
-
                        }
                        catch (Exception f){
-
-
                        }
                    }
                    if(RoundsCount>=2 && RoundsCount<=rounds && StarHolder==null){
@@ -204,26 +225,19 @@ public class GameManager {
                            new Tournament().TournamentData(getPlayerList());
                        }
                        catch (Exception Ex){
-
                        }
-
                    }
-
-
-
-
                });
                pauseTransition.play();
-
-
                });
            timeline.play();
-
-
-
        }
-
    }
+
+    /**
+     *
+     * @param anchorPane
+     */
    public void Draw(AnchorPane anchorPane){
        this.anchorPane=anchorPane;
        try{
@@ -250,9 +264,16 @@ public class GameManager {
            }
        }
        catch (Exception e){
-
        }
    }
+
+    /**
+     *
+     * @param node
+     * @param Raise
+     * @param Reverse
+     * @return
+     */
    public DoubleNode<Square> GetNextNode(DoubleNode<Square> node,int Raise,boolean Reverse){
        if(node==Switching.get(0)){
            if(GatesState.get(0)) {
@@ -311,16 +332,24 @@ public class GameManager {
            }
            return node.getFront();
        }
-
    }
+
+    /**
+     *
+     * @param player
+     * @param Steps
+     */
    public void MovePlayer(Player player,int Steps){
        Backing=true;
        final int Backup=turns;
        turns=PlayerList.FindFirstInstancePosition(player)-1;
        StartTurn(Steps);
        turns=Backup;
-
    }
+
+    /**
+     *
+     */
    public void confirm(){
        for(int i=0;i<SquareList.getLength();i++){
            System.out.println("Casilla numero "+ i+" .........................................................................");
@@ -332,6 +361,11 @@ public class GameManager {
            }
        }
    }
+
+    /**
+     *
+     * @param player
+     */
    public void teleport(Player player){
        int pos=-1;
        if(player!=null && PlayerList.FindFirstInstancePosition(player)!=-1){
@@ -366,13 +400,22 @@ public class GameManager {
            PlayersNodes.get(pos).getInfo().DrawPlayer(player, this.SquareSide, this.SquareSide, false);
        }
    }
+
+    /**
+     *
+     * @param pos
+     */
    public void example(int pos){
        teleport(PlayerList.get(pos));
    }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
    public void exchangePosition(Player player1,Player player2){
        System.out.println("Aca estoy");
-
        int posP1=-1;
        int posP2=-1;
        if(player1!=null && PlayerList.FindFirstInstancePosition(player1)!=-1){
@@ -392,10 +435,21 @@ public class GameManager {
            PlayersNodes.ChangeContent(posP2, node1);
        }
    }
+
+    /**
+     *
+     * @param pos
+     */
    public void prove(int pos){
        int pos1=(pos+1)%PlayerList.getLength();
        exchangePosition(PlayerList.get(pos),PlayerList.get(pos1));
    }
+
+    /**
+     *
+     * @param List
+     * @return
+     */
    private DoubleNode<Square> getFreePos(DoubleList<Square> List){
        DoubleNode<Square> Temp=null;
        while(Temp==null || Temp.getInfo().getPlayers()>0){
@@ -403,6 +457,12 @@ public class GameManager {
        }
        return Temp;
    }
+
+    /**
+     *
+     * @param List
+     * @return
+     */
     private DoubleNode<Square> getFreePos(DoubleRoundList<Square> List){
         DoubleNode<Square> Temp=null;
         while(Temp==null || Temp.getInfo().getPlayers()>0){
@@ -410,22 +470,43 @@ public class GameManager {
         }
         return Temp;
     }
+
+    /**
+     *
+     * @return
+     */
     public AnchorPane getAnchorPane(){
        return this.anchorPane;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isRunning() {
         return this.running;
     }
 
+    /**
+     *
+     * @param running
+     */
     public void setRunning(boolean running) {
         this.running = running;
     }
 
+    /**
+     *
+     * @return
+     */
     public DoubleList<Player> getPlayerList() {
         return PlayerList;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTurns() {
         return turns;
     }

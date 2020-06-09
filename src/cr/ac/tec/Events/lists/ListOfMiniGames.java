@@ -6,7 +6,9 @@ public class ListOfMiniGames {
     protected static DoubleList milista;
     public static ListOfMiniGames instance=null;
 
-
+    /**
+     *
+     */
     private ListOfMiniGames(){
         milista = new DoubleList<String>();
         milista.AddTail("MemoryGame");
@@ -17,12 +19,22 @@ public class ListOfMiniGames {
         milista.AddTail("RandomNumber");
         milista=milista.Shuffle();
     }
+
+    /**
+     *
+     * @return
+     */
     public static ListOfMiniGames getInstance() {
         if (instance == null) {
             instance = new ListOfMiniGames();
         }
         return instance;
     }
+
+    /**
+     *
+     * @return
+     */
     public DoubleList getDoubleList(){
         return milista;
     }

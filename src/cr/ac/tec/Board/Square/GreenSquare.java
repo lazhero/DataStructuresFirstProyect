@@ -9,6 +9,7 @@ import javafx.scene.paint.Paint;
 import java.util.Random;
 
 public class GreenSquare extends Square {
+
     /**
      *
      * @param coordx X-axis position
@@ -25,16 +26,11 @@ public class GreenSquare extends Square {
      * this event gives coins to the one who activates it
      * @param player
      */
-
     @Override
     public void event(Player player) {
-
         int win= new Random().nextInt(3)+1;
         new GreenEvent(win,ListPlayer().get(0));
         System.out.println(ListOfEvents.getInstance().getDoubleList());
-
-
-
     }
 
     /**

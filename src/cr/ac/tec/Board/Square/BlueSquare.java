@@ -6,6 +6,7 @@ import javafx.scene.paint.Paint;
 
 
 public class BlueSquare extends Square {
+
     /**
      * The class constructor
      * @param coordx x-axis position
@@ -14,8 +15,6 @@ public class BlueSquare extends Square {
      */
     public BlueSquare(double coordx, double coordy, double sideSize){
         super(Color.BLUE,coordx,coordy,sideSize);
-
-
     }
 
     /**
