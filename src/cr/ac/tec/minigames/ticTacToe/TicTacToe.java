@@ -37,10 +37,12 @@ public class TicTacToe{
     public static int victory;
     public static int lose;
 
+    /**
+     *
+     */
     public static void restart(){
 
     }
-
 
     /**
      * Creates the interface which the player interacts with.
@@ -71,12 +73,10 @@ public class TicTacToe{
         for (int y = 0; y < 3; y++){
             combos.AddHead(new Combo(board[0][y],board[1][y],board[2][y]));
         }
-
         //vertical
         for (int x = 0; x < 3; x++) {
             combos.AddHead(new Combo(board[x][0], board[x][1], board[x][2]));
         }
-
         //diagonals
         combos.AddHead(new Combo(board[0][0],board[1][1],board[2][2]));
         combos.AddHead(new Combo(board[2][0],board[1][1],board[0][2]));
@@ -85,15 +85,9 @@ public class TicTacToe{
         buttok.setOnMouseClicked(event -> {
             new AfterGameEvent().AfterGameEventData(victory,lose);
             primaryStage.close();
-
         });
-
-
-
         return root;
     }
-
-
 
     /**
      * Checks if the game is still playable.
@@ -106,7 +100,6 @@ public class TicTacToe{
                 break;
             }
         }
-
     }
 
     /**
@@ -152,10 +145,7 @@ public class TicTacToe{
 
     }
 
-
-
     private static class Tile extends StackPane {
-
         boolean editable = true;
         private Text text = new Text();
 
@@ -175,7 +165,6 @@ public class TicTacToe{
             setOnMouseClicked(event ->{
                 if (!playable)
                     return;
-
                 if (event.getButton()== MouseButton.PRIMARY && editable){
                     if (!turnX)
                         return;
@@ -195,27 +184,50 @@ public class TicTacToe{
             });
         }
 
+        /**
+         *
+         * @return
+         */
         public double getCenterX(){
             return getTranslateX() + 100;
         }
 
+        /**
+         *
+         * @return
+         */
         public double getCenterY(){
             return getTranslateY() + 100;
         }
 
+        /**
+         *
+         * @return
+         */
         public String getValue(){
             return text.getText();
         }
 
+        /**
+         *
+         */
         private void drawX(){
             text.setText("X");
         }
 
+        /**
+         *
+         */
         private void drawO(){
             text.setText("O");
         }
     }
 
+    /**
+     *
+     * @param dato1
+     * @param dato2
+     */
     public void StartGame(int dato1, int dato2){
         Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(createContent(dato1,dato2,primaryStage)));

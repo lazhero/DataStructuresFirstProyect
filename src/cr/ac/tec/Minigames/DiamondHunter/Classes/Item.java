@@ -11,19 +11,32 @@ public class Item extends GameObject {
     final int initialY = y;
     private boolean captured=false;
 
+    /**
+     *
+     * @return
+     */
     public boolean isCaptured() {
         return captured;
     }
 
+    /**
+     *
+     * @param captured
+     */
     public void setCaptured(boolean captured) {
         this.captured = captured;
         DiamondHunterGame.totalDiamondsCollected++;
         System.out.println(DiamondHunterGame.totalDiamondsCollected);
     }
 
-
-
-
+    /**
+     *
+     * @param x
+     * @param y
+     * @param velocity
+     * @param imageName
+     * @param points
+     */
     public Item(int x, int y, int velocity, String imageName, int points) {
         super(x, y, velocity, imageName);
         this.width = (int) DiamondHunterGame.images.get("diamond").getWidth();
@@ -31,10 +44,18 @@ public class Item extends GameObject {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public Rectangle obtainRectangle(){
         return new Rectangle(x,y,width,height);
     }
 
+    /**
+     *
+     * @param graphicsContext
+     */
     @Override
     public void draw(GraphicsContext graphicsContext) {
         if (this.isCaptured())
@@ -44,13 +65,14 @@ public class Item extends GameObject {
         //graphicsContext.strokeRect(x,y,width,height);
     }
 
+    /**
+     *
+     */
     @Override
     public void move() {
         if(TurnFinished){
             return;
         } else {
-
-
             //RIGHT
             if (DiamondHunterGame.right && x <= initialX) {
                 if (Background.touchingRightSide)
@@ -58,16 +80,13 @@ public class Item extends GameObject {
                 if (Background.getX() == -2040)
                     return;
                 x -= velocity;
-
             }
-
             //LEFT
             if (DiamondHunterGame.left && x < initialX) {
                 if (Background.touchingLeftSide)
                     return;
                 x += velocity;
             }
-
             //DOWN
             if (DiamondHunterGame.down && y <= initialY) {
                 if (Background.touchingDownSide)
@@ -76,7 +95,6 @@ public class Item extends GameObject {
                     return;
                 y -= velocity;
             }
-
             //UP
             if (DiamondHunterGame.up && y < initialY) {
                 if (Background.touchingUpSide)
@@ -84,7 +102,5 @@ public class Item extends GameObject {
                 y += velocity;
             }
         }
-
     }
-
 }

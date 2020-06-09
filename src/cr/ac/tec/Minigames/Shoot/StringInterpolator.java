@@ -15,6 +15,14 @@ public class StringInterpolator extends Interpolator {
     boolean flag=true;
     String Currently;
     Timer myTimer;
+
+    /**
+     *
+     * @param List
+     * @param Rigthone
+     * @param turns
+     * @param pause
+     */
     StringInterpolator(ArrayList<String> List,int Rigthone,IntHolder turns,int pause){
         this.List=List;
         this.RigthPos=Rigthone;
@@ -33,11 +41,24 @@ public class StringInterpolator extends Interpolator {
         Thread t=new Thread(runnable);
         t.start();
     }
+
+    /**
+     *
+     * @param v
+     * @return
+     */
     @Override
     protected double curve(double v) {
         return 0;
     }
 
+    /**
+     *
+     * @param o
+     * @param o1
+     * @param v
+     * @return
+     */
     @Override
     public Object interpolate(Object o, Object o1, double v) {
         if(flag && turns.getSaved()>=0) {
@@ -51,9 +72,7 @@ public class StringInterpolator extends Interpolator {
                     i = Random.RandomNumber(List.size()) - 1;
                 }
                 Currently=List.get(i);
-
             }
-
         }
         return Currently;
     }

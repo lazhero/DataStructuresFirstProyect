@@ -15,6 +15,11 @@ import java.awt.*;
 import java.io.IOException;
 
 public class PRSGAME  {
+    /**
+     *
+     * @param dato1
+     * @param dato2
+     */
     public void StarGame(int dato1, int dato2){
         Stage primaryStage = new Stage();
         Parent Root= null;
@@ -26,9 +31,13 @@ public class PRSGAME  {
         Scene scene=new Scene(Root);
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public  Scene getGame() throws Exception{
         Parent Root= FXMLLoader.load(getClass().getResource("GameScene.fxml"));
         return new Scene(Root);

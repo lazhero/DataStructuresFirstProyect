@@ -52,7 +52,6 @@ public class DiamondHunterGame{
 
     private Stage primaryStage;
 
-
     /**
      * Creates the interface in which the player interacts with.
      */
@@ -75,12 +74,18 @@ public class DiamondHunterGame{
         graphicsContext = canvas.getGraphicsContext2D();
     }
 
+    /**
+     *
+     */
     public void nextButton(){
         buttonNext.setTranslateX(15);
         buttonNext.setTranslateY(15);
         buttonNext.setOnMouseClicked(e -> nextPlayerEvent());
     }
 
+    /**
+     *
+     */
     public void nextPlayerEvent(){
         if (numberOfPlayers>1 && TurnFinished){
             Added=false;
@@ -91,20 +96,29 @@ public class DiamondHunterGame{
         }
     }
 
+    /**
+     *
+     */
     public void okButton(){
         buttonOk.setTranslateX(100);
         buttonOk.setTranslateY(15);
         buttonOk.setOnMouseClicked(e -> {
             new AfterTournamentEvent().AfterTournamentData(finalList);
             primaryStage.close();
-
         });
     }
 
+    /**
+     *
+     * @return
+     */
     public DoubleList<Integer> getFinalList() {
         return finalList;
     }
 
+    /**
+     *
+     */
     public void addScores(){
         if (TurnFinished && !Added) {
             scores.AddHead((int)stopWatch.time());
@@ -113,6 +127,9 @@ public class DiamondHunterGame{
         }
     }
 
+    /**
+     *
+     */
     public void winner(){
         if(GameOver){
             BubbleSort sort = new BubbleSort();
@@ -121,8 +138,12 @@ public class DiamondHunterGame{
         }
     }
 
-
-
+    /**
+     *
+     * @param scores
+     * @param scoreHashmap
+     * @return
+     */
     public DoubleList<Integer> createFinalList(DoubleList<Integer> scores, HashMap<Long,Integer> scoreHashmap){
         finalList = new DoubleList();
         for (int i=0; i<scores.getLength(); i++){
@@ -131,7 +152,6 @@ public class DiamondHunterGame{
         }
         return finalList;
     }
-
 
     /**
      * Creates a barrier in every tile where there is not a 0 on the tile map.
@@ -146,7 +166,6 @@ public class DiamondHunterGame{
             }
         }
     }
-
 
     /**
      *
@@ -164,7 +183,9 @@ public class DiamondHunterGame{
         }
     }
 
-
+    /**
+     *
+     */
     public void loadImages(){
         images.put("map", new Image("Resources/Images/map.png"));
         images.put("link", new Image("Resources/Images/linkSprites.png"));
@@ -172,7 +193,9 @@ public class DiamondHunterGame{
         images.put("diamond", new Image("Resources/Images/diamond.png"));
     }
 
-
+    /**
+     *
+     */
     public void draw(){
         background.draw(graphicsContext);
         for (int i=0; i < barriers.getLength(); i++) {
@@ -185,6 +208,9 @@ public class DiamondHunterGame{
         //item.draw(graphicsContext);
     }
 
+    /**
+     *
+     */
     public void checkCollision(){
         background.playerCustomRectangle();
         for (int i=0; i < barriers.getLength(); i++){
@@ -236,7 +262,9 @@ public class DiamondHunterGame{
         animatedPlayer.calculateFrame(t);
     }
 
-
+    /**
+     *
+     */
     public void isFinished(){
         if (totalDiamondsCollected>=5){
             TurnFinished = true;
@@ -270,10 +298,9 @@ public class DiamondHunterGame{
         animationTimer.start();//Empieza el ciclo de juego.
     }
 
-
-
-
-
+    /**
+     *
+     */
     public void eventHandler(){
         boolean[] isPressable = {true};
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -350,6 +377,4 @@ public class DiamondHunterGame{
         primaryStage.show();
         gameCycle();
     }
-
-
 }

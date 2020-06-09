@@ -7,6 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class GetGame {
+    /**
+     *
+     * @param text1
+     * @param text2
+     * @return
+     */
     public Scene getScene(String text1,String text2) {
         try {
             FXMLLoader loader= new FXMLLoader(getClass().getResource("GameScene.fxml"));
@@ -18,5 +24,4 @@ public class GetGame {
         }
         catch (Exception e){return null;}
     }
-
 }

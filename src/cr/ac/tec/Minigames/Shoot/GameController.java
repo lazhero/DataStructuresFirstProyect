@@ -50,6 +50,9 @@ public class GameController {
     private IntHolder turns;
     private MediaPlayer mediaPlayer;
 
+    /**
+     *
+     */
     public void start(){
         try{
             mediaPlayer.stop();
@@ -90,33 +93,46 @@ public class GameController {
         StringInterpolator interpolator0=new StringInterpolator(List,Rigtpos,turns,400);
         ImageInterpolator interpolator=new ImageInterpolator("src/Resources/Images/Enemigo1",".png",2,1000);
         ImageInterpolator interpolator2=new ImageInterpolator("src/Resources/Images/Enemigo2",".png",2,1000);
-       KeyValue key0=new KeyValue(MyLabel.textProperty(),"", interpolator0);
+        KeyValue key0=new KeyValue(MyLabel.textProperty(),"", interpolator0);
         KeyValue key1=new KeyValue(Character1.imageProperty(),Character1.getImage(),interpolator);
         KeyValue key2=new KeyValue(Character2.imageProperty(),Character2.getImage(),interpolator2);
         KeyFrame keyFrame0=new KeyFrame(Duration.seconds(0.4),key0);
         KeyFrame keyFrame=new KeyFrame(Duration.seconds(0.5),key1,key2);
         PauseTransition pause=new PauseTransition(Duration.ZERO);
         pause.setOnFinished(new EventHandler<ActionEvent>() {
+            /**
+             *
+             * @param actionEvent
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                // button1.setVisible(false);
                 time=new Timeline(keyFrame,keyFrame0);
                 time.setCycleCount(Timeline.INDEFINITE);
                 time.play();
-
             }
         });
         pause.play();
-
-
-
-
     }
+
+    /**
+     *
+     * @param mouseEvent
+     */
     public void hide(MouseEvent mouseEvent){
     }
+
+    /**
+     *
+     */
     public void stop(){
         time.stop();
     }
+
+    /**
+     *
+     * @param keyEvent
+     */
     public void shoot(KeyEvent keyEvent) {
         System.out.println(turns.getSaved());
         if(signal && !pressed) {
@@ -142,7 +158,6 @@ public class GameController {
                     signal=false;
                     time.stop();
 
-
                 }
             } else if (keyEvent.getCode() == KeyCode.K) {
                 if(turns.getSaved()<=0) {
@@ -162,8 +177,6 @@ public class GameController {
                     RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
                     signal=false;
-
-
                 }
             }
         }
@@ -172,6 +185,11 @@ public class GameController {
             pressed=false;
         }
     }
+
+    /**
+     *
+     * @param condition
+     */
     public void shooting(boolean condition){
         if(condition){
            ImageInterpolator ImageInterpolator=new ImageInterpolator("src/Resources/Images/BD",".png",2,50);
@@ -198,7 +216,6 @@ public class GameController {
                 pressed=false;
             });
             time.play();
-
         }
         else{
             BalaDerecha.setImage(GetImages.getImage("src/Resources/Images/BD2.png"));
@@ -222,7 +239,6 @@ public class GameController {
 
             });
             time.play();
-
         }
     }
 }

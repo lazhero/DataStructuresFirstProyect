@@ -8,7 +8,13 @@ public class CustomRectangle extends Rectangle {
     int bottomLeftX;
     int topRightX;
 
-
+    /**
+     *
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     */
     public CustomRectangle(int x, int y, int width, int height){
         super(x,y,width,height);
         this.bottomLeftY = y + height;
@@ -17,6 +23,11 @@ public class CustomRectangle extends Rectangle {
         this.topRightX = x + width;
     }
 
+    /**
+     *
+     * @param other
+     * @return
+     */
     public boolean isOverlapping2(CustomRectangle other) {
         boolean primero = this.getX() <= other.getX() + other.getWidth();
         boolean segundo = this.getX() + getWidth() >= other.getX();
@@ -28,16 +39,15 @@ public class CustomRectangle extends Rectangle {
         System.out.println(tercero);
         System.out.println(cuarto);
         System.out.println("_________________________");
-
-
-
         return primero && segundo && tercero && cuarto;
-
     }
 
-
+    /**
+     *
+     * @param other
+     * @return
+     */
     public boolean isOverlapping(CustomRectangle other) {
-
         return this.getX() <= other.getX() + other.getWidth() && getX() + getWidth() >= other.getX() && getY() <= other.getY() + other.getHeight() && getY() + getHeight() >= other.getY();
 
     }

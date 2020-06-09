@@ -15,6 +15,14 @@ public class ImageInterpolator extends Interpolator {
     private int Amount;
     private Timer myTimer;
     private boolean change;
+
+    /**
+     *
+     * @param Route
+     * @param Format
+     * @param Amount
+     * @param pause
+     */
     public ImageInterpolator(String Route,String Format,int Amount,int pause){
         super();
         this.Route=Route;
@@ -34,6 +42,12 @@ public class ImageInterpolator extends Interpolator {
         Thread t=new Thread(runnable);
         t.start();
     }
+
+    /**
+     *
+     * @param v
+     * @return
+     */
     @Override
     protected double curve(double v) {
         if(change){
@@ -50,6 +64,5 @@ public class ImageInterpolator extends Interpolator {
         Image i= GetImages.getImage(s);
       return i;
     }
-
 }
 

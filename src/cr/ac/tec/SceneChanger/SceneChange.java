@@ -4,7 +4,16 @@ import javafx.scene.Scene;
 
 public abstract class SceneChange {
     private Scene scene;
-    public abstract void setScene(Scene scene);
-    public abstract Scene getScene();
 
+    /**
+     *
+     * @param scene
+     */
+    public abstract void setScene(Scene scene);
+
+    /**
+     *
+     * @return
+     */
+    public abstract Scene getScene();
 }

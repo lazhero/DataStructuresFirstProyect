@@ -45,38 +45,64 @@ public class PRSController {
     private Image tie= GetImages.getImage("src/Images/tie.png");
     private ExecuteButtonAction ScreenColorChanger=new ExecuteButtonAction();
 
+    /**
+     *
+     */
     public void rock1Action(){
         hand1=Hand.getHand(0);
         ScreenColorChanger.setBtn1(rock1);
         System.out.println("Piedra 1");
     }
+
+    /**
+     *
+     */
     public void rock2Action(){
         hand2=Hand.getHand(0);
         ScreenColorChanger.setBtn2(rock2);
         System.out.println("piedra 2");
     }
+
+    /**
+     *
+     */
     public void sccisors1Action(){
         hand1=Hand.getHand(1);
         ScreenColorChanger.setBtn1(sccisors1);
         System.out.println("Tijeras 1");
     }
+
+    /**
+     *
+     */
     public void sccisors2Action(){
         hand2=Hand.getHand(1);
         ScreenColorChanger.setBtn2(sccisors2);
         System.out.println("Tijeras 2");
     }
+
+    /**
+     *
+     */
     public void paper1Action(){
         hand1=Hand.getHand(2);
         ScreenColorChanger.setBtn1(paper1);
         System.out.println("Papel 1");
     }
+
+    /**
+     *
+     */
     public void paper2Action(){
         hand2=Hand.getHand(2);
         ScreenColorChanger.setBtn2(paper2);
         System.out.println("Papel 2");
     }
-    public void duelAction(){
 
+    /**
+     *
+     */
+    public void duelAction(){
         if(hand1!=null && hand2!=null){
             EventHandler<ActionEvent> PauseAction=(event) -> {
                 ImageRight.setImage(null);
@@ -106,22 +132,13 @@ public class PRSController {
                 //falta accion al ganar
             }
             else{
-
-
                 ImageRight.setImage(tie);
                 ImageLeft.setImage(tie);
                 System.out.println("Hola");
                 //PauseTransition pause = new PauseTransition(Duration.seconds(1));
                 pause.setOnFinished(PauseAction);
                 pause.play();
-
-
-
             }
         }
     }
-
-
-
-
 }

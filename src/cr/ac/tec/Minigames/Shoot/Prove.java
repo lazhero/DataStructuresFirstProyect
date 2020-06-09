@@ -9,6 +9,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Prove  {
+    /**
+     *
+     * @param dato1
+     * @param dato2
+     */
     public void StartGame(int dato1, int dato2){
         Stage stage = new Stage();
         GameController controller=new GameController();
@@ -21,7 +26,5 @@ public class Prove  {
         Scene scene=new Scene(Root);
         stage.setScene(scene);
         stage.show();
-
     }
-
 }

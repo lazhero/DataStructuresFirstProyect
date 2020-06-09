@@ -10,6 +10,13 @@ public abstract class GameObject {
     protected int height;
     protected int width;
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @param velocity
+     * @param imageName
+     */
     public GameObject(int x, int y, int velocity, String imageName) {
         this.x = x;
         this.y = y;
@@ -17,8 +24,14 @@ public abstract class GameObject {
         this.imageName = imageName;
     }
 
+    /**
+     *
+     * @param graphicsContext
+     */
     public abstract void draw(GraphicsContext graphicsContext);
 
+    /**
+     *
+     */
     public abstract void move();
-
 }
