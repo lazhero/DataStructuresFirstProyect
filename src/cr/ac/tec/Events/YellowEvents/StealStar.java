@@ -48,12 +48,10 @@ public class StealStar extends Event {
     public void EventData(Player player) {
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         int random= new Random().nextInt(3);
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         String Data;
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         System.out.println("stealstar");
 
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(500);

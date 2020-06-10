@@ -106,7 +106,6 @@ public class GiveAwayCoins extends Event {
      */
     @Override
     public void EventData(Player player) {
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         coins = new Random().nextInt(gameManager.getPlayerList().getLength()-1)+1;
 

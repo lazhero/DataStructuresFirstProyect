@@ -102,7 +102,7 @@ public class Duel extends Event {
         }else if(ListOfMiniGames.getInstance().getDoubleList().get(0)=="RandomNumber"){
             gamedescription="Welcome to the game Random! \n The game will generate a random number, \n the which is going to be hidden each \n player will have a chance to \n write a number, and the player \n closest to the real number will be \n the winner! Good luck to you!";
         }
-        ListOfEvents.getInstance().getDoubleList().delete(0);
+
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         int dato1;

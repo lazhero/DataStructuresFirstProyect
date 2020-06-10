@@ -43,7 +43,6 @@ public class WinFiveStars extends Event {
     @Override
     public void EventData(Player player) {
         VBox vb = new VBox();
-        ListOfEvents.getInstance().getDoubleList().delete(0);
         System.out.println("winfivestar");
         Data="Hello! You activated this event " +
                 "\n\n Congrats!!, you win 5 stars";

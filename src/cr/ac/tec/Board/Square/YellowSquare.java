@@ -10,9 +10,13 @@ import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 
 
 import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.Minigames.Memory.memorygame;
 import cr.ac.tec.Minigames.PRS.PRSGAME;
+import cr.ac.tec.Minigames.PressFirst.pressfirst;
+import cr.ac.tec.Minigames.RandomNumber.Main;
 import cr.ac.tec.Minigames.Shoot.Prove;
 import javafx.scene.paint.Color;
+import cr.ac.tec.Stack.*;
 
 
 import java.util.concurrent.TimeUnit;
@@ -46,8 +50,7 @@ public class YellowSquare extends Square {
     @Override
     public void event(Player player) {
         GameManager gameManager = GameManager.getInstance(0,0);
-        DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
-        if(ListOfEvents.getInstance().getDoubleList().isEmpty()){
+        if(ListOfEvents.getInstance().getMystack().isEmpty()){
             ListOfEvents.instance=null;
             try{
                 TimeUnit.MILLISECONDS.sleep(400);
@@ -63,7 +66,7 @@ public class YellowSquare extends Square {
                 e.printStackTrace();
             }
         }
-        //CallToEvent(ListOfEvents.getInstance().getDoubleList().get(0)).EventData(player);
+        CallToEvent(ListOfEvents.getInstance().getMystack().pop()).EventData(player);
         //new Duel().EventData(player);
         //new memorygame().StarGame(1,3);
         //new pressfirst().StartGame(0,1);
@@ -72,15 +75,16 @@ public class YellowSquare extends Square {
         //new DiamondHunterGame().StartGame(gameManager.getPlayerList());
         //new Duel().EventData(player);
         //new GiveAwayCoins().EventData(player);
-        //new Main().StartGame(0,1);
+        //new Main().StartGame(1,2);
         //new PRSGAME().StarGame(1,3);
         //new TicTacToe().StartGame(0,1);
-        //DoubleList d = new DoubleList();
-        //d.AddHead(1);
-        //d.AddHead(2);
-        //d.AddHead(3);
+       // DoubleList d = new DoubleList();
+      //  d.AddHead(1);
+      //  d.AddHead(2);
+       // d.AddHead(4);
+        //d.AddHead(5);
         //new DiamondHunterGame().StartGame(d);
-        new Prove().StartGame(1,2);
+        //new Prove().StartGame(1,2);
     }
 
     /**
@@ -89,6 +93,7 @@ public class YellowSquare extends Square {
      * @return
      */
     public Event CallToEvent (Object object){
+
         return (Event) object;
     }
 }

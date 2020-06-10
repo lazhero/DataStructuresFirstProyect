@@ -2,6 +2,7 @@ package cr.ac.tec.Events.lists;
 
 import cr.ac.tec.Events.YellowEvents.*;
 import cr.ac.tec.LinkedList.List.DoubleList;
+import cr.ac.tec.Stack.Stack;
 
 
 public class ListOfEvents {
@@ -16,43 +17,43 @@ public class ListOfEvents {
     static Integer ChangePlace = 5;
     static Integer LoseOneStar = 6;
     public static ListOfEvents instance = null;
-    protected static DoubleList mylist;
+    protected static Stack mystack;
 
 
     /**
      *
      */
     private ListOfEvents() {
-        mylist = new DoubleList<>();
+        mystack = new Stack<>();
 
         for (int i = 0; i < duel; i++) {
-            mylist.AddTail(new Duel());
+            mystack.push(new Duel());
         }
         for (int i = 0; i < StealCoins; i++) {
-            mylist.AddHead(new StealCoins());
+            mystack.push(new StealCoins());
         }
         for (int i = 0; i < GiveAwayCoins; i++) {
-            mylist.AddHead(new GiveAwayCoins());
+            mystack.push(new GiveAwayCoins());
         }
         for (int i = 0; i < Win2stars; i++) {
-            mylist.AddHead(new WinTwoStars());
+            mystack.push(new WinTwoStars());
         }
         for (int i = 0; i < Win5stars; i++) {
-            mylist.AddHead(new WinFiveStars());
+            mystack.push(new WinFiveStars());
         }
         for (int i = 0; i < Teleport; i++) {
-            mylist.AddHead(new Teleport());
+            mystack.push(new Teleport());
         }
         for (int i = 0; i < StealStar; i++) {
-            mylist.AddHead(new StealStar());
+            mystack.push(new StealStar());
         }
         for (int i = 0; i < ChangePlace; i++) {
-            mylist.AddHead(new ChangePlace());
+            mystack.push(new ChangePlace());
         }
         for (int i = 0; i < LoseOneStar; i++) {
-            mylist.AddHead(new LoseOneStar());
+            mystack.push(new LoseOneStar());
         }
-        mylist=mylist.Shuffle();
+        mystack.Shuffle();
 
     }
 
@@ -67,11 +68,8 @@ public class ListOfEvents {
         return instance;
     }
 
-    /**
-     *
-     * @return
-     */
-    public DoubleList getDoubleList(){
-        return mylist;
+    public  Stack getMystack() {
+        return mystack;
     }
+
 }
