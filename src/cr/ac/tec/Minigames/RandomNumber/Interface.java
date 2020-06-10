@@ -1,6 +1,7 @@
 package cr.ac.tec.Minigames.RandomNumber;
 
 import cr.ac.tec.Events.AfterGameEvent;
+import cr.ac.tec.Random.Random;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,7 +16,7 @@ import static cr.ac.tec.Minigames.RandomNumber.RandomNumberGame.restart;
 
 public class Interface{
 
-    public static Pane root = new Pane();
+
     static TextField inputNumber;
     static Button button = new Button("Go!");
     static Button restartButton = new Button("Try again!");
@@ -24,11 +25,14 @@ public class Interface{
     static int victory;
     static int lose;
 
+
+
     /**
      * Creates the interface which the player interacts with.
      * @return root
      */
     public static Parent createContent(int player1,int player2, Stage primaryStage){
+        Pane root = new Pane();
         root.setPrefSize(300,300);
         inputNumber = createTextField(100,100,200);
         button.setPrefSize(50,50);
@@ -45,6 +49,8 @@ public class Interface{
 
         Button button = new Button("OK");
         button.setOnMouseClicked(event -> {
+            System.out.println("lose " + lose);
+            System.out.println("victory " + victory);
             new AfterGameEvent().AfterGameEventData(victory,lose);
             primaryStage.close();
         });

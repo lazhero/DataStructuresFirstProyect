@@ -15,6 +15,8 @@ public class RandomNumberGame {
     public static double randomNumber;
     public static double numberPlayer1;
     public static double numberPlayer2;
+    public static int lose;
+    public static int victory;
 
     public static double getNumberPlayer1() {
         return numberPlayer1;
@@ -23,6 +25,9 @@ public class RandomNumberGame {
     public static double getNumberPlayer2() {
         return numberPlayer2;
     }
+
+
+
 
     /**
      * Collects each number input by a player.
@@ -88,6 +93,8 @@ public class RandomNumberGame {
                     Interface.text.setTranslateX(22);
                     Interface.text.setText("            Player "+player1+ " won!\nThe random number was " + randomNumber + "!");
                     victory=player1;
+                    Interface.setVictory(player1);
+                    Interface.setLose(player2);
                     lose=player2;
                     return;
                 }
@@ -99,6 +106,8 @@ public class RandomNumberGame {
                     Interface.text.setTranslateX(22);
                     Interface.text.setText("            Player"+player2+ "won!\nThe random number was " + randomNumber + "!");
                     victory=player2;
+                    Interface.setVictory(player2);
+                    Interface.setLose(player1);
                     lose=player1;
                     return;
                 } else{

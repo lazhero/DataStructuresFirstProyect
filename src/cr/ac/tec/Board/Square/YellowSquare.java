@@ -76,9 +76,9 @@ public class YellowSquare extends Square {
         //new DiamondHunterGame().StartGame(gameManager.getPlayerList());
         //new Duel().EventData(player);
         //new GiveAwayCoins().EventData(player);
-        //new Main().StartGame(1,2);
+        new Main().StartGame(0,1);
         //new PRSGAME().StarGame(1,3);
-        new TicTacToe().StartGame(0,1);
+        //new TicTacToe().StartGame(0,1);
        // DoubleList d = new DoubleList();
       //  d.AddHead(1);
       //  d.AddHead(2);

@@ -85,7 +85,6 @@ public class TicTacToe{
             Combo.restartTiles();
             new AfterGameEvent().AfterGameEventData(victory,lose);
             primaryStage.close();
-
         });
 
         button.setPrefSize(100,20);
