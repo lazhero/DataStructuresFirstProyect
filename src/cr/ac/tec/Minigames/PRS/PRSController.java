@@ -1,5 +1,6 @@
 package cr.ac.tec.Minigames.PRS;
 
+import cr.ac.tec.Events.AfterGameEvent;
 import cr.ac.tec.Images.GetImages;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
@@ -17,8 +18,10 @@ import javax.management.DescriptorRead;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.w3c.dom.ls.LSOutput;
+
 
 public class PRSController {
     @FXML
@@ -45,12 +48,16 @@ public class PRSController {
     private Label Name2;
     private Hand hand1;
     private Hand hand2;
+    private Stage primaryStage;
+    private int player1;
+    private int player2;
     private Image winner= GetImages.getImage("src/Resources/Images/Winner.png");
     private Image loser= GetImages.getImage("src/Resources/Images/Loser.png");
     private Image tie= GetImages.getImage("src/Resources/Images/tie.png");
     private ExecuteButtonAction ScreenColorChanger=new ExecuteButtonAction();
     int rounds=3;
     private int[] scores={0,0};
+
 
     public void rock1Action(){
         hand1=Hand.getHand(0);
@@ -77,6 +84,15 @@ public class PRSController {
         ScreenColorChanger.setBtn1(paper1);
         System.out.println("Papel 1");
     }
+
+    public void setPlayer1(int player1) {
+        this.player1 = player1;
+    }
+
+    public void setPlayer2(int player2) {
+        this.player2 = player2;
+    }
+
     public void paper2Action(){
         hand2=Hand.getHand(2);
         ScreenColorChanger.setBtn2(paper2);
@@ -112,6 +128,8 @@ public class PRSController {
                 ImageLeft.setImage(winner);
                 pause.play();
                 scores[1]=scores[1]+1;
+
+
             }
             else{
 
@@ -130,17 +148,47 @@ public class PRSController {
             Match.setOnAction(e->closeGame());
         }
     }
+
+    /**
+     *
+     * @param name1
+     */
     public void setName1(String name1){
-        Name1.setText(name1);
+        Name1.setText("Player " +name1);
+
     }
+
+
+    /**
+     *
+     * @param name2
+     */
     public void setName2(String name2){
-        Name2.setText(name2);
+        Name2.setText("Player "+ name2);
     }
     public void setRounds(int rounds){
         this.rounds=rounds;
     }
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
     public void closeGame(){
-        System.out.println("Holi");
+
+        primaryStage.close();
+        System.out.println(Name1);
+        if (scores[1]>scores[0]){
+            new AfterGameEvent().AfterGameEventData(player2,player1);
+        }else if(scores[1]<scores[0]){
+            new AfterGameEvent().AfterGameEventData(player1,player2);
+        }
+
+
+
+
+
+
     }
 
 

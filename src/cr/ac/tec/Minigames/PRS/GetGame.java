@@ -9,17 +9,21 @@ import javafx.stage.Stage;
 public class GetGame {
     /**
      *
-     * @param text1
-     * @param text2
+     * @param player1
+     * @param player2
+     * @param primaryStage
      * @return
      */
-    public Scene getScene(String text1,String text2) {
+    public Scene getScene(int player1,int player2,Stage primaryStage) {
         try {
             FXMLLoader loader= new FXMLLoader(getClass().getResource("GameScene.fxml"));
             Parent Root = loader.load();
             PRSController Controller=loader.getController();
-            Controller.setName1(text1);
-            Controller.setName2(text2);
+            Controller.setName1(Integer.toString(player1));
+            Controller.setName2(Integer.toString(player2));
+            Controller.setPrimaryStage(primaryStage);
+            Controller.setPlayer1(player1);
+            Controller.setPlayer2(player2);
             return new Scene(Root);
         }
         catch (Exception e){return null;}

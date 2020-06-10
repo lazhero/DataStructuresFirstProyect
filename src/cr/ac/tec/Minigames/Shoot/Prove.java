@@ -12,7 +12,7 @@ public class Prove  {
     private Stage stage;
     public void StartGame(int dato1, int dato2){
         Stage stage = new Stage();
-        Scene scene=new GetGame().getScene(dato1,dato2);
+        Scene scene=new GetGame().getScene(dato1,dato2,stage);
         stage.setScene(scene);
         this.stage=stage;
         stage.show();

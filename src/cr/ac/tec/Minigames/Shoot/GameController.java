@@ -1,6 +1,7 @@
 package cr.ac.tec.Minigames.Shoot;
 
 import cr.ac.tec.Controls.IntHolder;
+import cr.ac.tec.Events.AfterGameEvent;
 import cr.ac.tec.Images.GetImages;
 import cr.ac.tec.Random.Random;
 import javafx.animation.*;
@@ -49,12 +50,30 @@ public class GameController {
     @FXML
     private Label Name2;
     private Timeline time;
+    private int player1;
+    private int player2;
+    private int scoreplayer1;
+    private int scoreplayer2;
     private boolean signal=false;
     private boolean pressed=false;
     private boolean ReadytoShoot=true;
     private IntHolder turns;
     private MediaPlayer mediaPlayer;
-    private int rounds=5;
+    private int rounds=3;
+    private Stage primaryStage;
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
+    public void setPlayer1(int player1) {
+        this.player1 = player1;
+    }
+
+    public void setPlayer2(int player2) {
+        this.player2 = player2;
+    }
+
 
     /**
      *
@@ -159,18 +178,27 @@ public class GameController {
                     Character2.setImage(GetImages.getImage("src/Resources/Images/Enemigo21.png"));
                     RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
+                    scoreplayer1+=1;
 
                     shooting(true);
                     MyLabel.setVisible(false);
                     signal=false;
                     turns.setSaved(15);
+                    System.out.println("score 1 "+ scoreplayer1);
+
+                    System.out.println("score 2 "+ scoreplayer2);
 
                 }
                 else {
                     RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
-                    signal=false;
+
+                    scoreplayer2+=1;
                     time.stop();
+                    signal=false;
+                    System.out.println("score 1 "+ scoreplayer1);
+
+                    System.out.println("score 2 "+ scoreplayer2);
 
                 }
             } else if (keyEvent.getCode() == KeyCode.K) {
@@ -181,16 +209,25 @@ public class GameController {
                     Character2.setImage(GetImages.getImage("src/Resources/Images/Enemigo22.png"));
                     shooting(false);
                     MyLabel.setVisible(false);
+                    scoreplayer2+=1;
                     signal=false;
                     turns.setSaved(15);
                     RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
+
+                    System.out.println("score 1 "+ scoreplayer1);
+
+                    System.out.println("score 2 "+ scoreplayer2);
                 }
                 else {
                     time.stop();
                     RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
+                    scoreplayer1+=1;
                     signal=false;
+                    System.out.println("score 1 "+ scoreplayer1);
+
+                    System.out.println("score 2 "+ scoreplayer2);
                 }
             }
         }
@@ -249,24 +286,25 @@ public class GameController {
                };
                pause.setOnFinished(Finished);
                pause.play();
-                pressed=false;
+               pressed=false;
 
             });
             time.play();
         }
     }
     public void closeGame(){
+
         System.out.println("Holi");
     }
     public void setName1(String name1){
         System.out.println("intente hacer cambiar la primera");
 
-        Name1.setText(name1);
+        Name1.setText("Player : "+name1);
     }
 
     public void setName2(String name2){
         System.out.println("intente cambiar la segunda");
-        Name2.setText(name2);
+        Name2.setText("Player : "+name2);
     }
     public void setRounds(int rounds){
         if(rounds<0)return;
@@ -274,6 +312,15 @@ public class GameController {
     }
     public void stopGame(){
         if(!signal){
+            if (scoreplayer2<scoreplayer1){
+                new AfterGameEvent().AfterGameEventData(player1,player2);
+            }else if(scoreplayer2>scoreplayer1){
+                new AfterGameEvent().AfterGameEventData(player2,player1);
+            }
+            System.out.println("score 1 "+ scoreplayer1);
+
+            System.out.println("score 2 "+ scoreplayer2);
+            primaryStage.close();
             System.out.println("Intente acabar el juego");
         }
     }

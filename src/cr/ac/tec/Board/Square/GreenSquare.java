@@ -30,7 +30,7 @@ public class GreenSquare extends Square {
     public void event(Player player) {
         int win= new Random().nextInt(3)+1;
         new GreenEvent(win,ListPlayer().get(0));
-        System.out.println(ListOfEvents.getInstance().getDoubleList());
+        
     }
 
     /**

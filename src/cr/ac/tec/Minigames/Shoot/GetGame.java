@@ -6,14 +6,24 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class GetGame {
-    public Scene getScene(int a, int b){
+    /**
+     *
+     * @param player1
+     * @param player2
+     * @param stage
+     * @return
+     */
+    public Scene getScene(int player1, int player2, Stage stage){
         Scene scene=null;
         try{
             FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("ShootInterface.fxml"));
             scene=new Scene(fxmlLoader.load());
             GameController controller=fxmlLoader.getController();
-            controller.setName1(Integer.toString(a));
-           controller.setName2(Integer.toString(b));
+            controller.setName1(Integer.toString(player1));
+            controller.setName2(Integer.toString(player2));
+            controller.setPlayer1(player1);
+            controller.setPlayer2(player2);
+            controller.setPrimaryStage(stage);
         }
         catch (Exception e){
             System.out.println(e.getMessage());

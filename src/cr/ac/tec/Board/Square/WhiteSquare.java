@@ -3,10 +3,13 @@ package cr.ac.tec.Board.Square;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.WhiteEvent;
+import cr.ac.tec.Minigames.RandomNumber.Main;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 import java.util.Random;
+
+import static cr.ac.tec.Minigames.RandomNumber.RandomNumberGame.game;
 
 public class WhiteSquare extends Square {
 

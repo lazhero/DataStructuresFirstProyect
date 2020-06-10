@@ -16,17 +16,19 @@ import java.io.IOException;
 
 public class PRSGAME  {
     private Stage stage;
+
     public void StarGame(int dato1, int dato2){
         Stage primaryStage = new Stage();
         Scene scene=null;
         try {
-            scene=new GetGame().getScene(Integer.toString(dato1),Integer.toString(dato2));
+            scene=new GetGame().getScene(dato1,dato2,primaryStage);
 
         }
         catch (Exception e){}
         primaryStage.setScene(scene);
         this.stage=primaryStage;
         primaryStage.show();
+
 
     }
     public Stage getStage(){

@@ -101,10 +101,16 @@ public class memorygame {
         score2.setFont(Font.font(27));
         dat1=player1;
         dat2=player2;
-        Button butto = new Button("Ok");
+        Button butto = new Button("End Game");
         butto.setOnMouseClicked(event -> {
-            new AfterGameEvent().AfterGameEventData(victory,lose);
-            primaryStage.close();
+            if ((correct==8)){
+                new AfterGameEvent().AfterGameEventData(victory,lose);
+                primaryStage.close();
+
+            }else{
+                System.out.println("nelmijo");
+            }
+
         });
         root.getChildren().addAll(player1t,player2t,score1,score2,butto);
         return root;

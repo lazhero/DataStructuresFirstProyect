@@ -83,10 +83,19 @@ public class pressfirst  {
         dat1=dato1;
         dat2=dato2;
 
-        Button buttok = new Button("OK");
+        Button buttok = new Button("End Game");
         buttok.setOnMouseClicked(event -> {
-            new AfterGameEvent().AfterGameEventData(victory,lose);
-            primaryStage.close();
+            System.out.println(scorep1);
+            System.out.println(scorep2);
+            if(scorep1<=0||scorep2<=0){
+
+                new AfterGameEvent().AfterGameEventData(victory,lose);
+                primaryStage.close();
+            }
+            else{
+                System.out.println("Xd");
+            }
+
         });
         root.getChildren().addAll(fondo,score1,score2,p1,p2,random,winnerp,buttok);
         return root;
