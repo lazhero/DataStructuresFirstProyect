@@ -13,6 +13,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
@@ -21,6 +23,8 @@ import javafx.scene.text.Font;
 import javafx.scene.input.MouseEvent;
 
 import javafx.util.Duration;
+
+import java.io.File;
 
 
 public class memorygame {
@@ -40,6 +44,7 @@ public class memorygame {
     private Text turn= new Text();
     private Text score1=new Text("Score:"+ scorep1);
     private Text score2=new Text("Score:"+ scorep2);
+    private MediaPlayer mediaPlayer;
 
     /**
      *
@@ -106,6 +111,7 @@ public class memorygame {
             if ((correct==8)){
                 new AfterGameEvent().AfterGameEventData(victory,lose);
                 primaryStage.close();
+                mediaPlayer.stop();
 
             }else{
                 System.out.println("nelmijo");
@@ -263,6 +269,13 @@ public class memorygame {
     public void StarGame(int player1, int player2){
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.getAnchorPane().setVisible(true);
+
+
+        String path="src/Resources/Music/MemoryGameMusic.mp3";
+        Media media = new Media(new File(path).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
+
         Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(createContent(player1,player2,primaryStage)));
         primaryStage.setTitle("Memory Game, GOOD LUCK!");

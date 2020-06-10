@@ -8,11 +8,14 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 
+import java.io.File;
 import java.util.Random;
 
 public class pressfirst  {
@@ -34,6 +37,7 @@ public class pressfirst  {
     private Text random = new Text();
     private int dat1;
     private int dat2;
+    private MediaPlayer mediaPlayer;
 
     /**
      *
@@ -91,6 +95,7 @@ public class pressfirst  {
 
                 new AfterGameEvent().AfterGameEventData(victory,lose);
                 primaryStage.close();
+                mediaPlayer.stop();
             }
             else{
                 System.out.println("Xd");
@@ -135,10 +140,13 @@ public class pressfirst  {
     public void StartGame(int dat1, int dat2){
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.getAnchorPane().setVisible(true);
-        //String path = "src/musicf.mp3";
-        //Media audio = new Media(new File(path).toURI().toString());
-        //MediaPlayer repro = new MediaPlayer(audio);
-       // repro.setAutoPlay(true);
+
+        String path="src/Resources/Music/PressFirstMusic.mp3";
+        Media media = new Media(new File(path).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
+
+
         Stage primaryStage = new Stage();
         Scene scene = new Scene(createContent(dat1,dat2,primaryStage));
         scene.setOnKeyPressed(event->{

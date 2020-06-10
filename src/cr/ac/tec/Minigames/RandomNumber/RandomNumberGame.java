@@ -16,6 +16,14 @@ public class RandomNumberGame {
     public static double numberPlayer1;
     public static double numberPlayer2;
 
+    public static double getNumberPlayer1() {
+        return numberPlayer1;
+    }
+
+    public static double getNumberPlayer2() {
+        return numberPlayer2;
+    }
+
     /**
      * Collects each number input by a player.
      */
@@ -63,6 +71,10 @@ public class RandomNumberGame {
         } else {
             verifyIfPlayable(player1,player2);
         }
+    }
+
+    public static double getRandomNumber() {
+        return randomNumber;
     }
 
     /**
