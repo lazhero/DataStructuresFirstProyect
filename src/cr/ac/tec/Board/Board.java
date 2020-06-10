@@ -56,7 +56,7 @@ public class Board extends Application {
         boardButtons();
         gameCycle();
         FirstLevelAnchorPane.setStyle("-fx-background-color: #0078d7");
-        gameManager= GameManager.getInstance(4,25,50,"src/Resources/Images/Piece","src/Resources/Images/MarioStar",".png");
+        gameManager= GameManager.getInstance(2,25,50,"src/Resources/Images/Piece","src/Resources/Images/MarioStar",".png");
         gameManager.Draw(FirstLevelAnchorPane);
         FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,textField,button);
         MainWindow.setScene(scene);

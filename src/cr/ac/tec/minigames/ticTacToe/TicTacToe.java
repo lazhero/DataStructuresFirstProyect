@@ -28,15 +28,17 @@ import javafx.util.Duration;
  * @author migue
  */
 public class TicTacToe{
-    public static Button button = new Button("Try again!");
+    private Button button = new Button("Try again!");
+    private Button okButton = new Button("Ok");
     public static boolean playable = true;
     public static boolean turnX = true;
     public static Tile[][] board = new Tile[3][3];
     public static DoubleList<Combo> combos = new DoubleList<>();
-    public static Pane root = new Pane();
+
     public static int victory;
     public static int lose;
     private Stage primaryStage;
+
     private Scene scene;
     private int dato1;
     private int dato2;
@@ -53,21 +55,48 @@ public class TicTacToe{
         }
     }
 
+    public void okButton(){
+        okButton.setPrefSize(50,20);
+        okButton.setFont(Font.font(16));
+        okButton.setTranslateY(604);
+        okButton.setTranslateX(450);
+        okButton.setOnMouseClicked(e -> {
+            new AfterGameEvent().AfterGameEventData(victory,lose);
+            primaryStage.close();
+
+        });
+    }
+
     /**
      * Creates the interface which the player interacts with.
      * @return root
      */
     public Pane createContent(int player1, int player2, Stage primaryStage){
+        playable=true;
+        turnX=true;
+        System.out.println(playable);
+        System.out.println(turnX);
+        Pane root = new Pane();
+        okButton.setPrefSize(50,20);
+        okButton.setFont(Font.font(16));
+        okButton.setTranslateY(604);
+        okButton.setTranslateX(450);
+        okButton.setOnMouseClicked(e -> {
+            Combo.restartTiles();
+            new AfterGameEvent().AfterGameEventData(victory,lose);
+            primaryStage.close();
+
+        });
 
         button.setPrefSize(100,20);
         button.setFont(Font.font(16));
         button.setTranslateX(250);
         button.setTranslateY(604);
         button.setOnMouseClicked(e -> restart());
+        //okButton();
+        root.getChildren().addAll(button,okButton);
 
-        root.getChildren().add(button);
 
-        scene = new Scene(root);
         root.setPrefSize(600,643);
 
         for (int i = 0; i < 3; i++){
@@ -93,11 +122,6 @@ public class TicTacToe{
         combos.AddHead(new Combo(board[0][0],board[1][1],board[2][2]));
         combos.AddHead(new Combo(board[2][0],board[1][1],board[0][2]));
 
-        Button buttok = new Button("OK");
-        buttok.setOnMouseClicked(event -> {
-            new AfterGameEvent().AfterGameEventData(victory,lose);
-            primaryStage.close();
-        });
         return root;
     }
 
@@ -107,6 +131,7 @@ public class TicTacToe{
     private static void checkState(){
         for (int i=0; i<combos.getLength();i++){
             if (combos.get(i).isComplete()){
+                System.out.println("el juego terminó");
                 playable = false;
                 playWinAnimation(combos.get(i));
                 break;
@@ -125,7 +150,7 @@ public class TicTacToe{
         line.setEndX(combo.tiles[0].getCenterX());
         line.setEndY(combo.tiles[0].getCenterY());
 
-        root.getChildren().add(line);
+        //root.getChildren().add(line);
 
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(2),
@@ -137,10 +162,16 @@ public class TicTacToe{
     /**
      * Array of combinations that makes a player win a game.
      */
-    private static class Combo{
-        private Tile[] tiles;
+    public static class Combo{
+        public static Tile[] tiles;
         public Combo(Tile... tiles){
             this.tiles = tiles;
+        }
+
+        public static void restartTiles(){
+            for (int i=0; i<tiles.length;i++){
+                tiles[i].drawEmpty();
+            }
         }
 
         /**
@@ -149,6 +180,7 @@ public class TicTacToe{
          */
         public boolean isComplete(){
             if (tiles[0].getValue().isEmpty())
+
                 return false;
 
             return tiles[0].getValue().equals(tiles[1].getValue())
@@ -248,9 +280,8 @@ public class TicTacToe{
     public void StartGame(int dato1, int dato2){
         this.dato1 = dato1;
         this.dato2 = dato2;
-        createContent(1,2,primaryStage);
         primaryStage = new Stage();
-        primaryStage.setScene(scene);
+        primaryStage.setScene(new Scene(createContent(dato1,dato2,primaryStage)));
         primaryStage.show();
     }
 

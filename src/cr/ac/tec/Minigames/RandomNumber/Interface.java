@@ -43,12 +43,12 @@ public class Interface{
 
         text.setFont(Font.font(20));
 
-        Button buttok = new Button("OK");
-        buttok.setOnMouseClicked(event -> {
+        Button button = new Button("OK");
+        button.setOnMouseClicked(event -> {
             new AfterGameEvent().AfterGameEventData(victory,lose);
             primaryStage.close();
         });
-        root.getChildren().addAll(inputNumber,button,text,restartButton,buttok);
+        root.getChildren().addAll(inputNumber, Interface.button,text,restartButton,button);
         return root;
     }
 

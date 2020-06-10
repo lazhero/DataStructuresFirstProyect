@@ -15,6 +15,7 @@ import cr.ac.tec.Minigames.PRS.PRSGAME;
 import cr.ac.tec.Minigames.PressFirst.pressfirst;
 import cr.ac.tec.Minigames.RandomNumber.Main;
 import cr.ac.tec.Minigames.Shoot.Prove;
+import cr.ac.tec.Minigames.ticTacToe.TicTacToe;
 import javafx.scene.paint.Color;
 import cr.ac.tec.Stack.*;
 
@@ -77,7 +78,7 @@ public class YellowSquare extends Square {
         //new GiveAwayCoins().EventData(player);
         //new Main().StartGame(1,2);
         //new PRSGAME().StarGame(1,3);
-        //new TicTacToe().StartGame(0,1);
+        new TicTacToe().StartGame(0,1);
        // DoubleList d = new DoubleList();
       //  d.AddHead(1);
       //  d.AddHead(2);
