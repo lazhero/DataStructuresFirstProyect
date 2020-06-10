@@ -6,7 +6,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
@@ -36,26 +36,38 @@ public class TicTacToe{
     public static Pane root = new Pane();
     public static int victory;
     public static int lose;
+    private Stage primaryStage;
+    private Scene scene;
+    private int dato1;
+    private int dato2;
 
     /**
      *
      */
-    public static void restart(){
-
+    public void restart(){
+        for (int i=0; i<3;i++){
+            for (int j=0; j<3; j++){
+                board[j][i].drawEmpty();
+                board[j][i].editable = true;
+            }
+        }
     }
 
     /**
      * Creates the interface which the player interacts with.
      * @return root
      */
-    public static Parent createContent(int player1, int player2, Stage primaryStage){
+    public Pane createContent(int player1, int player2, Stage primaryStage){
+
         button.setPrefSize(100,20);
         button.setFont(Font.font(16));
         button.setTranslateX(250);
         button.setTranslateY(604);
-        //button.setOnMouseClicked(e -> createContent());
+        button.setOnMouseClicked(e -> restart());
 
         root.getChildren().add(button);
+
+        scene = new Scene(root);
         root.setPrefSize(600,643);
 
         for (int i = 0; i < 3; i++){
@@ -221,7 +233,12 @@ public class TicTacToe{
         private void drawO(){
             text.setText("O");
         }
+
+        private void drawEmpty(){
+            text.setText("");
+        }
     }
+
 
     /**
      *
@@ -229,8 +246,11 @@ public class TicTacToe{
      * @param dato2
      */
     public void StartGame(int dato1, int dato2){
-        Stage primaryStage = new Stage();
-        primaryStage.setScene(new Scene(createContent(dato1,dato2,primaryStage)));
+        this.dato1 = dato1;
+        this.dato2 = dato2;
+        createContent(1,2,primaryStage);
+        primaryStage = new Stage();
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
