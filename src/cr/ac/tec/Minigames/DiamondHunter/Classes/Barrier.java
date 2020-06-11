@@ -2,6 +2,7 @@ package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import cr.ac.tec.Board.Board;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 public class Barrier extends GameObject {
 
@@ -93,9 +94,9 @@ public class Barrier extends GameObject {
      */
     @Override
     public void draw(GraphicsContext graphicsContext) {
-        //graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
-        //graphicsContext.setStroke(Color.BLACK);
-        //graphicsContext.strokeRect(x,y,50,50);
+        graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
+        graphicsContext.setStroke(Color.BLACK);
+        graphicsContext.strokeRect(x,y,50,50);
     }
 
     /**

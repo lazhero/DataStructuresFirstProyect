@@ -28,6 +28,7 @@ import javafx.util.Duration;
  * @author migue
  */
 public class TicTacToe{
+    private Pane root;
     private Button button = new Button("Try again!");
     private Button okButton = new Button("Ok");
     public static boolean playable = true;
@@ -74,15 +75,12 @@ public class TicTacToe{
     public Pane createContent(int player1, int player2, Stage primaryStage){
         playable=true;
         turnX=true;
-        System.out.println(playable);
-        System.out.println(turnX);
-        Pane root = new Pane();
+        root = new Pane();
         okButton.setPrefSize(50,20);
         okButton.setFont(Font.font(16));
         okButton.setTranslateY(604);
         okButton.setTranslateX(450);
         okButton.setOnMouseClicked(e -> {
-            Combo.restartTiles();
             new AfterGameEvent().AfterGameEventData(victory,lose);
             primaryStage.close();
         });
@@ -127,12 +125,14 @@ public class TicTacToe{
     /**
      * Checks if the game is still playable.
      */
-    private static void checkState(){
+    private  void checkState(){
+        System.out.println("checkstate");
         for (int i=0; i<combos.getLength();i++){
             if (combos.get(i).isComplete()){
-                System.out.println("el juego terminó");
                 playable = false;
                 playWinAnimation(combos.get(i));
+                combos.get(i).restartTiles();
+                System.out.println("el juego terminó");
                 break;
             }
         }
@@ -142,14 +142,14 @@ public class TicTacToe{
      * Draws a line across the winning combo
      * @param combo combination of characters as "x" or "o" that makes a player win a match.
      */
-    private static void playWinAnimation(Combo combo){
+    private  void playWinAnimation(Combo combo){
         Line line = new Line();
         line.setStartX(combo.tiles[0].getCenterX());
         line.setStartY(combo.tiles[0].getCenterY());
         line.setEndX(combo.tiles[0].getCenterX());
         line.setEndY(combo.tiles[0].getCenterY());
 
-        //root.getChildren().add(line);
+        root.getChildren().add(line);
 
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(2),
@@ -161,13 +161,13 @@ public class TicTacToe{
     /**
      * Array of combinations that makes a player win a game.
      */
-    public static class Combo{
-        public static Tile[] tiles;
-        public Combo(Tile... tiles){
+    public class Combo{
+        private Tile[] tiles;
+        private Combo(Tile... tiles){
             this.tiles = tiles;
         }
 
-        public static void restartTiles(){
+        public  void restartTiles(){
             for (int i=0; i<tiles.length;i++){
                 tiles[i].drawEmpty();
             }
@@ -178,6 +178,7 @@ public class TicTacToe{
          * @return
          */
         public boolean isComplete(){
+            System.out.println(tiles[0].getValue());
             if (tiles[0].getValue().isEmpty())
 
                 return false;
@@ -188,7 +189,7 @@ public class TicTacToe{
 
     }
 
-    private static class Tile extends StackPane {
+    private  class Tile extends StackPane {
         boolean editable = true;
         private Text text = new Text();
 

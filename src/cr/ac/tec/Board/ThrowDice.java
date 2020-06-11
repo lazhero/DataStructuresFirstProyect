@@ -97,13 +97,14 @@ public class ThrowDice {
      *
      */
     public void draw(){
-        Board.graphicsContext.drawImage(images.get("RollingDiceGif"),xImage,yImage,widthImage,heightImage,5,5,140,120);
+        Board.graphicsContext.drawImage(images.get("RollingDiceGif"),xImage,yImage,widthImage,heightImage,770,510,240,206);
     }
 
     /**
      *
      */
     public void start(){
+        System.out.println("xd");
         Board.displayHandImage=false;
         images = new HashMap<String, Image>();
         loadImages();

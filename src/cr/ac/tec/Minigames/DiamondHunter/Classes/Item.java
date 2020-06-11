@@ -62,7 +62,7 @@ public class Item extends GameObject {
             return;
         graphicsContext.drawImage(DiamondHunterGame.images.get("diamond"), this.x, this.y);
         graphicsContext.setStroke(Color.RED);
-        //graphicsContext.strokeRect(x,y,width,height);
+        graphicsContext.strokeRect(x,y,width,height);
     }
 
     /**

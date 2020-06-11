@@ -12,37 +12,26 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
 
 
-public class Board extends Application {
+public class Board{
     public static GraphicsContext graphicsContext;
     public static HashMap<String, Image> images;
     public static Dice dice = new Dice();
     private AnchorPane FirstLevelAnchorPane = LayoutCreation.Anchor(1000, 700);
-    public CustomButton customButton;
+    public Rectangle customButton;
     public static GameManager gameManager;
     private TextField textField;
     public static boolean displayHandImage=true;
     public Button button;
 
-    /**
-     *
-     * @param args
-     */
-    public static void main(String[] args){
-        launch(args);
-    }
-    @Override
 
-
-    /**
-    *
-    */
-    public void start(Stage MainWindow) {
+    public void startBoard(Stage MainWindow){
         images = new HashMap<>();
         Canvas canvas = new Canvas(1000,700);
         graphicsContext = canvas.getGraphicsContext2D();
@@ -58,7 +47,7 @@ public class Board extends Application {
         FirstLevelAnchorPane.setStyle("-fx-background-color: #0078d7");
         gameManager= GameManager.getInstance(2,25,50,"src/Resources/Images/Piece","src/Resources/Images/MarioStar",".png");
         gameManager.Draw(FirstLevelAnchorPane);
-        FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,textField,button);
+        FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,button);
         MainWindow.setScene(scene);
         MainWindow.show();
     }
@@ -67,11 +56,12 @@ public class Board extends Application {
      *
      */
     public void boardButtons(){
-        customButton = new CustomButton(images.get("HandRollingDice"),5,5,140,120);
+        customButton = new Rectangle(770,510,240,206);
+        customButton.setFill(Color.TRANSPARENT);
         customButton.setOnMouseClicked(e -> {
-            Board.gameManager.StartTurn(Integer.parseInt(textField.getText()));
-            //ThrowDice xd = new ThrowDice();
-            //xd.start();
+            //Board.gameManager.StartTurn(Integer.parseInt(textField.getText()));
+            ThrowDice xd = new ThrowDice();
+            xd.start();
         });
         button = new Button("Ok!");
         button.setPrefSize(50,40);
@@ -94,7 +84,7 @@ public class Board extends Application {
         Image singleHand = new Image("Resources/Images/SingleHand.png");
         graphicsContext.drawImage(background,0,0,1000,700);
         if (displayHandImage){
-            graphicsContext.drawImage(singleHand,5,5,140,120);
+            graphicsContext.drawImage(singleHand,770,510,240,206);
         }
     }
 

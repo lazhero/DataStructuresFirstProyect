@@ -5,16 +5,20 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    public static DoubleList<Integer> dl;
+
+    public static DoubleList<Integer> lista;
 
 
     public static void main(String[] args){
+        lista = new DoubleList<>();
+        lista.AddHead(1);
+        lista.AddHead(2);
         launch(args);
     }
     @Override
     public void start(Stage stage) throws Exception {
-        TicTacToe xd = new TicTacToe();
-        xd.StartGame(1,2);
+        DiamondHunterGame xd = new DiamondHunterGame();
+        xd.StartGame(lista);
     }
 
 }

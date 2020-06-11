@@ -50,20 +50,32 @@ public class DiamondHunterGame{
     public static boolean left;
     public static boolean right;
 
-    private Stage primaryStage;
+
 
     /**
      * Creates the interface in which the player interacts with.
      */
-    public void createContent(){
+    public void createContent(Stage primaryStage){
         stopWatch.start();
 
-        nextButton();
-        okButton();
+        buttonNext.setTranslateX(15);
+        buttonNext.setTranslateY(15);
+        buttonNext.setOnMouseClicked(e -> nextPlayerEvent());
+        //nextButton();
+        //okButton(primaryStage);
+
+
+        buttonOk.setTranslateX(100);
+        buttonOk.setTranslateY(15);
+        buttonOk.setOnMouseClicked(e -> {
+            new AfterTournamentEvent().AfterTournamentData(finalList);
+            primaryStage.close();
+        });
+
 
         images = new HashMap<String, Image>();
         loadImages();
-        animatedPlayer = new AnimatedPlayer(230,220,2,"link",0,"restFront");
+        animatedPlayer = new AnimatedPlayer(230,220,5,"link",0,"restFront");
         background = new Background(0,0,5,"map");
         initializeBarriers();
         adItems();
@@ -99,7 +111,7 @@ public class DiamondHunterGame{
     /**
      *
      */
-    public void okButton(){
+    public void okButton(Stage primaryStage){
         buttonOk.setTranslateX(100);
         buttonOk.setTranslateY(15);
         buttonOk.setOnMouseClicked(e -> {
@@ -372,8 +384,8 @@ public class DiamondHunterGame{
         GameOver = false;
         totalDiamondsCollected = 0;
 
-        primaryStage = new Stage();
-        createContent();
+        Stage primaryStage = new Stage();
+        createContent(primaryStage);
         eventHandler();
         primaryStage.setScene(scene);
         primaryStage.setTitle("Diamond Hunter");
