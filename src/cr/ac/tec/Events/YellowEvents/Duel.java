@@ -58,7 +58,6 @@ public class Duel extends Event {
      */
     public void event3(Player player1, Player player2,DoubleList milista,int dato1,int dato2) {
         GameManager gameManager= GameManager.getInstance(0,0);
-        System.out.println("duel");
         if(milista.get(0).toString()=="MemoryGame"){
             new memorygame().StarGame(dato1,dato2);
             milista.delete(0);

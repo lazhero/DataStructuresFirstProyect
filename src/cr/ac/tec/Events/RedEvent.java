@@ -53,11 +53,11 @@ public class RedEvent{
             gameManager.setRunning(false);
             if (player.getCoins()<=coins){
                 player.setCoins(0);
-                System.out.println(player.getCoins());
+
             }else {
                 int actualCoins = player.getCoins();
                 player.setCoins(actualCoins - coins);
-                System.out.println(player.getCoins());
+
                 return;
             }
         });

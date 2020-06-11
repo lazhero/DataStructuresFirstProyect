@@ -53,7 +53,6 @@ public class GreenEvent{
             gameManager.setRunning(false);
             int actualCoins= player.getCoins();
             player.setCoins(actualCoins+coins);
-            System.out.println(player.getCoins());
             return;
         });
         vb.getChildren().addAll(message,buttock);

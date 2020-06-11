@@ -43,7 +43,6 @@ public class Teleport extends Event {
         Data="Hello!! You activated this event \n\n you will be teleported to a random location";
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
-        System.out.println("telepor");
 
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");

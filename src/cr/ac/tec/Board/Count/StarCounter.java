@@ -20,7 +20,6 @@ public class StarCounter implements PlayerObserver {
      */
     @Override
     public void Update(int change) {
-        System.out.println("Trato de setear la cuenta a "+change);
         counter.setCount(change);
     }
     /**

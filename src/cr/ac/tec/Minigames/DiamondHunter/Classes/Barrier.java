@@ -37,7 +37,7 @@ public class Barrier extends GameObject {
         this.height = height;
         this.xSize = xSize;
         this.ySize = ySize;
-        //System.out.println(String.format("%d: x(%d) y(%d) rectangle(%s)",tileType,x,y,obtainRectangle()));
+
     }
 
     /**

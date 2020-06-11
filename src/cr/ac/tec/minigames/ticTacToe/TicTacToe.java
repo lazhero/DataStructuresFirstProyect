@@ -126,13 +126,13 @@ public class TicTacToe{
      * Checks if the game is still playable.
      */
     private  void checkState(){
-        System.out.println("checkstate");
+
         for (int i=0; i<combos.getLength();i++){
             if (combos.get(i).isComplete()){
                 playable = false;
                 playWinAnimation(combos.get(i));
                 combos.get(i).restartTiles();
-                System.out.println("el juego terminó");
+
                 break;
             }
         }
@@ -178,7 +178,6 @@ public class TicTacToe{
          * @return
          */
         public boolean isComplete(){
-            System.out.println(tiles[0].getValue());
             if (tiles[0].getValue().isEmpty())
 
                 return false;

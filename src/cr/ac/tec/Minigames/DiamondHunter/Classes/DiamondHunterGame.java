@@ -75,8 +75,8 @@ public class DiamondHunterGame{
 
         images = new HashMap<String, Image>();
         loadImages();
-        animatedPlayer = new AnimatedPlayer(230,220,5,"link",0,"restFront");
-        background = new Background(0,0,5,"map");
+        animatedPlayer = new AnimatedPlayer(230,220,7,"link",0,"restFront");
+        background = new Background(0,0,7,"map");
         initializeBarriers();
         adItems();
         Group root = new Group();
@@ -160,7 +160,7 @@ public class DiamondHunterGame{
         finalList = new DoubleList();
         for (int i=0; i<scores.getLength(); i++){
             finalList.AddTail(scoreHashmap.get((long)scores.getNode(i).getInfo()));
-            System.out.println(finalList.getNode(i).getInfo());
+
         }
         return finalList;
     }
@@ -173,7 +173,7 @@ public class DiamondHunterGame{
         for(int i=0; i<TileMap.tilemap.length; i++){
             for(int j=0; j<TileMap.tilemap[i].length; j++){
                 if (TileMap.tilemap[i][j]  != 0) {
-                    this.barriers.AddHead(new Barrier(TileMap.tilemap[i][j], j * 50, i * 50, 5, "tilemap", 50, 50, 0, 0));
+                    this.barriers.AddHead(new Barrier(TileMap.tilemap[i][j], j * 50, i * 50, 7, "tilemap", 50, 50, 0, 0));
                 }
             }
         }
@@ -184,12 +184,12 @@ public class DiamondHunterGame{
      */
     public void adItems() {
         items = new DoubleList<>();
-        int itemsOnMap = 40;
+        int itemsOnMap = 10;
         while (itemsOnMap > 0) {
             int randomNumber1 = (int) (Math.random() * ((37 - 4) + 1)) + 4;
             int randomNumber2 = (int) (Math.random() * ((37 - 4) + 1)) + 4;
             if (TileMap.tilemap[randomNumber1][randomNumber2] == 0){
-                this.items.AddHead(new Item(randomNumber2*50,randomNumber1*50,5,"item",0));
+                this.items.AddHead(new Item(randomNumber2*50,randomNumber1*50,7,"item",0));
                 itemsOnMap--;
             }
         }
@@ -228,22 +228,22 @@ public class DiamondHunterGame{
         for (int i=0; i < barriers.getLength(); i++){
             CustomRectangle barrierRectangle = barriers.get(i).customRectangle();
             if (background.getLeftSide().isOverlapping(barrierRectangle)){
-                //System.out.println("left");
+
                 Background.setTouchingLeftSide(true);
                 return;
             }
             if (background.getRightSide().isOverlapping(barrierRectangle)){
-                //System.out.println("right");
+
                 Background.setTouchingRightSide(true);
                 return;
             }
             if (background.getUpSide().isOverlapping(barrierRectangle)){
-                //System.out.println("up");
+
                 Background.setTouchingUpSide(true);
                 return;
             }
             if (background.getDownSide().isOverlapping(barrierRectangle)){
-                //System.out.println("down");
+
                 Background.setTouchingDownSide(true);
                 return;
             }
@@ -278,7 +278,7 @@ public class DiamondHunterGame{
      *
      */
     public void isFinished(){
-        if (totalDiamondsCollected>=5){
+        if (totalDiamondsCollected>=3){
             TurnFinished = true;
             stopWatch.stop();
             addScores();
@@ -300,7 +300,7 @@ public class DiamondHunterGame{
             @Override
             public void handle(long currentTime) {
                 double t = (currentTime - initialTime) / 1000000000.0;
-                //System.out.println((int)t);
+
                 if (!TurnFinished) {
                     updateState(t);
                     draw();
@@ -378,6 +378,7 @@ public class DiamondHunterGame{
         });
     }
     public void StartGame(DoubleList playerList){
+
         this.playerList = playerList;
         this.numberOfPlayers=playerList.getLength();
         TurnFinished = false;

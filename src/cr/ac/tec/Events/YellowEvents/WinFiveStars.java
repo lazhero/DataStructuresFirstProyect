@@ -24,7 +24,6 @@ public class WinFiveStars extends Event {
     public void event1(Player player) {
         int actualstars=player.getStars();
         player.setStars(actualstars+5);
-        System.out.println(player.getStars());
     }
 
     /**

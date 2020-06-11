@@ -49,7 +49,6 @@ public class Counter {
                img=getNumber(num);
            }
            catch (Exception e){
-               System.out.println(e.getMessage());
            }
            while(img.getLength()<3){
                try {

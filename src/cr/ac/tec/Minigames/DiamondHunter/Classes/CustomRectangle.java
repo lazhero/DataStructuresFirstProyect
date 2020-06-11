@@ -33,12 +33,6 @@ public class CustomRectangle extends Rectangle {
         boolean segundo = this.getX() + getWidth() >= other.getX();
         boolean tercero = this.getY() <= other.getY() + other.getHeight();
         boolean cuarto = this.getY() + getHeight() >= other.getY();
-        System.out.println("_________________________");
-        System.out.println(primero);
-        System.out.println(segundo);
-        System.out.println(tercero);
-        System.out.println(cuarto);
-        System.out.println("_________________________");
         return primero && segundo && tercero && cuarto;
     }
 

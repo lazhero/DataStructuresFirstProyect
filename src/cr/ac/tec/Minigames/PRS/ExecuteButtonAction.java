@@ -43,7 +43,7 @@ public class ExecuteButtonAction {
      */
     public void illuminateBtn1(){
         if(btn1!=null){
-            System.out.println("intente boton1");
+
             btn1.setStyle("-fx-background-color: #0078d7");
         }
     }
@@ -53,7 +53,7 @@ public class ExecuteButtonAction {
      */
     public void illuminateBtn2(){
         if(btn2!=null){
-            System.out.println("intente boton2");
+
             btn2.setStyle("-fx-background-color: #0078d7");
         }
     }

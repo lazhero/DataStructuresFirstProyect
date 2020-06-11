@@ -24,10 +24,7 @@ public class Proving extends Application {
                 .SetButton2Image("src/Images/Enemigo22.png")
                 .SetHeight(600)
                 .SetWidth(600)
-                .setAction1(e-> System.out.println("Imprimir yes"))
-                .setAction2(e-> System.out.println("Presione2"))
                 .setBackGround("src/Images/fondo.png")
-                .setText("Hola mundo")
                 .Build();
         dialogBox.setAnchorPane();
         dialogBox.Draw(anchorPane,0,0);

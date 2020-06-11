@@ -26,7 +26,7 @@ public class Item extends GameObject {
     public void setCaptured(boolean captured) {
         this.captured = captured;
         DiamondHunterGame.totalDiamondsCollected++;
-        System.out.println(DiamondHunterGame.totalDiamondsCollected);
+
     }
 
     /**

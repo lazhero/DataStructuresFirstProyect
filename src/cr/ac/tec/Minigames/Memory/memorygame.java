@@ -188,9 +188,8 @@ public class memorygame {
                             correct+=1;
                             scorep2=scorep2+10;
                             score2.setText("Score:"+ scorep2);
-                            System.out.println("player 2  "+ scorep2);;
                             cont=cont+2;
-                            System.out.println(correct);
+
                         }
                         if (correct==8){
                             if(scorep1>scorep2){
@@ -223,14 +222,12 @@ public class memorygame {
             if (a==1){
                 victory=dat1;
                 lose=dat2;
-                System.out.println(victory);
-                System.out.println(lose);
+
             }
             if(a==2){
                 victory=dat2;
                 lose=dat1;
-                System.out.println(victory);
-                System.out.println(lose);
+
             }
             return null ;
         }

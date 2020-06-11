@@ -89,8 +89,6 @@ public class pressfirst  {
 
         Button buttok = new Button("End Game");
         buttok.setOnMouseClicked(event -> {
-            System.out.println(scorep1);
-            System.out.println(scorep2);
             if(scorep1<=0||scorep2<=0){
 
                 new AfterGameEvent().AfterGameEventData(victory,lose);
@@ -98,7 +96,7 @@ public class pressfirst  {
                 mediaPlayer.stop();
             }
             else{
-                System.out.println("Xd");
+
             }
 
         });

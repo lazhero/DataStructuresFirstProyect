@@ -63,27 +63,27 @@ public class PRSController {
     public void rock1Action(){
         hand1=Hand.getHand(0);
         ScreenColorChanger.setBtn1(rock1);
-        System.out.println("Piedra 1");
+        //System.out.println("Piedra 1");
     }
     public void rock2Action(){
         hand2=Hand.getHand(0);
         ScreenColorChanger.setBtn2(rock2);
-        System.out.println("piedra 2");
+        //System.out.println("piedra 2");
     }
     public void sccisors1Action(){
         hand1=Hand.getHand(1);
         ScreenColorChanger.setBtn1(sccisors1);
-        System.out.println("Tijeras 1");
+        //System.out.println("Tijeras 1");
     }
     public void sccisors2Action(){
         hand2=Hand.getHand(1);
         ScreenColorChanger.setBtn2(sccisors2);
-        System.out.println("Tijeras 2");
+        //System.out.println("Tijeras 2");
     }
     public void paper1Action(){
         hand1=Hand.getHand(2);
         ScreenColorChanger.setBtn1(paper1);
-        System.out.println("Papel 1");
+        //System.out.println("Papel 1");
     }
 
     public void setPlayer1(int player1) {
@@ -97,7 +97,6 @@ public class PRSController {
     public void paper2Action(){
         hand2=Hand.getHand(2);
         ScreenColorChanger.setBtn2(paper2);
-        System.out.println("Papel 2");
     }
     public void duelAction(){
 
@@ -183,7 +182,7 @@ public class PRSController {
     public void closeGame(){
 
         primaryStage.close();
-        System.out.println("name"+ Name1);
+
         if (scores[1]>scores[0]){
             new AfterGameEvent().AfterGameEventData(player2,player1);
         }else if(scores[1]<scores[0]){

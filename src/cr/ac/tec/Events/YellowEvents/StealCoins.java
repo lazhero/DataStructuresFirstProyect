@@ -51,7 +51,6 @@ public class StealCoins extends Event {
         int random= new Random().nextInt(3);
         String Data;
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-        System.out.println("stealcoins");
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(500);

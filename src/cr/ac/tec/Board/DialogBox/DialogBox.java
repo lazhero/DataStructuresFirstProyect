@@ -98,8 +98,7 @@ public class DialogBox extends AnchorPane {
                 imageView=GetImages.getImageView(route);
             }
             catch (Exception e){
-                System.out.println("falle en en obtener la images");
-                System.out.println(e.getMessage());
+
             }
             btn=new Button("",imageView);
         }
@@ -208,7 +207,6 @@ public class DialogBox extends AnchorPane {
            if(verify()){
               return  new DialogBox(this);
            }
-            System.out.println("No todos los parametros estan");
            return null;
         }
 

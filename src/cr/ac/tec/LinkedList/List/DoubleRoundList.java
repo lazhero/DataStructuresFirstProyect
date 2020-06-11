@@ -156,9 +156,9 @@ public class DoubleRoundList<T> implements List<T> {
     public void printing(){
         DoubleNode<T> Temp;
         for(Temp=head;Temp.getFront()!=head;Temp=Temp.getFront()){
-            System.out.println(Temp.getInfo());
+
         }
-        System.out.println(tail.getInfo());
+
     }
 
     /**
@@ -167,9 +167,9 @@ public class DoubleRoundList<T> implements List<T> {
     public void printingB(){
         DoubleNode<T> Temp;
         for(Temp=tail;Temp.getBack()!=null;Temp=Temp.getBack()){
-            System.out.println(Temp.getInfo());
+
         }
-        System.out.println(head.getInfo());
+
     }
 
     /**

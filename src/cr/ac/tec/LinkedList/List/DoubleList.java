@@ -164,9 +164,9 @@ public class DoubleList<T> implements List<T> {
     public void printing(){
         DoubleNode<T> Temp;
         for(Temp=head;Temp.getFront()!=null;Temp=Temp.getFront()){
-            System.out.println(Temp.getInfo());
+
         }
-        System.out.println(tail.getInfo());
+
     }
 
     /**

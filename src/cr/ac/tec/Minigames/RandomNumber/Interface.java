@@ -49,8 +49,6 @@ public class Interface{
 
         Button button = new Button("OK");
         button.setOnMouseClicked(event -> {
-            System.out.println("lose " + lose);
-            System.out.println("victory " + victory);
             new AfterGameEvent().AfterGameEventData(victory,lose);
             primaryStage.close();
         });

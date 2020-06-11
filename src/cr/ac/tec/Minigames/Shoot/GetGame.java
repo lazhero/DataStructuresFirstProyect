@@ -26,7 +26,7 @@ public class GetGame {
             controller.setPrimaryStage(stage);
         }
         catch (Exception e){
-            System.out.println(e.getMessage());
+
         }
         return scene;
     }

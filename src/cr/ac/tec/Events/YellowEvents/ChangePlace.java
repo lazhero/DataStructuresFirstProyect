@@ -45,7 +45,6 @@ public class ChangePlace extends Event {
      */
     @Override
     public void EventData(Player player) {
-        System.out.println("Change");
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         int random= new Random().nextInt(3);
         String Data;
@@ -108,7 +107,7 @@ public class ChangePlace extends Event {
             }
             gameManager.setRunning(false);
             event2(player,gameManager.getPlayerList().get(finalListaaleatoria.get(random)));
-            System.out.println(gameManager.getTurns());
+
             return;
         });
         vb.getChildren().addAll(data,buttock);

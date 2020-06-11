@@ -49,12 +49,9 @@ public class Dice{
      */
     public void randomNumber(){
         diceNumber1= (int)(Math.random()*((6-1)+1))+1;
-        System.out.println(diceNumber1);
         diceNumber2= (int)(Math.random()*((6-1)+1))+1;
-        System.out.println(diceNumber2);
         int finalNumber = diceNumber1+diceNumber2;
         this.finalNumber = finalNumber;
-        System.out.println("Final number: " + finalNumber);
     }
 
     /**
@@ -163,7 +160,7 @@ public class Dice{
         Board.graphicsContext.drawImage(images.get("dice"), x, y, width, height, 750, 0, 100, 100);
         if (lastDice) {
             finalImage(diceNumber2);
-            //System.out.println(customY);
+
             Board.graphicsContext.drawImage(images.get("dice"), x, customY, width, height, 850, 0, 100, 100);
         }
     }

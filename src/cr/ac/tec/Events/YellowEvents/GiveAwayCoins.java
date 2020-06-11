@@ -108,8 +108,6 @@ public class GiveAwayCoins extends Event {
     public void EventData(Player player) {
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         coins = new Random().nextInt(gameManager.getPlayerList().getLength()-1)+1;
-
-        System.out.println("giveawaycoins");
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(500);

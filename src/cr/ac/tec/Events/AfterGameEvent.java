@@ -19,8 +19,6 @@ public class AfterGameEvent {
      * @param playerlose
      */
     public void AfterGameEvent(int playerwin, int playerlose){
-        System.out.println(playerwin);
-        System.out.println(playerlose);
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.MovePlayer(gameManager.getPlayerList().get(playerlose),-1);
         gameManager.getPlayerList().get(playerwin).setCoins(gameManager.getPlayerList().get(playerwin).getCoins()+1);

@@ -140,7 +140,8 @@ public class SingleList<T> implements List<T>{
     public void printing(){
         SingleListNode<T> temp;
         for(temp=head;temp!=null;temp=temp.getNextnode()){
-            System.out.println(temp.getInfo());
+
+
         }
     }
 

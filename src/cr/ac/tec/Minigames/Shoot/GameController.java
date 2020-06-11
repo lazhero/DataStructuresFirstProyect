@@ -168,12 +168,10 @@ public class GameController {
      * @param keyEvent
      */
     public void shoot(KeyEvent keyEvent) {
-        System.out.println(turns.getSaved());
         if(signal && !pressed) {
             pressed=true;
             if (keyEvent.getCode() == KeyCode.D) {
                 if(turns.getSaved()<=0) {
-                    System.out.println("Pod");
                     time.stop();
                     Character1.setImage(GetImages.getImage("src/Resources/Images/Enemigo12.png"));
                     Character2.setImage(GetImages.getImage("src/Resources/Images/Enemigo21.png"));
@@ -185,9 +183,6 @@ public class GameController {
                     MyLabel.setVisible(false);
                     signal=false;
                     turns.setSaved(15);
-                    System.out.println("score 1 "+ scoreplayer1);
-
-                    System.out.println("score 2 "+ scoreplayer2);
 
                 }
                 else {
@@ -197,14 +192,11 @@ public class GameController {
                     scoreplayer2+=1;
                     time.stop();
                     signal=false;
-                    System.out.println("score 1 "+ scoreplayer1);
-
-                    System.out.println("score 2 "+ scoreplayer2);
 
                 }
             } else if (keyEvent.getCode() == KeyCode.K) {
                 if(turns.getSaved()<=0) {
-                    System.out.println("Matenme");
+
                     time.stop();
                     Character1.setImage(GetImages.getImage("src/Resources/Images/Enemigo11.png"));
                     Character2.setImage(GetImages.getImage("src/Resources/Images/Enemigo22.png"));
@@ -216,9 +208,7 @@ public class GameController {
                     RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
 
-                    System.out.println("score 1 "+ scoreplayer1);
 
-                    System.out.println("score 2 "+ scoreplayer2);
                 }
                 else {
                     time.stop();
@@ -226,14 +216,12 @@ public class GameController {
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
                     scoreplayer1+=1;
                     signal=false;
-                    System.out.println("score 1 "+ scoreplayer1);
 
-                    System.out.println("score 2 "+ scoreplayer2);
                 }
             }
         }
         else{
-            System.out.println("no ha iniciado o ya termino");
+
             pressed=false;
         }
     }
@@ -295,10 +283,9 @@ public class GameController {
     }
     public void closeGame(){
 
-        System.out.println("Holi");
     }
     public void setName1(String name1){
-        System.out.println("intente hacer cambiar la primera");
+
 
         Name1.setText("Player:"+name1);
         Name1.setStyle("-fx-fill: white");
@@ -306,7 +293,7 @@ public class GameController {
     }
 
     public void setName2(String name2){
-        System.out.println("intente cambiar la segunda");
+
         Name2.setText("Player:"+name2);
         Name2.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
     }
@@ -321,11 +308,9 @@ public class GameController {
             }else if(scoreplayer2>scoreplayer1){
                 new AfterGameEvent().AfterGameEventData(player2,player1);
             }
-            System.out.println("score 1 "+ scoreplayer1);
 
-            System.out.println("score 2 "+ scoreplayer2);
             primaryStage.close();
-            System.out.println("Intente acabar el juego");
+
         }
     }
 

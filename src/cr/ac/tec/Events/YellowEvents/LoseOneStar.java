@@ -51,7 +51,7 @@ public class LoseOneStar extends Event {
     public void EventData(Player player) {
         DoubleList<Integer> listaaleatoria = new DoubleList<Integer>();
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-        System.out.println("loseonestar");
+
         int random = 0;
         if (gameManager.getPlayerList().getLength() == 2) {
             if(gameManager.getTurns()%gameManager.getPlayerList().getLength() ==0){

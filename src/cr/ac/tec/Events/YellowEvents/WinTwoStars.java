@@ -23,7 +23,6 @@ public class WinTwoStars extends Event {
     public void event1(Player player) {
         int actualstars=player.getStars();
         player.setStars(actualstars+2);
-        System.out.println(player.getStars());
     }
 
     /**
