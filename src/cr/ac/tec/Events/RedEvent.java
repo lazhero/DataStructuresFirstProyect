@@ -26,10 +26,10 @@ public class RedEvent{
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(350);
-        vb.setMaxWidth(350);
-        vb.setMinHeight(250);
-        vb.setMaxHeight(250);
+        vb.setMinWidth(380);
+        vb.setMaxWidth(380);
+        vb.setMinHeight(270);
+        vb.setMaxHeight(270);
         vb.setLayoutX(300);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
@@ -38,11 +38,10 @@ public class RedEvent{
         Button buttock = new Button("OK");
 
         Text message = new Text();
-        message.setText(Data);
         message.setTextAlignment(TextAlignment.CENTER);
         message.setText(Data);
         message.setStyle("-fx-fill: white");
-        message.setFont(new Font("Verdana",16));
+        message.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         message.setTextAlignment(TextAlignment.CENTER);
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);

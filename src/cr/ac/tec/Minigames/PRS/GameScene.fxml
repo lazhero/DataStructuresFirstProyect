@@ -81,12 +81,12 @@
                </graphic></Button>
             <ImageView fx:id="ImageRight" fitHeight="108.0" fitWidth="93.0" layoutX="91.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="ImageLeft" fitHeight="108.0" fitWidth="93.0" layoutX="439.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="Name1" alignment="CENTER" layoutX="90.0" layoutY="64.0" prefHeight="23.0" prefWidth="95.0" text="Name1" textFill="RED" wrapText="true">
+            <Label fx:id="Name1" alignment="CENTER" layoutX="90.0" layoutY="64.0" prefHeight="23.0" prefWidth="110.0" text="Name1" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="Name2" alignment="CENTER" layoutX="438.0" layoutY="64.0" prefHeight="23.0" prefWidth="95.0" text="Name2" textFill="RED" wrapText="true">
+            <Label fx:id="Name2" alignment="CENTER" layoutX="438.0" layoutY="64.0" prefHeight="23.0" prefWidth="110.0" text="Name2" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>

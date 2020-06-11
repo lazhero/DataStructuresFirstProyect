@@ -47,10 +47,10 @@ public class Tournament {
 
         Text data = new Text();
         data.setText(Data);
-        data.setFont(new Font("Verdana",17));
+        data.setStyle("-fx-fill: white");
+        data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         data.setTextAlignment(TextAlignment.CENTER);
 
-        data.setStyle("-fx-fill: white");
 
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);

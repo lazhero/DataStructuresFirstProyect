@@ -18,6 +18,7 @@ import javax.management.DescriptorRead;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.w3c.dom.ls.LSOutput;
@@ -154,7 +155,9 @@ public class PRSController {
      * @param name1
      */
     public void setName1(String name1){
-        Name1.setText("Player " +name1);
+        Name1.setText("player "+name1);
+        Name1.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
+
 
     }
 
@@ -164,7 +167,10 @@ public class PRSController {
      * @param name2
      */
     public void setName2(String name2){
+
         Name2.setText("Player "+ name2);
+
+        Name2.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
     }
     public void setRounds(int rounds){
         this.rounds=rounds;
@@ -177,7 +183,7 @@ public class PRSController {
     public void closeGame(){
 
         primaryStage.close();
-        System.out.println(Name1);
+        System.out.println("name"+ Name1);
         if (scores[1]>scores[0]){
             new AfterGameEvent().AfterGameEventData(player2,player1);
         }else if(scores[1]<scores[0]){

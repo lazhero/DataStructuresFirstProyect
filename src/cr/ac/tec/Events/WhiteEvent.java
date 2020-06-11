@@ -47,7 +47,7 @@ public class WhiteEvent {
         message.setText(Data);
         message.setTextAlignment(TextAlignment.CENTER);
         message.setStyle("-fx-fill: white");
-        message.setFont(new Font("Verdana",16));
+        message.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
 
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);

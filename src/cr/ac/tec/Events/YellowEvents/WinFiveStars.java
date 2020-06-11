@@ -50,10 +50,10 @@ public class WinFiveStars extends Event {
         gameManager.setRunning(true);
 
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(400);
-        vb.setMaxWidth(400);
-        vb.setMinHeight(270);
-        vb.setMaxHeight(270);
+        vb.setMinWidth(420);
+        vb.setMaxWidth(420);
+        vb.setMinHeight(290);
+        vb.setMaxHeight(290);
         vb.setLayoutX(300);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
@@ -63,7 +63,7 @@ public class WinFiveStars extends Event {
         data.setText(Data);
         data.setText(Data);
         data.setStyle("-fx-fill: white");
-        data.setFont(new Font("Verdana",16));
+        data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         data.setTextAlignment(TextAlignment.CENTER);
 
         Button buttock = new Button("OK");

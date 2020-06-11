@@ -43,10 +43,10 @@ public class AfterGameEvent {
         Data="The player who won was the player number: "+ numberofplayerwin+ "\n Player :"+numberofplayerwin +" wins 1 coin: "+"\n The player who lost was the player number :"+numberofplayerlose+" \n The player"+numberofplayerlose+"Lose 1 coin";
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(570);
-        vb.setMaxWidth(570);
-        vb.setMinHeight(370);
-        vb.setMaxHeight(370);
+        vb.setMinWidth(580);
+        vb.setMaxWidth(580);
+        vb.setMinHeight(380);
+        vb.setMaxHeight(380);
         vb.setLayoutX(300);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
@@ -58,7 +58,7 @@ public class AfterGameEvent {
         Text data = new Text();
         data.setText(Data);
         data.setStyle("-fx-fill: white");
-        data.setFont(new Font("Verdana",16));
+        data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         data.setTextAlignment(TextAlignment.CENTER);
 
         buttock.setOnMouseClicked(e->{

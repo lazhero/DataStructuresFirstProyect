@@ -64,13 +64,16 @@ public class memorygame {
             turn.setText("Player " +player1+ "turn");
             turn.setTranslateY(650);
             turn.setTranslateX(120);
-            turn.setFont(Font.font(30));
+            turn.setStyle("-fx-fill: white");
+            turn.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         }
         else{
             turn.setText("Player "+player2+" turn");
             turn.setTranslateY(580);
             turn.setTranslateX(300);
-            turn.setFont(Font.font(30));
+            turn.setStyle("-fx-fill: white");
+            turn.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
+
         }
         char c='A';
         DoubleList<Tile> tiles = new DoubleList<>();
@@ -90,12 +93,15 @@ public class memorygame {
         Text player1t = new Text("Player "+player1);
         player1t.setTranslateY(580);
         player1t.setTranslateX(80);
-        player1t.setFont(Font.font(30));
+        player1t.setStyle("-fx-fill: white");
+        player1t.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
 
         Text player2t = new Text("Player "+player2);
         player2t.setTranslateX(450);
         player2t.setTranslateY(580);
         player2t.setFont(Font.font(30));
+        player2t.setStyle("-fx-fill: white");
+        player2t.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
 
         score1.setTranslateX(80);
         score1.setTranslateY(620);
@@ -112,9 +118,7 @@ public class memorygame {
                 new AfterGameEvent().AfterGameEventData(victory,lose);
                 primaryStage.close();
                 mediaPlayer.stop();
-
             }else{
-                System.out.println("nelmijo");
             }
 
         });

@@ -61,7 +61,7 @@ public class WinTwoStars extends Event {
         data.setText(Data);
         data.setText(Data);
         data.setStyle("-fx-fill: white");
-        data.setFont(new Font("Verdana",16));
+        data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         data.setTextAlignment(TextAlignment.CENTER);
         Button buttock = new Button("OK");
         buttock.setOnMouseClicked(e->{

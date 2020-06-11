@@ -67,7 +67,7 @@ public class YellowSquare extends Square {
                 e.printStackTrace();
             }
         }
-        CallToEvent(ListOfEvents.getInstance().getMystack().pop()).EventData(player);
+        //CallToEvent(ListOfEvents.getInstance().getMystack().pop()).EventData(player);
         //new Duel().EventData(player);
         //new memorygame().StarGame(1,3);
         //new pressfirst().StartGame(0,1);
@@ -76,16 +76,16 @@ public class YellowSquare extends Square {
         //new DiamondHunterGame().StartGame(gameManager.getPlayerList());
         //new Duel().EventData(player);
         //new GiveAwayCoins().EventData(player);
-        new Main().StartGame(0,1);
+        //new Main().StartGame(0,1);
         //new PRSGAME().StarGame(1,3);
         //new TicTacToe().StartGame(0,1);
        // DoubleList d = new DoubleList();
-      //  d.AddHead(1);
-      //  d.AddHead(2);
+        //  d.AddHead(1);
+        //  d.AddHead(2);
        // d.AddHead(4);
         //d.AddHead(5);
         //new DiamondHunterGame().StartGame(d);
-        //new Prove().StartGame(1,2);
+        new Prove().StartGame(1,2);
     }
 
     /**

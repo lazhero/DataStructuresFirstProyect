@@ -168,7 +168,7 @@ public class Duel extends Event {
         Text data = new Text();
         data.setText(Data);
         data.setStyle("-fx-fill: white");
-        data.setFont(new Font("Verdana",16));
+        data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         data.setTextAlignment(TextAlignment.CENTER);
 
 

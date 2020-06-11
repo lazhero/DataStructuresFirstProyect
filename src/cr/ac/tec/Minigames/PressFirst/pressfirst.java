@@ -64,26 +64,26 @@ public class pressfirst  {
 
         winnerp.setTranslateY(100);
         winnerp.setTranslateX(300);
-        winnerp.setFont(Font.font(25));
-        winnerp.setFill(Color.WHITE);
+        winnerp.setStyle("-fx-fill: white");
+        winnerp.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
 
         p1.setText("Player"+ dato1 + "\nPress 'A'");
         p1.setTranslateY(530);
         p1.setTranslateX(120);
-        p1.setFont(Font.font(25));
-        p1.setFill(Color.WHITE);
+        p1.setStyle("-fx-fill: white");
+        p1.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
 
         p2.setText("Player "+ dato2+ " \nPress 'L' " );
         p2.setTranslateY(530);
         p2.setTranslateX(450);
-        p2.setFont(Font.font(25));
-        p2.setFill(Color.WHITE);
+        p2.setStyle("-fx-fill: white");
+        p2.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
 
         random.setText("Deben presionar su respectiva tecla hasta llegar a 0: \n el primero gana GO! \n "+n);
         random.setTranslateY(30);
         random.setTranslateX(50);
-        random.setFont(Font.font(25));
-        random.setFill(Color.WHITE);
+        random.setStyle("-fx-fill: white");
+        random.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         dat1=dato1;
         dat2=dato2;
 

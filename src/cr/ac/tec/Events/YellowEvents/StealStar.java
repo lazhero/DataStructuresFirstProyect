@@ -69,7 +69,7 @@ public class StealStar extends Event {
         Text data = new Text();
         data.setText(Data);
         data.setStyle("-fx-fill: white");
-        data.setFont(new Font("Verdana",16));
+        data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         data.setTextAlignment(TextAlignment.CENTER);
 
         Button b1= new Button();
@@ -81,7 +81,7 @@ public class StealStar extends Event {
             }else if(gameManager.getTurns()%gameManager.getPlayerList().getLength()==1){
                 listaaleatoria.AddTail(0);
             }
-            b1.setText("Player"+listaaleatoria.get(0));
+            b1.setText("Player "+listaaleatoria.get(0));
             b2.relocate(1000,1000);
             b3.relocate(1000,1000);
         }else if(gameManager.getPlayerList().getLength()==3){
@@ -95,8 +95,8 @@ public class StealStar extends Event {
                 listaaleatoria.AddTail(0);
                 listaaleatoria.AddTail(1);
             }
-            b1.setText("Player"+listaaleatoria.get(0));
-            b2.setText("Player"+listaaleatoria.get(1));
+            b1.setText("Player "+listaaleatoria.get(0));
+            b2.setText("Player "+listaaleatoria.get(1));
             b3.relocate(1000,1000);
         }
         else if(gameManager.getPlayerList().getLength()==4){
@@ -118,9 +118,9 @@ public class StealStar extends Event {
                 listaaleatoria.AddTail(1);
                 listaaleatoria.AddTail(2);
             }
-            b1.setText("Player"+listaaleatoria.get(0));
-            b2.setText("Player"+listaaleatoria.get(1));
-            b3.setText("Player"+listaaleatoria.get(2));
+            b1.setText("Player "+listaaleatoria.get(0));
+            b2.setText("Player "+listaaleatoria.get(1));
+            b3.setText("Player "+listaaleatoria.get(2));
         }
 
         b1.setOnMouseClicked(e->{

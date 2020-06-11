@@ -87,12 +87,15 @@ public class ChangePlace extends Event {
 
         Text tittle = new Text();
         tittle.setText("You activated an event");
+        tittle.setStyle("-fx-fill: white");
+        tittle.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
+
         tittle.setTextAlignment(TextAlignment.CENTER);
         Data="Hello! You activated an event \n\n You will be exchanged with the player: "+finalListaaleatoria.get(random);
         Text data = new Text();
         data.setText(Data);
         data.setStyle("-fx-fill: white");
-        data.setFont(new Font("Verdana",16));
+        data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         data.setTextAlignment(TextAlignment.CENTER);
 
         Button buttock = new Button("OK");

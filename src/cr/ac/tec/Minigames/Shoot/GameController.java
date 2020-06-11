@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -299,12 +300,15 @@ public class GameController {
     public void setName1(String name1){
         System.out.println("intente hacer cambiar la primera");
 
-        Name1.setText("Player : "+name1);
+        Name1.setText("Player:"+name1);
+        Name1.setStyle("-fx-fill: white");
+        Name1.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
     }
 
     public void setName2(String name2){
         System.out.println("intente cambiar la segunda");
-        Name2.setText("Player : "+name2);
+        Name2.setText("Player:"+name2);
+        Name2.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
     }
     public void setRounds(int rounds){
         if(rounds<0)return;
