@@ -7,6 +7,7 @@ import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
 import cr.ac.tec.Events.Tournament;
 import cr.ac.tec.Events.YellowEvents.Duel;
+import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 import cr.ac.tec.Random.Random;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import cr.ac.tec.LinkedList.List.DoubleRoundList;
@@ -46,6 +47,7 @@ public class GameManager {
     private boolean Backing=false;
     private DoubleNode<Square> StarHolder;
     boolean StarTaken=false;
+    public static DoubleList<Integer> lista;
 
     /**
      *
@@ -222,7 +224,11 @@ public class GameManager {
                            System.out.println("Intente dibujar una estrella");
                            StarHolder.getInfo().DrawStar(this.SquareSide,StarRoute+ImagesFormat);
                            StarHolder.getInfo().ShowStar();
-                           new Tournament().TournamentData(getPlayerList());
+                           lista = new DoubleList<>();
+                           lista.AddHead(0);
+                           lista.AddHead(1);
+                           lista.AddHead(2);
+                           new Tournament().TournamentData(lista);
                        }
                        catch (Exception Ex){
                        }

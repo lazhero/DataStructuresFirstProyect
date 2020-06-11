@@ -14,13 +14,16 @@ import java.util.concurrent.TimeUnit;
 
 public class Tournament {
     private String Data;
+    public static DoubleList<Integer> lista;
 
     /**
      *
      * @param playerList
      */
     public void Tournament(DoubleList playerList) {
-        new DiamondHunterGame().StartGame(playerList);
+
+        DiamondHunterGame xd = new DiamondHunterGame();
+        xd.StartGame(playerList);
     }
 
     /**

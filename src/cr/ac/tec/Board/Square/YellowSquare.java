@@ -18,12 +18,14 @@ import cr.ac.tec.Minigames.Shoot.Prove;
 import cr.ac.tec.Minigames.ticTacToe.TicTacToe;
 import javafx.scene.paint.Color;
 import cr.ac.tec.Stack.*;
+import javafx.stage.Stage;
 
 
 import java.util.concurrent.TimeUnit;
 
 public class YellowSquare extends Square {
     private int random;
+    public static DoubleList<Integer> lista;
 
     /**
      *
@@ -79,11 +81,14 @@ public class YellowSquare extends Square {
         //new Main().StartGame(0,1);
         //new PRSGAME().StarGame(1,3);
         //new TicTacToe().StartGame(0,1);
-        DoubleList<Integer> d = new DoubleList<>();
-        d.AddHead(0);
-        d.AddHead(1);
-        new DiamondHunterGame().StartGame(d);
+
         //new Prove().StartGame(1,2);
+        lista = new DoubleList<>();
+        lista.AddHead(1);
+        lista.AddHead(2);
+        DiamondHunterGame xd = new DiamondHunterGame();
+        xd.StartGame(lista);
+
     }
 
     /**
