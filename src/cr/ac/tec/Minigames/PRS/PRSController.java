@@ -1,5 +1,8 @@
 package cr.ac.tec.Minigames.PRS;
 
+/**
+ *
+ */
 import cr.ac.tec.Events.AfterGameEvent;
 import cr.ac.tec.Images.GetImages;
 import javafx.animation.KeyFrame;
@@ -59,45 +62,82 @@ public class PRSController {
     int rounds=3;
     private int[] scores={0,0};
 
-
+    /**
+     * This method changes the color of the player’s choice(rock)
+     * @author Andrey Zuñiga
+     */
     public void rock1Action(){
         hand1=Hand.getHand(0);
         ScreenColorChanger.setBtn1(rock1);
-        //System.out.println("Piedra 1");
     }
+
+    /**
+     * This method changes the color of the player’s choice(rock)
+     * @author Andrey Zuñiga
+     */
     public void rock2Action(){
         hand2=Hand.getHand(0);
         ScreenColorChanger.setBtn2(rock2);
-        //System.out.println("piedra 2");
     }
+
+    /**
+     * This method changes the color of the player’s choice(sccisors)
+     * @author Andrey Zuñiga
+     */
     public void sccisors1Action(){
         hand1=Hand.getHand(1);
         ScreenColorChanger.setBtn1(sccisors1);
-        //System.out.println("Tijeras 1");
     }
+
+    /**
+     * This method changes the color of the player’s choice(sccisors)
+     * @author Andrey Zuñiga
+     */
     public void sccisors2Action(){
         hand2=Hand.getHand(1);
         ScreenColorChanger.setBtn2(sccisors2);
-        //System.out.println("Tijeras 2");
     }
+
+    /**
+     * This method changes the color of the player’s choice(Paper)
+     * @author Andrey Zuñiga
+     */
     public void paper1Action(){
         hand1=Hand.getHand(2);
         ScreenColorChanger.setBtn1(paper1);
-        //System.out.println("Papel 1");
     }
+
+    /**
+     *
+     * @author Andrey Zuñiga
+     * @param player1
+     */
 
     public void setPlayer1(int player1) {
         this.player1 = player1;
     }
 
+    /**
+     * @author Andrey Zuñiga
+     * @param player2
+     */
     public void setPlayer2(int player2) {
         this.player2 = player2;
     }
 
+    /**
+     * This method changes the color of the player’s choice(Paper)
+     * @author Andrey Zuñiga
+     */
     public void paper2Action(){
         hand2=Hand.getHand(2);
         ScreenColorChanger.setBtn2(paper2);
     }
+
+    /**
+     * Activate the Duel Event
+     * @author Andrey Zuñiga
+     */
     public void duelAction(){
 
         if(hand1!=null && hand2!=null && rounds>0){
@@ -128,75 +168,59 @@ public class PRSController {
                 ImageLeft.setImage(winner);
                 pause.play();
                 scores[1]=scores[1]+1;
-
-
             }
             else{
-
-
                 ImageRight.setImage(tie);
                 ImageLeft.setImage(tie);
                 //PauseTransition pause = new PauseTransition(Duration.seconds(1));
                 pause.setOnFinished(PauseAction);
                 pause.play();
-
-
-
             }
         }
         else if(rounds==0){
             Match.setOnAction(e->closeGame());
         }
     }
-
     /**
-     *
+     * @author Andrey Zuñiga
      * @param name1
      */
     public void setName1(String name1){
         Name1.setText("player "+name1);
         Name1.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
-
-
     }
 
-
     /**
-     *
+     * @author Andrey Zuñiga
      * @param name2
      */
     public void setName2(String name2){
-
         Name2.setText("Player "+ name2);
-
         Name2.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
     }
     public void setRounds(int rounds){
         this.rounds=rounds;
     }
 
+    /**
+     * ethod that changes the scene
+     * @author Gabriel Solano
+     * @param primaryStage
+     */
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     *This method closes the game
+     * @author Andrey Zuñiga
+     */
     public void closeGame(){
-
         primaryStage.close();
-
         if (scores[1]>scores[0]){
             new AfterGameEvent().AfterGameEventData(player2,player1);
         }else if(scores[1]<scores[0]){
             new AfterGameEvent().AfterGameEventData(player1,player2);
         }
-
-
-
-
-
-
     }
-
-
-
-
 }

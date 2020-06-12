@@ -18,7 +18,9 @@ import javafx.stage.Stage;
 
 import java.util.HashMap;
 
-
+/**
+ * The main window is defined and elements are added
+ */
 public class Board{
     public static GraphicsContext graphicsContext;
     public static HashMap<String, Image> images;
@@ -30,7 +32,11 @@ public class Board{
     public static boolean displayHandImage=true;
     public Button button;
 
-
+    /**
+     * Start the main window
+     * @author Miguel Mesen
+     * @param MainWindow
+     */
     public void startBoard(Stage MainWindow){
         images = new HashMap<>();
         Canvas canvas = new Canvas(1000,700);
@@ -53,7 +59,8 @@ public class Board{
     }
 
     /**
-     *
+     * Create the buttons on the board
+     * @author Miguel Mesen
      */
     public void boardButtons(){
         customButton = new Rectangle(770,510,240,206);
@@ -77,7 +84,8 @@ public class Board{
     }
 
     /**
-     *
+     * Draws pictures on the board
+     * @author Miguel Mesen
      */
     public void drawImages(){
         Image background = new Image("Resources/Images/topViewBackground.png");
@@ -89,7 +97,7 @@ public class Board{
     }
 
     /**
-     *
+     * @author
      */
     public void gameCycle(){
         long initialTime = System.nanoTime();

@@ -2,6 +2,10 @@ package cr.ac.tec.Board;
 
 import cr.ac.tec.LinkedList.List.DoubleList;
 
+/**
+ * @author Andrey Zuñiga
+ *
+ */
 public abstract class PlayerSubject {
     int stars;//Number of start
     int coins;//Number of coins
@@ -9,7 +13,7 @@ public abstract class PlayerSubject {
     DoubleList<PlayerObserver> CoinsObserver=new DoubleList<>();
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param observer
      */
     public void attachStarsObserver(PlayerObserver observer){
@@ -17,7 +21,7 @@ public abstract class PlayerSubject {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param observer
      */
     public void attachCoinObserver(PlayerObserver observer){
@@ -25,7 +29,7 @@ public abstract class PlayerSubject {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param observer
      */
     public void detachStarsObservers(PlayerObserver observer){
@@ -36,7 +40,7 @@ public abstract class PlayerSubject {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param observer
      */
     public void detachCoinsObservers(PlayerObserver observer){
@@ -47,7 +51,8 @@ public abstract class PlayerSubject {
     }
 
     /**
-     *
+     * Updates the number of Coins per player
+     * @author Andrey Zuñiga
      */
     public void UpdateStars(){
         for(int i=0;i<StarsObserver.getLength();i++){
@@ -56,37 +61,35 @@ public abstract class PlayerSubject {
     }
 
     /**
-     *
+     * Updates the number of coins per player
+     * @author Andrey Zuñiga
      */
     public void UpdateCoins(){
-        System.out.println("Intente llamar a los observadores");
-        System.out.println("El largo es "+CoinsObserver.getLength());
         for(int i=0; i<CoinsObserver.getLength();i++){
-
             CoinsObserver.get(i).Update(coins);
         }
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @return
      */
     public abstract int getCoins();
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param Coins
      */
     public abstract void setCoins(int Coins);
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @return
      */
     public abstract int getStars();
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param stars
      */
     public abstract void setStars(int stars);

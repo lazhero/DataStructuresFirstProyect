@@ -5,7 +5,7 @@ import cr.ac.tec.LinkedList.List.SingleList;
 public interface NewCoordsFactory {
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param coordx
      * @param coordy
      * @param sidesize

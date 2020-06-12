@@ -5,10 +5,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 
+/**
+ * Defines features and the event that happens in this square
+ * @author Gabriel Solano & Andrey Zuñiga
+ */
 public class BlueSquare extends Square {
 
     /**
      * The class constructor
+     * @author Andrey Zuñiga
      * @param coordx x-axis position
      * @param coordy y-axis position
      * @param sideSize Side's size
@@ -19,7 +24,8 @@ public class BlueSquare extends Square {
 
     /**
      *It is neutral, it does nothing
-     * @param player
+     * @author Gabriel Solano
+     * @param player player who activates the event
      */
     @Override
     public void event(Player player) {
@@ -28,6 +34,7 @@ public class BlueSquare extends Square {
 
     /**
      * define the square's color
+     * @author Andrey Zuñiga
      * @return
      */
     @Override

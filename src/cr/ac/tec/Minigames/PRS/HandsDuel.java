@@ -1,8 +1,12 @@
 package cr.ac.tec.Minigames.PRS;
 
+/**
+ *
+ */
 public class HandsDuel {
     /**
-     *
+     * Get the Winner
+     * @author Andrey Zuñiga
      * @param hand1
      * @param hand2
      * @return

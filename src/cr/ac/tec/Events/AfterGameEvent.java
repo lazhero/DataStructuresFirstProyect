@@ -10,11 +10,16 @@ import javafx.scene.text.TextAlignment;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * It’s the after-game event
+ * @author Gabriel Solano
+ */
 public class AfterGameEvent {
     private String Data;
 
     /**
-     *
+     * The winner wins coins and the loser loses coins and backs a square
+     * @author Gabriel Solano
      * @param playerwin
      * @param playerlose
      */
@@ -31,7 +36,8 @@ public class AfterGameEvent {
     }
 
     /**
-     *
+     * Information of the event
+     * @author Gabriel Solano
      * @param numberofplayerwin
      * @param numberofplayerlose
      */

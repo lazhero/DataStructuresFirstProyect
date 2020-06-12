@@ -2,14 +2,37 @@ package cr.ac.tec.Stack;
 
 import cr.ac.tec.LinkedList.List.DoubleList;
 
+/**
+ * This class defines the stack
+ * @author Andrey Zuñiga
+ * @param <T>
+ */
+
 public class Stack<T> {
     private DoubleList<T> reference;
+
+    /**
+     *The constructor
+     * @author Andrey Zuñiga
+     */
     public Stack(){
         reference=new DoubleList<>();
     }
+
+    /**
+     * Adds an element in the last position
+     * @author Andrey Zuñiga
+     * @param content element that is added
+     */
     public void push(T content){
         reference.AddHead(content);
     }
+
+    /**
+     * Gets the last item and removes it
+     * @author Andrey Zuñiga
+     * @return
+     */
     public T pop(){
         if(!reference.isEmpty()){
             T temp=reference.get(0);
@@ -18,16 +41,33 @@ public class Stack<T> {
         }
         return null;
     }
+
+    /**
+     * show the stack
+     * @author Andrey Zuñiga
+     * @return
+     */
     public T view(){
         if(!reference.isEmpty()){
             return reference.get(0);
         }
         return null;
     }
+
+    /**
+     * Stir up the stack
+     * @author Andrey Zuñiga
+     */
     public void Shuffle(){
         if(reference.isEmpty()==true)return;
         reference.Shuffle();
     }
+
+    /**
+     * The method checks if it is empty
+     * @author Andrey Zuñiga
+     * @return boolean true or false
+     */
     public boolean isEmpty(){
         if (reference.isEmpty())return true;
         return false;

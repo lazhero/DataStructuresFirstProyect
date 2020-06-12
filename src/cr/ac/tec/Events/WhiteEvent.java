@@ -11,12 +11,17 @@ import javafx.scene.text.TextAlignment;
 
 
 import java.util.concurrent.TimeUnit;
+/**
+ * It’s the white square event
+ * @author Gabriel Solano
+ */
 
 public class WhiteEvent {
     public String Data;
 
     /**
-     *
+     * Overtaking or Backing Up
+     * @author Gabriel Solano
      * @param action
      * @param squares
      * @param player

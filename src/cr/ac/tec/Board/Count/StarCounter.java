@@ -2,10 +2,16 @@ package cr.ac.tec.Board.Count;
 
 import cr.ac.tec.Board.PlayerObserver;
 
+/**
+ * Start the coin counter
+ * @author Miguel Mesen and Andrey Zuñiga
+ *
+ */
+
 public class StarCounter implements PlayerObserver {
     private Counter counter;
     /**
-     *
+     * Method that starts the coin counter
      * @param width
      * @param height
      * @param route
@@ -15,7 +21,7 @@ public class StarCounter implements PlayerObserver {
         counter=new Counter(width,height,route,format);
     }
     /**
-     *
+     * Update value if someone wins or loses coins
      * @param change
      */
     @Override

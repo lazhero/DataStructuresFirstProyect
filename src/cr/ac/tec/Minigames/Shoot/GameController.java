@@ -24,7 +24,9 @@ import javafx.util.Duration;
 import java.io.File;
 import java.util.ArrayList;
 
-
+/**
+ *
+ */
 public class GameController {
     @FXML
     private AnchorPane FirstLevelAnchorPane;
@@ -63,21 +65,36 @@ public class GameController {
     private int rounds=3;
     private Stage primaryStage;
 
+    /**
+     * Method to change the stage
+     * @author Andrey Zuñiga
+     * @param primaryStage
+     */
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+
+    /**
+     * @author Andrey Zuñiga
+     * @param player1
+     */
 
     public void setPlayer1(int player1) {
         this.player1 = player1;
     }
 
+    /**
+     * @author Andrey Zuñiga
+     * @param player2
+     */
     public void setPlayer2(int player2) {
         this.player2 = player2;
     }
 
 
     /**
-     *
+     * Define the start of the game
+     *@author Andrey Zuñiga
      */
     public void start(){
         if(signal)return;
@@ -135,7 +152,8 @@ public class GameController {
         PauseTransition pause=new PauseTransition(Duration.ZERO);
         pause.setOnFinished(new EventHandler<ActionEvent>() {
             /**
-             *
+             * This method defines the shooting event
+             * @author Andrey Zuñiga
              * @param actionEvent
              */
             @Override
@@ -150,7 +168,7 @@ public class GameController {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param mouseEvent
      */
     public void hide(MouseEvent mouseEvent){
@@ -164,7 +182,8 @@ public class GameController {
     }
 
     /**
-     *
+     * This method activates the shot
+     * @author Andrey Zuñiga
      * @param keyEvent
      */
     public void shoot(KeyEvent keyEvent) {
@@ -178,25 +197,20 @@ public class GameController {
                     RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
                     scoreplayer1+=1;
-
                     shooting(true);
                     MyLabel.setVisible(false);
                     signal=false;
                     turns.setSaved(15);
-
                 }
                 else {
                     RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
-
                     scoreplayer2+=1;
                     time.stop();
                     signal=false;
-
                 }
             } else if (keyEvent.getCode() == KeyCode.K) {
                 if(turns.getSaved()<=0) {
-
                     time.stop();
                     Character1.setImage(GetImages.getImage("src/Resources/Images/Enemigo11.png"));
                     Character2.setImage(GetImages.getImage("src/Resources/Images/Enemigo22.png"));
@@ -207,8 +221,6 @@ public class GameController {
                     turns.setSaved(15);
                     RewardRight.setImage(GetImages.getImage("src/Resources/Images/Premio2.png"));
                     RewardLeft.setImage(GetImages.getImage("src/Resources/Images/Premio1.png"));
-
-
                 }
                 else {
                     time.stop();
@@ -227,7 +239,8 @@ public class GameController {
     }
 
     /**
-     *
+     * This method makes the animation when it is shooting
+     * @author Andrey Zuñiga
      * @param condition
      */
     public void shooting(boolean condition){
@@ -284,6 +297,11 @@ public class GameController {
     public void closeGame(){
 
     }
+
+    /**
+     * @author Andrey Zuñiga
+     * @param name1
+     */
     public void setName1(String name1){
 
 
@@ -292,15 +310,32 @@ public class GameController {
         Name1.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
     }
 
+    /**
+     *
+     * @author Andrey Zuñiga
+     * @param name2
+     */
+
     public void setName2(String name2){
 
         Name2.setText("Player:"+name2);
         Name2.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
     }
+
+    /**
+     *
+     * @param rounds
+     */
     public void setRounds(int rounds){
         if(rounds<0)return;
         this.rounds=rounds;
     }
+
+    /**
+     * This method stops the game
+     * @author Andrey Zuñiga
+     *
+     */
     public void stopGame(){
         if(!signal){
             if (scoreplayer2<scoreplayer1){
@@ -308,11 +343,7 @@ public class GameController {
             }else if(scoreplayer2>scoreplayer1){
                 new AfterGameEvent().AfterGameEventData(player2,player1);
             }
-
             primaryStage.close();
-
         }
     }
-
-
 }

@@ -3,7 +3,9 @@ package cr.ac.tec.Minigames.DiamondHunter.Classes;
 import cr.ac.tec.Board.Board;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-
+/**
+ *
+ */
 public class Barrier extends GameObject {
 
     private int tileType;
@@ -20,7 +22,8 @@ public class Barrier extends GameObject {
     private int ySize;//desea darle al tile.
 
     /**
-     *
+     * Method for defining the characteristics of the barrier
+     * @author Miguel Mesen
      * @param tileType
      * @param x
      * @param y
@@ -57,10 +60,13 @@ public class Barrier extends GameObject {
     }
 
     /**
+     *
      * Creates a rectangle on each barrier.
+     * @author Miguel Mesen
      * @return
      */
     public CustomRectangle customRectangle(){
+
         return new CustomRectangle(x,y,50,50);
     }
 
@@ -90,6 +96,7 @@ public class Barrier extends GameObject {
 
     /**
      * Draws a rectangle over each barrier.
+     * @author Miguel Mesen
      * @param graphicsContext
      */
     @Override
@@ -100,6 +107,7 @@ public class Barrier extends GameObject {
     }
 
     /**
+     * @author Miguel Mesen
      * Moves each barrier as if it was stuck to the background.
      */
     @Override

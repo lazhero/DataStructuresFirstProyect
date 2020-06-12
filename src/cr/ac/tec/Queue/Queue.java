@@ -2,18 +2,26 @@ package cr.ac.tec.Queue;
 
 import cr.ac.tec.LinkedList.List.DoubleList;
 
+/**
+ * in this class a queue is created
+ * @author Andrey Zuñiga
+ * @param <T>
+ */
+
 public class Queue<T> {
     private DoubleList<T> reference;
 
     /**
-     *
+     * Method that defines the queue
+     * @author Andrey Zuñiga
      */
     public Queue(){
         reference=new DoubleList<>();
     }
 
     /**
-     *
+     * Adds an element
+     * @author Andrey Zuñiga
      * @param content
      */
     public void push(T content){
@@ -21,7 +29,8 @@ public class Queue<T> {
     }
 
     /**
-     *
+     * Gets an item and removes it
+     * @author Andrey Zuñiga
      * @return
      */
     public T pop(){
@@ -34,7 +43,8 @@ public class Queue<T> {
     }
 
     /**
-     *
+     * Show the queue
+     * @author Andrey Zuñiga
      * @return
      */
     public T view(){

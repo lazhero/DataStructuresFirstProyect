@@ -8,6 +8,9 @@ import javafx.scene.image.ImageView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ *
+ */
 public class ImageInterpolator extends Interpolator {
     private String Route;
     private String Format;

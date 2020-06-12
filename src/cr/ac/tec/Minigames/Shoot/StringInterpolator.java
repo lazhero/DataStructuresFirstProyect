@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ *
+ */
 public class StringInterpolator extends Interpolator {
     ArrayList<String> List=new ArrayList<>();
     int RigthPos;

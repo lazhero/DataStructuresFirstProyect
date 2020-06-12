@@ -13,11 +13,16 @@ import javafx.scene.text.TextAlignment;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Defines the event information and its activation
+ * @author Gabriel Solano
+ */
 public class WinFiveStars extends Event {
     private String Data;
 
     /**
      * The player wins five stars and feels cooler.
+     * @author Gabriel Solano
      * @param player
      */
     @Override
@@ -26,17 +31,13 @@ public class WinFiveStars extends Event {
         player.setStars(actualstars+5);
     }
 
-    /**
-     *
-     * @param player1
-     * @param player2
-     */
     @Override
     public void event2(Player player1, Player player2) {
 
     }
     /**
      * Information of the event
+     * @author Gabriel Solano
      * @param player
      */
     @Override

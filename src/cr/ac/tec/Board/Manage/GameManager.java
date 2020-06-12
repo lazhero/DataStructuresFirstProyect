@@ -22,6 +22,12 @@ import javafx.util.Duration;
 
 import static cr.ac.tec.Images.GetImages.getImageView;
 
+/**
+ *
+ * It creates everything regarding the main game and some events
+ * @author Andrey Zuñiga
+ *
+ */
 public class GameManager {
     private static GameManager instance=null;
     private AnchorPane anchorPane;
@@ -104,7 +110,7 @@ public class GameManager {
    }
 
     /**
-     *
+     * Get an instance, if this void creates a new
      * @param PlayersNum
      * @param Rounds
      * @param SquareSide
@@ -125,8 +131,8 @@ public class GameManager {
    }
 
     /**
-     *
-     * @param PlayerNum
+     * Get an instance
+     * @param PlayerNum player number
      * @param Rounds
      * @return
      */
@@ -135,15 +141,16 @@ public class GameManager {
    }
 
     /**
-     *
+     * Get an instance
      * @return
      */
    public static GameManager getInstance(){
        return instance;
+
    }
 
     /**
-     *
+     * Player’s turn begins
      * @param steps
      */
    public void StartTurn(int steps){
@@ -161,7 +168,6 @@ public class GameManager {
                raise=-1;
            }
            int i=0;
-           System.out.println("Estoy en en turno del jugador "+PlayerTurn);
            while (Math.abs(i) < Math.abs(steps)) {
                final int f=i;
                timeline.getKeyFrames().add(new KeyFrame(
@@ -199,7 +205,7 @@ public class GameManager {
                        while(Temp.getInfo().getPlayers()>=1){
                            Temp=Temp.getBack();
                            counter--;
-                           System.out.println("ATRAS");
+
                        }
                        MovePlayer(loser,counter);
                    }
@@ -221,14 +227,13 @@ public class GameManager {
                    if(RoundsCount>=2 && RoundsCount<=rounds && StarHolder==null){
                        StarHolder=getFreePos(SquareList);
                        try{
-                           System.out.println("Intente dibujar una estrella");
+
                            StarHolder.getInfo().DrawStar(this.SquareSide,StarRoute+ImagesFormat);
                            StarHolder.getInfo().ShowStar();
                            lista = new DoubleList<>();
                            lista.AddHead(0);
                            lista.AddHead(1);
-                           lista.AddHead(2);
-                           new Tournament().TournamentData(lista);
+                           new Tournament().Tournament(lista);
                        }
                        catch (Exception Ex){
                        }
@@ -241,7 +246,7 @@ public class GameManager {
    }
 
     /**
-     *
+     * Draw content on the pane anchor
      * @param anchorPane
      */
    public void Draw(AnchorPane anchorPane){
@@ -341,7 +346,7 @@ public class GameManager {
    }
 
     /**
-     *
+     * This method makes the player move
      * @param player
      * @param Steps
      */
@@ -358,18 +363,17 @@ public class GameManager {
      */
    public void confirm(){
        for(int i=0;i<SquareList.getLength();i++){
-           System.out.println("Casilla numero "+ i+" .........................................................................");
+
            DoubleList<Player> List=SquareList.get(i).ListPlayer();
            if(List.getLength()>0){
-               System.out.println("El numero de jugadores registrados es "+SquareList.get(i).getPlayers());
-               System.out.println("El len de mi lista es "+List.getLength());
+
                List.printing();
            }
        }
    }
 
     /**
-     *
+     * This method carries out the teleportation of the player
      * @param player
      */
    public void teleport(Player player){
@@ -416,12 +420,11 @@ public class GameManager {
    }
 
     /**
-     *
+     * This method changes the place of two players
      * @param player1
      * @param player2
      */
    public void exchangePosition(Player player1,Player player2){
-       System.out.println("Aca estoy");
        int posP1=-1;
        int posP2=-1;
        if(player1!=null && PlayerList.FindFirstInstancePosition(player1)!=-1){
@@ -479,6 +482,7 @@ public class GameManager {
 
     /**
      *
+     * Gets the anchor pane, to be able to add elements
      * @return
      */
     public AnchorPane getAnchorPane(){
@@ -486,7 +490,7 @@ public class GameManager {
     }
 
     /**
-     *
+     * Know if the game is running
      * @return
      */
     public boolean isRunning() {
@@ -495,6 +499,7 @@ public class GameManager {
 
     /**
      *
+     * change the running state of the game
      * @param running
      */
     public void setRunning(boolean running) {
@@ -502,7 +507,7 @@ public class GameManager {
     }
 
     /**
-     *
+     * Get the list of players
      * @return
      */
     public DoubleList<Player> getPlayerList() {
@@ -510,7 +515,7 @@ public class GameManager {
     }
 
     /**
-     *
+     * Get the shifts that have passed
      * @return
      */
     public int getTurns() {

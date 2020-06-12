@@ -5,7 +5,7 @@ import cr.ac.tec.LinkedList.List.SingleList;
 public class NewCoordsSequence {
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param pos
      * @param square
      * @return

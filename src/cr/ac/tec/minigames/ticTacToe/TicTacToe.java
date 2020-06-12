@@ -25,7 +25,7 @@ import javafx.util.Duration;
 /**
  * Tic tac toe game.
  *
- * @author migue
+ * @author miguel Mesen
  */
 public class TicTacToe{
     private Pane root;

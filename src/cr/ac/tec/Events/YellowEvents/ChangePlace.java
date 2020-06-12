@@ -14,21 +14,22 @@ import javafx.scene.text.TextAlignment;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Defines the event information and its activation
+ * @author Gabriel Solano
+ */
 public class ChangePlace extends Event {
 
     private int playerchange = new Random().nextInt(4)+1;
     private String message;
 
-    /**
-     * In this event one player will be changed instead of another player
-     * @param player
-     */
     @Override
     public void event1(Player player) {
     }
 
     /**
-     *
+     * In this event one player will be changed instead of another player
+     * @author Gabriel Solano
      * @param player1
      * @param player2
      */
@@ -41,6 +42,7 @@ public class ChangePlace extends Event {
 
     /**
      * Is the information of the event
+     * @author Gabriel Solano
      * @param player
      */
     @Override

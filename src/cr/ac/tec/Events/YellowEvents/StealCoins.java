@@ -14,19 +14,20 @@ import javafx.scene.text.TextAlignment;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The player who activates the event loses a random amount of coins and is dealt equally among the other players.
+ * @author Gabriel Solano
+ */
 public class StealCoins extends Event {
+
     private String Data;
-    /**
-     * The player who obtains the event has the right to steal a number of Random Coins from another player of his choice.
-     *
-     * @param player
-     */
     @Override
     public void event1(Player player) {
     }
 
     /**
-     *
+     * Defines the event information and its activation
+     * @author Gabriel Solano
      * @param player1
      * @param player2
      */
@@ -43,6 +44,7 @@ public class StealCoins extends Event {
 
     /**
      * Information of the event
+     * @author Gabriel Solano
      * @param player
      */
     @Override

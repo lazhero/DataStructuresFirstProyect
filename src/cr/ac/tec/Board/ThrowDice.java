@@ -7,12 +7,16 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.HashMap;
 
+/**
+ * Here the movement of the hand with the dice develops
+ * @author Miguel Mesen
+ */
 public class ThrowDice {
     private HashMap<String, Image> images;
     private HashMap<String, HandAnimation> animations;
     private Rectangle[] handCoordinates;
-    private int x;
-    private int y;
+    private int x;//pos in X
+    private int y; // Pos in Y
     private int width;
     private int height;
     private int xImage;
@@ -22,6 +26,8 @@ public class ThrowDice {
     private boolean drawable=true;
 
     /**
+     * Used to load images
+     * @author Miguel Mesen
      *
      */
     public void loadImages(){
@@ -29,7 +35,8 @@ public class ThrowDice {
     }
 
     /**
-     *
+     * It initializes the animations
+     * @author Miguel Mesen
      */
     public void initializeAnimations(){
         handCoordinates = new Rectangle[]{
@@ -51,7 +58,7 @@ public class ThrowDice {
     }
 
     /**
-     *
+     * Calculates the coordinates of the frame
      * @param t
      */
     public void calculateFrame(double t){
@@ -67,7 +74,8 @@ public class ThrowDice {
     }
 
     /**
-     *
+     * Updates the coordinates of the frame
+     * @author Miguel Mesen
      * @param t
      */
     public void updateState(double t){
@@ -75,7 +83,7 @@ public class ThrowDice {
     }
 
     /**
-     *
+     * @author Miguel Mesen
      */
     public void cycle(){
         long initialTime = System.nanoTime();
@@ -94,17 +102,18 @@ public class ThrowDice {
     }
 
     /**
-     *
+     * Draw the contents on the board
+     * @author Miguel Mesen
      */
     public void draw(){
         Board.graphicsContext.drawImage(images.get("RollingDiceGif"),xImage,yImage,widthImage,heightImage,770,510,240,206);
     }
 
     /**
-     *
+     * Start the animation
+     * @author Miguel Mesen
      */
     public void start(){
-        System.out.println("xd");
         Board.displayHandImage=false;
         images = new HashMap<String, Image>();
         loadImages();

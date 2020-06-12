@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 import static cr.ac.tec.Minigames.RandomNumber.Interface.*;
 import static cr.ac.tec.Minigames.RandomNumber.RandomNumberGame.*;
 
+/**
+ *
+ */
 public class Main  {
     /**
      *
@@ -20,5 +23,7 @@ public class Main  {
         generateRand(0,5);
         System.out.println(randomNumber);
         game(player1,player2);
+        primaryStage.close();
+
     }
 }

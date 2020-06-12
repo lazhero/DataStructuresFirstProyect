@@ -7,7 +7,7 @@ import static cr.ac.tec.Minigames.RandomNumber.Interface.*;
 /**
  * A guessing game in which two players try to guess a random number, the first one to guess the number wins.
  *
- * @author migue
+ * @author Miguel Mesen
  */
 public class RandomNumberGame {
     public static boolean playable = true;

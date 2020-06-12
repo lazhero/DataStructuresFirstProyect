@@ -26,7 +26,10 @@ import javafx.util.Duration;
 
 import java.io.File;
 
-
+/**
+ * That class defines the game
+ * @author Gabriel Solano
+ */
 public class memorygame {
 
     private static final int NUM_OF_PAIRS=8;
@@ -47,7 +50,8 @@ public class memorygame {
     private MediaPlayer mediaPlayer;
 
     /**
-     *
+     * In this method all content is added
+     * @author Gabriel Solano
      * @param player1
      * @param player2
      * @param primaryStage
@@ -127,19 +131,24 @@ public class memorygame {
     }
 
     /**
-     *
+     * Method used to change the player’s shifts
+     * @author Gabriel Solano
      * @param str
      */
     public void changeturn(String str){
         turn.setText(str);
     }
 
-
+    /**
+     * This class defines the squares where the pairs are
+     * @author Gabriel Solano
+     */
     public class Tile extends StackPane{
         private Text text= new Text();
 
         /**
-         *
+         * Create the squares where the pairs are distributed
+         * @author Gabriel Solano
          * @param value
          */
         public Tile(String value){
@@ -155,7 +164,8 @@ public class memorygame {
         }
 
         /**
-         *
+         *Method used to define mouse events
+         * @author Gabriel Solano
          * @param event
          */
         public void handleMouseClick(MouseEvent event){
@@ -207,14 +217,15 @@ public class memorygame {
         }
 
         /**
-         *
+         *Method used to make letters visible
+         * @author Gabriel Solano
          * @return
          */
         public  boolean isOpen(){
             return text.getOpacity()==1;
         }
         /**
-         *
+         *Used to get the winner
          * @param a
          * @return
          */
@@ -233,7 +244,8 @@ public class memorygame {
         }
 
         /**
-         *
+         *Method to make the transition to show the ltters
+         * @author Gabriel Solano
          * @param action
          */
         public void open(Runnable action){
@@ -244,6 +256,8 @@ public class memorygame {
         }
 
         /**
+         * Method to make the transition so that the letters are not visible
+         * @author Gabriel Solano
          *
          */
         public void close(){
@@ -253,7 +267,7 @@ public class memorygame {
         }
 
         /**
-         *
+         *Method to know if both letters are equal
          * @param other
          * @return
          */
@@ -263,7 +277,7 @@ public class memorygame {
     }
 
     /**
-     *
+     * Method used to start the game
      * @param player1
      * @param player2
      */

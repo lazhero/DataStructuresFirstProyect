@@ -23,12 +23,16 @@ import javafx.stage.Stage;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Defines features and the event that happens in this square
+ * @author Gabriel Solano & Andrey Zuñiga
+ */
 public class YellowSquare extends Square {
     private int random;
     public static DoubleList<Integer> lista;
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param coordx x-axis position
      * @param coordy y-axis position
      * @param sideSize side's size
@@ -38,7 +42,7 @@ public class YellowSquare extends Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @return
      */
     @Override
@@ -47,8 +51,9 @@ public class YellowSquare extends Square {
     }
 
     /**
-     *
-     * @param player
+     * This square enables a list of events
+     * @author Gabriel Solano
+     * @param player player who activates the event
      */
     @Override
     public void event(Player player) {
@@ -84,16 +89,17 @@ public class YellowSquare extends Square {
 
         //new Prove().StartGame(1,2);
         lista = new DoubleList<>();
+        lista.AddHead(0);
         lista.AddHead(1);
-        lista.AddHead(2);
-        DiamondHunterGame xd = new DiamondHunterGame();
-        xd.StartGame(lista);
+        DiamondHunterGame xd1 = new DiamondHunterGame();
+        xd1.StartGame(lista);
 
     }
 
     /**
-     *
-     * @param object
+     * Become an Event object
+     * @author Gabriel Solano
+     * @param object object to be converted
      * @return
      */
     public Event CallToEvent (Object object){

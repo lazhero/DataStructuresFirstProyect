@@ -88,7 +88,7 @@ public class DialogBox extends AnchorPane {
         private ImageView Background;
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param route
          * @param btn
          */
@@ -104,7 +104,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param route
          * @return
          */
@@ -114,7 +114,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param route
          * @return
          */
@@ -124,7 +124,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param height
          * @return
          */
@@ -134,7 +134,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param width
          * @return
          */
@@ -144,7 +144,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param eventEventHandler
          * @param button
          */
@@ -155,7 +155,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param eventEventHandler
          * @return
          */
@@ -165,7 +165,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param eventEventHandler
          * @return
          */
@@ -175,7 +175,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param text
          * @return
          */
@@ -185,7 +185,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @param text
          * @return
          */
@@ -200,7 +200,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @return
          */
         public DialogBox Build(){
@@ -211,7 +211,7 @@ public class DialogBox extends AnchorPane {
         }
 
         /**
-         *
+         * @author Andrey Zuñiga
          * @return
          */
         public boolean verify(){

@@ -12,9 +12,14 @@ import javafx.scene.text.TextAlignment;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Defines the event information and its activation
+ * @author Gabriel Solano
+ */
 public class Teleport extends Event {
     /**
      * The player is teleported to some random place on the map.
+     * @author Gabriel Solano
      * @param player
      */
     @Override
@@ -23,18 +28,15 @@ public class Teleport extends Event {
         gameManager.teleport(player);
     }
 
-    /**
-     *
-     * @param player1
-     * @param change
-     */
+
     @Override
-    public void event2(Player player1, Player change) {
+    public void event2(Player player1, Player player2) {
 
     }
 
     /**
      * Information of the event
+     * @author Gabriel Solano
      * @param player
      */
     @Override

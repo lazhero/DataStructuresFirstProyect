@@ -14,12 +14,12 @@ import javafx.scene.text.TextAlignment;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Defines the event information and its activation
+ * @author Gabriel Solano
+ */
 public class LoseOneStar extends Event {
     private String Data;
-    /**
-     * The player loses a star and it is given to another random player.
-     * @param player
-     */
     @Override
     public void event1(Player player) {
 
@@ -27,7 +27,8 @@ public class LoseOneStar extends Event {
     }
 
     /**
-     *
+     * The player loses a star and it is given to another random player.
+     * @author Gabriel Solano
      * @param player1
      * @param player2
      */
@@ -45,6 +46,7 @@ public class LoseOneStar extends Event {
     }
     /**
      * Information of the event
+     * @author Gabriel Solano
      * @param player
      */
     @Override

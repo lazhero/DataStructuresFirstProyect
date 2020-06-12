@@ -10,7 +10,8 @@ import cr.ac.tec.LinkedList.List.SingleList;
 public class PathGenerator {
 
     /**
-     *
+     * Generates the circular path a
+     * @author Andrey Zuñiga
      * @param SquaresonSide
      * @param posx
      * @param posy
@@ -51,8 +52,6 @@ public class PathGenerator {
                 if(SquaresNumber==reg)sqr=new BlueSquare(posx, posy, SquareSide);
             }
             else sqr = new YellowSquare(posx, posy, SquareSide);
-
-
             List.AddTail(sqr);
             SquaresNumber--;
             int relocation=(int)((reg-SquaresNumber)/((reg/4)-1));
@@ -77,7 +76,8 @@ public class PathGenerator {
     }
 
     /**
-     *
+     * Generates the first phase
+     * @author Andrey Zuñiga
      * @param FirstSquare
      * @param LastSquare
      * @param BranchSize

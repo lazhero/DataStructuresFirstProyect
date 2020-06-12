@@ -40,7 +40,7 @@ public class StopWatch {
 
     /**
      * Determines if the Stopwatch is running (could be paused)
-     *
+     * @author Miguel Mesen
      * @return Whether the stopwatch is currently running
      */
     public boolean isRunning() {
@@ -49,7 +49,7 @@ public class StopWatch {
 
     /**
      * Whether this stopwatch is paused
-     *
+     * @author Miguel Mesen
      * @return true if it is currently paused
      */
     public boolean isPaused() {
@@ -57,7 +57,9 @@ public class StopWatch {
     }
 
     /**
+     *
      * Starts the Stopwatch
+     * @author Miguel Mesen
      */
     public void start() {
         start = System.nanoTime();
@@ -68,7 +70,7 @@ public class StopWatch {
 
     /**
      * Stops the stopwatch and returns the time elapsed
-     *
+     * @author Miguel Mesen
      * @return Stops the StopWatch
      */
     public long stop() {
@@ -88,7 +90,7 @@ public class StopWatch {
     }
 
     /**
-     *
+     * @author Miguel Mesen
      * @return
      */
     public long time(){
@@ -124,7 +126,7 @@ public class StopWatch {
 
     /**
      * Returns the total time elapsed
-     *
+     * @author Miguel Mesen
      * @return The total time elapsed
      */
     public long elapsed() {
@@ -138,7 +140,7 @@ public class StopWatch {
 
     /**
      * Returns the number of seconds this Stopwatch has elapsed
-     *
+     * @author Miguel Mesen
      * @return The String of the number of seconds
      */
     public String toString() {

@@ -4,6 +4,10 @@ import cr.ac.tec.Events.YellowEvents.*;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import cr.ac.tec.Stack.Stack;
 
+/**
+ * This class contains the events of the yellow box
+ * @author Gabriel Solano
+ */
 
 public class ListOfEvents {
 
@@ -21,6 +25,8 @@ public class ListOfEvents {
 
 
     /**
+     * Method for generating the stack of events
+     * @author Gabriel Solano
      *
      */
     private ListOfEvents() {
@@ -58,7 +64,8 @@ public class ListOfEvents {
     }
 
     /**
-     *
+     * @author Gabriel Solano
+     * Gets the instance, if it does not exist creates a
      * @return
      */
     public static ListOfEvents getInstance() {
@@ -67,6 +74,12 @@ public class ListOfEvents {
         }
         return instance;
     }
+
+    /**
+     * Get the Stack
+     * @author Gabriel Solano
+     * @return
+     */
 
     public  Stack getMystack() {
         return mystack;

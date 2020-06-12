@@ -5,13 +5,15 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class LayoutNewContent {
-    /*
-    This class add or changes a container's content
-     */
+/**
+ * This class add or changes a container's content
+ * @author Andrey Zuñiga
+ */
 
+public class LayoutNewContent {
     /**
      * Add a new Node to an anchorPane
+     * @author Andrey Zuñiga
      * @param anchorPane the AnchorPane
      * @param node The widget to be added
      * @param Top the distance from the Top,if  is 0 wont be setted
@@ -29,6 +31,7 @@ public class LayoutNewContent {
 
     /**
      * Add a new layout to an anchor pane
+     * @author Andrey Zuñiga
      * @param anchorPane the AnchorPane
      * @param node The widget to be added
      * @param Top the distance from the Top,if  is 0 wont be setted
@@ -47,7 +50,8 @@ public class LayoutNewContent {
     }
 
     /**
-     * Uddates a scrolls content's
+     * Updates a scrolls content's
+     * @author Andrey Zuñiga
      * @param scroll The Scroll
      * @param node The new content
      */

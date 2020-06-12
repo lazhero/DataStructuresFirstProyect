@@ -12,11 +12,16 @@ import javafx.scene.text.TextAlignment;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * It’s the green square event(win coins)
+ * @author Gabriel Solano
+ */
 public class GreenEvent{
     public String Data;
 
     /**
-     *
+     * Player win coins
+     * @author Gabriel Solano
      * @param coins
      * @param player
      */

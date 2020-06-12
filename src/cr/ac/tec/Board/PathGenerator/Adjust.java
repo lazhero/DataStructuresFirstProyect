@@ -5,7 +5,7 @@ import cr.ac.tec.LinkedList.List.SingleList;
 
 public class Adjust {
     /**
-     *
+     * @author Andrey Zuñiga
      * @param first
      * @param second
      * @return
@@ -16,7 +16,7 @@ public class Adjust {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param first
      * @param second
      * @param sidesize

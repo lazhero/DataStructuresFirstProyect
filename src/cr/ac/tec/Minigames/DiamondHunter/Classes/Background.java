@@ -3,7 +3,9 @@ package cr.ac.tec.Minigames.DiamondHunter.Classes;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.shape.Rectangle;
 
-
+/**
+ *
+ */
 
 public class Background extends GameObject{
 
@@ -22,7 +24,8 @@ public class Background extends GameObject{
     public static int y;
 
     /**
-     *
+     * Method for determining the characteristics of the fund
+     * @author Miguel Mesen
      * @param x
      * @param y
      * @param velocity
@@ -34,13 +37,15 @@ public class Background extends GameObject{
     }
 
     /**
-     *
+     * Method for obtaining position Y
+     * @author Miguel Mesen
      * @return
      */
     public static int getY() { return y; }
 
     /**
-     *
+     *Method for obtaining position X
+     * @author Miguel Mesen
      * @return
      */
     public static int getX() {
@@ -57,6 +62,8 @@ public class Background extends GameObject{
 
     /**
      *
+     * Method to determine which touches the left side of the background
+     * @author Miguel Mesén
      * @param touchingLeftSide
      */
     public static void setTouchingLeftSide(boolean touchingLeftSide) {
@@ -72,7 +79,8 @@ public class Background extends GameObject{
     }
 
     /**
-     *
+     * Method to determine which touches the Right side of the background
+     * @author Miguel Mesen
      * @param touchingRightSide
      */
     public static void setTouchingRightSide(boolean touchingRightSide) {
@@ -88,7 +96,8 @@ public class Background extends GameObject{
     }
 
     /**
-     *
+     * Method to determine which touches the Up side of the background
+     * @author Miguel Mesen
      * @param touchingUpSide
      */
     public static void setTouchingUpSide(boolean touchingUpSide) {
@@ -104,7 +113,8 @@ public class Background extends GameObject{
     }
 
     /**
-     *
+     * Method to determine which touches the Down side of the background
+     * @author Miguel Mesen
      * @param touchingDownSide
      */
     public static void setTouchingDownSide(boolean touchingDownSide) {
@@ -112,7 +122,8 @@ public class Background extends GameObject{
     }
 
     /**
-     *
+     * Method for obtaining the left side of the background
+     * @author Miguel Mesen
      * @return
      */
     public CustomRectangle getLeftSide() {
@@ -128,7 +139,8 @@ public class Background extends GameObject{
     }
 
     /**
-     *
+     * Method for obtaining the right side of the background
+     * @author Miguel Mesen
      * @return
      */
     public CustomRectangle getRightSide() {
@@ -144,7 +156,8 @@ public class Background extends GameObject{
     }
 
     /**
-     *
+     * Method for obtaining the Up side of the background
+     * @author Miguel Mesen
      * @return
      */
     public CustomRectangle getUpSide() {
@@ -160,7 +173,7 @@ public class Background extends GameObject{
     }
 
     /**
-     *
+     * Method for obtaining the down side of the background
      * @return
      */
     public CustomRectangle getDownSide() {
@@ -177,6 +190,7 @@ public class Background extends GameObject{
 
     /**
      * Creates a rectangle on the coordinates where the player is standing.
+     * @author Miguel Mesen
      * @return
      */
     public void playerCustomRectangle(){
@@ -197,6 +211,7 @@ public class Background extends GameObject{
     /**
      * Draws the background image.
      * Draws a rectangle over the player.
+     * @author Miguel Mesen
      * @param graphicsContext
      */
     @Override
@@ -212,6 +227,7 @@ public class Background extends GameObject{
 
     /**
      * Moves the background
+     * @author Miguel Mesen
      */
     @Override
     public void move() {

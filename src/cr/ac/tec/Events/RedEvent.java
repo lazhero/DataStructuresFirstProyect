@@ -12,11 +12,17 @@ import javafx.scene.text.TextAlignment;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * It’s red square event(lose coins)
+ * @author Gabriel Solano
+ */
+
 public class RedEvent{
     public String Data;
 
     /**
-     *
+     * Player Lose Coins
+     * @author Gabriel Solano
      * @param coins
      * @param player
      */

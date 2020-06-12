@@ -2,6 +2,9 @@ package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import javafx.scene.canvas.GraphicsContext;
 
+/**
+ *
+ */
 public abstract class GameObject {
     protected int x;
     protected int y;
@@ -11,7 +14,8 @@ public abstract class GameObject {
     protected int width;
 
     /**
-     *
+     *Method used to define the characteristics of the object
+     * @author Miguel Mesen
      * @param x
      * @param y
      * @param velocity
@@ -25,6 +29,8 @@ public abstract class GameObject {
     }
 
     /**
+     * Method used to draw on screen
+     * @author Miguel Mesen
      *
      * @param graphicsContext
      */
@@ -32,6 +38,8 @@ public abstract class GameObject {
 
     /**
      *
+     * Method used to move elements
+     * @author Miguel Mesen
      */
     public abstract void move();
 }
