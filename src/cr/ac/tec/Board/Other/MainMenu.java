@@ -47,6 +47,7 @@ public class MainMenu extends Application {
         player4Tf.setTranslateX(743);
         player4Tf.setTranslateY(390);
 
+
         Image play = new Image("Resources/Images/PlayButton.png");
         Image about = new Image("Resources/Images/AboutButton.png");
 
@@ -61,6 +62,18 @@ public class MainMenu extends Application {
             Board xd = new Board();
             Stage MainBoard = new Stage();
             xd.startBoard(MainBoard);
+            String[] names={player1Tf.getText(),player2Tf.getText(),player3Tf.getText(),player4Tf.getText()};
+            int[] coins={0,0,0,0};
+            int[] stars={0,0,0,0};
+            Info info=new Info();
+            info.setCoins(coins);
+            info.setStars(stars);
+            info.setID(names);
+            InfoGetter infoGetter=InfoGetter.getInstance();
+            infoGetter.setInfo(info);
+            Server server=new Server(10000);
+            Thread thread=new Thread(server);
+            thread.start();
             stage.close();
         });
 
