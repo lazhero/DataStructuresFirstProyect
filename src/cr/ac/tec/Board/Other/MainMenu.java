@@ -23,7 +23,8 @@ public class MainMenu extends Application {
     private TextField player2Tf;
     private TextField player3Tf;
     private TextField player4Tf;
-    private int numberOfPlayers=4;
+    private int numberOfPlayers=0;
+    private DoubleList<String> playerNames = new DoubleList<>();
 
     public static void main(String[] args){
         launch(args);
@@ -113,12 +114,14 @@ public class MainMenu extends Application {
         tfList.AddHead(player2Tf);
         tfList.AddHead(player3Tf);
         tfList.AddHead(player4Tf);
-        for (int i=0; i<tfList.getLength();i++){
-            if (tfList.get(i).getText().equals("")){
-                numberOfPlayers-=1;
+        for (int i = 0; i< tfList.getLength(); i++){
+            if (!tfList.get(i).getText().equals("")){
+                numberOfPlayers+=1;
+                playerNames.AddTail(tfList.get(i).getText());
             }
         }
     }
+
 
     @Override
     public void start(Stage stage) throws Exception {

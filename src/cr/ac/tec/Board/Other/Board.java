@@ -3,6 +3,7 @@ package cr.ac.tec.Board.Other;
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Dice.Classes.Dice;
 import javafx.animation.AnimationTimer;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -13,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
@@ -30,6 +32,7 @@ public class Board{
     private TextField textField;
     public static boolean displayHandImage=true;
     public Button button;
+    private Rectangle phoneButton;
 
     /**
      * Start the main window
@@ -53,7 +56,7 @@ public class Board{
         FirstLevelAnchorPane.setStyle("-fx-background-color: #0078d7");
         gameManager= GameManager.getInstance(numberOfPlayers,25,50,"src/Resources/Images/Piece","src/Resources/Images/MarioStar",".png");
         gameManager.Draw(FirstLevelAnchorPane);
-        FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,button);
+        FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,button,phoneButton);
         MainWindow.setScene(scene);
         MainWindow.show();
     }
@@ -63,6 +66,11 @@ public class Board{
      * @author Miguel Mesen
      */
     public void boardButtons(){
+
+        phoneButton = new Rectangle(5,5,50,50);
+        phoneButton.setFill(Color.GREEN);
+        phoneButton.setOnMouseClicked(e -> phoneIformation());
+
         customButton = new Rectangle(770,510,240,206);
         customButton.setFill(Color.TRANSPARENT);
         customButton.setOnMouseClicked(e -> {
@@ -81,6 +89,23 @@ public class Board{
             Board.displayHandImage = true;
         });
         //customButton.setOnMouseClicked(e ->dice.start());
+    }
+
+    public void phoneIformation(){
+        Group root2 = new Group();
+        Scene scene = new Scene(root2,500,550);
+        Text text = new Text();
+        text.setText(
+                "Aquí irá la información"
+        );
+        text.setX(15);
+        text.setY(25);
+        text.setFont(Font.font(16));
+        Stage aboutStage = new Stage();
+        root2.getChildren().addAll(text);
+        aboutStage.setTitle("Play on the run!");
+        aboutStage.setScene(scene);
+        aboutStage.show();
     }
 
     /**
