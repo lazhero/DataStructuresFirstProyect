@@ -1,6 +1,10 @@
 package cr.ac.tec.Board.Square;
 //import com.sun.media.jfxmediaimpl.platform.Platform;
 import cr.ac.tec.Board.*;
+import cr.ac.tec.Board.Other.LayoutCreation;
+import cr.ac.tec.Board.Other.LayoutNewContent;
+import cr.ac.tec.Board.Other.RectanglePlaced;
+import cr.ac.tec.Board.Other.WidgetCreation;
 import cr.ac.tec.Images.GetImages;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.scene.Node;
@@ -21,6 +25,7 @@ public abstract class  Square {
 
     /**
      * Class's constructor
+     * @author Andrey Zuñiga
      * @param color javafx's paint object
      * @param coordx cord x
      * @param coordy cord y
@@ -38,13 +43,14 @@ public abstract class  Square {
 
     /**
      * Draws the square into a given AnchorPane
+     * @author Andrey Zuñiga
      * @param Board An AnchorPane
      */
     public void Draw(AnchorPane Board){
         if(Board!=null) {
                double width=sideSize/2;
                double height=width;
-                RectanglePlaced rectangle=WidgetCreation.CreateRecP(0,0,sideSize,sideSize,color);
+                RectanglePlaced rectangle= WidgetCreation.CreateRecP(0,0,sideSize,sideSize,color);
                 panel.getChildren().add(rectangle);
                 LayoutNewContent.Add(Board,panel,coordy,0,0,coordx);
         }
@@ -52,6 +58,7 @@ public abstract class  Square {
 
     /**
      * Set the number of player in a square
+     * @author Andrey Zuñiga
      * @param players the new number of players
      */
     private void setPlayers(int players) {
@@ -64,7 +71,7 @@ public abstract class  Square {
     private void raisePlayer(){ players++; }
 
     /**
-     *
+     * @author Andrey Zuñiga
      */
      private void decreaseplayers(){
         players--;
@@ -72,6 +79,7 @@ public abstract class  Square {
 
     /**
      * Returns the number of players
+     * @author Andrey Zuñiga
      * @return the number of players
      */
     public int getPlayers() {
@@ -79,7 +87,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @return
      */
     public DoubleList<Player> ListPlayer(){
@@ -87,7 +95,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @return
      */
     public DoubleList<Player> getPlayersinPanel() {
@@ -95,7 +103,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param Side
      * @param path
      * @throws IOException
@@ -122,7 +130,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      */
     public void HideStar(){
         if(Background!=null){
@@ -131,7 +139,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      */
     public void ShowStar(){
         if(Background!=null){
@@ -139,7 +147,7 @@ public abstract class  Square {
         }
     }
     /**
-     *
+     * @author Andrey Zuñiga
      * @param player
      * @param nodeWidth
      * @param nodeHeight
@@ -164,7 +172,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param player
      * @param nodeWidth
      * @param nodeHeight
@@ -177,7 +185,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param player1
      * @param player2
      * @param nodeWidth
@@ -195,7 +203,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param List
      * @param nodeWidth
      * @param nodeHeight
@@ -206,7 +214,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param node
      * @param nodeWidth
      * @param nodeHeight
@@ -218,7 +226,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param player
      * @param nodeWidth
      * @param nodeHeight
@@ -243,13 +251,16 @@ public abstract class  Square {
     }
 
     /**
+     *
      * Method to invoke the DuelTime
+     * @author Andrey Zuñiga
      */
     public void DuelTime(){
     }
 
     /**
      * Erase a node from the square
+     * @author Andrey Zuñiga
      * @param node a javafx's node
      */
     public void DeleteNode(Node node){
@@ -257,7 +268,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      */
     public void DeleteAllNode(){
         //panel.getChildren().
@@ -272,7 +283,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @return
      */
     public double getCoordy() {
@@ -280,7 +291,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param node
      */
     public void setBackground(Node node){
@@ -288,7 +299,7 @@ public abstract class  Square {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @return
      */
     public Node getBackground() {
@@ -297,11 +308,12 @@ public abstract class  Square {
 
     /**
      * An abstract method, will be defined in the subclasses
+     * @author Andrey Zuñiga
      */
     public abstract void event(Player player);
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @return
      */
     public abstract String Color();

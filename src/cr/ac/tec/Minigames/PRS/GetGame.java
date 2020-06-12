@@ -6,9 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ *
+ */
 public class GetGame {
     /**
-     *
+     *Get the scene(the content)
+     * @author Andrey Zuñiga
      * @param player1
      * @param player2
      * @param primaryStage

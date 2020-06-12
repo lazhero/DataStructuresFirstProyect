@@ -13,38 +13,26 @@ import javafx.scene.text.TextAlignment;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Defines the event information and its activation
+ * @author Gabriel Solano
+ */
 public class GiveAwayCoins extends Event {
     private int coins;
     private int amountplayers;
     private String Data;
 
-    /**
-     * The player who activates the event loses a random amount of coins and is dealt equally among the other players.
-     * @param player
-     *
-     */
     @Override
     public void event1(Player player) {
     }
 
-    /**
-     *
-     * @param player
-     */
-    public void eventlosecoins(Player player){
-    }
-
-    /**
-     *
-     * @param player1
-     * @param player2
-     */
     @Override
     public void event2(Player player1, Player player2) {
     }
 
     /**
-     *
+     * The player who activates the event loses a random amount of coins and is dealt equally among the other players.
+     * @author Gabriel Solano
      * @param player1
      * @param player2
      * @param coins
@@ -61,7 +49,8 @@ public class GiveAwayCoins extends Event {
     }
 
     /**
-     *
+     * The player who activates the event loses a random amount of coins and is dealt equally among the other players.
+     * @author Gabriel Solano
      * @param player1
      * @param player2
      * @param player3
@@ -80,7 +69,8 @@ public class GiveAwayCoins extends Event {
     }
 
     /**
-     *
+     * The player who activates the event loses a random amount of coins and is dealt equally among the other players.
+     * @author Gabriel Solano
      * @param player1
      * @param player2
      * @param player3
@@ -99,9 +89,10 @@ public class GiveAwayCoins extends Event {
             player4.setCoins(player2.getCoins()+1);
         }
     }
-
     /**
+     *
      * Information of the event
+     * @author Gabriel Solano
      * @param player
      */
     @Override

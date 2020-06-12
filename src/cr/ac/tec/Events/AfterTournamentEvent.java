@@ -11,10 +11,18 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 import java.util.concurrent.TimeUnit;
-
+/**
+ * It’s the after Tournament-game event
+ * @author Gabriel Solano
+ */
 public class AfterTournamentEvent {
     private String Data;
 
+    /**
+     * Action after the tournament, Losing and winning coins
+     * @author Gabriel Solano
+     * @param playerList
+     */
     public void AfterTournament(DoubleList playerList) {
         GameManager gameManager = GameManager.getInstance(0,0);
         if (playerList.getLength() == 2) {
@@ -31,6 +39,12 @@ public class AfterTournamentEvent {
             gameManager.getPlayerList().get(3).setCoins(gameManager.getPlayerList().get(3).getCoins()+3);
         }
     }
+
+    /**
+     * Information after tournament
+     * @author Gabriel Solano
+     * @param playerList
+     */
     public void AfterTournamentData(DoubleList playerList){
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         if (playerList.getLength()==2){

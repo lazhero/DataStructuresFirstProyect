@@ -8,10 +8,14 @@ import javafx.scene.paint.Paint;
 
 import java.util.Random;
 
+/**
+ * Defines features and the event that happens in this square
+ * @author Andrey Zuñiga & Gaabriel Solano
+ */
 public class GreenSquare extends Square {
 
     /**
-     *
+     *@author Andrey Zuñiga
      * @param coordx X-axis position
      * @param coordy Y-axis position
      * @param sideSize side's size
@@ -22,9 +26,9 @@ public class GreenSquare extends Square {
     }
 
     /**
-     *
-     * this event gives coins to the one who activates it
-     * @param player
+     * This event gives coins to the one who activates it
+     * @author Gabriel Solano
+     * @param player player who activates the event
      */
     @Override
     public void event(Player player) {
@@ -35,6 +39,7 @@ public class GreenSquare extends Square {
 
     /**
      * Define the square's color
+     * @author Andrey Zuñiga
      * @return
      */
     @Override

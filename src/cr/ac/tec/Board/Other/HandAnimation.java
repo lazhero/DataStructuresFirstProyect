@@ -1,14 +1,19 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Other;
 
 import cr.ac.tec.Dice.Classes.Animation;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * In this class the animation of the hands with the dice is performed
+ */
 public class HandAnimation {
+
     private double duration;
     private Rectangle coordinates[];
 
     /**
-     *
+     * Is the hand animation
+     * @author Miguel Mesen
      * @param duration
      * @param coordiantes
      */
@@ -18,7 +23,8 @@ public class HandAnimation {
     }
 
     /**
-     *
+     * Calculates the coordinates of the frame
+     * @author Miguel Mesen
      * @param t
      * @return
      */

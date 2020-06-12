@@ -1,15 +1,18 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Other;
 
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * A class to create some Javafx containers
+ * @author Andrey Zuñiga
+ */
+
 public class LayoutCreation {
-    /*
-    A class to create some JAvafx containers
-     */
 
     /**
      * Creates an anchorpane
+     * @author Andrey Zuñiga
      * @param width sets the anchor panel width's
      * @param heigth sets the anchor height's
      * @return the anchor panel
@@ -23,7 +26,8 @@ public class LayoutCreation {
     }
 
     /**
-     *
+     * Creates an ScrollPane
+     * @author Andrey Zuñiga
      * @param width the scroll width's
      * @param heigth the Scrolls height's
      * @return the scrollpane

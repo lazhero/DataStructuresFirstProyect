@@ -18,6 +18,10 @@ import javafx.scene.text.Font;
 import java.io.File;
 import java.util.Random;
 
+/**
+ * That class defines the game
+ * @author Gabriel Solano
+ */
 public class pressfirst  {
 
     Random Aleatorio = new Random();
@@ -40,7 +44,8 @@ public class pressfirst  {
     private MediaPlayer mediaPlayer;
 
     /**
-     *
+     * Here the contents are added to the window
+     * @author Gabriel Solano
      * @param dato1
      * @param dato2
      * @param primaryStage
@@ -105,7 +110,8 @@ public class pressfirst  {
     }
 
     /**
-     *
+     * Method used to obtain the winner
+     * @author Gabriel Solano
      * @param a
      * @param b
      */
@@ -123,15 +129,8 @@ public class pressfirst  {
     }
 
     /**
-     *
-     * @return
-     */
-    public int getVictory() {
-        return victory;
-    }
-
-    /**
-     *
+     * Method used to start the game
+     * @author Gabriel Solano
      * @param dat1
      * @param dat2
      */
@@ -143,7 +142,6 @@ public class pressfirst  {
         Media media = new Media(new File(path).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-
 
         Stage primaryStage = new Stage();
         Scene scene = new Scene(createContent(dat1,dat2,primaryStage));

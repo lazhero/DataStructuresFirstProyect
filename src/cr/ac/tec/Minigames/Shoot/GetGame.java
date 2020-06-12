@@ -5,9 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ *
+ */
 public class GetGame {
     /**
-     *
+     * This method is to get the scene
+     * @author Andrey Zuñiga
      * @param player1
      * @param player2
      * @param stage

@@ -8,10 +8,15 @@ import javafx.scene.paint.Paint;
 
 import java.util.Random;
 
+/**
+ * Defines features and the event that happens in this square
+ * @author Gabriel Solano & Andrey Zuñiga
+ */
 public class RedSquare extends Square {
 
     /**
      * Class's contructor
+     * @author Andrey Zuñiga
      * @param coordx x-axis position
      * @param coordy y-axis position
      * @param sideSize side's size
@@ -21,8 +26,9 @@ public class RedSquare extends Square {
     }
 
     /**
-     *this event removes coins from the activator
-     * @param player
+     * This event removes coins from the activator
+     * @author Gabriel Solano
+     * @param player player who activates the event
      */
 
     @Override
@@ -33,6 +39,7 @@ public class RedSquare extends Square {
 
     /**
      * Definde the square's color
+     * @author Andrey Zuñiga
      * @return
      */
 

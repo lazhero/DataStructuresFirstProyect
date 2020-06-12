@@ -1,5 +1,6 @@
 package cr.ac.tec.Minigames.RandomNumber;
 
+
 import cr.ac.tec.Events.AfterGameEvent;
 import cr.ac.tec.Random.Random;
 import javafx.application.Application;
@@ -14,6 +15,9 @@ import javafx.stage.Stage;
 
 import static cr.ac.tec.Minigames.RandomNumber.RandomNumberGame.restart;
 
+/**
+ *
+ */
 public class Interface{
 
 

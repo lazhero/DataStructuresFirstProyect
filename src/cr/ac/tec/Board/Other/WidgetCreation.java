@@ -1,17 +1,20 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Other;
 
+import cr.ac.tec.Board.Other.RectanglePlaced;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * This class creates javafx widgets
+ * @author Andrey Zuñiga
+ */
 public class WidgetCreation {
-    /*
-    This class creates javafx widgets
-     */
+
     /**
      * Creates a button with its text
+     * @author Andrey Zuñiga
      * @param text A String with the text that will be shown by the button
      * @return The button instance
      */
@@ -26,7 +29,9 @@ public class WidgetCreation {
     }
 
     /**
+     *
      * Creates Rectangle instance
+     * @author Andrey Zuñiga
      * @param coordX The upper left vertex coordx
      * @param coordY he upper left vertex coord y
      * @param width the Rectangle Width
@@ -46,7 +51,7 @@ public class WidgetCreation {
     }
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param coordX the left corner's x cord
      * @param coordY the left corner's y cord
      * @param width the rectangle width

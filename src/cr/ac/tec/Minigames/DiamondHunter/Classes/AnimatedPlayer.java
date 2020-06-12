@@ -6,6 +6,9 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.HashMap;
 
+/**
+ *
+ */
 public class AnimatedPlayer extends GameObject{
     private int life;
     private String currentAnimation;
@@ -16,7 +19,8 @@ public class AnimatedPlayer extends GameObject{
     private HashMap<String, cr.ac.tec.Minigames.DiamondHunter.Classes.Animation> animations;
 
     /**
-     *
+     *Method to define player characteristics
+     * @author Miguel Mesén
      * @param x
      * @param y
      * @param velocity
@@ -54,12 +58,18 @@ public class AnimatedPlayer extends GameObject{
      */
     public void setCurrentAnimation(String currentAnimation){ this.currentAnimation = currentAnimation;}
 
+    /**
+     * Method to get the box where the player is located
+     * @author Miguel Mesén
+     * @return
+     */
     public Rectangle obtainRectangle(){
         return new Rectangle(x,y,40,40);
     }
 
     /**
-     *
+     *Method used to verify collisions
+     *@author Miguel Mesén
      * @param item
      */
     public void verifyItemCollision(Item item){
@@ -69,7 +79,8 @@ public class AnimatedPlayer extends GameObject{
     }
 
     /**
-     *
+     * Used to Start animations
+     *@author Miguel Mesén
      */
     public void initializeAnimations(){
         Rectangle restFrontCoordinates[] = {
@@ -177,7 +188,8 @@ public class AnimatedPlayer extends GameObject{
     }
 
     /**
-     *
+     * Used to draw content (Graphic part)
+     *@author Miguel Mesén
      * @param graphicsContext
      */
     //@Override
@@ -189,7 +201,8 @@ public class AnimatedPlayer extends GameObject{
     }
 
     /**
-     *
+     * Method used to move the player
+     *@author Miguel Mesén
      */
     @Override
     public void move() {

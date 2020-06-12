@@ -1,7 +1,7 @@
 package cr.ac.tec.Board.Count;
 
-import cr.ac.tec.Board.LayoutCreation;
-import cr.ac.tec.Board.LayoutNewContent;
+import cr.ac.tec.Board.Other.LayoutCreation;
+import cr.ac.tec.Board.Other.LayoutNewContent;
 import cr.ac.tec.Images.GetImages;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.collections.ObservableList;
@@ -9,6 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * This class is to create a coin counter and display it on screen
+ * @author Andrey Zuñiga and Miguel Mesen
+ */
 public class Counter {
     private AnchorPane anchorPane;
     private DoubleList<ImageView> imageViewDoubleList=new DoubleList<>();
@@ -17,7 +21,7 @@ public class Counter {
     private String route;
     private String format;
     /**
-     *
+     * Defines the characteristics of the counter
      * @param width
      * @param height
      * @param route
@@ -33,8 +37,8 @@ public class Counter {
     }
 
     /**
-     *
-     * @param num
+     * Change the coin value depending on the player
+     * @param num number to update
      */
     public void setCount(int num){
         ObservableList<Node> Items=anchorPane.getChildren();
@@ -87,8 +91,8 @@ public class Counter {
        }
     }
     /**
-     *
-     * @param num
+     * Get the image of the number to be displayed on screen
+     * @param num number to show
      * @return
      * @throws Exception
      */
@@ -101,8 +105,8 @@ public class Counter {
        return List;
     }
     /**
-     *
-     * @param pos
+     * Gets the position according to the player
+     * @param pos positions that will be moved the player
      * @param large
      * @param space
      * @return
@@ -111,7 +115,7 @@ public class Counter {
         return pos*large+pos*space;
     }
     /**
-     *
+     * Gets the anchor Pane
      * @return
      */
     public AnchorPane getAnchorPane(){

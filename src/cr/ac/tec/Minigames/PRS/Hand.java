@@ -1,10 +1,13 @@
 package cr.ac.tec.Minigames.PRS;
 
+/**
+ *
+ */
 public class Hand {
     private int value;
 
     /**
-     *
+     * @author Andrey Zuñiga
      * @param value
      */
     private Hand(int value){
@@ -13,6 +16,7 @@ public class Hand {
 
     /**
      *
+     * @author Andrey Zuñiga
      * @param value
      * @return
      */
@@ -22,11 +26,11 @@ public class Hand {
             hand=new Hand(value);
         }
         return hand;
-
     }
 
     /**
-     *
+     * Method that obtains value, to know if stone, paper or scissors is chosen
+     * @author Andrey Zuñiga
      * @return
      */
     public int getValue(){

@@ -21,35 +21,30 @@ import cr.ac.tec.Minigames.PressFirst.*;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Defines the event information and its activation
+ * @author Gabriel Solano
+ */
 public class Duel extends Event {
     private String Data;
     private int random;
     private String gamedescription;
 
-    /**
-     * A mini-game is triggered, where the randomly chosen players will face a duel (minigame 1v1),
-     * the winner will get glory (coins), and the loser will lose coins.
-     *
-     * @param player
-     */
+
     @Override
     public void event1(Player player) {
 
-
-
     }
 
-    /**
-     *
-     * @param player1
-     * @param player2
-     */
+
     @Override
     public void event2(Player player1, Player player2) {
     }
 
     /**
-     *
+     * A mini-game is triggered, where the randomly chosen players will face a duel (minigame 1v1),
+     * the winner will get glory (coins), and the loser will lose coins.
+     * @author Gabriel Solano
      * @param player1
      * @param player2
      * @param milista
@@ -78,12 +73,10 @@ public class Duel extends Event {
             milista.delete(0);
         }
     }
-    public void move(int player1){
-        GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
-        gameManager.MovePlayer(gameManager.getPlayerList().get(player1),-1);
-    }
+
     /**
      * Information of the event
+     * @author Gabriel Solano
      * @param player
      */
     @Override

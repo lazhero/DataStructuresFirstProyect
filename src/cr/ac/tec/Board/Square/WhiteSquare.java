@@ -11,10 +11,15 @@ import java.util.Random;
 
 import static cr.ac.tec.Minigames.RandomNumber.RandomNumberGame.game;
 
+/**
+ * Defines features and the event that happens in this square
+ * @author Gabriel Solano & Andrey Zuñiga
+ */
 public class WhiteSquare extends Square {
 
     /**
      * Class's constructor
+     * @author Andrey Zuñiga
      * @param coordx x-axis position
      * @param coordy y-axis position
      * @param sideSize side's size
@@ -24,8 +29,9 @@ public class WhiteSquare extends Square {
     }
 
     /**
-     *this event goes back or forward to the player who activates it
-     * @param player
+     * This event goes back or forward to the player who activates it
+     * @author Gabriel Solano
+     * @param player player who activates the event
      */
     @Override
     public void event(Player player) {
@@ -43,6 +49,7 @@ public class WhiteSquare extends Square {
 
     /**
      * Define Square's color
+     * @author Andrey Zuñiga
      * @return
      */
     @Override

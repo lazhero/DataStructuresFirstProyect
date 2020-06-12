@@ -1,13 +1,17 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import javafx.scene.shape.Rectangle;
+/**
+ *
+ */
 
 public class Animation {
     private double duration;
     private Rectangle coordinates[];
 
     /**
-     *
+     * Method for making the animation
+     * @uthor Miguel Mesen
      * @param duration
      * @param coordinates
      */
@@ -49,7 +53,8 @@ public class Animation {
     }
 
     /**
-     *
+     * Method to cover the dimensions
+     * @author Miguel Mesen
      * @param t
      * @return
      */

@@ -8,8 +8,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ *
+ */
 public class Prove  {
     private Stage stage;
+
+    /**
+     * This method is to start the game
+     * @author Andrey Zuñiga
+     * @param dato1
+     * @param dato2
+     */
     public void StartGame(int dato1, int dato2){
         Stage stage = new Stage();
         Scene scene=new GetGame().getScene(dato1,dato2,stage);
@@ -18,6 +28,11 @@ public class Prove  {
         stage.show();
 
     }
+
+    /**
+     * @author Andrey Zuñiga
+     * @return
+     */
     public Stage getStage(){
         return this.stage;
     }

@@ -6,13 +6,14 @@ import cr.ac.tec.Random.Random;
 public class SquareRandomGenerator {
 
     /**
-     *
+     * Generates a random square
+     * @author Andrey Zuñiga
      * @param coordx
      * @param coordy
      * @param sidesize
      * @return
      */
-    public static Square Generate(double coordx, double coordy,double sidesize){
+    public static Square generate(double coordx, double coordy, double sidesize){
         Square square=null;
         int RandomNumber= Random.RandomNumber(5);
         if(RandomNumber==5){

@@ -1,13 +1,12 @@
 package cr.ac.tec.Board.Manage;
 
 import cr.ac.tec.Board.Count.StarCounter;
-import cr.ac.tec.Board.LayoutNewContent;
+import cr.ac.tec.Board.Other.LayoutNewContent;
 import cr.ac.tec.Board.PathGenerator.PathGenerator;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
 import cr.ac.tec.Events.Tournament;
 import cr.ac.tec.Events.YellowEvents.Duel;
-import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 import cr.ac.tec.Random.Random;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import cr.ac.tec.LinkedList.List.DoubleRoundList;
@@ -22,6 +21,12 @@ import javafx.util.Duration;
 
 import static cr.ac.tec.Images.GetImages.getImageView;
 
+/**
+ *
+ * It creates everything regarding the main game and some events
+ * @author Andrey Zuñiga
+ *
+ */
 public class GameManager {
     private static GameManager instance=null;
     private AnchorPane anchorPane;
@@ -65,17 +70,17 @@ public class GameManager {
        this.ImagesFormat=ImagesFormat;
        this.turns=-1;
        this.rounds=Rounds;
-       SquareList= PathGenerator.GenerateCircle(10,200,20,this.SquareSide,this.SquareSide/10,false);
-       Phase1=PathGenerator.GeneratePhase1(11,16,3,SquareList,this.SquareSide,this.SquareSide/10,false);
+       SquareList= PathGenerator.generateCircle(10,200,20,this.SquareSide,this.SquareSide/10,false);
+       Phase1=PathGenerator.generatePhase1(11,16,3,SquareList,this.SquareSide,this.SquareSide/10,false);
        Phase1.getNode(Phase1.getLength()-1).setFront(SquareList.getNode(16));
        Phase1.getNode(0).setBack(SquareList.getNode(11));
-       Phase2=PathGenerator.GeneratePhase1(20,25,2,SquareList,this.SquareSide,this.SquareSide/10,true);
+       Phase2=PathGenerator.generatePhase1(20,25,2,SquareList,this.SquareSide,this.SquareSide/10,true);
        Phase2.getNode(0).setBack(SquareList.getNode(20));
        Phase2.getNode(Phase2.getLength()-1).setFront(SquareList.getNode(25));
-       Phase3=PathGenerator.GeneratePhase1(29,34,3,SquareList,this.SquareSide,this.SquareSide/10,false);
+       Phase3=PathGenerator.generatePhase1(29,34,3,SquareList,this.SquareSide,this.SquareSide/10,false);
        Phase3.getNode(0).setBack(SquareList.getNode(29));
        Phase3.getNode(Phase3.getLength()-1).setFront(SquareList.getNode(34));
-       Phase4=PathGenerator.GenerateCircle(6,310,130,this.SquareSide,this.SquareSide/10,true);
+       Phase4=PathGenerator.generateCircle(6,310,130,this.SquareSide,this.SquareSide/10,true);
 
        GatesState.AddTail(false);
        GatesState.AddTail(true);
@@ -104,7 +109,7 @@ public class GameManager {
    }
 
     /**
-     *
+     * Get an instance, if this void creates a new
      * @param PlayersNum
      * @param Rounds
      * @param SquareSide
@@ -125,8 +130,8 @@ public class GameManager {
    }
 
     /**
-     *
-     * @param PlayerNum
+     * Get an instance
+     * @param PlayerNum player number
      * @param Rounds
      * @return
      */
@@ -135,15 +140,16 @@ public class GameManager {
    }
 
     /**
-     *
+     * Get an instance
      * @return
      */
    public static GameManager getInstance(){
        return instance;
+
    }
 
     /**
-     *
+     * Player’s turn begins
      * @param steps
      */
    public void StartTurn(int steps){
@@ -161,7 +167,6 @@ public class GameManager {
                raise=-1;
            }
            int i=0;
-           System.out.println("Estoy en en turno del jugador "+PlayerTurn);
            while (Math.abs(i) < Math.abs(steps)) {
                final int f=i;
                timeline.getKeyFrames().add(new KeyFrame(
@@ -199,7 +204,7 @@ public class GameManager {
                        while(Temp.getInfo().getPlayers()>=1){
                            Temp=Temp.getBack();
                            counter--;
-                           System.out.println("ATRAS");
+
                        }
                        MovePlayer(loser,counter);
                    }
@@ -221,14 +226,14 @@ public class GameManager {
                    if(RoundsCount>=2 && RoundsCount<=rounds && StarHolder==null){
                        StarHolder=getFreePos(SquareList);
                        try{
-                           System.out.println("Intente dibujar una estrella");
+
                            StarHolder.getInfo().DrawStar(this.SquareSide,StarRoute+ImagesFormat);
                            StarHolder.getInfo().ShowStar();
                            lista = new DoubleList<>();
                            lista.AddHead(0);
                            lista.AddHead(1);
-                           lista.AddHead(2);
-                           new Tournament().TournamentData(lista);
+                           new Tournament().Tournament(lista);
+
                        }
                        catch (Exception Ex){
                        }
@@ -241,7 +246,7 @@ public class GameManager {
    }
 
     /**
-     *
+     * Draw content on the pane anchor
      * @param anchorPane
      */
    public void Draw(AnchorPane anchorPane){
@@ -341,7 +346,7 @@ public class GameManager {
    }
 
     /**
-     *
+     * This method makes the player move
      * @param player
      * @param Steps
      */
@@ -358,18 +363,17 @@ public class GameManager {
      */
    public void confirm(){
        for(int i=0;i<SquareList.getLength();i++){
-           System.out.println("Casilla numero "+ i+" .........................................................................");
+
            DoubleList<Player> List=SquareList.get(i).ListPlayer();
            if(List.getLength()>0){
-               System.out.println("El numero de jugadores registrados es "+SquareList.get(i).getPlayers());
-               System.out.println("El len de mi lista es "+List.getLength());
+
                List.printing();
            }
        }
    }
 
     /**
-     *
+     * This method carries out the teleportation of the player
      * @param player
      */
    public void teleport(Player player){
@@ -416,12 +420,11 @@ public class GameManager {
    }
 
     /**
-     *
+     * This method changes the place of two players
      * @param player1
      * @param player2
      */
    public void exchangePosition(Player player1,Player player2){
-       System.out.println("Aca estoy");
        int posP1=-1;
        int posP2=-1;
        if(player1!=null && PlayerList.FindFirstInstancePosition(player1)!=-1){
@@ -479,6 +482,7 @@ public class GameManager {
 
     /**
      *
+     * Gets the anchor pane, to be able to add elements
      * @return
      */
     public AnchorPane getAnchorPane(){
@@ -486,7 +490,7 @@ public class GameManager {
     }
 
     /**
-     *
+     * Know if the game is running
      * @return
      */
     public boolean isRunning() {
@@ -495,6 +499,7 @@ public class GameManager {
 
     /**
      *
+     * change the running state of the game
      * @param running
      */
     public void setRunning(boolean running) {
@@ -502,7 +507,7 @@ public class GameManager {
     }
 
     /**
-     *
+     * Get the list of players
      * @return
      */
     public DoubleList<Player> getPlayerList() {
@@ -510,7 +515,7 @@ public class GameManager {
     }
 
     /**
-     *
+     * Get the shifts that have passed
      * @return
      */
     public int getTurns() {

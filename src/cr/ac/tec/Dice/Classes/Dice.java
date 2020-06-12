@@ -1,22 +1,20 @@
 package cr.ac.tec.Dice.Classes;
 
-import cr.ac.tec.Board.Board;
-import cr.ac.tec.Board.CustomButton;
+import cr.ac.tec.Board.Other.Board;
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 
 import java.util.HashMap;
 
+/**
+ * This class defines the die, its characteristics
+ * @author  Miguel Mesen
+ */
 public class Dice{
     private GraphicsContext graphicsContext;
     private HashMap<String, Image> images;
@@ -37,7 +35,7 @@ public class Dice{
     public static int finalNumber;
 
     /**
-     *
+     * @author Miguel Mesen
      * @return
      */
     public int getFinalNumber() {
@@ -45,7 +43,8 @@ public class Dice{
     }
 
     /**
-     *
+     * Generates a random number
+     * @autor Miguel Mesen
      */
     public void randomNumber(){
         diceNumber1= (int)(Math.random()*((6-1)+1))+1;
@@ -55,7 +54,8 @@ public class Dice{
     }
 
     /**
-     *
+     * It initializes the animations
+     * @author Miguel Mesen
      */
     public void initializeAnimations(){
         diceCoordinates= new Rectangle[]{
@@ -72,7 +72,8 @@ public class Dice{
     }
 
     /**
-     *
+     * Load the images
+     * @author Miguel Mesen
      */
     public void loadImages(){
         images.put("dice", new Image("Resources/Images/dice.png"));
@@ -80,7 +81,8 @@ public class Dice{
     }
 
     /**
-     *
+     * Calculates the coordinates of the frame
+     * @author Miguel Mesen
      * @param t
      */
     public void calculateFrame(double t){
@@ -95,7 +97,8 @@ public class Dice{
     }
 
     /**
-     *
+     * Update the frame coordinates
+     *@author Miguel Mesen
      * @param t
      */
     public void updateState(double t){
@@ -103,7 +106,7 @@ public class Dice{
     }
 
     /**
-     *
+     *@author Miguel Mesen
      * @param number
      */
     public void finalImage(int number){
@@ -130,7 +133,7 @@ public class Dice{
     }
 
     /**
-     *
+     * @author Miguel Mesen
      */
     public void cycle(){
         long initialTime = System.nanoTime();
@@ -153,7 +156,8 @@ public class Dice{
     }
 
     /**
-     *
+     * Draw the contents on the board
+     * @author Miguel Mesen
      */
     public void draw(){
         Board.graphicsContext.drawImage(images.get("dice"), x, y, width, height, 850, 0, 100, 100);
@@ -166,7 +170,8 @@ public class Dice{
     }
 
     /**
-     *
+     * Start the animation
+     * @author Miguel Mesen
      */
     public void start(){
         lastDice=false;

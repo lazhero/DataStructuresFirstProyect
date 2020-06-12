@@ -2,12 +2,17 @@ package cr.ac.tec.Dice.Classes;
 
 import javafx.scene.shape.Rectangle;
 
+/**
+ * The dice animation
+ * @author Miguel Mesen
+ */
 public class Animation {
     private double duration;
     private Rectangle coordinates[];
 
     /**
-     *
+     * Characteristics of the animation
+     * @author Miguel Mesen
      * @param duration
      * @param coordinates
      */
@@ -17,7 +22,8 @@ public class Animation {
     }
 
     /**
-     *
+     * Gets the duration of the animation
+     * @author Miguel Mesen
      * @return
      */
     public double getDuration() {
@@ -25,7 +31,8 @@ public class Animation {
     }
 
     /**
-     *
+     * Change the duration of the animation
+     * @author Miguel Mesen
      * @param duration
      */
     public void setDuration(int duration) {
@@ -33,7 +40,8 @@ public class Animation {
     }
 
     /**
-     *
+     * Get Coordinates
+     * @author Miguel Mesen
      * @return
      */
     public Rectangle[] getCoordinates() {
@@ -41,7 +49,8 @@ public class Animation {
     }
 
     /**
-     *
+     * Change the coordinates of the frame
+     * @author Miguel Mesen
      * @param coordinates
      */
     public void setCoordinates(Rectangle[] coordinates) {
@@ -49,7 +58,8 @@ public class Animation {
     }
 
     /**
-     *
+     * calculates the coordinates of the frame
+     * @author Miguel Mesen
      * @param t
      * @return
      */

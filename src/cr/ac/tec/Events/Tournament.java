@@ -12,12 +12,17 @@ import javafx.scene.text.TextAlignment;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * It’s the tournament event
+ * @author Gabriel Solano
+ */
 public class Tournament {
     private String Data;
     public static DoubleList<Integer> lista;
 
     /**
-     *
+     * Runs the tournament
+     * @author Gabriel Solano
      * @param playerList
      */
     public void Tournament(DoubleList playerList) {
@@ -27,7 +32,8 @@ public class Tournament {
     }
 
     /**
-     *
+     * Information about tournament
+     * @author Gabriel Solano
      * @param playerList
      */
     public void TournamentData(DoubleList playerList) {

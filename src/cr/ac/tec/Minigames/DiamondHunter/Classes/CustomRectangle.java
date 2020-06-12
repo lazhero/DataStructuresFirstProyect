@@ -2,6 +2,9 @@ package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
 import javafx.scene.shape.Rectangle;
 
+/**
+ *
+ */
 public class CustomRectangle extends Rectangle {
     int topRightY;
     int bottomLeftY;
@@ -9,7 +12,8 @@ public class CustomRectangle extends Rectangle {
     int topRightX;
 
     /**
-     *
+     * method to determine the characteristics of the rectangle
+     * @author Miguel Mesen
      * @param x
      * @param y
      * @param width
@@ -24,7 +28,6 @@ public class CustomRectangle extends Rectangle {
     }
 
     /**
-     *
      * @param other
      * @return
      */
@@ -37,7 +40,8 @@ public class CustomRectangle extends Rectangle {
     }
 
     /**
-     *
+     * Method to determine if it is overlapping
+     * @author Miguel Mesen
      * @param other
      * @return
      */
