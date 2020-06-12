@@ -1,6 +1,6 @@
 package cr.ac.tec.Board.Count;
 
-import cr.ac.tec.Board.PlayerObserver;
+import cr.ac.tec.Board.Other.PlayerObserver;
 
 /**
  * Start the coin counter

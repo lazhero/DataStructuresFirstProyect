@@ -1,9 +1,8 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Other;
 
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Dice.Classes.Dice;
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;

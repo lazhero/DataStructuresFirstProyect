@@ -1,6 +1,5 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
-import cr.ac.tec.Events.AfterGameEvent;
 import cr.ac.tec.Events.AfterTournamentEvent;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import cr.ac.tec.LinkedList.Sorting.BubbleSort;
@@ -92,7 +91,7 @@ public class DiamondHunterGame{
         animatedPlayer = new AnimatedPlayer(230,220,7,"link",0,"restFront");
         background = new Background(0,0,7,"map");
         initializeBarriers();
-        adItems();
+        addItems();
         Group root = new Group();
         scene = new Scene(root,500,500);
         Canvas canvas = new Canvas(500, 500);
@@ -197,7 +196,7 @@ public class DiamondHunterGame{
     /**
      *
      */
-    public void adItems() {
+    public void addItems() {
         items = new DoubleList<>();
         int itemsOnMap = 40;
         while (itemsOnMap > 0) {

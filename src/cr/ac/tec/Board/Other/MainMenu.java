@@ -1,13 +1,12 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Other;
 
-import cr.ac.tec.Stack.Stack;
+import cr.ac.tec.Board.Other.Board;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;

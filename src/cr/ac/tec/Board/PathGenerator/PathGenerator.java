@@ -20,7 +20,7 @@ public class PathGenerator {
      * @param onEvent
      * @return
      */
-    public static DoubleRoundList<Square> GenerateCircle(int SquaresonSide,double posx, double posy,double SquareSide,double SpaceBetween,boolean onEvent){
+    public static DoubleRoundList<Square> generateCircle(int SquaresonSide, double posx, double posy, double SquareSide, double SpaceBetween, boolean onEvent){
         int SquaresNumber=SquaresonSide*4-4;
         final int reg=SquaresNumber;
         DoubleRoundList<Square> List=new DoubleRoundList<Square>();
@@ -87,7 +87,7 @@ public class PathGenerator {
      * @param JustEvents
      * @return
      */
-    public static DoubleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath, double sidesize, double SpaceBetween,boolean JustEvents) {
+    public static DoubleList<Square> generatePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath, double sidesize, double SpaceBetween, boolean JustEvents) {
         DoubleList<Square> SquareList=new DoubleList<>();
         double posx=MainPath.get(FirstSquare).getCoordx();
         double posy=MainPath.get(FirstSquare).getCoordy();
@@ -109,7 +109,7 @@ public class PathGenerator {
                 SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize+SpaceBetween);
                 posx=List.get(0);
                 posy=List.get(1);
-                Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
+                Square square=SquareRandomGenerator.generate(posx,posy,sidesize);
                 if(JustEvents){
                     square=new YellowSquare(posx,posy,sidesize);
                 }
@@ -121,7 +121,7 @@ public class PathGenerator {
                 SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize+SpaceBetween);
                 posx=List.get(0);
                 posy=List.get(1);
-                Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
+                Square square=SquareRandomGenerator.generate(posx,posy,sidesize);
                 if(JustEvents){
                     square=new YellowSquare(posx,posy,sidesize);
                 }

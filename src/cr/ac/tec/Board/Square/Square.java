@@ -1,6 +1,10 @@
 package cr.ac.tec.Board.Square;
 //import com.sun.media.jfxmediaimpl.platform.Platform;
 import cr.ac.tec.Board.*;
+import cr.ac.tec.Board.Other.LayoutCreation;
+import cr.ac.tec.Board.Other.LayoutNewContent;
+import cr.ac.tec.Board.Other.RectanglePlaced;
+import cr.ac.tec.Board.Other.WidgetCreation;
 import cr.ac.tec.Images.GetImages;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.scene.Node;
@@ -46,7 +50,7 @@ public abstract class  Square {
         if(Board!=null) {
                double width=sideSize/2;
                double height=width;
-                RectanglePlaced rectangle=WidgetCreation.CreateRecP(0,0,sideSize,sideSize,color);
+                RectanglePlaced rectangle= WidgetCreation.CreateRecP(0,0,sideSize,sideSize,color);
                 panel.getChildren().add(rectangle);
                 LayoutNewContent.Add(Board,panel,coordy,0,0,coordx);
         }

@@ -1,6 +1,5 @@
 package cr.ac.tec.Minigames.DiamondHunter.Classes;
 
-import cr.ac.tec.Board.Board;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 /**
