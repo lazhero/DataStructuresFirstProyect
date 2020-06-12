@@ -1,6 +1,7 @@
 package cr.ac.tec.Board.Other;
 
 import cr.ac.tec.Board.Other.Board;
+import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -17,29 +18,34 @@ import javafx.stage.Stage;
 
 
 public class MainMenu extends Application {
-    private GraphicsContext graphicsContext;
     private Stage stage = new Stage();
+    private TextField player1Tf;
+    private TextField player2Tf;
+    private TextField player3Tf;
+    private TextField player4Tf;
+    private int numberOfPlayers=4;
+
     public static void main(String[] args){
         launch(args);
     }
 
     public void createContent(){
         Canvas canvas = new Canvas(960,600);
-        graphicsContext = canvas.getGraphicsContext2D();
+        GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
 
-        TextField player1Tf = new TextField();
+        player1Tf = new TextField();
         player1Tf.setTranslateX(743);
         player1Tf.setTranslateY(270);
 
-        TextField player2Tf = new TextField();
+        player2Tf = new TextField();
         player2Tf.setTranslateX(743);
         player2Tf.setTranslateY(310);
 
-        TextField player3Tf = new TextField();
+        player3Tf = new TextField();
         player3Tf.setTranslateX(743);
         player3Tf.setTranslateY(350);
 
-        TextField player4Tf = new TextField();
+        player4Tf = new TextField();
         player4Tf.setTranslateX(743);
         player4Tf.setTranslateY(390);
 
@@ -54,24 +60,12 @@ public class MainMenu extends Application {
         Rectangle playButton = new Rectangle(720,520,150,57);
         playButton.setFill(Color.TRANSPARENT);
         playButton.setOnMouseClicked(e -> {
+            numberOfPlayers();
             Board xd = new Board();
             Stage MainBoard = new Stage();
-            xd.startBoard(MainBoard);
+            xd.startBoard(MainBoard,numberOfPlayers);
             stage.close();
         });
-
-
-
-        Button button = new Button("Play");
-        button.setTranslateX(300);
-        button.setTranslateY(300);
-        button.setOnMouseClicked(e -> {
-            Board xd = new Board();
-            Stage MainBoard = new Stage();
-            xd.startBoard(MainBoard);
-            stage.close();
-        });
-
 
         Group root = new Group();
         Scene scene = new Scene(root,960,600);
@@ -83,6 +77,8 @@ public class MainMenu extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+
 
     public void aboutInformation(){
         Group root = new Group();
@@ -111,6 +107,18 @@ public class MainMenu extends Application {
         aboutStage.show();
     }
 
+    public void numberOfPlayers(){
+        DoubleList<TextField> tfList = new DoubleList<>();
+        tfList.AddHead(player1Tf);
+        tfList.AddHead(player2Tf);
+        tfList.AddHead(player3Tf);
+        tfList.AddHead(player4Tf);
+        for (int i=0; i<tfList.getLength();i++){
+            if (tfList.get(i).getText().equals("")){
+                numberOfPlayers-=1;
+            }
+        }
+    }
 
     @Override
     public void start(Stage stage) throws Exception {

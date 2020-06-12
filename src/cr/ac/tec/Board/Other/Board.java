@@ -36,7 +36,8 @@ public class Board{
      * @author Miguel Mesen
      * @param MainWindow
      */
-    public void startBoard(Stage MainWindow){
+    public void startBoard(Stage MainWindow, int numberOfPlayers){
+        System.out.println("el numero de jugadores es " +numberOfPlayers);
         images = new HashMap<>();
         Canvas canvas = new Canvas(1000,700);
         graphicsContext = canvas.getGraphicsContext2D();
