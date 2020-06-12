@@ -87,7 +87,7 @@ public class PathGenerator {
      * @param JustEvents
      * @return
      */
-    public static DoubleList<Square> GeneratePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath, double sidesize, double SpaceBetween,boolean JustEvents) {
+    public static DoubleList<Square> generatePhase1(int FirstSquare, int LastSquare, int BranchSize , List<Square> MainPath, double sidesize, double SpaceBetween, boolean JustEvents) {
         DoubleList<Square> SquareList=new DoubleList<>();
         double posx=MainPath.get(FirstSquare).getCoordx();
         double posy=MainPath.get(FirstSquare).getCoordy();
