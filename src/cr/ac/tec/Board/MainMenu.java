@@ -1,5 +1,8 @@
 package cr.ac.tec.Board;
 
+import cr.ac.tec.AndroidComunication.Server;
+import cr.ac.tec.Info.Info;
+import cr.ac.tec.Info.InfoGetter;
 import cr.ac.tec.Stack.Stack;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -59,6 +62,18 @@ public class MainMenu extends Application {
             Stage MainBoard = new Stage();
             xd.startBoard(MainBoard);
             stage.close();
+            String[] names={player1Tf.getText(),player2Tf.getText(),player3Tf.getText(),player4Tf.getText()};
+            int[] coins={0,0,0,0};
+            int[] stars={0,0,0,0};
+            Info info=new Info();
+            info.setCoins(coins);
+            info.setStars(stars);
+            info.setID(names);
+           InfoGetter infoGetter=InfoGetter.getInstance();
+           infoGetter.setInfo(info);
+            Server server=new Server(10000);
+            Thread thread=new Thread(server);
+            thread.start();
         });
 
 
