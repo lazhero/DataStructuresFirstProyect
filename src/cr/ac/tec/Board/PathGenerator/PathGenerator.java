@@ -109,7 +109,7 @@ public class PathGenerator {
                 SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize+SpaceBetween);
                 posx=List.get(0);
                 posy=List.get(1);
-                Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
+                Square square=SquareRandomGenerator.generate(posx,posy,sidesize);
                 if(JustEvents){
                     square=new YellowSquare(posx,posy,sidesize);
                 }
@@ -121,7 +121,7 @@ public class PathGenerator {
                 SingleList<Double> List=generatecoords.getCoords(posx,posy,sidesize+SpaceBetween);
                 posx=List.get(0);
                 posy=List.get(1);
-                Square square=SquareRandomGenerator.Generate(posx,posy,sidesize);
+                Square square=SquareRandomGenerator.generate(posx,posy,sidesize);
                 if(JustEvents){
                     square=new YellowSquare(posx,posy,sidesize);
                 }

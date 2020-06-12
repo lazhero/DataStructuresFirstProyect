@@ -1,7 +1,7 @@
 package cr.ac.tec.Board.Manage;
 
 import cr.ac.tec.Board.Count.StarCounter;
-import cr.ac.tec.Board.LayoutNewContent;
+import cr.ac.tec.Board.Other.LayoutNewContent;
 import cr.ac.tec.Board.PathGenerator.PathGenerator;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;

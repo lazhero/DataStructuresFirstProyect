@@ -1,6 +1,7 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Other;
 
-import cr.ac.tec.Dice.Classes.Dice;
+import cr.ac.tec.Board.Other.Board;
+import cr.ac.tec.Board.Other.HandAnimation;
 import javafx.animation.AnimationTimer;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;

@@ -1,6 +1,6 @@
 package cr.ac.tec.Board.DialogBox;
 
-import cr.ac.tec.Board.LayoutCreation;
+import cr.ac.tec.Board.Other.LayoutCreation;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;

@@ -1,7 +1,7 @@
 package cr.ac.tec.Board.Count;
 
-import cr.ac.tec.Board.LayoutCreation;
-import cr.ac.tec.Board.LayoutNewContent;
+import cr.ac.tec.Board.Other.LayoutCreation;
+import cr.ac.tec.Board.Other.LayoutNewContent;
 import cr.ac.tec.Images.GetImages;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.collections.ObservableList;

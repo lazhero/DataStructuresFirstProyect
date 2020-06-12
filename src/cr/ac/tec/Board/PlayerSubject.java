@@ -1,5 +1,6 @@
 package cr.ac.tec.Board;
 
+import cr.ac.tec.Board.Other.PlayerObserver;
 import cr.ac.tec.LinkedList.List.DoubleList;
 
 public abstract class PlayerSubject {

@@ -1,9 +1,9 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Other;
 
+import cr.ac.tec.Board.Other.RectanglePlaced;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class WidgetCreation {

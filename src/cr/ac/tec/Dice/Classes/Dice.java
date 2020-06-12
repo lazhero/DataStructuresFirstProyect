@@ -1,19 +1,13 @@
 package cr.ac.tec.Dice.Classes;
 
-import cr.ac.tec.Board.Board;
-import cr.ac.tec.Board.CustomButton;
+import cr.ac.tec.Board.Other.Board;
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package cr.ac.tec.Board;
+package cr.ac.tec.Board.Other;
 
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;

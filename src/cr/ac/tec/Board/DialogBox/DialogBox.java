@@ -1,18 +1,13 @@
 package cr.ac.tec.Board.DialogBox;
 
-import cr.ac.tec.Board.LayoutCreation;
-import cr.ac.tec.Board.LayoutNewContent;
-import cr.ac.tec.Board.WidgetCreation;
+import cr.ac.tec.Board.Other.LayoutCreation;
+import cr.ac.tec.Board.Other.LayoutNewContent;
 import cr.ac.tec.Images.GetImages;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
