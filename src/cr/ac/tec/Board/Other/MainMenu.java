@@ -1,6 +1,9 @@
 package cr.ac.tec.Board.Other;
 
+import cr.ac.tec.AndroidComunication.Server;
 import cr.ac.tec.Board.Other.Board;
+import cr.ac.tec.Info.Info;
+import cr.ac.tec.Info.InfoGetter;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -64,6 +67,24 @@ public class MainMenu extends Application {
             Board xd = new Board();
             Stage MainBoard = new Stage();
             xd.startBoard(MainBoard,numberOfPlayers);
+            String[] temp={player1Tf.getText(),player2Tf.getText(),player3Tf.getText(),player4Tf.getText()};
+            String[] names=new String[numberOfPlayers];
+            int[] coins=new int[numberOfPlayers];
+            int[] stars=new int [numberOfPlayers];
+            for(int i=0;i<numberOfPlayers;i++){
+                coins[i]=0;
+                stars[i]=0;
+                names[i]=temp[i];
+            }
+            Info info=new Info();
+            info.setCoins(coins);
+            info.setStars(stars);
+            info.setID(names);
+            InfoGetter infoGetter=InfoGetter.getInstance();
+            infoGetter.setInfo(info);
+            Server server=new Server(10000);
+            Thread thread=new Thread(server);
+            thread.start();
             stage.close();
         });
 
