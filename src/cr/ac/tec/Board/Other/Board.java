@@ -96,7 +96,7 @@ public class Board{
         Scene scene = new Scene(root2,500,550);
         Text text = new Text();
         text.setText(
-                "Aquí irá la información"
+                "Aquí irá la información para conectar el telefono"
         );
         text.setX(15);
         text.setY(25);
