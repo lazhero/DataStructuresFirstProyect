@@ -55,7 +55,7 @@ public class PathGenerator {
             List.AddTail(sqr);
             SquaresNumber--;
             int relocation=(int)((reg-SquaresNumber)/((reg/4)-1));
-            System.out.println("La relocacion es "+relocation);
+
             if(relocation==1 && reg-SquaresNumber==SquaresonSide-1){
                 CoordsFactory=new CoordD();
                 posx+=SquareSide+SpaceBetween;

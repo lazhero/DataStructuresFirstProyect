@@ -36,7 +36,8 @@ public class Board{
      * @author Miguel Mesen
      * @param MainWindow
      */
-    public void startBoard(Stage MainWindow){
+    public void startBoard(Stage MainWindow, int numberOfPlayers){
+        System.out.println("el numero de jugadores es " +numberOfPlayers);
         images = new HashMap<>();
         Canvas canvas = new Canvas(1000,700);
         graphicsContext = canvas.getGraphicsContext2D();
@@ -50,7 +51,7 @@ public class Board{
         boardButtons();
         gameCycle();
         FirstLevelAnchorPane.setStyle("-fx-background-color: #0078d7");
-        gameManager= GameManager.getInstance(2,25,50,"src/Resources/Images/Piece","src/Resources/Images/MarioStar",".png");
+        gameManager= GameManager.getInstance(numberOfPlayers,25,50,"src/Resources/Images/Piece","src/Resources/Images/MarioStar",".png");
         gameManager.Draw(FirstLevelAnchorPane);
         FirstLevelAnchorPane.getChildren().addAll(canvas,customButton,button);
         MainWindow.setScene(scene);
