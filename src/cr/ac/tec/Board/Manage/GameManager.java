@@ -1,5 +1,6 @@
 package cr.ac.tec.Board.Manage;
 
+import cr.ac.tec.AndroidComunication.ClientHandler;
 import cr.ac.tec.Board.Count.StarCounter;
 import cr.ac.tec.Board.Other.LayoutNewContent;
 import cr.ac.tec.Board.PathGenerator.PathGenerator;
@@ -7,6 +8,8 @@ import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
 import cr.ac.tec.Events.Tournament;
 import cr.ac.tec.Events.YellowEvents.Duel;
+import cr.ac.tec.Info.Info;
+import cr.ac.tec.Info.InfoGetter;
 import cr.ac.tec.Random.Random;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import cr.ac.tec.LinkedList.List.DoubleRoundList;
@@ -240,6 +243,22 @@ public class GameManager {
                    }
                });
                pauseTransition.play();
+               int[] stars=new int[PlayerList.getLength()];
+               int[] coins=new int[PlayerList.getLength()];
+               for(int od=0;od<PlayerList.getLength();od++){
+                   stars[od]=PlayerList.get(od).getStars();
+                   coins[od]=PlayerList.get(od).getCoins();
+               }
+               System.out.println("El len de stars es "+stars.length);
+               System.out.println("El len de coins es "+coins.length);
+               String[] strings={"Susan","Carolina","Durazno","Patricia"};
+               Info info=new Info();
+               info.setStars(stars);
+               info.setCoins(coins);
+               info.setID(strings);
+               InfoGetter getter=InfoGetter.getInstance();
+               getter.setInfo(info);
+
                });
            timeline.play();
        }
