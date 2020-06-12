@@ -19,7 +19,7 @@ public class PathGenerator {
      * @param onEvent
      * @return
      */
-    public static DoubleRoundList<Square> GenerateCircle(int SquaresonSide,double posx, double posy,double SquareSide,double SpaceBetween,boolean onEvent){
+    public static DoubleRoundList<Square> generateCircle(int SquaresonSide, double posx, double posy, double SquareSide, double SpaceBetween, boolean onEvent){
         int SquaresNumber=SquaresonSide*4-4;
         final int reg=SquaresNumber;
         DoubleRoundList<Square> List=new DoubleRoundList<Square>();

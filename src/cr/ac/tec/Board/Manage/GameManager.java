@@ -7,7 +7,6 @@ import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
 import cr.ac.tec.Events.Tournament;
 import cr.ac.tec.Events.YellowEvents.Duel;
-import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
 import cr.ac.tec.Random.Random;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import cr.ac.tec.LinkedList.List.DoubleRoundList;
@@ -65,7 +64,7 @@ public class GameManager {
        this.ImagesFormat=ImagesFormat;
        this.turns=-1;
        this.rounds=Rounds;
-       SquareList= PathGenerator.GenerateCircle(10,200,20,this.SquareSide,this.SquareSide/10,false);
+       SquareList= PathGenerator.generateCircle(10,200,20,this.SquareSide,this.SquareSide/10,false);
        Phase1=PathGenerator.GeneratePhase1(11,16,3,SquareList,this.SquareSide,this.SquareSide/10,false);
        Phase1.getNode(Phase1.getLength()-1).setFront(SquareList.getNode(16));
        Phase1.getNode(0).setBack(SquareList.getNode(11));
@@ -75,7 +74,7 @@ public class GameManager {
        Phase3=PathGenerator.GeneratePhase1(29,34,3,SquareList,this.SquareSide,this.SquareSide/10,false);
        Phase3.getNode(0).setBack(SquareList.getNode(29));
        Phase3.getNode(Phase3.getLength()-1).setFront(SquareList.getNode(34));
-       Phase4=PathGenerator.GenerateCircle(6,310,130,this.SquareSide,this.SquareSide/10,true);
+       Phase4=PathGenerator.generateCircle(6,310,130,this.SquareSide,this.SquareSide/10,true);
 
        GatesState.AddTail(false);
        GatesState.AddTail(true);
@@ -227,7 +226,6 @@ public class GameManager {
                            lista = new DoubleList<>();
                            lista.AddHead(0);
                            lista.AddHead(1);
-                           lista.AddHead(2);
                            new Tournament().TournamentData(lista);
                        }
                        catch (Exception Ex){
