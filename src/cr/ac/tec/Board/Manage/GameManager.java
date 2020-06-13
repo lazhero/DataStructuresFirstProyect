@@ -59,6 +59,7 @@ public class GameManager {
     private DoubleNode<Square> StarHolder;
     private boolean DiceCall=true;
     boolean StarTaken=false;
+   private boolean Purchase=false;
     public static DoubleList<Integer> lista;
 
     /**
@@ -228,25 +229,29 @@ public class GameManager {
                    running=false;
                    PlayersNodes.get(PlayerTurn).getInfo().event(PlayerList.get(PlayerTurn));
                    if(PlayerTurn==PlayerList.getLength()-1){
-                       RoundsCount++;
-                       if(DiceCall){
-                           System.out.println("------------------------------------------------------------------------------------------------");
-                       }
+                            if (DiceCall) {
+                                RoundsCount++;
+                                System.out.println("------------------------------------------------------------------------------------------------");
+                            }
                    }
                    if(StarHolder!= null && StarTaken){
                        try {
-                           StarHolder.getInfo().HideStar();
-                           StarHolder.getInfo().DrawStar(2*SquareSide,null);
-                           StarHolder=null;
-                           StarTaken=false;
+                          // Purchase=new BuyStar().BuyStar(PlayerList.get(PlayerTurn));
+                           new BuyStar().BuyStar(PlayerList.get(PlayerTurn));
+                           if(Purchase && false) {
+                               StarHolder.getInfo().HideStar();
+                               StarHolder.getInfo().DrawStar(2 * SquareSide, null);
+                               StarHolder = null;
+                               StarTaken = false;
+                               Purchase=false;
+                           }
                        }
                        catch (Exception f){
                        }
                    }
-                   if(RoundsCount>=2 && RoundsCount<=rounds && StarHolder==null){
+                   if(RoundsCount==2 && RoundsCount<=rounds && StarHolder==null){
                        StarHolder=getFreePos(SquareList);
                        try{
-
                            StarHolder.getInfo().DrawStar(this.SquareSide,StarRoute+ImagesFormat);
                            StarHolder.getInfo().ShowStar();
                            lista = new DoubleList<>();
@@ -567,4 +572,23 @@ public class GameManager {
     public int getTurns() {
         return turns;
     }
+    public void setPurchase(boolean o){
+        Purchase=o;
+    }
+    public void purchase(){
+        try {
+            // Purchase=new BuyStar().BuyStar(PlayerList.get(PlayerTurn));
+            if(Purchase) {
+                StarHolder.getInfo().HideStar();
+                StarHolder.getInfo().DrawStar(2 * SquareSide, null);
+                StarHolder = null;
+                StarTaken = false;
+                Purchase=false;
+            }
+        }
+        catch (Exception f){
+        }
+
+    }
+
 }
