@@ -42,11 +42,11 @@ public class Tournament {
         Data="Hello!! At the end of each round there \n will be a tournament, in this we \n will play Diamond Hunter, the game consists \n of hunting diamonds by turns, each player \n has to find 5, the less time later up on the \n podium will be, the prize will be coins, \n the first player : will win 5 coins, \n the second: 3 the third: 2 and the last: 1, \n the positioning continues even if there \n are 2,3,4 players. Good luck!";
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(600);
-        vb.setMaxWidth(600);
-        vb.setMinHeight(470);
-        vb.setMaxHeight(470);
-        vb.setLayoutX(300);
+        vb.setMinWidth(550);
+        vb.setMaxWidth(550);
+        vb.setMinHeight(400);
+        vb.setMaxHeight(400);
+        vb.setLayoutX(310);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
         vb.setSpacing(40);

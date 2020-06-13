@@ -16,12 +16,14 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 import javafx.scene.input.MouseEvent;
 
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -61,6 +63,8 @@ public class memorygame {
 
         Pane root = new Pane();
         root.setPrefSize(700,700);
+        root.setMaxSize(700,700);
+        root.setMinSize(700,700);
         Image img = new Image("/Resources/images/fondo1.jpg");
         ImageView fondo = new ImageView(img);
         root.getChildren().addAll(fondo,turn);
@@ -285,7 +289,6 @@ public class memorygame {
         GameManager gameManager = GameManager.getInstance(0,0);
         gameManager.getAnchorPane().setVisible(true);
 
-
         String path="src/Resources/Music/MemoryGameMusic.mp3";
         Media media = new Media(new File(path).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
@@ -294,6 +297,9 @@ public class memorygame {
         Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(createContent(player1,player2,primaryStage)));
         primaryStage.setTitle("Memory Game, GOOD LUCK!");
+        primaryStage.initModality(Modality.APPLICATION_MODAL);
+        primaryStage.setResizable(false);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
     }
 }

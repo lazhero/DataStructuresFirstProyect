@@ -48,11 +48,11 @@ public class WinTwoStars extends Event {
         System.out.println("wintwostars");
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(320);
-        vb.setMaxWidth(320);
-        vb.setMinHeight(270);
-        vb.setMaxHeight(270);
-        vb.setLayoutX(300);
+        vb.setMinWidth(550);
+        vb.setMaxWidth(550);
+        vb.setMinHeight(400);
+        vb.setMaxHeight(400);
+        vb.setLayoutX(310);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
         vb.setSpacing(40);

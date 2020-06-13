@@ -1,5 +1,6 @@
 package cr.ac.tec.Board.Square;
 
+import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.GreenEvent;
 import cr.ac.tec.Events.lists.ListOfEvents;
@@ -32,8 +33,12 @@ public class GreenSquare extends Square {
      */
     @Override
     public void event(Player player) {
-        int win= new Random().nextInt(3)+1;
-        new GreenEvent(win,ListPlayer().get(0));
+        GameManager gameManager = GameManager.getInstance(0,0);
+        if(gameManager.getPlayerList().get(gameManager.getTurns())==player){
+            int win= new Random().nextInt(3)+1;
+            new GreenEvent(win,player);
+        }
+
         
     }
 

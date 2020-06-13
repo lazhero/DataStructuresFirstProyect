@@ -8,6 +8,7 @@ import javafx.scene.Node;
  */
 
 public class Player extends PlayerSubject {
+    String name;
     int id;//player id
     Node node;//player javafx's node
     boolean lose; //Lose or win, for movement
@@ -24,6 +25,10 @@ public class Player extends PlayerSubject {
         this.stars=0;
         this.coins=0;
         this.lose=false;
+    }
+
+    public String getName() {
+        return name;
     }
 
     /**

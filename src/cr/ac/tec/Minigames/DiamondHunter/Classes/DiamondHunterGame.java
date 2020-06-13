@@ -17,9 +17,7 @@ import javafx.stage.Stage;
 
 import java.util.HashMap;
 
-/**
- *
- */
+
 public class DiamondHunterGame{
     private GraphicsContext graphicsContext;
     private Scene scene;
@@ -59,14 +57,6 @@ public class DiamondHunterGame{
      * Creates the interface in which the player interacts with.
      */
     public void createContent(Stage primaryStage){
-
-        System.out.println("time "+stopWatch.time());
-        System.out.println("fin del juego "+GameOver);
-        System.out.println("aded "+Added);
-        System.out.println("turno finalizado "+TurnFinished);
-        System.out.println("recoleectados "+totalDiamondsCollected);
-        System.out.println("lista"+playerList.get(0));
-        System.out.println("numero"+numberOfPlayers);
 
         stopWatch.start();
 
@@ -404,13 +394,6 @@ public class DiamondHunterGame{
         TurnFinished = false;
         GameOver = false;
         totalDiamondsCollected = 0;
-        System.out.println("time "+stopWatch.time());
-        System.out.println("fin del juego "+GameOver);
-        System.out.println("aded "+Added);
-        System.out.println("turno finalizado "+TurnFinished);
-        System.out.println("recoleectados "+totalDiamondsCollected);
-        System.out.println("lista"+playerList.get(0));
-        System.out.println("numero"+numberOfPlayers);
         Stage primaryStage = new Stage();
         createContent(primaryStage);
         eventHandler();

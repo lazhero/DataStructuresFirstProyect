@@ -62,11 +62,11 @@ public class AfterTournamentEvent {
         }
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(600);
-        vb.setMaxWidth(600);
-        vb.setMinHeight(470);
-        vb.setMaxHeight(470);
-        vb.setLayoutX(300);
+        vb.setMinWidth(550);
+        vb.setMaxWidth(550);
+        vb.setMinHeight(400);
+        vb.setMaxHeight(400);
+        vb.setLayoutX(310);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
         vb.setSpacing(40);
@@ -77,7 +77,7 @@ public class AfterTournamentEvent {
         Text data = new Text();
         data.setText(Data);
         data.setStyle("-fx-fill: white");
-        data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
+        data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 13));
         data.setTextAlignment(TextAlignment.CENTER);
         buttock.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
