@@ -1,6 +1,7 @@
 package cr.ac.tec.Board.Other;
 
 
+import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -24,7 +25,7 @@ public class MainMenu extends Application {
     private TextField player3Tf;
     private TextField player4Tf;
     private int numberOfPlayers=0;
-    private DoubleList<String> playerNames = new DoubleList<>();
+    public static DoubleList<String> playerNames = new DoubleList<>();
 
     public static void main(String[] args){
         launch(args);

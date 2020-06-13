@@ -2,7 +2,6 @@ package cr.ac.tec.Board.Other;
 
 import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
-import cr.ac.tec.Board.PlayerPrueba;
 import cr.ac.tec.Dice.Classes.Dice;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.animation.AnimationTimer;
@@ -36,7 +35,7 @@ public class Board{
     public Rectangle goButton;
     private Rectangle scoreButton;
     private Rectangle endButton;
-    public static DoubleList<PlayerPrueba> playerList;
+
 
     /**
      * Start the main window
@@ -52,6 +51,7 @@ public class Board{
         textField.setTranslateY(80);
         textField.setTranslateX(280);
 
+
         drawImages();
         Scene scene =new Scene(FirstLevelAnchorPane,1000,700, Color.RED);
         boardButtons();
@@ -60,8 +60,15 @@ public class Board{
         gameManager= GameManager.getInstance(numberOfPlayers,25,50,"src/Resources/Images/Piece","src/Resources/Images/MarioStar",".png");
         gameManager.Draw(FirstLevelAnchorPane);
         FirstLevelAnchorPane.getChildren().addAll(canvas, handButton, goButton, scoreButton, endButton);
+        setNames();
         MainWindow.setScene(scene);
         MainWindow.show();
+    }
+
+    public void setNames(){
+        for (int i=0; i<MainMenu.playerNames.getLength(); i++){
+            GameManager.PlayerList.get(i).setName(MainMenu.playerNames.get(i));
+        }
     }
 
     /**
@@ -69,19 +76,6 @@ public class Board{
      * @author Miguel Mesen
      */
     public void boardButtons(){
-        PlayerPrueba player0 = new PlayerPrueba("Juan");
-        PlayerPrueba player1 = new PlayerPrueba("Ana");
-        PlayerPrueba player2 = new PlayerPrueba("Pedro");
-
-        player1.setCoins(3);
-        player1.setStars(2);
-
-        player0.setStars(3);
-
-        playerList = new DoubleList<>();
-        playerList.AddHead(player0);
-        playerList.AddHead(player1);
-        playerList.AddHead(player2);
 
         endButton = new Rectangle(25,610,90,65);
         endButton.setFill(Color.TRANSPARENT);
@@ -91,7 +85,7 @@ public class Board{
 
         scoreButton = new Rectangle(30,30,110,50);
         scoreButton.setFill(Color.TRANSPARENT);
-        scoreButton.setOnMouseClicked(e -> scoreBoard(playerList));
+        scoreButton.setOnMouseClicked(e -> scoreBoard(GameManager.PlayerList));
 
         handButton = new Rectangle(770,510,240,206);
         handButton.setFill(Color.TRANSPARENT);
@@ -111,7 +105,9 @@ public class Board{
         });
     }
 
-    public void scoreBoard(DoubleList<PlayerPrueba> playerList){
+
+
+    public void scoreBoard(DoubleList<Player> playerList){
         int posy=125;
         int posxName=48;
         int posxCoins=260;
@@ -158,18 +154,18 @@ public class Board{
         aboutStage.show();
     }
 
-    public PlayerPrueba calculateWinner(){
-        PlayerPrueba winner = playerList.get(0);
-        for (int i=0; i<playerList.getLength(); i++){
-            if (winner.finalCoins() < playerList.get(i).finalCoins()){
-                winner=playerList.get(i);
+    public Player calculateWinner(){
+        Player winner = GameManager.PlayerList.get(0);
+        for (int i=0; i<GameManager.PlayerList.getLength(); i++){
+            if (winner.finalCoins() < GameManager.PlayerList.get(i).finalCoins()){
+                winner=GameManager.PlayerList.get(i);
             }
         }
         System.out.println(winner.getName());
         return winner;
     }
 
-    public void winnerScreen(PlayerPrueba player){
+    public void winnerScreen(Player player){
         Canvas canvas = new Canvas(500,550);
         GraphicsContext graphicsContext1 = canvas.getGraphicsContext2D();
         Image winnerBackground = new Image("Resources/Images/winnerBackground.jpg");
