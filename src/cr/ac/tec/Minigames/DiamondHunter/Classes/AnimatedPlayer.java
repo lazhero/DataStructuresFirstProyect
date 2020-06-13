@@ -194,10 +194,10 @@ public class AnimatedPlayer extends GameObject{
      */
     //@Override
     public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.drawImage(DiamondHunterGame.images.get(imageName), xImage, yImage, imageWidth, imageHeight, x, y, 40, 40);
-        graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
-        graphicsContext.setStroke(Color.RED);
-        graphicsContext.strokeRect(x,y,47,47);
+        //graphicsContext.drawImage(DiamondHunterGame.images.get(imageName), xImage, yImage, imageWidth, imageHeight, x, y, 40, 40);
+        //graphicsContext.fillText(String.format("(%d,%d)",x,y),x,y);
+        //graphicsContext.setStroke(Color.RED);
+        //graphicsContext.strokeRect(x,y,47,47);
     }
 
     /**

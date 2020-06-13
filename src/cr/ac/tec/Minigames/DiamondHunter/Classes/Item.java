@@ -70,8 +70,8 @@ public class Item extends GameObject {
         if (this.isCaptured())
             return;
         graphicsContext.drawImage(DiamondHunterGame.images.get("diamond"), this.x, this.y);
-        graphicsContext.setStroke(Color.RED);
-        graphicsContext.strokeRect(x,y,width,height);
+        //graphicsContext.setStroke(Color.RED);
+        //graphicsContext.strokeRect(x,y,width,height);
     }
 
     /**
