@@ -71,14 +71,14 @@ public class memorygame {
         if (cont%2==0){
             turn.setText("Player " +player1+ "turn");
             turn.setTranslateY(650);
-            turn.setTranslateX(120);
+            turn.setTranslateX(2850);
             turn.setStyle("-fx-fill: white");
             turn.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         }
         else{
             turn.setText("Player "+player2+" turn");
             turn.setTranslateY(580);
-            turn.setTranslateX(300);
+            turn.setTranslateX(285);
             turn.setStyle("-fx-fill: white");
             turn.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
 
@@ -113,11 +113,13 @@ public class memorygame {
 
         score1.setTranslateX(80);
         score1.setTranslateY(620);
-        score1.setFont(Font.font(27));
+        score1.setStyle("-fx-fill: white");
+        score1.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
 
         score2.setTranslateX(450);
         score2.setTranslateY(620);
-        score2.setFont(Font.font(27));
+        score2.setStyle("-fx-fill: white");
+        score2.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         dat1=player1;
         dat2=player2;
         Button butto = new Button("End Game");

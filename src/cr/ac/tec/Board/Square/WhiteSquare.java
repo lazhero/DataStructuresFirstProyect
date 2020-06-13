@@ -39,7 +39,7 @@ public class WhiteSquare extends Square {
         int casillasN = new Random().nextInt(2) - 2;
         int casillasP = new Random().nextInt(2) + 1;
         int random = new Random().nextInt(2);
-        if(gameManager.getPlayerList().get(gameManager.getTurns())==player){
+        if(gameManager.getPlayerList().get(gameManager.getTurns()%gameManager.getPlayerList().getLength())==player){
             if (random == 0) {
                 System.out.println("jugador" + player + "seras retrocedido" + casillasN + "pos");
                 new WhiteEvent("back", casillasN, ListPlayer().get(0));

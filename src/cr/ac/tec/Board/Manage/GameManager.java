@@ -14,6 +14,8 @@ import cr.ac.tec.Random.Random;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import cr.ac.tec.LinkedList.List.DoubleRoundList;
 import cr.ac.tec.LinkedList.Nodes.DoubleNode;
+import cr.ac.tec.Shop.BuyStar;
+import cr.ac.tec.Shop.Shop;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
@@ -152,6 +154,10 @@ public class GameManager {
 
    }
 
+    public void setStarTaken(boolean starTaken) {
+        StarTaken = starTaken;
+    }
+
     /**
      * Player’s turn begins
      * @param steps
@@ -185,7 +191,13 @@ public class GameManager {
                             InitCondition.ChangeContent(PlayerTurn,InitCondition.get(PlayerTurn)+raise);
                             PlayersNodes.ChangeContent(PlayerTurn,Temp);
                             if(Temp==StarHolder){
-                                StarTaken=true;
+                                if(getPlayerList().get(getTurns()%getPlayerList().getLength()).getCoins()>=3){
+
+                                }else{
+                                    StarTaken=true;
+
+                                }
+                                System.out.println(StarTaken);
                             }
                        }
                ));
@@ -199,10 +211,10 @@ public class GameManager {
                pauseTransition.setCycleCount(1);
                pauseTransition.setOnFinished(k->{
                    DoubleNode<Square> Temp=PlayersNodes.get(PlayerTurn);
-
                    if (Temp.getInfo().getPlayers()>1 && Temp.getInfo().getPlayers()<=2){
-                       DoubleList<Player> List=Temp.getInfo().ListPlayer();
-                       new Duel().EventData(getPlayerList().get(PlayerTurn));
+                       DoubleList<Player> List= Temp.getInfo().ListPlayer();
+                       new Duel().duelinthesamebox(List.get(0),List.get(1),PlayerTurn,PlayerList.FindFirstInstancePosition(List.get(0)));
+
                        Player loser=List.get(1);//The loser should be gotten from the event
                        int counter=0;
                        while(Temp.getInfo().getPlayers()>=1){
@@ -236,12 +248,13 @@ public class GameManager {
                            lista = new DoubleList<>();
                            lista.AddHead(0);
                            lista.AddHead(1);
-                           new Tournament().Tournament(lista);
+                           //new Tournament().Tournament(lista);
 
                        }
                        catch (Exception Ex){
                        }
                    }
+
                });
                pauseTransition.play();
                int[] stars=new int[PlayerList.getLength()];
@@ -251,6 +264,8 @@ public class GameManager {
                    stars[od]=PlayerList.get(od).getStars();
                    coins[od]=PlayerList.get(od).getCoins();
                    strings[od]="";
+                   //new BuyStar().BuyStar(getPlayerList().get(getTurns()%getPlayerList().getLength()));
+
                }
                System.out.println("El len de stars es "+stars.length);
                System.out.println("El len de coins es "+coins.length);
@@ -261,6 +276,7 @@ public class GameManager {
                info.setID(strings);
                InfoGetter getter=InfoGetter.getInstance();
                getter.setInfo(info);
+
 
                });
            timeline.play();
@@ -294,6 +310,7 @@ public class GameManager {
                PlayerList.get(i).attachCoinObserver(starCounter);
                starCounter.getCounter().setCount(0);
                LayoutNewContent.Add(anchorPane,starCounter.getCounter().getAnchorPane(),20,0,0,50);
+
            }
        }
        catch (Exception e){
@@ -377,6 +394,7 @@ public class GameManager {
        final int Backup=turns;
        turns=PlayerList.FindFirstInstancePosition(player)-1;
        StartTurn(Steps);
+
        turns=Backup;
    }
 

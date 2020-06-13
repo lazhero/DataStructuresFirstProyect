@@ -74,11 +74,12 @@ public class YellowSquare extends Square {
                 e.printStackTrace();
             }
         }
-        if(gameManager.getPlayerList().get(gameManager.getTurns())==player){
-            new memorygame().StarGame(0,1);
+        if(gameManager.getPlayerList().get(gameManager.getTurns()%gameManager.getPlayerList().getLength())==player){
+            //new pressfirst().StartGame(0,1);
+            CallToEvent(ListOfEvents.getInstance().getMystack().pop()).EventData(player);
 
         }
-        CallToEvent(ListOfEvents.getInstance().getMystack().pop()).EventData(player);
+
         //new Duel().EventData(player);
         //new memorygame().StarGame(1,3);
         //new pressfirst().StartGame(0,1);

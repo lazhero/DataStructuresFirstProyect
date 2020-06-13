@@ -1,7 +1,8 @@
-package cr.ac.tec.Events;
+package cr.ac.tec.Shop;
 
 import cr.ac.tec.Board.Manage.GameManager;
-import cr.ac.tec.Minigames.DiamondHunter.Classes.DiamondHunterGame;
+import cr.ac.tec.Board.Player;
+import cr.ac.tec.Events.lists.ListOfMiniGames;
 import cr.ac.tec.LinkedList.List.DoubleList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -10,36 +11,21 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
- * It’s the tournament event
- * @author Gabriel Solano
+ *
  */
-public class Tournament {
+public class BuyStar {
     private String Data;
-    public static DoubleList<Integer> lista;
-
     /**
-     * Runs the tournament
-     * @author Gabriel Solano
-     * @param playerList
+     *
      */
-    public void Tournament(DoubleList playerList) {
-
-        DiamondHunterGame xd = new DiamondHunterGame();
-        xd.StartGame(playerList);
-    }
-
-    /**
-     * Information about tournament
-     * @author Gabriel Solano
-     * @param playerList
-     */
-    public void TournamentData(DoubleList playerList) {
+    public void BuyStar(Player player){
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
 
-        Data="Hello!! At the end of each round there \n will be a tournament, in this we \n will play Diamond Hunter, the game consists \n of hunting diamonds by turns, each player \n has to find 5, the less time later up on the \n podium will be, the prize will be coins, \n the first player : will win 5 coins, \n the second: 3 the third: 2 and the last: 1, \n the positioning continues even if there \n are 2,3,4 players. Good luck!";
+        Data="Hey, you can buy a star,do you want to buy it?";
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
         vb.setMinWidth(600);
@@ -52,7 +38,8 @@ public class Tournament {
         vb.setSpacing(40);
         gameManager.setRunning(true);
 
-        Button buttock = new Button("OK");
+        Button yesbutton = new Button("YES");
+        Button nobutton = new Button("NO");
 
         Text data = new Text();
         data.setText(Data);
@@ -60,8 +47,23 @@ public class Tournament {
         data.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         data.setTextAlignment(TextAlignment.CENTER);
 
+        yesbutton.setOnMouseClicked(e->{
+            gameManager.getAnchorPane().getChildren().remove(vb);
+            try {
+                TimeUnit.MILLISECONDS.sleep(700);
+            }catch (InterruptedException interruptedException){
+                interruptedException.printStackTrace();
+            }
+            player.setStars(player.getStars()+1);
+            player.setCoins(player.getCoins()-3);
 
-        buttock.setOnMouseClicked(e->{
+            gameManager.setStarTaken(true);
+            gameManager.setRunning(false);
+            return;
+
+
+        });
+        nobutton.setOnMouseClicked(e->{
             gameManager.getAnchorPane().getChildren().remove(vb);
             try {
                 TimeUnit.MILLISECONDS.sleep(700);
@@ -69,10 +71,13 @@ public class Tournament {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
-            Tournament(playerList);
+
             return;
+
         });
-        vb.getChildren().addAll(data,buttock);
+        vb.getChildren().addAll(data,yesbutton,nobutton);
         gameManager.getAnchorPane().getChildren().add(vb);
     }
+
 }
+

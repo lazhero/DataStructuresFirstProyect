@@ -23,7 +23,6 @@ public class Main  {
         generateRand(0,5);
         System.out.println(randomNumber);
         game(player1,player2);
-        primaryStage.close();
 
     }
 }

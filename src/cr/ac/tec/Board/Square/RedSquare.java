@@ -35,7 +35,7 @@ public class RedSquare extends Square {
     @Override
     public void event(Player player) {
         GameManager gameManager = GameManager.getInstance(0,0);
-        if(gameManager.getPlayerList().get(gameManager.getTurns())==player){
+        if(gameManager.getPlayerList().get(gameManager.getTurns()%gameManager.getPlayerList().getLength())==player){
             int lose= new Random().nextInt(3)+1;
             new RedEvent(lose,ListPlayer().get(0));
 

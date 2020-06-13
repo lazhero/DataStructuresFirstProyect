@@ -15,7 +15,7 @@ public class Shop  {
      * @author Andrey Zuñiga
      * @param StarsPrice
      */
-    private Shop(int StarsPrice){
+    public Shop(int StarsPrice){
         this.StarsPrice=StarsPrice;
     }
 

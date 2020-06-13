@@ -34,7 +34,9 @@ public class GreenSquare extends Square {
     @Override
     public void event(Player player) {
         GameManager gameManager = GameManager.getInstance(0,0);
-        if(gameManager.getPlayerList().get(gameManager.getTurns())==player){
+        System.out.println(gameManager.getTurns()%gameManager.getPlayerList().getLength());
+        if(gameManager.getPlayerList().get(gameManager.getTurns()%gameManager.getPlayerList().getLength())==player){
+
             int win= new Random().nextInt(3)+1;
             new GreenEvent(win,player);
         }

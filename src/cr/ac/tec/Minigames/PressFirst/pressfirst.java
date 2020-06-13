@@ -88,9 +88,10 @@ public class pressfirst  {
         p2.setStyle("-fx-fill: white");
         p2.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
 
-        random.setText("Deben presionar su respectiva tecla hasta llegar a 0: \n el primero gana GO! \n "+n);
-        random.setTranslateY(30);
-        random.setTranslateX(50);
+        random.setText("You must press your respective \n key until you reach 0: \n The First WIN GO! \n "+
+                "The amount is "+n);
+        random.setTranslateY(70);
+        random.setTranslateX(40);
         random.setStyle("-fx-fill: white");
         random.setFont(Font.loadFont(getClass().getResourceAsStream("/Resources/Fonts/04B_30__.ttf"), 15));
         dat1=dato1;

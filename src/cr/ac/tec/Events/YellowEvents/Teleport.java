@@ -48,10 +48,10 @@ public class Teleport extends Event {
 
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(550);
-        vb.setMaxWidth(550);
-        vb.setMinHeight(400);
-        vb.setMaxHeight(400);
+        vb.setMinWidth(600);
+        vb.setMaxWidth(600);
+        vb.setMinHeight(450);
+        vb.setMaxHeight(450);
         vb.setLayoutX(310);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);

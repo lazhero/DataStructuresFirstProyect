@@ -44,13 +44,13 @@ public class AfterGameEvent {
     public void AfterGameEventData(int numberofplayerwin,int numberofplayerlose){
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
 
-        Data="The player who won was the player number: "+ numberofplayerwin+ "\n Player :"+numberofplayerwin +" wins 1 coin: "+"\n The player who lost was the player number :"+numberofplayerlose+" \n The player"+numberofplayerlose+"Lose 1 coin";
+        Data="The player who won was the player number: "+ numberofplayerwin+ "\n Player :"+numberofplayerwin +" wins 1 coin: "+"\n The player who lost was the player number :"+numberofplayerlose+" \n The player"+numberofplayerlose+"Lose 1 coin"+"\n and loser back a box";
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(550);
-        vb.setMaxWidth(550);
-        vb.setMinHeight(400);
-        vb.setMaxHeight(400);
+        vb.setMinWidth(600);
+        vb.setMaxWidth(600);
+        vb.setMinHeight(450);
+        vb.setMaxHeight(450);
         vb.setLayoutX(310);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
