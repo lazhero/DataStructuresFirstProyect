@@ -33,6 +33,9 @@ public class MainMenu extends Application {
         launch(args);
     }
 
+    /**
+     * Creates the main menu page with respective buttons and text fields
+     */
     public void createContent(){
         Canvas canvas = new Canvas(960,600);
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
@@ -101,7 +104,9 @@ public class MainMenu extends Application {
     }
 
 
-
+    /**
+     * An about page with information about the developers and some credits.
+     */
     public void aboutInformation(){
         Group root = new Group();
         Scene scene = new Scene(root,500,550);
@@ -129,6 +134,10 @@ public class MainMenu extends Application {
         aboutStage.show();
     }
 
+
+    /**
+     * Calculates the number of players who input their names.
+     */
     public void numberOfPlayers(){
         DoubleList<TextField> tfList = new DoubleList<>();
         tfList.AddHead(player1Tf);
