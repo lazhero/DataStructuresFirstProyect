@@ -165,7 +165,7 @@ public class Duel extends Event {
         if (ListOfMiniGames.getInstance().getDoubleList().get(0)=="MemoryGame") {
             gamedescription = "\n Welcome to the Memory game, in this game \n  you must choose the pairs, first it will be \n the turn of one player, if it \n succeeds will continue to  \n play it, if it fails goes \n the other player. It is a game by points,\n  each hit gives 10 points, the  \n player with the most points will be the winner, the \n loser will back up one square and lose 1 star,  \n the winner gets 1 coin. ";
         }else if(ListOfMiniGames.getInstance().getDoubleList().get(0)=="PRS"){
-            gamedescription="Welcome to the scissors paper \n stone set  in this game you will \n have to choose between\n paper stone or scissors, then give the button ok and so we \n will know who will be the winner, remember, rock wins to scissors \n scissors wins to paper and paper beats to stone, good luck!";
+            gamedescription="Welcome to the scissors paper \n stone set  in this game you will \n have to choose between\n paper stone or scissors,\n then give the button ok and so we \n will know who will be the winner, \n remember, rock wins to scissors \n scissors wins to paper and paper \n beats to stone, good luck!";
         }else if(ListOfMiniGames.getInstance().getDoubleList().get(0)=="TicTacToe"){
             gamedescription="Welcome to the game Tictactoe! \n in this game the first to make three \n online wins  vertica;\n  horizontal and diagonal counts. \n First place one player, then the other,\n  there may be a draw";
         }else if(ListOfMiniGames.getInstance().getDoubleList().get(0)=="PressFirst"){

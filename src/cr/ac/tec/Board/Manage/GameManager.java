@@ -231,6 +231,7 @@ public class GameManager {
                    if(PlayerTurn==PlayerList.getLength()-1){
                             if (DiceCall) {
                                 RoundsCount++;
+                                new Tournament().TournamentData(getPlayerList());
                                 System.out.println("------------------------------------------------------------------------------------------------");
                             }
                    }
