@@ -57,8 +57,9 @@ public class BuyStar {
             player.setStars(player.getStars()+1);
             player.setCoins(player.getCoins()-3);
 
-            gameManager.setStarTaken(true);
             gameManager.setRunning(false);
+            gameManager.setPurchase(true);
+            gameManager.purchase();
             return;
 
 
@@ -71,6 +72,8 @@ public class BuyStar {
                 interruptedException.printStackTrace();
             }
             gameManager.setRunning(false);
+            gameManager.setPurchase(false);
+            gameManager.purchase();
 
             return;
 
