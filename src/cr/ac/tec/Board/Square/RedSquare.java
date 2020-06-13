@@ -1,5 +1,6 @@
 package cr.ac.tec.Board.Square;
 
+import cr.ac.tec.Board.Manage.GameManager;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Events.GreenEvent;
 import cr.ac.tec.Events.RedEvent;
@@ -33,8 +34,13 @@ public class RedSquare extends Square {
 
     @Override
     public void event(Player player) {
-        int lose= new Random().nextInt(3)+1;
-        new RedEvent(lose,ListPlayer().get(0));
+        GameManager gameManager = GameManager.getInstance(0,0);
+        if(gameManager.getPlayerList().get(gameManager.getTurns())==player){
+            int lose= new Random().nextInt(3)+1;
+            new RedEvent(lose,ListPlayer().get(0));
+
+        }
+
         }
 
     /**

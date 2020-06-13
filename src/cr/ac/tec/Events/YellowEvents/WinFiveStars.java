@@ -50,11 +50,11 @@ public class WinFiveStars extends Event {
         gameManager.setRunning(true);
 
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(420);
-        vb.setMaxWidth(420);
-        vb.setMinHeight(290);
-        vb.setMaxHeight(290);
-        vb.setLayoutX(300);
+        vb.setMinWidth(550);
+        vb.setMaxWidth(550);
+        vb.setMinHeight(400);
+        vb.setMaxHeight(400);
+        vb.setLayoutX(310);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
         vb.setSpacing(40);

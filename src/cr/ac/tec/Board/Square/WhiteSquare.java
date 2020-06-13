@@ -35,16 +35,21 @@ public class WhiteSquare extends Square {
      */
     @Override
     public void event(Player player) {
+        GameManager gameManager = GameManager.getInstance(0,0);
         int casillasN = new Random().nextInt(2) - 2;
         int casillasP = new Random().nextInt(2) + 1;
         int random = new Random().nextInt(2);
-        if (random == 0) {
-            System.out.println("jugador" + player + "seras retrocedido" + casillasN + "pos");
-            new WhiteEvent("back", casillasN, ListPlayer().get(0));
-        } else if (random == 1) {
-            System.out.println("jugador" + player + "seras adelantado" + casillasP + "pos");
-            new WhiteEvent("advance", casillasP, ListPlayer().get(0));
+        if(gameManager.getPlayerList().get(gameManager.getTurns())==player){
+            if (random == 0) {
+                System.out.println("jugador" + player + "seras retrocedido" + casillasN + "pos");
+                new WhiteEvent("back", casillasN, ListPlayer().get(0));
+            } else if (random == 1) {
+                System.out.println("jugador" + player + "seras adelantado" + casillasP + "pos");
+                new WhiteEvent("advance", casillasP, ListPlayer().get(0));
+            }
         }
+
+
     }
 
     /**

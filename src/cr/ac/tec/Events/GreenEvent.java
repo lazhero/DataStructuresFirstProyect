@@ -27,16 +27,20 @@ public class GreenEvent{
      */
     public GreenEvent (int coins, Player player){
 
+
+
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         gameManager.setRunning(true);
+
+        System.out.println("jugador "+ player + "ti"+ player.getCoins());
         Data= "Hello! You activated an event \n\n You win: "+coins+" coins";
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(380);
-        vb.setMaxWidth(380);
-        vb.setMinHeight(270);
-        vb.setMaxHeight(270);
-        vb.setLayoutX(300);
+        vb.setMinWidth(550);
+        vb.setMaxWidth(550);
+        vb.setMinHeight(400);
+        vb.setMaxHeight(400);
+        vb.setLayoutX(310);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
         vb.setSpacing(40);
@@ -58,6 +62,7 @@ public class GreenEvent{
             gameManager.setRunning(false);
             int actualCoins= player.getCoins();
             player.setCoins(actualCoins+coins);
+            System.out.println("jugador "+ player + "ti"+ player.getCoins());
             return;
         });
         vb.getChildren().addAll(message,buttock);

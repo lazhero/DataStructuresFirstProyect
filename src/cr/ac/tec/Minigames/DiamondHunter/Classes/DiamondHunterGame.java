@@ -58,14 +58,6 @@ public class DiamondHunterGame{
      */
     public void createContent(Stage primaryStage){
 
-        System.out.println("time "+stopWatch.time());
-        System.out.println("fin del juego "+GameOver);
-        System.out.println("aded "+Added);
-        System.out.println("turno finalizado "+TurnFinished);
-        System.out.println("recoleectados "+totalDiamondsCollected);
-        System.out.println("lista"+playerList.get(0));
-        System.out.println("numero"+numberOfPlayers);
-
         stopWatch.start();
 
         buttonNext.setTranslateX(15);

@@ -11,9 +11,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.util.Random;
@@ -54,6 +56,8 @@ public class pressfirst  {
     public Parent createContent(int dato1, int dato2,Stage primaryStage){
         Pane root = new Pane();
         root.setPrefSize(700,700);
+        root.setMaxSize(700,700);
+        root.setMinSize(700,700);
         Image img = new Image("/Resources/images/fondo.png");
         ImageView fondo = new ImageView(img);
 
@@ -171,6 +175,9 @@ public class pressfirst  {
                     break;
             }
         });
+        primaryStage.initModality(Modality.APPLICATION_MODAL);
+        primaryStage.setResizable(false);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Press First, GOOD LUCK!");
         primaryStage.show();

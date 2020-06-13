@@ -23,6 +23,7 @@ import javafx.util.Duration;
 
 
 import static cr.ac.tec.Images.GetImages.getImageView;
+import cr.ac.tec.Minigames.PressFirst.pressfirst;
 
 /**
  *
@@ -209,7 +210,7 @@ public class GameManager {
                            counter--;
 
                        }
-                       MovePlayer(loser,counter);
+                       //MovePlayer(loser,counter);
                    }
                    running=false;
                    PlayersNodes.get(PlayerTurn).getInfo().event(PlayerList.get(PlayerTurn));

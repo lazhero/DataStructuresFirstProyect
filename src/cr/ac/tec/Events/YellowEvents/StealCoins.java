@@ -55,11 +55,11 @@ public class StealCoins extends Event {
         GameManager gameManager = GameManager.getInstance(0,0,0,null,null,null);
         VBox vb = new VBox();
         vb.setStyle("-fx-background-image: url(/Resources/Images/Vboxbg.jpg)");
-        vb.setMinWidth(500);
-        vb.setMaxWidth(500);
-        vb.setMinHeight(370);
-        vb.setMaxHeight(370);
-        vb.setLayoutX(300);
+        vb.setMinWidth(550);
+        vb.setMaxWidth(550);
+        vb.setMinHeight(400);
+        vb.setMaxHeight(400);
+        vb.setLayoutX(310);
         vb.setLayoutY(150);
         vb.setAlignment(Pos.CENTER);
         vb.setSpacing(40);
