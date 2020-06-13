@@ -28,6 +28,7 @@ public class ClientHandler implements Runnable {
             InfoGetter infoGetter=InfoGetter.getInstance();
             System.out.println(infoGetter.getInfo().getCoins()[0]);
             DO.writeObject(infoGetter.getInfo());
+            socket.close();
         }
         catch (Exception ignored){
             System.out.println("El mensaje es "+ignored.getMessage());

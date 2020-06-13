@@ -245,13 +245,15 @@ public class GameManager {
                pauseTransition.play();
                int[] stars=new int[PlayerList.getLength()];
                int[] coins=new int[PlayerList.getLength()];
+               String[] strings=new String[PlayerList.getLength()];
                for(int od=0;od<PlayerList.getLength();od++){
                    stars[od]=PlayerList.get(od).getStars();
                    coins[od]=PlayerList.get(od).getCoins();
+                   strings[od]="";
                }
                System.out.println("El len de stars es "+stars.length);
                System.out.println("El len de coins es "+coins.length);
-               String[] strings={"Susan","Carolina","Durazno","Patricia"};
+
                Info info=new Info();
                info.setStars(stars);
                info.setCoins(coins);
