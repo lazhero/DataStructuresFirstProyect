@@ -59,8 +59,8 @@ public class Stack<T> {
      * @author Andrey Zuñiga
      */
     public void Shuffle(){
-        if(reference.isEmpty()==true)return;
-        reference.Shuffle();
+        reference=reference.Shuffle();
+
     }
 
     /**
@@ -71,6 +71,9 @@ public class Stack<T> {
     public boolean isEmpty(){
         if (reference.isEmpty())return true;
         return false;
+    }
+    public void printing(){
+        reference.printingB();
     }
 
 }
