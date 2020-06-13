@@ -249,7 +249,7 @@ public class GameManager {
                        catch (Exception f){
                        }
                    }
-                   if(RoundsCount==2 && RoundsCount<=rounds && StarHolder==null){
+                   if(RoundsCount>=2 && RoundsCount<=rounds && StarHolder==null){
                        StarHolder=getFreePos(SquareList);
                        try{
                            StarHolder.getInfo().DrawStar(this.SquareSide,StarRoute+ImagesFormat);
