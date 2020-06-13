@@ -8,6 +8,7 @@ import javafx.scene.Node;
  */
 
 public class Player extends PlayerSubject {
+    int finalCoins;
     String name;
     int id;//player id
     Node node;//player javafx's node
@@ -25,6 +26,14 @@ public class Player extends PlayerSubject {
         this.stars=0;
         this.coins=0;
         this.lose=false;
+    }
+
+    public int finalCoins() {
+        return coins+(stars*3);
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getName() {

@@ -41,7 +41,7 @@ public class GameManager {
     private DoubleList<Square> Phase2=new DoubleList<>();
     private DoubleList<Square> Phase3=new DoubleList<>();
     private DoubleRoundList<Square> Phase4=new DoubleRoundList<>();
-    private DoubleList<Player>  PlayerList=new DoubleList<>();
+    public static DoubleList<Player>  PlayerList=new DoubleList<>();
     private DoubleRoundList<Integer> InitCondition=new DoubleRoundList<>();
     private DoubleList<DoubleNode<Square>> PlayersNodes=new DoubleList<>();
     private DoubleList<DoubleNode<Square>> Switching=new DoubleList<>();
