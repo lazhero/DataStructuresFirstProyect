@@ -5,6 +5,7 @@ import cr.ac.tec.Board.Other.LayoutNewContent;
 import cr.ac.tec.Board.PathGenerator.PathGenerator;
 import cr.ac.tec.Board.Player;
 import cr.ac.tec.Board.Square.Square;
+import cr.ac.tec.Dice.Classes.Dice;
 import cr.ac.tec.Events.Tournament;
 import cr.ac.tec.Events.YellowEvents.Duel;
 import cr.ac.tec.Info.Info;
@@ -56,6 +57,7 @@ public class GameManager {
     private boolean running=false;
     private boolean Backing=false;
     private DoubleNode<Square> StarHolder;
+    private boolean DiceCall=true;
     boolean StarTaken=false;
     public static DoubleList<Integer> lista;
 
@@ -227,6 +229,9 @@ public class GameManager {
                    PlayersNodes.get(PlayerTurn).getInfo().event(PlayerList.get(PlayerTurn));
                    if(PlayerTurn==PlayerList.getLength()-1){
                        RoundsCount++;
+                       if(DiceCall){
+                           System.out.println("------------------------------------------------------------------------------------------------");
+                       }
                    }
                    if(StarHolder!= null && StarTaken){
                        try {
@@ -391,7 +396,9 @@ public class GameManager {
    public void MovePlayer(Player player,int Steps){
        Backing=true;
        final int Backup=turns;
+       DiceCall=false;
        turns=PlayerList.FindFirstInstancePosition(player)-1;
+       DiceCall=true;
        StartTurn(Steps);
 
        turns=Backup;
